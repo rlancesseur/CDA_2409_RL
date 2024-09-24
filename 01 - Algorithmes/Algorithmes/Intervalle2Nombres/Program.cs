@@ -1,6 +1,6 @@
 ﻿using System;
 
-spacename Intervalle2Nombres
+namespace Intervalle2Nombres
 {
     public class Program
     {
@@ -17,9 +17,17 @@ spacename Intervalle2Nombres
 
             if(A < B)
             {
-                for(A; A < B; A++)
+                for(int i = A + 1; i < B; i++)
                 {
-                    Console.Write()
+                    Console.Write(i + " ");
+                }
+            }
+
+            else if(A > B)
+            {
+                for(int i = A - 1; i > B; i--)
+                {
+                    Console.Write(i + " ");
                 }
             }
 
