@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             int N;
-            bool nombrePremier;
+            bool nombrePremier = true;
 
             Console.Write("N : ");
             N = int.Parse(Console.ReadLine());
@@ -23,7 +23,7 @@
                 }
             }
 
-            if (nombrePremier = true)
+            if (nombrePremier)
             {
                 Console.WriteLine(N + " est un nombre premier");
             }
