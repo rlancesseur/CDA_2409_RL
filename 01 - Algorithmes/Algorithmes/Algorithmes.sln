@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriDeNombre", "TriDeNombre\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriDeNombreBis", "TriDeNombreBis\TriDeNombreBis.csproj", "{529E9125-3CF8-452F-8202-BA55F252D775}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RechercheDiviseurNombre", "RechercheDiviseurNombre\RechercheDiviseurNombre.csproj", "{660B5C57-52E6-4F40-A599-7FD42060F960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RechercheDiviseurNombre", "RechercheDiviseurNombre\RechercheDiviseurNombre.csproj", "{660B5C57-52E6-4F40-A599-7FD42060F960}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NombrePremier", "NombrePremier\NombrePremier.csproj", "{9F035330-E249-49D1-A90E-EB559A69F1A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{660B5C57-52E6-4F40-A599-7FD42060F960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{660B5C57-52E6-4F40-A599-7FD42060F960}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{660B5C57-52E6-4F40-A599-7FD42060F960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F035330-E249-49D1-A90E-EB559A69F1A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F035330-E249-49D1-A90E-EB559A69F1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F035330-E249-49D1-A90E-EB559A69F1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F035330-E249-49D1-A90E-EB559A69F1A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
