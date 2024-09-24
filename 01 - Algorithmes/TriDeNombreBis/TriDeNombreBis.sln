@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriDeNombreBis", "TriDeNombreBis.csproj", "{31E78D98-3BF2-4588-9B73-076BD6D57E79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31E78D98-3BF2-4588-9B73-076BD6D57E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E78D98-3BF2-4588-9B73-076BD6D57E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E78D98-3BF2-4588-9B73-076BD6D57E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E78D98-3BF2-4588-9B73-076BD6D57E79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE40B1F6-E559-40A4-BB18-23498B74BC48}
+	EndGlobalSection
+EndGlobal
