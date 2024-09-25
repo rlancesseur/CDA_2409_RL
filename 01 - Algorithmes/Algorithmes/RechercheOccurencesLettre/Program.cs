@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             string phrase;
-            string lettre;
+            char lettre;
             char[] tableau;
             int occurrences = 0;
 
@@ -13,13 +13,13 @@
             phrase = Console.ReadLine();
 
             Console.WriteLine("Saisir une lettre : ");
-            lettre = Console.ReadLine();
+            lettre = char.Parse(Console.ReadLine());
 
             tableau = phrase.ToCharArray();
 
             for(int i = 0; i < tableau.Length; i++)
             {
-                if(lettre.Equals(tableau[i]))
+                if(tableau[i].Equals(lettre))
                 {
                     occurrences += 1;
                 }
