@@ -12,9 +12,9 @@
             Console.WriteLine("Saisissez une phrase");
             saisieUtilisateur = Console.ReadLine().Replace(" ", "").ToLower();
 
-            while (saisieUtilisateur.Length < 1)
+            while (saisieUtilisateur.Length < 1 || !saisieUtilisateur.Contains("."))
             {
-                Console.WriteLine("La phrase est vide. Veuillez recommencer.");
+                Console.WriteLine("La phrase est vide ou ne se termine pas par un point. Veuillez recommencer.");
                 saisieUtilisateur = Console.ReadLine().Replace(" ", "").ToLower();
             }
 
@@ -24,9 +24,9 @@
 
             Array.Reverse(palindromeReverse);
 
-            for(int i = 0; i < palindrome.Length; i++)
+            for(int i = 0; i < palindrome.Length - 1; i++)
             {
-                if(palindrome[i] == palindromeReverse[i])
+                if(palindrome[i] == palindromeReverse[i+1])
                 {
                     estUnPalindrome = true;
                 }
