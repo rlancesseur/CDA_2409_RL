@@ -11,7 +11,7 @@
             int pointsUtilisateur = 0;
             int pointOrdinateur = 0;
 
-            while(!(pointOrdinateur == 10) || !(pointsUtilisateur == 10) || saisieUtilisateur > 0)
+            while(pointOrdinateur < 10 && pointsUtilisateur < 10 && saisieUtilisateur >= 0)
             {
                 Console.Write("Votre chiffre : ");
                 saisieUtilisateur = int.Parse(Console.ReadLine());
