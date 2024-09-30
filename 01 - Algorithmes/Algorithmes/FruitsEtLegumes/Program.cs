@@ -6,6 +6,7 @@
         {
             string moinsCher;
             string saisieUtilisateur;
+            string[] alphabet = "A B C D E F G H I J K L M N O P Q R S T U V W X Z".Split(" ");
             List<string> fruitsLegumes = new List<string>();
 
             do
@@ -18,17 +19,10 @@
             
             for (int i = 0; i < fruitsLegumes.Count - 1; i++)
             {
-                Console.WriteLine(fruitsLegumes[i]);
 
-                /*
-                if(fruitsLegumes[i] < moinsCher)
-                {
-                    moinsCher = fruitsLegumes[i];
-                }
-                */
             }
 
-            Console.WriteLine("Légume le moins cher au kilo : ");
+            // Console.WriteLine("Légume le moins cher au kilo : ");
             
         }
     }
