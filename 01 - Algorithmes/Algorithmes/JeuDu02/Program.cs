@@ -11,32 +11,40 @@
             int pointsUtilisateur = 0;
             int pointOrdinateur = 0;
 
-            while(pointOrdinateur = 10 || pointsUtilisateur = 10 || saisieUtilisateur < 0)
+            while(!(pointOrdinateur == 10) || !(pointsUtilisateur == 10) || saisieUtilisateur > 0)
             {
-                Console.WriteLine("Votre chiffre : ");
-                saisieUtilisateur = Console.ReadLine();
+                Console.Write("Votre chiffre : ");
+                saisieUtilisateur = int.Parse(Console.ReadLine());
 
                 N = aleatoire.Next(0, 2);
                 Console.WriteLine("Chiffre de l'ordinateur : " + N);
 
-                if(saisieUtilisateur > N)
+                if (saisieUtilisateur - N == 2)
                 {
                     pointsUtilisateur++;
                 }
-                else if(N > pointsUtilisateur)
+                else if (N - saisieUtilisateur == 2)
                 {
                     pointOrdinateur++;
                 }
-                else if(N = 0 && pointsUtilisateur = 0)
+                else if (saisieUtilisateur - N == 1)
                 {
-                    Console.WriteLine("Aucun des utilisateurs n'a gagné de points.");
+                    pointOrdinateur++;
+                }
+                else if (N - saisieUtilisateur == 1)
+                {
+                    pointsUtilisateur++;
+                }
+                else if(N == saisieUtilisateur)
+                {
+                    Console.WriteLine("Aucun point n'est marqué.");
                 }
 
                 Console.WriteLine("Point de l'utilisateur : " + pointsUtilisateur);
                 Console.WriteLine("Point de l'ordinateur : " + pointOrdinateur);
+                Console.WriteLine("");
 
             }
-
 
         }
     }
