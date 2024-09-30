@@ -9,24 +9,34 @@ namespace ControlerLaSaisieLimite
             string motDePasse = "formation";
             string saisieUtilisateur;
             bool mdp = false;
+            int nbEssais = 0;
+            int essaisRestant = 3;
 
-            for(int i = 0; i < 3; i++)
+
+            while (mdp == false && nbEssais < 3)
             {
-            Console.Write("Mot de passe : ");
-            saisieUtilisateur = Console.ReadLine();
+                Console.Write("Mot de passe : ");
+                saisieUtilisateur = Console.ReadLine();
 
-                if(saisieUtilisateur == motDePasse)
+                if (saisieUtilisateur == motDePasse)
                 {
                     mdp = true;
-                    break;
+                    Console.WriteLine("Vous êtes connecté.");
+                }
+                else
+                {
+                    mdp = false;
+                    nbEssais++;
+                    essaisRestant--;
+
+                    if (essaisRestant > 0)
+                    {
+                        Console.WriteLine("Plus que " + (essaisRestant) + " essais restant");
+                    }
                 }
             }
 
-            if(mdp == true)
-            {
-                Console.WriteLine("Vous êtes connecté.");
-            }
-            else
+            if (nbEssais == 3)
             {
                 Console.WriteLine("Votre compte est bloqué");
             }
