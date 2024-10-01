@@ -15,22 +15,27 @@ namespace Intervalle2Nombres
             Console.Write("B : ");
             B = int.Parse(Console.ReadLine());
 
-            if(A < B)
+            AfficherIntervalle(A, B);
+
+        }
+
+        public static void AfficherIntervalle(int A, int B)
+        {
+            if (A < B)
             {
-                for(int i = A + 1; i < B; i++)
+                for (int i = A + 1; i < B; i++)
                 {
                     Console.Write(i + " ");
                 }
             }
 
-            else if(A > B)
+            else if (A > B)
             {
-                for(int i = A - 1; i > B; i--)
+                for (int i = A - 1; i > B; i--)
                 {
                     Console.Write(i + " ");
                 }
             }
-
         }
     }
 }
