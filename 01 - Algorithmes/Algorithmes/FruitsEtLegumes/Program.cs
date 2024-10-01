@@ -15,7 +15,7 @@ namespace FruitsEtLegumes
             do
             {
                 Console.WriteLine("Saisissez le nom d'un légume ou d'un fruit (en un seul mot par pitié), et son prix au kilo");
-                saisieUtilisateur = Console.ReadLine();
+                saisieUtilisateur = Console.ReadLine().Replace(".", ",");
                 split = saisieUtilisateur.Split(" ");
 
                 for (int i = 0; i < split.Length - 1; i++)
