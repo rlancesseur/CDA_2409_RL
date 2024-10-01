@@ -6,24 +6,32 @@
         {
             string moinsCher;
             string saisieUtilisateur;
-            string[] alphabet = "A B C D E F G H I J K L M N O P Q R S T U V W X Z".Split(" ");
             List<string> fruitsLegumes = new List<string>();
+            List<string> prix = new List<string>();
+            string[] split;
+
 
             do
             {
                 Console.WriteLine("Saisissez le nom d'un légume ou d'un fruit, et son prix au kilo");
                 saisieUtilisateur = Console.ReadLine();
-                fruitsLegumes.Add(saisieUtilisateur);
+                split = saisieUtilisateur.Split(" ");
+
+                for (int i = 0; i < split.Length - 1; i++)
+                {
+                    fruitsLegumes.Add(split[i]);
+                    prix.Add(split[i + 1]);
+                }
             }
+
             while (saisieUtilisateur != "go");
+
             
-            for (int i = 0; i < fruitsLegumes.Count - 1; i++)
+            for (int i = 0; i < fruitsLegumes.Count; i++)
             {
-
+                Console.WriteLine("1 kilogramme de " + fruitsLegumes[i] + " coute " + prix[i] + " euros.");
             }
-
-            // Console.WriteLine("Légume le moins cher au kilo : ");
-            
+ 
         }
     }
 }
