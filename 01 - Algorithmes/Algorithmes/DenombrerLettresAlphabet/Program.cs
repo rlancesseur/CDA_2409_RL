@@ -42,13 +42,23 @@
                 }
 
             }
-
-            moyenne = moyenne / nbChiffres;
+            
 
             Console.WriteLine("Nombre de consonnes : " + nbConsonnes);
             Console.WriteLine("Nombre de voyelles : " + nbVoyelles);
-            Console.WriteLine("Nombre de chiffres : " + nbChiffres);
-            Console.WriteLine("Moyenne des chiffres : " + moyenne);
+            
+
+            if(nbChiffres == 0)
+            {
+                Console.WriteLine("Aucun chiffre présent dans la chaine de caractère");
+            }
+            else
+            {
+                moyenne = moyenne / nbChiffres;
+                Console.WriteLine("Nombre de chiffres : " + nbChiffres);
+                Console.WriteLine("Moyenne des chiffres : " + moyenne);
+            }
+            
         }
     }
 }
