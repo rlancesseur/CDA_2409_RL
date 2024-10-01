@@ -8,20 +8,20 @@
 
             int[] tableau = { 128, 64, 8, 512, 16, 32, 256 };
 
-            /*
+
             for (int i = 0; i < tableau.Length; i++)
             {
                 for (int j = 0; j < tableau.Length; j++)
                 {
-                    if(tableau[i] > tableau[j])
+                    if(tableau[i] < tableau[j])
                     {
-                        pot = tableau[j];
+                        pot = tableau[i];
                         tableau[i] = tableau[j];
                         tableau[j] = pot;
                     }
                 }
             }
-            */
+
 
             for (int i = 0; i < tableau.Length; i++)
             {
