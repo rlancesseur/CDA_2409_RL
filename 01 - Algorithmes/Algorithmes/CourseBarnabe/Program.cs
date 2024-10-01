@@ -1,31 +1,46 @@
-﻿namespace CourseBarnabe
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace CourseBarnabe
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             double S;
-            double moitieS;
+            int nombreMagasin;
+
+            do
+            {
+                Console.Write("Somme dont Barnabé dispose : ");
+                S = int.Parse(Console.ReadLine());
+            }
+            while (S < 1);
+
+            nombreMagasin = DansCombienDeMagasins(S);            
+
+            Console.WriteLine("Barnabé a fait ses courses dans " + nombreMagasin + " magasins.");
+        }
+
+
+        static int DansCombienDeMagasins(double somme)
+        {
+            double moitieS = 0;
             int nombreMagasin = 0;
 
-            Console.WriteLine("Somme dont Barnabé dispose : ");
-            S = int.Parse(Console.ReadLine());
-
-            while (S != 0)
+            while (somme > 0)
             {
-                moitieS = S / 2;
-                S = moitieS - 1;
-                
-                if(S < 0)
+                moitieS = somme / 2;
+                somme = moitieS - (double)1;
+
+                if (somme <= 2)
                 {
-                    S = 0;
+                    somme = 0;
                 }
 
                 nombreMagasin += 1;
             }
 
-            Console.WriteLine("Barnabé a fait ses courses dans " + nombreMagasin + " magasins.");
-
+            return nombreMagasin;
         }
     }
 }
