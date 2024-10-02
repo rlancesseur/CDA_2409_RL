@@ -41,9 +41,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FruitsEtLegumes", "FruitsEt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeuDu02", "JeuDu02\JeuDu02.csproj", "{444FA3F9-F0EC-4CFA-B90B-22C29201BF3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculNombrePersonnes", "CalculNombrePersonnes\CalculNombrePersonnes.csproj", "{FA75729D-C8C3-4668-B1A1-64389DA14473}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculNombrePersonnes", "CalculNombrePersonnes\CalculNombrePersonnes.csproj", "{FA75729D-C8C3-4668-B1A1-64389DA14473}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DenombrerLettresAlphabet", "DenombrerLettresAlphabet\DenombrerLettresAlphabet.csproj", "{07A6B686-F296-4B71-A21E-312CEBFBE64E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DenombrerLettresAlphabet", "DenombrerLettresAlphabet\DenombrerLettresAlphabet.csproj", "{07A6B686-F296-4B71-A21E-312CEBFBE64E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LesCapitales", "LesCapitales\LesCapitales.csproj", "{C412D377-B69C-49EF-8B65-C8D1974AE2D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{07A6B686-F296-4B71-A21E-312CEBFBE64E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07A6B686-F296-4B71-A21E-312CEBFBE64E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07A6B686-F296-4B71-A21E-312CEBFBE64E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C412D377-B69C-49EF-8B65-C8D1974AE2D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C412D377-B69C-49EF-8B65-C8D1974AE2D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C412D377-B69C-49EF-8B65-C8D1974AE2D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C412D377-B69C-49EF-8B65-C8D1974AE2D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
