@@ -6,7 +6,7 @@ namespace ControlerLaSaisieLimite
     {
         public static void Main(string[] args)
         {
-            string motDePasse = "formation";
+            const string MOT_DE_PASSE = "formation";
             string saisieUtilisateur;
             bool mdp = false;
             int nbEssais = 0;
@@ -18,7 +18,7 @@ namespace ControlerLaSaisieLimite
                 Console.Write("Mot de passe : ");
                 saisieUtilisateur = Console.ReadLine();
 
-                if (saisieUtilisateur == motDePasse)
+                if (saisieUtilisateur == MOT_DE_PASSE)
                 {
                     mdp = true;
                     Console.WriteLine("Vous êtes connecté.");
