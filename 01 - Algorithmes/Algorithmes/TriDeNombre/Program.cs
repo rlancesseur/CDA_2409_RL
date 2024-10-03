@@ -1,4 +1,6 @@
 ﻿using System;
+using Rlancesseur;
+using Rlancesseur.tools;
 
 namespace TriNombre
 {
@@ -6,21 +8,23 @@ namespace TriNombre
     {
         public static void Main(string[] args)
         {
+            /*
             int A;
             int B;
             int C;
-
-            Console.Write("A : ");
-            A = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("B : ");
-            B = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("C : ");
-            C = Convert.ToInt32(Console.ReadLine());
+            
+            A = ConsoleTools.DemanderNombreEntier("A = ");
+            B = ConsoleTools.DemanderNombreEntier("B = ");
+            C = ConsoleTools.DemanderNombreEntier("C = ");
 
             string resultat = OrdreCroissant(A, B, C);
             Console.WriteLine(resultat);
+            */
+
+            float A;
+
+            A = DemandeSaisieUtilisateur.DemanderNombreFloatPositif("A ?");
+            Console.WriteLine(A);
 
         }
 

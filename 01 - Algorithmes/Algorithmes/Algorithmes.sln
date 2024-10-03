@@ -45,9 +45,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculNombrePersonnes", "Ca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DenombrerLettresAlphabet", "DenombrerLettresAlphabet\DenombrerLettresAlphabet.csproj", "{07A6B686-F296-4B71-A21E-312CEBFBE64E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LesCapitales", "LesCapitales\LesCapitales.csproj", "{C412D377-B69C-49EF-8B65-C8D1974AE2D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LesCapitales", "LesCapitales\LesCapitales.csproj", "{C412D377-B69C-49EF-8B65-C8D1974AE2D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotDePasseSecure", "MotDePasseSecure\MotDePasseSecure.csproj", "{B852F689-A65A-4928-BA0D-808C828D57CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotDePasseSecure", "MotDePasseSecure\MotDePasseSecure.csproj", "{B852F689-A65A-4928-BA0D-808C828D57CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rlancesseur.tools", "Rlancesseur.tools\Rlancesseur.tools.csproj", "{B2B497EB-2453-413B-AADF-EE71961E95F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -147,6 +149,10 @@ Global
 		{B852F689-A65A-4928-BA0D-808C828D57CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B852F689-A65A-4928-BA0D-808C828D57CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B852F689-A65A-4928-BA0D-808C828D57CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2B497EB-2453-413B-AADF-EE71961E95F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2B497EB-2453-413B-AADF-EE71961E95F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2B497EB-2453-413B-AADF-EE71961E95F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2B497EB-2453-413B-AADF-EE71961E95F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

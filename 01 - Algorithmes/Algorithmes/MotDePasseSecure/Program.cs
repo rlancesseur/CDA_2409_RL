@@ -30,19 +30,18 @@ namespace MotDePasseSecure
             regexMinuscules = @"[a-z]{1,}"; // On ne met pas de ^ et $ car on veut juste que le mdp contienne des lettres (pas QUE des lettres)
             regexMajuscules = @"[A-Z]{1,}";
             regexChiffres = @"[0-9]+";
-            regexCaracteresSpeciaux = @"[^a-zA-Z-0-9]+"; // le ^ dans les crochets 
+            regexCaracteresSpeciaux = @"[^a-zA-Z-0-9]+"; // le ^ dans les crochets veut dire l'inverse
 
+            // motDePasse = motDePasse.Length < 5 ? "ok" : "pas ok";
 
             Console.WriteLine("Saisir un mot de passe");
             motDePasse = Console.ReadLine() ?? ""; // null coalescing operator
 
-           // motDePasse = motDePasse.Length < 5 ? "ok" : "pas ok";
 
             if (Regex.IsMatch(motDePasse, regexMinuscules) &&
                 Regex.IsMatch(motDePasse, regexMajuscules) &&
                 Regex.IsMatch(motDePasse, regexChiffres) &&
-                (Regex.IsMatch(motDePasse, regexCaracteresSpeciaux) || motDePasse.Length > 20) && 
-                motDePasse.Length >= 12)
+                (Regex.IsMatch(motDePasse, regexCaracteresSpeciaux) || motDePasse.Length > 20) && motDePasse.Length >= 12)
             {
                 Console.WriteLine("Mot de passe OK");
             }
