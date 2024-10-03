@@ -6,27 +6,24 @@ namespace FruitsEtLegumes
     {
         static void Main(string[] args)
         {
-            string saisieUtilisateur;
+            string saisieUtilisateur = "";
             List<string> fruitsLegumes = new List<string>();
             List<string> prix = new List<string>();
             List<double> prix2 = new List<double>();
             string[] split;
 
-            do
+            while (saisieUtilisateur != "go")
             {
                 Console.WriteLine("Saisissez le nom d'un légume ou d'un fruit (en un seul mot par pitié), et son prix au kilo");
                 saisieUtilisateur = Console.ReadLine().Replace(".", ",");
                 split = saisieUtilisateur.Split(" ");
 
-                for (int i = 0; i < split.Length - 1; i++)
+                if (saisieUtilisateur != "go")
                 {
-                    fruitsLegumes.Add(split[i]);
-                    prix.Add(split[i + 1]);
+                    fruitsLegumes.Add(split[0]);
+                    prix.Add(split[1]);
                 }
             }
-
-            while (saisieUtilisateur != "go");
-
             
             for (int i = 0; i < fruitsLegumes.Count; i++)
             {
