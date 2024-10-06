@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rlancesseur.tools;
+using System;
 using System.Text.RegularExpressions;
 
 namespace ControlerLaSaisie
@@ -10,16 +11,19 @@ namespace ControlerLaSaisie
             try
             {
                 string prenom;
-                string formatPrenom = "^[a-zA-Z]{2,32}$"; //Contient des lettres de a à z et de A à Z (de 2 caractères à l'infini)
+                bool prenomOk;
+                // string formatPrenom = "^[a-zA-Z]{2, }$"; Contient des lettres de a à z et de A à Z (de 2 caractères à l'infini)
                 // formatPrenom = "^[^a-z]$"; Ne doit pas contenir des lettres de a à z
 
+                
 
                 do
                 {
                     Console.WriteLine("Quel est votre prénom ? ");
-                    prenom = Console.ReadLine();
+                    prenom = Console.ReadLine() ?? "";
+                    prenomOk = ControleRegex.ControleNom(prenom);
                 }
-                while (!Regex.IsMatch(prenom, formatPrenom/*, RegexOptions.IgnoreCase*/));
+                while (!prenomOk);
 
                 Console.WriteLine("Bonjour " + prenom);
 

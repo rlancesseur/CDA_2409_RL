@@ -8,23 +8,17 @@ namespace TriNombre
     {
         public static void Main(string[] args)
         {
-            /*
+
             int A;
             int B;
             int C;
             
-            A = ConsoleTools.DemanderNombreEntier("A = ");
-            B = ConsoleTools.DemanderNombreEntier("B = ");
-            C = ConsoleTools.DemanderNombreEntier("C = ");
+            A = DemandeSaisieUtilisateur.DemanderNombreEntier("A = ");
+            B = DemandeSaisieUtilisateur.DemanderNombreEntier("B = ");
+            C = DemandeSaisieUtilisateur.DemanderNombreEntier("C = ");
 
             string resultat = OrdreCroissant(A, B, C);
             Console.WriteLine(resultat);
-            */
-
-            float A;
-
-            A = DemandeSaisieUtilisateur.DemanderNombreFloatPositif("A ?");
-            Console.WriteLine(A);
 
         }
 
