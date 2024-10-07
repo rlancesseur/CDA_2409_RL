@@ -1,14 +1,15 @@
-﻿namespace NombrePremier
+﻿using Rlancesseur.tools;
+
+namespace NombrePremier
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             int N;
-            bool nombrePremier = true;
+            int A = 0;
 
-            Console.Write("N : ");
-            N = int.Parse(Console.ReadLine());
+            N = DemandeSaisieUtilisateur.DemanderNombreEntier("Saisissez un nombre");
 
             if (N == 1)
             {
@@ -21,19 +22,22 @@
             }
 
 
-                for (int i = 2; i < N; i++)
+            for (int i = 2; i < N; i++)
+            {
+                if (N % i == 0)
                 {
-                    if (N % i == 0)
-                    {
-                        Console.Write(N + " n'est pas un nombre premier");
-                        break;
-                    }
-
-                    else
-                    {
-                        Console.WriteLine(N + " est un nombre premier");
-                    }
+                A++;
                 }
+            }
+
+            if (A > 0)
+            {
+                Console.Write(N + " n'est pas un nombre premier");
+            }
+            else
+            {
+                Console.WriteLine(N + " est un nombre premier");
+            }
         }
     }
 }
