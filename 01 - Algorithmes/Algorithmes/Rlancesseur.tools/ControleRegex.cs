@@ -11,37 +11,44 @@ namespace Rlancesseur.tools
     {
         public static bool ControleNom(string _nom)
         {
-            string formatNom = "^[a-zàâéèëêïîôöùüûç]{2,32}$";
+            Regex rgx = new Regex("^[a-zàâéèëêïîôöùüûç]{2,32}$", RegexOptions.IgnoreCase);
 
-            return Regex.IsMatch(_nom, formatNom, RegexOptions.IgnoreCase);
+            return rgx.IsMatch(_nom);
         }
 
         public static bool ControleMotDePasse(string _motDePasse)
         {
-            string formatMotDepasse = "^([a-z]+)([A-Z]+)([0-9]+)([^a-zA-Z0-9]+){12, }$";
+            Regex rgx = new Regex(@"(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])^[a-zA-Z\d\W]{12,}$");
 
-            return (Regex.IsMatch(_motDePasse, formatMotDepasse));
+            return rgx.IsMatch(_motDePasse);
+        }
+
+        public static bool ControleMotDePassePlus20(string _motDePasse)
+        {
+            Regex rgx = new Regex(@"(?=.*[a-z])(?=.*[A-Z])(?=.*\d)([\W]?)^[a-zA-Z\d\W?]{20,}$");
+
+            return rgx.IsMatch(_motDePasse);
         }
 
         public static bool ControleFormatCarteBleue(string _carteBleue)
         {
-           string formatCarteBleue = @"^([0-9]{4}[ -]?){4}$";
+           Regex rgx = new Regex(@"^([0-9]{4}[ -]?){4}$");
 
-            return (Regex.IsMatch(_carteBleue, formatCarteBleue));
+            return rgx.IsMatch(_carteBleue);
         }
 
         public static bool ControleNumeroTelephone(string _numeroTelephone)
         {
-            string formatNumeroTelephone = @"^([0-9]{1}[ -]?){10}$";
+            Regex rgx = new Regex(@"^([0-9]{2}[ -]?){5}$");
 
-            return Regex.IsMatch(_numeroTelephone, formatNumeroTelephone);
+            return rgx.IsMatch(_numeroTelephone);
         }
 
         public static bool ControleMail(string _mail)
         {
-            string formatMail = @"^([a-z0-9.?-?]{1, })(@{1}){5, 64}([a-z]{1, })(.{1})([a-z]{2-10}){5, 320}$";
+            Regex rgx = new Regex(@"^([a-z0-9.?-?]{1, })(@{1}){5, 64}([a-z]{1, })(.{1})([a-z]{2-10}){5, 320}$");
 
-            return Regex.IsMatch(_mail, formatMail);
+            return rgx.IsMatch(_mail);
         }
     }
 }
