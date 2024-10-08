@@ -11,24 +11,31 @@ namespace Rlancesseur.tools
         public static bool ConformiteCarteBleue(string _carteBleue)
         {
             _carteBleue = _carteBleue.Replace(" ","");
-            string[] tableauString = _carteBleue.Split(" ");
-            double[] tableauDouble = new double[tableauString.Length];
+            double[] tableauDouble = new double[_carteBleue.Length];
+            string split;
+            double A;
             double sommeTableau = 0;
 
-            for (int i = 0; i < tableauString.Length; i++)
+            for (int i = 0; i < _carteBleue.Length; i++)
             {
-                tableauDouble[i] = double.Parse(tableauString[i]);
+                tableauDouble[i] = double.Parse(_carteBleue[i].ToString());
             }
 
-            for (int i = tableauDouble.Length; i >= 2; i--)
+            for (int i = tableauDouble.Length; i >= 2; i-= 2)
             {
                 tableauDouble[i - 2] *= 2;
-                /*
-                if(tableauInt[i - 2] > 9)
+                A = 0;
+                
+                if(tableauDouble[i - 2] > 9)
                 {
-                    tableauInt[i - 2] = 
+                    split = tableauDouble[i - 2].ToString();
+                    for (int j = 0; j < split.Length; j++)
+                    {
+                        A += double.Parse(split[j].ToString());
+                    }
+                    tableauDouble[i - 2] = A;
                 }
-                */
+                
             }
 
             for(int i = 0; i < tableauDouble.Length - 1; i++)

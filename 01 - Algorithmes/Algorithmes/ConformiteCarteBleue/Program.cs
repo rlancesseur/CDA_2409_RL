@@ -8,20 +8,35 @@ internal class Program
         bool formatCarteBleueOk;
         bool conformiteCarteBleueOk;
 
+
         Console.WriteLine("Saisissez un numéro de carte bleue");
         saisieUtilisateur = Console.ReadLine() ?? "";
 
         formatCarteBleueOk = ControleRegex.ControleFormatCarteBleue(saisieUtilisateur);
-        conformiteCarteBleueOk = AlgoLuhn.ConformiteCarteBleue(saisieUtilisateur);
 
-        if (formatCarteBleueOk && conformiteCarteBleueOk)
+
+        if (formatCarteBleueOk)
         {
-            Console.WriteLine("Numéro de carte bleue valide.");
+            conformiteCarteBleueOk = AlgoLuhn.ConformiteCarteBleue(saisieUtilisateur);
+
+            if(conformiteCarteBleueOk)
+            {
+                Console.WriteLine("Numéro de carte bleue valide.");
+            }
+            else
+            {
+                Console.WriteLine("Numéro de carte bleue invalide.");
+            }
+            
         }
         else
         {
-            Console.WriteLine("Numéro de carte bleue invalide.");
+            Console.WriteLine("Format de numéro de carte bleue invalide.");
         }
+
+        
+
+
 
     }
 }
