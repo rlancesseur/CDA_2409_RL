@@ -18,16 +18,25 @@ namespace Rlancesseur.tools
 
         public static bool ControleMotDePasse(string _motDePasse)
         {
-            Regex rgx = new Regex(@"(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])^[a-zA-Z\d\W]{12,}$");
+            if (_motDePasse.Length >= 20)
+            {
+                Regex rgx = new Regex(@"(?=.*[a-z])(?=.*[A-Z])(?=.*\d)([\W]?)^[a-zA-Z\d\W?]{20,}$");
 
-            return rgx.IsMatch(_motDePasse);
-        }
+                return rgx.IsMatch(_motDePasse);
+            }
 
-        public static bool ControleMotDePassePlus20(string _motDePasse)
-        {
-            Regex rgx = new Regex(@"(?=.*[a-z])(?=.*[A-Z])(?=.*\d)([\W]?)^[a-zA-Z\d\W?]{20,}$");
+            else if (_motDePasse.Length >= 12)
+            {
 
-            return rgx.IsMatch(_motDePasse);
+                Regex rgx = new Regex(@"(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])^[a-zA-Z\d\W]{12,}$");
+
+                return rgx.IsMatch(_motDePasse);
+            }
+
+            else
+            {
+                 return false;
+            }
         }
 
         public static bool ControleFormatCarteBleue(string _carteBleue)
@@ -39,14 +48,14 @@ namespace Rlancesseur.tools
 
         public static bool ControleNumeroTelephone(string _numeroTelephone)
         {
-            Regex rgx = new Regex(@"^([0-9]{2}[ -]?){5}$");
+            Regex rgx = new Regex(@"^(0[ -]?[0-9]){1}([0-9]{2}[ -]?){4}$");
 
             return rgx.IsMatch(_numeroTelephone);
         }
 
         public static bool ControleMail(string _mail)
         {
-            Regex rgx = new Regex(@"^([a-z0-9.?-?]{1, })(@{1}){5, 64}([a-z]{1, })(.{1})([a-z]{2-10}){5, 320}$");
+            Regex rgx = new Regex(@"^(([\w.?-?]+@){5, 64}[\w]+.[\w]+){5, 320}$");
 
             return rgx.IsMatch(_mail);
         }
