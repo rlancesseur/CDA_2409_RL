@@ -11,7 +11,7 @@ namespace Rlancesseur.tools
     {
         public static bool ControleNom(string _nom)
         {
-            Regex rgx = new Regex("^[a-zàâéèëêïîôöùüûç]{2,32}$", RegexOptions.IgnoreCase);
+            Regex rgx = new Regex("^[a-zàâéèëêïîôöùüûçñ]{2,32}$", RegexOptions.IgnoreCase);
 
             return rgx.IsMatch(_nom);
         }
