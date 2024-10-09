@@ -51,7 +51,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotDePasseSecure", "MotDePa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rlancesseur.tools", "Rlancesseur.tools\Rlancesseur.tools.csproj", "{B2B497EB-2453-413B-AADF-EE71961E95F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConformiteCarteBleue", "ConformiteCarteBleue\ConformiteCarteBleue.csproj", "{373DF97D-EDE7-4B7A-A136-4120EA0B7446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConformiteCarteBleue", "ConformiteCarteBleue\ConformiteCarteBleue.csproj", "{373DF97D-EDE7-4B7A-A136-4120EA0B7446}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chifoumi", "Chifoumi\Chifoumi.csproj", "{6ADC7DE4-EB33-4AD0-BE2C-D033C35AA0CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +161,10 @@ Global
 		{373DF97D-EDE7-4B7A-A136-4120EA0B7446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{373DF97D-EDE7-4B7A-A136-4120EA0B7446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{373DF97D-EDE7-4B7A-A136-4120EA0B7446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ADC7DE4-EB33-4AD0-BE2C-D033C35AA0CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ADC7DE4-EB33-4AD0-BE2C-D033C35AA0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ADC7DE4-EB33-4AD0-BE2C-D033C35AA0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ADC7DE4-EB33-4AD0-BE2C-D033C35AA0CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
