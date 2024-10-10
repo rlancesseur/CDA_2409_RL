@@ -10,7 +10,7 @@ namespace ValidationCarte
             int[] carteUtilisateur = { 3, 20, 0, 45, 50 };
             int prixRepas = 4;
             string saisieUtilisateur;
-            int enregistre = 0;
+            bool utilisateurEnregistre = false;
             bool rejouer = true;
 
             while (rejouer)
@@ -23,7 +23,9 @@ namespace ValidationCarte
                 {
                     if (saisieUtilisateur == Utilisateurs[i])
                     {
-                        enregistre++;
+                        utilisateurEnregistre = true;
+
+                        Console.WriteLine("Bonjour " + Utilisateurs[i]);
 
                         if ((carteUtilisateur[i] - prixRepas) >= 0)
                         {
@@ -32,18 +34,18 @@ namespace ValidationCarte
                         }
                         else
                         {
-                            Console.WriteLine("Vous devez recharger votre carte.");
+                            Console.WriteLine("Montant insuffisant. Il vous reste " + carteUtilisateur[i] + "e sur votre carte.");
                         }
                     }
 
                 }
 
-                if(enregistre == 0)
+                if(!utilisateurEnregistre)
                 {
                     Console.WriteLine("Vous n'êtes pas enregistré au CRM");
                 }
 
-                enregistre = 0;
+                utilisateurEnregistre = false;
                 rejouer = Rejouer.RejouerProgramme();
                 Console.Clear();
             }
