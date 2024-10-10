@@ -53,9 +53,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rlancesseur.tools", "Rlance
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConformiteCarteBleue", "ConformiteCarteBleue\ConformiteCarteBleue.csproj", "{373DF97D-EDE7-4B7A-A136-4120EA0B7446}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chifoumi", "Chifoumi\Chifoumi.csproj", "{6ADC7DE4-EB33-4AD0-BE2C-D033C35AA0CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chifoumi", "Chifoumi\Chifoumi.csproj", "{6ADC7DE4-EB33-4AD0-BE2C-D033C35AA0CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationCarte", "ValidationCarte\ValidationCarte.csproj", "{BC58FDDB-6ECC-4241-B326-21B89B557396}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationCarte", "ValidationCarte\ValidationCarte.csproj", "{BC58FDDB-6ECC-4241-B326-21B89B557396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculNombresParfaits", "CalculNombresParfaits\CalculNombresParfaits.csproj", "{96C5FBD7-04BA-4E9F-A3FE-711905A6B8B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionsListes", "CollectionsListes\CollectionsListes.csproj", "{0769E549-9E15-4F6C-88E3-D4CF6851F97F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnregistrementUtilisateurs", "EnregistrementUtilisateurs\EnregistrementUtilisateurs.csproj", "{74B152D6-DB1F-444C-86A7-F07C9C130B2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +177,18 @@ Global
 		{BC58FDDB-6ECC-4241-B326-21B89B557396}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC58FDDB-6ECC-4241-B326-21B89B557396}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC58FDDB-6ECC-4241-B326-21B89B557396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96C5FBD7-04BA-4E9F-A3FE-711905A6B8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96C5FBD7-04BA-4E9F-A3FE-711905A6B8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96C5FBD7-04BA-4E9F-A3FE-711905A6B8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96C5FBD7-04BA-4E9F-A3FE-711905A6B8B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0769E549-9E15-4F6C-88E3-D4CF6851F97F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0769E549-9E15-4F6C-88E3-D4CF6851F97F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0769E549-9E15-4F6C-88E3-D4CF6851F97F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0769E549-9E15-4F6C-88E3-D4CF6851F97F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74B152D6-DB1F-444C-86A7-F07C9C130B2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B152D6-DB1F-444C-86A7-F07C9C130B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B152D6-DB1F-444C-86A7-F07C9C130B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B152D6-DB1F-444C-86A7-F07C9C130B2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
