@@ -10,8 +10,7 @@
             string saisieNomPrenom;
             DateOnly dateNaissance;
             int age;
-            string metier;
-            string couleurPreferee;
+            string? saisieUtilisateur = null;
             char ajouterUtilisateurOuiNon;
 
             do
@@ -19,12 +18,8 @@
                 Console.WriteLine("Saisissez un nom et un prénom.");
                 saisieNomPrenom = Console.ReadLine() ?? "";
 
-                utilisateur += saisieNomPrenom; 
-
                 Console.WriteLine("Saisissez votre date de naissance. (dd/mm/aa)");
                 dateNaissance = DateOnly.Parse(Console.ReadLine());
-
-                utilisateur += " " + dateNaissance;
                 
                 age = DateTime.Now.Year - dateNaissance.Year;
 
@@ -33,22 +28,18 @@
                     age -= 1;
                 }
 
-                utilisateur += " " + age;
-
                     if (age >= 18)
                     {
                         Console.WriteLine("Quel est votre métier ?");
-                        metier = Console.ReadLine() ?? "";
-
-                    utilisateur += " " + metier;
+                        saisieUtilisateur = Console.ReadLine() ?? "";
                     }
                     else if (age < 18)
                     {
                         Console.WriteLine("Quel est votre couleur préférée ?");
-                        couleurPreferee = Console.ReadLine() ?? "";
-
-                    utilisateur += " " + couleurPreferee;
+                        saisieUtilisateur = Console.ReadLine() ?? "";
                     }
+
+                    utilisateur = saisieNomPrenom + " " + dateNaissance + " " + age + " " + saisieUtilisateur;
 
                 Console.WriteLine(" ");
                 Console.WriteLine("Voulez-vous ajouter une autre personne ? (n/o)");
