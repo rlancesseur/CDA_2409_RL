@@ -5,42 +5,69 @@
         static void Main(string[] args)
         {
 
-            /*
-
-                         Au démarrage, il n'y a aucun utilisateur enregistré.
-
-            ## Déroulement du programme
-
-            1. Le programme demande à l'utilisateur de saisir un nom et un prénom.
-                  - L’utilisateur saisit un nom et un prénom.
-
-            2. Le programme demande à l'utilisateur de saisir la date de naissance.
-                  - L'utilisateur saisit la date de naissance.
-
-            3. Le programme calcule l'âge de la personne en cours d'ajout.
-                  - Si l’âge est supérieur ou égal à 18 (majeur)
-                        - Le programme demande à l'utilisateur de saisir son métier.
-                  - Si l’âge est inférieur à 18 (mineur)
-                        - Le programme demande à l'utilisateur de saisir sa couleur préférée.
-
-            4. Lorsque toutes les informations sont saisies
-                  - Le programme enregistre l'utilisateur
-
-            5. Le programme demande à l'utilisateur s'il souhaite ajouter une autre personne.
-                  - Si oui
-                        - Retour à l'étape 1 (saisir nom et prénom)
-                  - Si non
-                        - Afficher tous les utilisateurs enregistrés en respectant ce format :
-                        - Nom Prénom - Date de naissance (âge) - Métier/Couleur préférée
-
-            6. Le programme remercie l'utilisateur et se termine
-
-            */
-
+            List<string> listeUtilisateurs = new List<string>();
+            string? utilisateur = null;
             string saisieNomPrenom;
-            int dateNaissance;
+            DateOnly dateNaissance;
             int age;
+            string metier;
+            string couleurPreferee;
+            char ajouterUtilisateurOuiNon;
 
+            do
+            {
+                Console.WriteLine("Saisissez un nom et un prénom.");
+                saisieNomPrenom = Console.ReadLine() ?? "";
+
+                utilisateur += saisieNomPrenom; 
+
+                Console.WriteLine("Saisissez votre date de naissance. (dd/mm/aa)");
+                dateNaissance = DateOnly.Parse(Console.ReadLine());
+
+                utilisateur += " " + dateNaissance;
+                
+                age = DateTime.Now.Year - dateNaissance.Year;
+
+                if(DateTime.Now.Month < dateNaissance.Month)
+                {
+                    age -= 1;
+                }
+
+                utilisateur += " " + age;
+
+                    if (age >= 18)
+                    {
+                        Console.WriteLine("Quel est votre métier ?");
+                        metier = Console.ReadLine() ?? "";
+
+                    utilisateur += " " + metier;
+                    }
+                    else if (age < 18)
+                    {
+                        Console.WriteLine("Quel est votre couleur préférée ?");
+                        couleurPreferee = Console.ReadLine() ?? "";
+
+                    utilisateur += " " + couleurPreferee;
+                    }
+
+                Console.WriteLine(" ");
+                Console.WriteLine("Voulez-vous ajouter une autre personne ? (n/o)");
+                ajouterUtilisateurOuiNon = Console.ReadKey(true).KeyChar;
+                Console.WriteLine(" ");
+
+                listeUtilisateurs.Add(utilisateur);
+                utilisateur = null;
+            }
+
+            while (ajouterUtilisateurOuiNon == 'o' || ajouterUtilisateurOuiNon == 'O');
+            
+            foreach (string s in listeUtilisateurs)
+            {
+                Console.WriteLine(s);
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Merci !");
 
         }
     }
