@@ -7,7 +7,7 @@ namespace EnregistrementUtilisateurs
         static void Main(string[] args)
         {
 
-            List<string> listeUtilisateurs = new List<string>();
+            List<string[]> listeUtilisateurs = new List<string[]>();
             string[] utilisateur = new string[3];
             string saisieNomPrenom;
             Regex rgx = new Regex(@"^[a-zàâéèëêïîôöùüûçñ -]+$", RegexOptions.IgnoreCase);
@@ -25,14 +25,14 @@ namespace EnregistrementUtilisateurs
                     saisieNomPrenom = Console.ReadLine() ?? "";
                     formatOk = rgx.IsMatch(saisieNomPrenom);
 
-                    if(!formatOk) Console.WriteLine("Format invalide.");
+                    if (!formatOk) Console.WriteLine("Format invalide.");
                 }
                 while (!formatOk);
 
 
                 Console.WriteLine("Saisissez votre date de naissance. (dd/mm/aa)");
                 dateNaissance = DateOnly.Parse(Console.ReadLine());
-                
+
                 age = DateTime.Now.Year - dateNaissance.Year;
 
                 if (DateTime.Now.Month < dateNaissance.Month)
@@ -40,20 +40,16 @@ namespace EnregistrementUtilisateurs
                     age -= 1;
                 }
 
-                    if (age >= 18)
-                    {
-                        Console.WriteLine("Quel est votre métier ?");
-                        saisieUtilisateur = Console.ReadLine() ?? "";
-                    }
-                    else
-                    {
-                        Console.WriteLine("Quel est votre couleur préférée ?");
-                        saisieUtilisateur = Console.ReadLine() ?? "";
-                    }
-
-                utilisateur[0] = saisieNomPrenom;
-                utilisateur[1] = dateNaissance.ToLongDateString() + " (" + age.ToString() + "ans)";
-                utilisateur[2] = saisieUtilisateur;
+                if (age >= 18)
+                {
+                    Console.WriteLine("Quel est votre métier ?");
+                    saisieUtilisateur = Console.ReadLine() ?? "";
+                }
+                else
+                {
+                    Console.WriteLine("Quel est votre couleur préférée ?");
+                    saisieUtilisateur = Console.ReadLine() ?? "";
+                }
 
 
                 Console.WriteLine(" ");
@@ -61,18 +57,25 @@ namespace EnregistrementUtilisateurs
                 ajouterUtilisateurOuiNon = Console.ReadKey(true).KeyChar;
                 Console.WriteLine(" ");
 
-                for (int i = 0; i < utilisateur.Length; i++)
-                {
-                    listeUtilisateurs.Add(utilisateur[i]);
-                }
+                utilisateur[0] = saisieNomPrenom;
+                utilisateur[1] = dateNaissance.ToLongDateString() + " (" + age.ToString() + "ans)";
+                utilisateur[2] = saisieUtilisateur;
+
+                listeUtilisateurs.Add(utilisateur);
+
+                utilisateur = new string[3];
 
             }
 
             while (ajouterUtilisateurOuiNon == 'o' || ajouterUtilisateurOuiNon == 'O');
             
-            foreach (string s in listeUtilisateurs)
+            foreach (string[] s in listeUtilisateurs)
             {
-                Console.WriteLine(s);
+                for (int i = 0; i < s.Length; i++)
+                {
+                    Console.Write(s[i] + " ");
+                }
+                Console.WriteLine(" ");
             }
 
             Console.WriteLine("");
