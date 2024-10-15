@@ -8,14 +8,16 @@ namespace EnregistrementUtilisateurs
         {
 
             List<string[]> listeUtilisateurs = new List<string[]>();
-            string[] utilisateur = new string[3];
             string saisieNomPrenom;
             Regex rgx = new Regex(@"^[a-zàâéèëêïîôöùüûçñ -]+$", RegexOptions.IgnoreCase);
             bool formatOk = false;
-            DateOnly dateNaissance;
+            string saisieDateNaissance;
+            DateTime dateDeNaissance;
+            bool isDateOk;
+            TimeSpan intervalle;
             int age;
             string? saisieUtilisateur = null;
-            char ajouterUtilisateurOuiNon;
+            ConsoleKey ajouterUtilisateurOuiNon;
 
             do
             {
@@ -29,16 +31,19 @@ namespace EnregistrementUtilisateurs
                 }
                 while (!formatOk);
 
-
-                Console.WriteLine("Saisissez votre date de naissance. (dd/mm/aa)");
-                dateNaissance = DateOnly.Parse(Console.ReadLine());
-
-                age = DateTime.Now.Year - dateNaissance.Year;
-
-                if (DateTime.Now.Month < dateNaissance.Month)
+                do
                 {
-                    age -= 1;
+                    Console.WriteLine("Saisissez votre date de naissance. (dd/mm/aa)");
+                    saisieDateNaissance = Console.ReadLine();
+
+                    isDateOk = DateTime.TryParse(saisieDateNaissance, out dateDeNaissance);
                 }
+                while (!formatOk);
+
+
+                intervalle = DateTime.Now - dateDeNaissance;
+
+                age = (int)(intervalle.Days / 365.25);
 
                 if (age >= 18)
                 {
@@ -51,15 +56,12 @@ namespace EnregistrementUtilisateurs
                     saisieUtilisateur = Console.ReadLine() ?? "";
                 }
 
+                string[] utilisateur = [saisieNomPrenom, dateDeNaissance.ToLongDateString() + " (" + age.ToString() + "ans)", saisieUtilisateur];
 
                 Console.WriteLine(" ");
                 Console.WriteLine("Voulez-vous ajouter une autre personne ? (n/o)");
-                ajouterUtilisateurOuiNon = Console.ReadKey(true).KeyChar;
+                ajouterUtilisateurOuiNon = Console.ReadKey(true).Key;
                 Console.WriteLine(" ");
-
-                utilisateur[0] = saisieNomPrenom;
-                utilisateur[1] = dateNaissance.ToLongDateString() + " (" + age.ToString() + "ans)";
-                utilisateur[2] = saisieUtilisateur;
 
                 listeUtilisateurs.Add(utilisateur);
 
@@ -67,7 +69,7 @@ namespace EnregistrementUtilisateurs
 
             }
 
-            while (ajouterUtilisateurOuiNon == 'o' || ajouterUtilisateurOuiNon == 'O');
+            while (ajouterUtilisateurOuiNon == ConsoleKey.O);
             
             foreach (string[] s in listeUtilisateurs)
             {
