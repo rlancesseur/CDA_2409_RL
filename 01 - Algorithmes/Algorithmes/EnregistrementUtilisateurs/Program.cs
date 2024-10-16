@@ -7,18 +7,21 @@ namespace EnregistrementUtilisateurs
         static void Main(string[] args)
         {
 
-            List<string[]> listeUtilisateurs = new List<string[]>();
+            List<Utilisateur> listeUtilisateurs = new();
             string saisieNomPrenom;
-            Regex rgx = new Regex(@"^[a-zàâéèëêïîôöùüûçñ -]+$", RegexOptions.IgnoreCase);
-            bool formatOk = false;
             string saisieDateNaissance;
-            DateTime dateDeNaissance;
-            bool isDateOk;
-            TimeSpan intervalle;
-            int age;
             string? saisieUtilisateur = null;
             ConsoleKey ajouterUtilisateurOuiNon;
+            // List<string[]> listeUtilisateurs = new List<string[]>();
+            // Regex rgx = new Regex(@"^[a-zàâéèëêïîôöùüûçñ -]+$", RegexOptions.IgnoreCase);
+            // bool formatOk = false;
+            // DateTime dateDeNaissance;
+            // bool isDateOk;
+            // TimeSpan intervalle;
+            // int age;
 
+
+            /*
             do
             {
                 do
@@ -64,7 +67,6 @@ namespace EnregistrementUtilisateurs
                 Console.WriteLine(" ");
 
                 listeUtilisateurs.Add(utilisateur);
-
                 utilisateur = new string[3];
 
             }
@@ -79,10 +81,58 @@ namespace EnregistrementUtilisateurs
                 }
                 Console.WriteLine(" ");
             }
-
+            
             Console.WriteLine("");
             Console.WriteLine("Merci !");
+            */
 
+            do
+            {
+
+                try
+                {
+                    Console.WriteLine("Saisissez un nom et un prénom.");
+                    saisieNomPrenom = Console.ReadLine() ?? "";
+
+                    Console.WriteLine("Saisissez votre date de naissance. (dd/mm/aa)");
+                    saisieDateNaissance = Console.ReadLine();
+
+                    Utilisateur utilisateur = new Utilisateur(saisieNomPrenom, saisieDateNaissance);
+
+                    if (utilisateur.IsMajeur())
+                    {
+                        Console.WriteLine("Votre métier ?");
+                        saisieUtilisateur = Console.ReadLine();
+                        utilisateur.SetMetier(saisieUtilisateur);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Couleur préféré ?");
+                        saisieUtilisateur = Console.ReadLine();
+                        utilisateur.SetCouleurPreferee(saisieUtilisateur);
+                    }
+
+                    listeUtilisateurs.Add(utilisateur);
+
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                Console.WriteLine(" ");
+                Console.WriteLine("Voulez-vous ajouter une autre personne ? (n/o)");
+                ajouterUtilisateurOuiNon = Console.ReadKey(true).Key;
+                Console.WriteLine(" ");
+            }
+            while (ajouterUtilisateurOuiNon == ConsoleKey.O);
+
+                foreach (Utilisateur utilisateur in listeUtilisateurs)
+                {
+                    Console.Write(utilisateur.GetNomComplet() + " - ");
+                    Console.Write(utilisateur.GetDateDeNaissance() + " (" + utilisateur.GetAge() + ")  - ");
+                    Console.WriteLine(utilisateur.GetCouleurOuMetier());
+                }
         }
     }
 }

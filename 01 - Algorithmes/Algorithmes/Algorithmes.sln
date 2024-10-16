@@ -57,11 +57,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chifoumi", "Chifoumi\Chifou
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationCarte", "ValidationCarte\ValidationCarte.csproj", "{BC58FDDB-6ECC-4241-B326-21B89B557396}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculNombresParfaits", "CalculNombresParfaits\CalculNombresParfaits.csproj", "{96C5FBD7-04BA-4E9F-A3FE-711905A6B8B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculNombresParfaits", "CalculNombresParfaits\CalculNombresParfaits.csproj", "{96C5FBD7-04BA-4E9F-A3FE-711905A6B8B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionsListes", "CollectionsListes\CollectionsListes.csproj", "{0769E549-9E15-4F6C-88E3-D4CF6851F97F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionsListes", "CollectionsListes\CollectionsListes.csproj", "{0769E549-9E15-4F6C-88E3-D4CF6851F97F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnregistrementUtilisateurs", "EnregistrementUtilisateurs\EnregistrementUtilisateurs.csproj", "{74B152D6-DB1F-444C-86A7-F07C9C130B2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnregistrementUtilisateurs", "EnregistrementUtilisateurs\EnregistrementUtilisateurs.csproj", "{74B152D6-DB1F-444C-86A7-F07C9C130B2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
