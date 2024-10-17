@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<menu>
+    <Entrees>
+        <entree>
+            <nom>Velouté d'automne</nom>
+            <prix devise="Euro">6</prix>
+            <description></description>
+        </entree>
+        <entree>
+            <nom>Oeuf mayo</nom>
+            <prix devise="Euro">2</prix>
+            <description></description>
+        </entree>
+    </Entrees>
+    <Plats>
+        <plat>
+            <nom>Steak Frites Salade</nom>
+            <prix>12.99</prix>
+            <description>Un steak de 120 grammes accompagné de frites fraiches et quelques feuilles de salades assaisonnées</description>
+        </plat>
+        <plat>
+            <nom>Burger Frites</nom>
+            <prix devise="Euro">22.99</prix>
+            <description></description>
+        </plat>
+        <plat>
+            <nom>Spaghetti </nom>
+            <prix devise="Euro"></prix>
+            <description></description>
+        </plat>
+    </Plats>
+    <Desserts>
+        <dessert>
+            <nom>Tarte au citron</nom>
+            <prix devise="Euro">8</prix>
+            <description></description>
+        </dessert>
+        <dessert>
+            <nom>Mousse au chocolat</nom>
+            <prix devise="Euro"> 9.99</prix>
+            <description></description>
+        </dessert>
+    </Desserts>
+</menu>
