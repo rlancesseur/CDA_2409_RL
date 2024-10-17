@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Netflix>
+    <Serie>
+        <titre>Stranger Things</titre>
+        <realisateur>Steven Spielberg</realisateur>
+        <saisons>4</saisons>
+    </Serie>
+    <Serie>
+        <titre>House of Cards</titre>
+        <realisateur>David Fincher</realisateur>
+        <saisons>6</saisons>
+    </Serie>
+    <Serie>
+        <titre>Squid Game</titre>
+        <realisateur>Hwang Dong-hyeok</realisateur>
+        <saisons>1</saisons>
+    </Serie>
+    <Serie>
+        <titre>The Crown</titre>
+        <realisateur>Claire Foy</realisateur>
+        <saisons>6</saisons>
+    </Serie>
+    <Serie>
+        <titre>Mindhunter</titre>
+        <realisateur>David Fincher</realisateur>
+        <saisons>2</saisons>
+    </Serie>
+</Netflix>

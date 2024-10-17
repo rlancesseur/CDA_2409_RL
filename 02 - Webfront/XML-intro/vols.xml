@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<AirFrance>
+    <Vol>
+        <destination>Madrid</destination>
+        <prix devise="Euro">40</prix>
+        <pilote>Antoine</pilote>
+    </Vol>
+    <Vol>
+        <destination>Berlin</destination>
+        <prix devise="Euro">25</prix>
+        <pilote>Marco</pilote>
+    </Vol>
+    <Vol>
+        <destination>Los Angeles</destination>
+        <prix devise="Euro">540</prix>
+        <pilote>Polo</pilote>
+    </Vol>
+    <Vol>
+        <destination>Tokyo</destination>
+        <prix devise="Euro">860</prix>
+        <pilote>John</pilote>
+    </Vol>
+</AirFrance>

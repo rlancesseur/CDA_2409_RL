@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- un commentaire -->
+
+<ListeUtilisateurs>
+	
+	<utilisateur id="1">
+		<nom>Lancesseur</nom>
+		<prenom>Rémi</prenom>
+		<dateDeNaissance format="yyyy-mm-dd">1991-11-14</dateDeNaissance>
+	</utilisateur>
+
+	<utilisateur id="2">
+		<nom>Cooper</nom>
+		<prenom>Sheldon</prenom>
+		<dateDeNaissance format="yyyy-mm-dd">1989-05-19</dateDeNaissance>
+	</utilisateur>
+	
+</ListeUtilisateurs>
