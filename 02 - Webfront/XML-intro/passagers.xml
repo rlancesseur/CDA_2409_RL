@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Trajet>
+    <passagers>
+        <nom>Lancesseur</nom>
+        <prenom>Rémi</prenom>
+        <dateinscription format="yyyy-mm-dd">2020-10-18</dateinscription>
+    </passagers>
+    <passagers>
+        <nom>Cooper</nom>
+        <prenom>Sheldon</prenom>
+        <dateinscription format="yyyy-mm-dd">2022-05-25</dateinscription>
+    </passagers>
+    <passagers>
+        <nom>Brandebouc</nom>
+        <prenom>Meriadoc</prenom>
+        <dateinscription format="yyyy-mm-dd">2024-09-01</dateinscription>
+    </passagers>
+</Trajet>
