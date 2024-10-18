@@ -1,0 +1,25 @@
+body
+{
+    background-image: url("img/css-16-bg.webp");
+    margin: 10%;
+}
+
+main
+{
+    text-align: center;
+}
+
+#un
+{
+    width: 300px;
+}
+
+#deux
+{
+    width: 400px;
+}
+
+#trois
+{
+    width: 500px;
+}
