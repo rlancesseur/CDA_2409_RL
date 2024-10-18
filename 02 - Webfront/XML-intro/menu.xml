@@ -5,12 +5,12 @@
         <entree>
             <nom>Velouté d'automne</nom>
             <prix devise="Euro">6</prix>
-            <description></description>
+            <description>Un velouté fait qu'en automne</description>
         </entree>
         <entree>
             <nom>Oeuf mayo</nom>
             <prix devise="Euro">2</prix>
-            <description></description>
+            <description>Des oeufs avec de la mayo</description>
         </entree>
     </Entrees>
     <Plats>
@@ -22,24 +22,24 @@
         <plat>
             <nom>Burger Frites</nom>
             <prix devise="Euro">22.99</prix>
-            <description></description>
+            <description>Un burger accompagné de frites</description>
         </plat>
         <plat>
-            <nom>Spaghetti </nom>
-            <prix devise="Euro"></prix>
-            <description></description>
+            <nom>Spaghetti carbonara</nom>
+            <prix devise="Euro">28.99</prix>
+            <description>Mamamiiiaa</description>
         </plat>
     </Plats>
     <Desserts>
         <dessert>
             <nom>Tarte au citron</nom>
             <prix devise="Euro">8</prix>
-            <description></description>
+            <description>Une tarte, avec du citron</description>
         </dessert>
         <dessert>
             <nom>Mousse au chocolat</nom>
             <prix devise="Euro"> 9.99</prix>
-            <description></description>
+            <description>Elle est faite maison promis</description>
         </dessert>
     </Desserts>
 </menu>

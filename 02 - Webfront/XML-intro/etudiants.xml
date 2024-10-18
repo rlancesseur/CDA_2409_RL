@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Formation>
+    <intitule>CDA</intitule>
+    <duree>19</duree>
+    <dateDebut format="yyyy-mm-dd">2024-09-16</dateDebut>
+    <dateFin format="yyyy-mm-dd">2026-05-22</dateFin>
+        <Etudiants>
+            <etudiant>
+                <nom>Lancesseur</nom>
+                <prenom>Rémi</prenom>
+                <dateNaissance format="yyyy-mm-dd">1991-11-14</dateNaissance>
+                <mail>lancesseur.remi@gmail.com</mail>
+            </etudiant>
+            <etudiant>
+                <nom>Gessa</nom>
+                <prenom>Fabrice</prenom>
+                <dateNaissance format="yyyy-mm-dd">1985-10-05</dateNaissance>
+                <mail>gessa.fabrice@gmail.com</mail>
+            </etudiant>
+            <etudiant>
+                <nom>lissandre</nom>
+                <prenom>Laurent</prenom>
+                <dateNaissance format="yyyy-mm-dd">1981-11-18</dateNaissance>
+                <mail>lissandre.laurent@gmail.com</mail>
+            </etudiant>
+        </Etudiants>
+</Formation>
