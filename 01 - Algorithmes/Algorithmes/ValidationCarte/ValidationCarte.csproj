@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Rlancesseur.tools\Rlancesseur.tools.csproj" />
+    <Reference Include="Rlancesseur.tools">
+      <HintPath>..\..\Rlancesseur.tools\obj\Debug\net8.0\Rlancesseur.tools.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
