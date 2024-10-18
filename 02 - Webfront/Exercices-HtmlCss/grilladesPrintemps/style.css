@@ -1,0 +1,37 @@
+body
+{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-gap: 20px;
+}
+
+header
+{
+    background-color: #BBCCFF;
+}
+
+nav
+{
+    background-color: #BBCCFF;
+}
+
+main
+{
+    background-color: #BBCCFF;
+}
+
+footer 
+{
+    background-color: #BBCCFF;
+}
+
+.principal
+{
+    display: flex;
+}
+
+section
+{
+    background-color: white;
+    margin: 3px;
+}
