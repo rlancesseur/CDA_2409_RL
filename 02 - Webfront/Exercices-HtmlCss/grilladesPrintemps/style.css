@@ -1,0 +1,45 @@
+body
+{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 20%);
+}
+
+header
+{
+    background-color: #BBCCFF;
+    grid-column: 1 / span 5;
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+nav
+{
+    background-color: #BBCCFF;
+    grid-row : 2 / span 5;
+}
+
+main
+{
+    background-color: #BBCCFF;
+    grid-row: 2 / span 4;
+    grid-column: 2 / span 4;
+}
+
+footer 
+{
+    background-color: #BBCCFF;
+    grid-column: 2 / span 4;
+}
+
+.principal
+{
+    
+}
+
+section
+{
+    background-color: white;
+    margin: 3px;
+}

@@ -71,7 +71,7 @@ footer
 {
     margin: auto;
     display: flex;
-    justify-content: space-around;
-    width: 500px;
+    justify-content: center;
     flex-wrap: wrap;
+    width: 80%;
 }
