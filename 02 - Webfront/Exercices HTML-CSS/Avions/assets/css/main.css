@@ -1,0 +1,77 @@
+body
+{
+    background-color:#222222;
+    color:#FFFFFF;
+    font-family: Verdana;
+    margin:auto;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    background-color:#224422;
+}
+
+li
+{
+    background-color: #376137;
+    margin:2px;
+    list-style-type: none;
+}
+
+li:hover
+{
+    background-color: #508a50;
+}
+
+h1, h2
+{
+    color:#CCFFCC;
+}
+
+a
+{
+    color:#CCCCFF;
+}
+
+table
+{
+    border-style: solid;
+    color: black;
+}
+
+.ligneA
+{
+    background-color: rgb(153, 153, 153);
+}
+
+.ligneB
+{
+    background-color: white;
+}
+
+footer
+{
+    text-align: center;
+}
+
+.logo
+{
+    width: 100px;
+}
+
+.avion
+{
+    width: 230px;
+    height: 150px;
+}
+
+.galerie
+{
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+    flex-wrap: wrap;
+}
