@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Mon premier formulaire</title>
+    </head>
+
+    <body>
+        <h1>Formulaire d'inscription</h1>
+
+        <h2>Votre compte configuré en 2 minutes !</h2>
+
+        <form method="get" action="">
+            <fieldset>
+                <legend>Etat civil</legend>
+                <label for="Nom">Nom : </label>
+                <input type="text" name="Nom" id="Nom" autofocus>
+                <br>                
+                <label for="Prenom">Prénom : </label>
+                <input type="text" name="Prenom" id="Prenom">
+                <br>
+                <label for="Date">Date de naissance : </label>
+                <input type="date" name="Date" id="Date">
+            </fieldset>
+
+            <fieldset>
+                <legend>Informations de contact</legend>
+                <label for Email>Adresse Email : </label>
+                <input type="mail" name="Email" id="Email">
+                <br>
+                <label for="Tel">Téléphone : </label>
+                <input type ="tel" name="Tel" id="Tel">
+            </fieldset>
+
+            <fieldset>
+                <input type="checkbox" name="conditions" id="conditions" required>
+                <label for="conditions">J'accepte les <a href="tableau.html">conditions d'utilisation</a></label>
+
+                <br>
+
+                <button type="submit">S'inscrire</button>
+            </fieldset>
+
+        </form>
+
+    </body>
+
+
+</html>
