@@ -1,0 +1,27 @@
+body
+{
+    margin:0;
+}
+
+.jaune
+{
+    background: #FCD116;
+    height:300px;
+}
+
+.bleu
+{
+    background: #003893;
+    height:150px;
+}
+
+.rouge
+{
+    background: #CE1126;
+    height:150px;
+}
+
+.pays
+{
+    text-align: center;
+}

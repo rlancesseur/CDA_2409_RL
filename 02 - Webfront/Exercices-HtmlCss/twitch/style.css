@@ -1,0 +1,78 @@
+body
+{
+    font-family: monospace;
+}
+
+h1
+{
+    color: #008CBA;
+}
+
+#date
+{
+    font-size: small;
+    color: black;
+    background-color: rgb(219, 219, 219);
+    border-radius: 3px;
+    padding: 2px;
+    font-style: italic;
+}
+
+#boutons
+{
+    display: flex;
+    color: white;
+}
+
+p
+{
+    padding: 15px;
+    height: 20px;
+    border-radius: 8%;
+    margin: 5px;
+}
+
+#un
+{
+    background-color: #008CBA;
+}
+
+#deux
+{
+    background-color: #4CAF50;
+}
+
+#trois
+{
+    background-color: #555555;
+}
+
+table
+{
+    border-style: outset;
+}
+
+th, td
+{
+    border: 1px solid black;
+    padding: 2px;
+}
+
+th
+{
+    background-color: rgb(206, 206, 206);
+}
+
+#fondbleu
+{
+    background-color: #008CBA;
+    color: white;
+    padding: 2px;
+}
+
+#fondvert
+{
+    background-color: #4CAF50;
+    color: white;
+    padding: 1px;
+}
