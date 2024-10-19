@@ -1,0 +1,39 @@
+body
+{
+    background-image: url("img/snow-black.gif");
+    text-align: center;
+}
+
+main
+{
+    display: flex;
+    justify-content: space-around;    
+    margin: 100px;
+}
+
+div
+{
+    background: white;
+    border-radius: 50%;
+}
+
+#un
+{
+    width: 80px;
+    height: 80px;
+    margin-top: 500px;
+}
+
+#deux
+{
+    width: 150px;
+    height: 150px;
+    margin-top: 250px;
+}
+
+#trois
+{
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+}
