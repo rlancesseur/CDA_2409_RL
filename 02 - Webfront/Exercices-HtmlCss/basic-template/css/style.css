@@ -45,6 +45,7 @@ body
     display: grid;
     grid-template-columns: 240px 1fr;
     color: var(--text-color);
+    background-color: var(--main-background);
 }
 
 header
@@ -67,6 +68,7 @@ nav
     background-color: var(--nav-background);
 }
 
+
 nav h2, li
 {
     background-color: var(--nav-h2);
@@ -79,6 +81,11 @@ li
     list-style: none;
 }
 
+li:hover
+{
+    font-size: larger;
+}
+
 li a
 {
     color: var(--nav-a);
@@ -87,7 +94,7 @@ li a
 
 main
 {
-    background-color: var(--main-background);
+    
     display: grid;
     grid-template-columns: 1fr 240px;
 }
@@ -139,6 +146,8 @@ aside h3
 aside p
 {
     text-align: justify;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 aside button
@@ -148,9 +157,10 @@ aside button
     background-color: var(--nav-a);
     color: var(--text-color-2);
     font-weight: bold;
-    margin-top: 5x;
-    margin-bottom: 5px;
+    margin-top: 10x;
+    margin-bottom: 10px;
 }
+
 
 @media (max-width: 900px) {
     nav {
