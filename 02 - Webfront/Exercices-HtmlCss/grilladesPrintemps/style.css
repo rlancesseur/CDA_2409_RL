@@ -18,7 +18,7 @@ h1
 {
     grid-column: 1 / span 5;
     margin: 3px;
-    background-color: #BBCCFF
+    background-color: #BBCCFF;
 }
 
 aside
@@ -67,6 +67,7 @@ footer
 {
     background-color: #BBCCFF;
     grid-column: 2 / span 5;
+    margin: 3px
 }
 
 footer, aside
