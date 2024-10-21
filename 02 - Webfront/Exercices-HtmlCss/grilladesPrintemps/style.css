@@ -9,7 +9,6 @@ body
 
 header
 {
-    background-color: #BBCCFF;
     grid-column: 1 / span 6;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -19,12 +18,13 @@ h1
 {
     grid-column: 1 / span 5;
     margin: 3px;
+    background-color: #BBCCFF
 }
 
 aside
 {
-    grid-column: 5 / 6;
-    margin: 3px;    
+    margin: 3px;   
+    background-color: #BBCCFF
 }
 
 nav
