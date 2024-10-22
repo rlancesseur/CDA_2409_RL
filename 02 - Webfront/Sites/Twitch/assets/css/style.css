@@ -1,0 +1,61 @@
+/*
+Boutons coeur, cloche, loupe et "Regardez sans publicité gratuitement" : #2f2f35
+Boutons Se réabonner / chat : #9147ff 
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 240px 1fr 320px;
+    background-color: #0e0e10;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    grid-column: span 3;
+    height: 50px;
+    background-color: #18181b;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#header-gauche {
+    display: flex;
+    padding: 10px;
+}
+
+
+#header-milieu {
+    display: flex;
+    align-items: center;
+}
+
+#header-droite {
+    display: flex;
+    align-items: center;
+}
+
+#bloc-logo {
+    display: flex;
+    padding: 15px;
+}
+
+#bloc-logo img {
+    margin-left: 15px;
+}
+
+nav {
+    background-color: #1f1f23;
+    height: 100vw;
+}
+
+section {
+    background-color: #18181b;
+}
+
