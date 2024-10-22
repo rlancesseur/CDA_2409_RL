@@ -13,6 +13,11 @@ header
     background-color:#224422;
 }
 
+ul
+{
+    margin: 0;
+}
+
 li
 {
     background-color: #376137;
@@ -33,17 +38,30 @@ h1, h2
 a
 {
     color:#CCCCFF;
+    text-decoration: none;
 }
 
 table
 {
     border-style: solid;
     color: black;
+    border-collapse: collapse;
 }
+
+th, tr
+{
+    border: 1px solid black;
+}
+
+th, tr, td
+{
+    padding: 8px;
+}
+
 
 .ligneA
 {
-    background-color: rgb(153, 153, 153);
+    background-color: rgb(233, 233, 233);
 }
 
 .ligneB
@@ -71,7 +89,16 @@ footer
 {
     margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
     width: 80%;
+}
+
+section
+{
+    padding: 5px;
+    background-color: #3b3b3b;
+    text-align: center;
+    border: 1px solid black;
+    margin: 20px;
 }
