@@ -123,6 +123,12 @@ section
     overflow-wrap: break-word;
 }
 
+section h3
+{
+    padding: 5px;
+    font-weight: lighter;
+}
+
 aside
 {
     background-color: var(--nav-background);
@@ -193,5 +199,14 @@ aside button
     aside {
         margin-top: 10px;
         grid-column: span 2;
+        text-align: center;
     }
+
+    aside img
+    {
+        margin: 10px;
+        width: 240px;
+        display: inline;
+    }
+
 }
