@@ -1,1 +1,1 @@
-lancerBoucleJeu(listMots)
+lancerJeu()

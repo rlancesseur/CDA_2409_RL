@@ -1,10 +1,39 @@
-function lancerBoucleJeu(listMots) {
+function afficherResultat(score, nbMotsProposes) {
+    let spanScore = document.querySelector(".zoneScore span")
+    let affichageScore = `${score} / ${nbMotsProposes}` 
+    spanScore.innerText = affichageScore
+}
+
+
+function afficherProposition(proposition) {
+    let zoneProposition = document.querySelector(".zoneProposition")
+    zoneProposition.innerText = proposition
+}
+
+
+function lancerJeu() {
     let score = 0
-    for(let i = 0; i < listMots.length; i++) {
-        let saisieUtilisateur = prompt("Saisir le mot : ")
-        if(saisieUtilisateur === listMots[i]) {
+    let i = 0
+
+    let btnValiderMot = document.getElementById("btnValiderMot")
+    let inputEcriture = document.getElementById("inputEcriture")
+    afficherProposition(listMots[i])
+    btnValiderMot.addEventListener("click", () => {
+        console.log(inputEcriture.value)
+        if (inputEcriture.value === listeMots[i]) {
             score++
         }
-    }
-    console.log("Votre score est de " + score + " sur " + listMots.length)
+        i++
+        afficherResultat(score, i)
+        inputEcriture.value = ''
+        if (listMots[i] === undefined) {
+            afficherProposition("Le jeu est fini")
+            btnValiderMot.disabled = true
+        } else {
+            afficherProposition(listMots[i])
+        }
+        
+        afficherResultat(score, i)
+    })
+
 }

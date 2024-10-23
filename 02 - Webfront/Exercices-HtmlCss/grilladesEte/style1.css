@@ -1,11 +1,11 @@
-body
-{
-    width: 100%;
-    margin: auto;
+* {
+    margin: 0;
+    padding: 0;
 }
 
 .principal
 {
+    height: 100vh;
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(4, 1fr);
@@ -16,12 +16,13 @@ section
 {
     background-color: #CCCC33;
     color:white;
+    font-size: 2em;
     padding: 15px;
 }
 
 #s1
 {
-    grid-column: 1 / span 4;
+    grid-column: span 4;
 }
 
 #s2
