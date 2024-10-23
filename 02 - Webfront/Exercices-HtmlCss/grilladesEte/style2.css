@@ -1,5 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.principal {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5 1fr);
+    grid-gap: 5px;
+}
+
+#s1 {
+    grid-column: span 2;
+}
+
+#s2 {
+    grid-row: 2 / span 4;
+}
+
 section
 {
     background-color: #CCCC33;
     color:white;
+    font-size: 2em;
+    padding: 15px;
 }
