@@ -20,16 +20,19 @@ h1
 
 #boutons
 {
-    display: flex;
-    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-p
+button
 {
-    padding: 15px;
-    height: 20px;
-    border-radius: 8%;
-    margin: 5px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    border-style: none;
+    color: white;
 }
 
 #un
@@ -37,14 +40,28 @@ p
     background-color: #008CBA;
 }
 
+#un:hover {
+    background-color: #066f92; 
+}
+
 #deux
 {
     background-color: #4CAF50;
 }
 
+#deux:hover
+{
+    background-color: #469149;
+}
+
 #trois
 {
     background-color: #555555;
+}
+
+#trois:hover
+{
+    background-color: #414141;
 }
 
 table
