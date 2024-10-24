@@ -1,15 +1,30 @@
+@font-face {
+    font-family: "KarantinaLight";
+    src: url("/assets/font/karantina/Karantina-Light.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "KarantinaBold";
+    src: url("/assets/font/karantina/Karantina-Bold.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "KarantinaReg";
+    src: url("/assets/font/karantina/Karantina-Regular.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("/assets/font/roboto/Roboto-Regular.ttf") format("truetype")
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
-@font-face {
-    font-family: "Karantina";
-    src: url("/assets/font/karantina/Karantina-Regular.ttf") format("truetype")
-}
-
 body {
-    font-family: "Karantina";
+    font-family: "KarantinaLight";
 }
 
 header {
@@ -21,6 +36,7 @@ header {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
 }
+
 
 header nav {
     grid-row: 20%;
@@ -38,6 +54,10 @@ header li {
     margin: 10px;
 }
 
+header li:hover {
+    color: #26C1DC;
+}
+
 
 #titre {
     grid-row: 60%;
@@ -49,6 +69,7 @@ header li {
 #titre p {
     font-size: 101px;
     width: 100px;
+    font-family: "KarantinaReg";
 }
 
 #titre h1 {
@@ -78,6 +99,66 @@ header li {
 .pageUne section {
     background-color: #26C1DC;
     color: white;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
 }
 
+.pageUne h2 {
+    text-align: end;
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+
+.pageUne p {
+    text-align: end;
+    font-family: "Roboto";
+    font-size: 15px;
+    margin-bottom: 50px;
+}
+
+.pageUne h3 {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+#fleche2  {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.programme {
+    background-color: white;
+    text-align: center;
+    margin: 60px;
+}
+
+#titreProgramme {
+    font-size: 70px;
+    color: #26C1DC;
+    font-family: "KarantinaBold";
+}
+
+.programme p {
+    font-family: "KarantinaBold";
+    font-size: 30px;
+    margin-top : 30px;
+}
+
+.galerie {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.galerie img {
+    width: 100%;
+    height: 100%;
+}
+
+.galerie img:hover {
+    background-color: #26C1DC;
+    opacity: 81%;
+}
 
