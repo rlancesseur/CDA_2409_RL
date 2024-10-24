@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+main {
+    background-color: rgb(255, 219, 172);
+    width: 400px;
+    text-align: center;
+    padding: 20px;
+    margin: 50px;
+    border-radius: 10px;
+}
+
+button {
+    margin: 10px;
+}
