@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Karantina";
+    src: url("/assets/font/karantina/Karantina-Regular.ttf") format("truetype")
+}
+
+body {
+    font-family: "Karantina";
+}
+
+header {
+    background-image: url("/assets/img/Group3.png");
+    background-size: cover;
+    max-height: 806px;
+    width: 100%;
+    color: white;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+header nav {
+    grid-row: 20%;
+    margin: 10px;
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    list-style: none;
+}
+
+header li {
+    margin: 10px;
+}
+
+
+#titre {
+    grid-row: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titre p {
+    font-size: 101px;
+    width: 100px;
+}
+
+#titre h1 {
+    font-size: 290px;
+    color: #26C1DC;
+    padding: 50px;
+}
+
+#fleche {
+    display: flex;
+    justify-content: center;
+    height: 96px;
+}
+
+#fleche img {
+    grid-row: 20%;
+    background-color: #26C1DC;
+    border-radius: 50%;
+}
+
+.pageUne {
+    display: grid;
+    grid-template-columns: 1fr 607px;
+    width: 100%;
+}
+
+.pageUne section {
+    background-color: #26C1DC;
+    color: white;
+}
+
+
