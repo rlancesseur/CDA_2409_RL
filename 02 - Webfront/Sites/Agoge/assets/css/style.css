@@ -21,6 +21,7 @@
 * {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -30,11 +31,16 @@ body {
 header {
     background-image: url("/assets/img/Group3.png");
     background-size: cover;
-    max-height: 806px;
+    height: 806px;
     width: 100%;
     color: white;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 
@@ -54,7 +60,7 @@ header li {
     margin: 10px;
 }
 
-header li:hover {
+header li a:hover {
     color: #26C1DC;
 }
 
@@ -150,6 +156,7 @@ header li:hover {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    background-color: #26C1DC;
 }
 
 .galerie img {
@@ -158,7 +165,125 @@ header li:hover {
 }
 
 .galerie img:hover {
-    background-color: #26C1DC;
-    opacity: 81%;
+    opacity: 19%;
 }
 
+.carte {
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.villes {
+    font-size: 26px;
+    font-family: "KarantinaBold";
+    padding-left: 200px;
+    padding-right: 100px;
+    padding-top: 100px;
+}
+
+.villes p {
+    margin-bottom: 50px;
+}
+
+.villes ul {
+    padding-left: 50px;
+}
+
+.carte img {
+    padding: 50px;
+    width: 100%;
+}
+
+#contact {
+    background-image: url("/assets/img/image.png");
+    background-size: cover;
+    height: 1286px;
+}
+
+.formulaire {
+    width: 40%;
+    padding: 200px;
+}
+
+.formulaire p {
+    font-size: 42px;
+    font-family: "KarantinaBold";
+    color: white;
+    margin-bottom: 40px;
+}
+
+form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+form label {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+form button {
+    background-color: black;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    border-style: none;
+    padding: 10px;
+}
+
+form input, textarea {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #D9D9D9;
+    padding: 10px;
+}
+
+#informations {
+    background-color: #133135;
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+.liens {
+    text-align: end;
+    margin-right: 20px;
+}
+
+.liens p{
+    font-size: 41px;
+    margin-bottom: 20px;
+}
+
+.liens ul {
+    list-style: none;
+    font-size: 20px;
+}
+
+.reseaux {
+    margin-left: 20px;
+}
+
+.reseaux p {
+    font-size: 39px;
+    margin-bottom: 20px;
+}
+
+.reseaux img {
+    margin-right: 25px;
+}
+
+.reseaux img:hover {
+    back
+}
