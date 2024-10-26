@@ -19,8 +19,7 @@ function lancerJeu() {
     let inputEcriture = document.getElementById("inputEcriture")
     afficherProposition(listMots[i])
     btnValiderMot.addEventListener("click", () => {
-        console.log(inputEcriture.value)
-        if (inputEcriture.value === listeMots[i]) {
+        if (inputEcriture.value === listMots[i]) {
             score++
         }
         i++
