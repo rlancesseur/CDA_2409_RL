@@ -1,8 +1,3 @@
-/*
-Boutons coeur, cloche, loupe et "Regardez sans publicité gratuitement" : #2f2f35
-Boutons Se réabonner / chat : #9147ff 
-*/
-
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +8,7 @@ body {
     grid-template-columns: 240px 1fr 323px;
     background-color: #0e0e10;
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif
 }
 
 header {
@@ -34,6 +29,7 @@ header {
     padding: 10px;
     width: 280px;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
 #header-gauche img {
@@ -44,11 +40,11 @@ header {
 #header-milieu {
     display: flex;
     align-items: center;
-    
+    padding-left: 40px;
 }
 
 #boutonRecherche input {
-    width: 370px;
+    width: 350px;
     height: 35px;
     border-radius: 5px 0px 0px 5px;
     background-color: #18181b;
@@ -78,13 +74,17 @@ header {
 
 #header-droite button {
     background-color: #2f2f35;
-    padding: 5px;
+    padding: 6px;
     border-radius: 5px;
     color: white;
     font-weight: bold;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     border-style: none;
+}
+#header-droite button  img{
+    margin-right: 4px;
 }
 
 #bloc-logo {
@@ -100,11 +100,192 @@ header {
 
 nav {
     background-color: #1f1f23;
-    height: 100vw;
+    height: 100vh;
+}
+
+.pourVous {
+    display: flex;
+    margin-top: 50px;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.pourVous {
+    padding-right: 12px;
+}
+
+.stories {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-left: 5px;
+    color: #bf94ff;
+    font-size: 0.8rem;
+}
+
+.stories:hover {
+    background-color: #28282e;
+}
+
+.chainesSuivies {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding-left: 10px;
+    font-size: 0.8rem;
+}
+
+.chainesSuivies img {
+    padding-right: 15px;
+}
+
+.chainesSuivies:hover {
+    background-color: #28282e;
+}
+
+#titreFolows {
+    font-weight: bold;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+
+#sortSpectat {
+    color: rgb(153, 153, 153);
+}
+
+.linkStreamer {
+    display: flex;
+    height: 42px;
+    align-items: center;
+    font-size: 0.9rem;
+    justify-content: space-between;
+}
+
+.linkStreamer:hover {
+    background-color: #28282e;
+}
+
+.group_info {
+    display: flex;
+}
+
+#logo_nav {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.groupText {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.userName_streamer {
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+.stream_category {
+    color: rgb(153, 153, 153);
+    font-size: 0.8rem;
+}
+
+.enLigne {
+    display: flex;
+    padding-bottom: 15px;
+    padding-right: 7px;
+    color: rgb(235, 235, 235);
+    font-size: 0.8rem;
+}
+
+.enLigne img {
+    width: 15px;
+    margin: 0;
+}
+
+.ecran img{
+    width: 100%;
+    margin-top: 50px;
+    border-bottom: 0.1px solid rgb(54, 54, 54);
+}
+
+.info_live_streamer {
+    display: flex;
+    height: 80px;
+    padding: 5px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.info_left {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+#logo_streamer_live img{
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-top: 10px;
+    height: 60px;
+}
+
+#user_live {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+#titre_live {
+    margin-bottom: 10px;
+}
+
+#category_live {
+    color:#bf94ff;
+}
+
+.live_group_info {
+    margin-right: 20px;
+}
+
+.group_buttons button {
+    border-radius: 5px;
+    border-style: none;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.bouton_info{
+    background-color: #2f2f35;
+    padding: 5px;
+}
+
+.bouton_abo {
+    background-color: #9147ff;
+    padding: 7px 10px 7px 10px;
+    width: 150px;
+    color: white;
+}
+
+.bouton_abo:hover {
+    background-color: #6e2fce;
+}
+
+.info_right {
+    display: flex;
+    justify-content: space-around;
 }
 
 section {
     background-color: #18181b;
     border-left: 0.1px solid rgb(54, 54, 54);
+    height: 100vh;
 }
 
