@@ -370,6 +370,31 @@ section {
     width: 290px;
 }
 
+.bouttons_chat {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
+
+.bouttons_chat img {
+    margin-left: 10px;
+}
+
+.bouttons_chat button {
+    color: white;
+    background-color: #9147ff;
+    font-weight: bold;
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    border-style: none;
+}
+
+.bouttons_chat button:hover {
+    background-color: #6e2fce;
+}
 
 
 @media (max-width: 1200px) {
