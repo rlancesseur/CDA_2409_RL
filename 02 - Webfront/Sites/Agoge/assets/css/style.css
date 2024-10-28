@@ -31,6 +31,7 @@ body {
 header {
     background-image: url("/assets/img/Group3.png");
     background-size: cover;
+    background-position: center;
     height: 806px;
     width: 100%;
     color: white;
@@ -54,6 +55,7 @@ header ul {
     justify-content: center;
     font-size: 30px;
     list-style: none;
+    font-family: "KarantinaBold";
 }
 
 header li {
@@ -96,13 +98,13 @@ header li a:hover {
     border-radius: 50%;
 }
 
-.pageUne {
+#pageUne {
     display: grid;
     grid-template-columns: 1fr 607px;
     width: 100%;
 }
 
-.pageUne section {
+#pageUne section {
     background-color: #26C1DC;
     color: white;
     padding: 80px;
@@ -110,26 +112,27 @@ header li a:hover {
     flex-direction: column;
 }
 
-.pageUne h2 {
+#pageUne h2 {
     text-align: end;
     margin-bottom: 50px;
     font-size: 40px;
 }
 
-.pageUne p {
+#pageUne p {
     text-align: end;
     font-family: "Roboto";
     font-size: 15px;
     margin-bottom: 50px;
+    overflow: hidden;
 }
 
-.pageUne h3 {
+#pageUne h3 {
     text-align: center;
     font-size: 30px;
     margin-top: 50px;
 }
 
-#fleche2  {
+#fleche2 {
     text-align: center;
     margin-top: 50px;
 }
@@ -159,29 +162,152 @@ header li a:hover {
     background-color: #26C1DC;
 }
 
-.galerie img {
+.galerie div { 
+    height: 695px;
     width: 100%;
-    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-.galerie img:hover {
-    opacity: 19%;
+.contenertext {
+    display: none;
 }
 
-.carte {
-    background-color: #D9D9D9;
+.texteimg {
+    color: white;
     display: flex;
-    justify-content: space-between;
-    padding-top: 100px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.texteimg h3 {
+    font-size: 39px;
+    padding: 30px;
+}
+
+.texteimg p {
+    font-size: 20px;
+    padding: 30px;
+}
+
+#fondImg:hover {
+    opacity: 19%;
+    
+    .contenertext {
+        display: unset;
+    }
+}
+
+.imgMuscu {
+    background-image: url("/assets/img/un.png");
+}
+
+.imgTraining {
+    background-image: url("/assets/img/deux.png");
+}
+
+.imgNatation {
+    background-image: url("/assets/img/trois.png");
+}
+
+.imgBoxe {
+    background-image: url("/assets/img/quatre.png");
+}
+
+.imgFruits {
+    background-image: url("/assets/img/cinq.png");
+}
+
+.imgYoga {
+    background-image: url("/assets/img/six.png");
+}
+
+.imgCardio {
+    background-image: url("/assets/img/sept.png");
+}
+
+.imgSauna {
+    background-image: url("/assets/img/huit.png");
+}
+
+.texteMuscu {
+    padding: 20px;
+}
+
+#carte {
+    background-color: #D9D9D9;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
     padding-bottom: 100px;
 }
+
 
 .villes {
     font-size: 26px;
     font-family: "KarantinaBold";
     padding-left: 200px;
     padding-right: 100px;
-    padding-top: 100px;
+    padding-top: 50px;
+}
+
+.contenaireFondCarte {    
+    padding: 30px;
+}
+
+.fondCarte {
+    background-image: url("/assets/img/Carte_France.png");
+    background-repeat: no-repeat;
+    width: 762px;
+    height: 773px;
+}
+
+#iconLille {
+    position: absolute;
+    padding-left: 400px;
+}
+
+#iconParis {
+    position: absolute;
+    padding-left: 400px;
+    padding-top: 160px;
+}
+
+#iconRennes {
+    position: absolute;
+    padding-left: 140px;
+    padding-top: 150px;
+}
+
+#iconStrasbourg {
+    position: absolute;
+    padding-left:640px;
+    padding-top: 190px;
+}
+
+#iconNantes {
+    position: absolute;
+    padding-left: 160px;
+    padding-top: 240px;
+}
+
+#iconLyon {
+    position: absolute;
+    padding-left: 510px;
+    padding-top: 410px;
+}
+
+#iconMarseille {
+    position: absolute;
+    padding-left: 550px;
+    padding-top: 630px;
+}
+
+#iconBordeaux {
+    position: absolute;
+    padding-left: 180px;
+    padding-top: 430px;
 }
 
 .villes p {
@@ -190,11 +316,6 @@ header li a:hover {
 
 .villes ul {
     padding-left: 50px;
-}
-
-.carte img {
-    padding: 50px;
-    width: 100%;
 }
 
 #contact {
@@ -227,6 +348,7 @@ form {
 form label {
     margin-bottom: 10px;
     margin-top: 10px;
+    font-size: 22px;
 }
 
 
@@ -266,9 +388,13 @@ form input, textarea {
     margin-bottom: 20px;
 }
 
-.liens ul {
+.liens li {
     list-style: none;
-    font-size: 20px;
+    font-size: 28px;
+}
+
+.liens li:hover {
+    filter:contrast(5%)
 }
 
 .reseaux {
@@ -285,5 +411,67 @@ form input, textarea {
 }
 
 .reseaux img:hover {
-    back
+    filter:contrast(5%)
+}
+
+@media (max-width: 1400px) {
+    #pageUne {
+        grid-template-columns: 1fr;
+    }
+
+    #pageUne h2 {
+        text-align: center;
+    }
+
+    #pageUne p {
+        text-align: center;
+    }
+
+    #imgCouple {
+        width: 100%;
+    }
+
+    #carte {
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr;
+    }
+
+    .fondCarte {
+        margin: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .galerie {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    .villes {
+        padding-left: 100px;
+    }
+
+    .contenaireFondCarte {
+        display: none;
+    }
+
+    .formulaire {
+        margin-right: auto;
+        margin-left: auto;
+        width: 60%;
+        padding: 10px;
+    }
+
+    .formulaire p {
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    #contact {
+        height: 1000px;
+    }
+
+    #titre p {
+        display: none;
+    }
 }

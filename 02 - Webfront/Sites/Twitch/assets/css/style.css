@@ -3,12 +3,13 @@
     padding: 0;
 }
 
+
 body {
     display: grid;
-    grid-template-columns: 240px 1fr 323px;
+    grid-template-columns: 240px 1fr 340px;
     background-color: #0e0e10;
     color: white;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -40,7 +41,7 @@ header {
 #header-milieu {
     display: flex;
     align-items: center;
-    padding-left: 40px;
+    padding-left: 20px;
 }
 
 #boutonRecherche input {
@@ -48,7 +49,7 @@ header {
     height: 35px;
     border-radius: 5px 0px 0px 5px;
     background-color: #18181b;
-    padding-left: 5px;
+    padding-left: 8px;
     border: 1px solid rgb(117, 117, 117);
     font-weight: bolder;
 }
@@ -70,6 +71,7 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 500px;
+    padding-right: 5px;
 }
 
 #header-droite button {
@@ -101,6 +103,9 @@ header {
 nav {
     background-color: #1f1f23;
     height: 100vh;
+    overflow: auto;
+    scrollbar-color: #7e7e7e transparent;
+    scrollbar-width: thin;
 }
 
 .pourVous {
@@ -160,10 +165,32 @@ nav {
 
 .linkStreamer {
     display: flex;
-    height: 42px;
-    align-items: center;
-    font-size: 0.9rem;
     justify-content: space-between;
+    align-items: center;
+    height: 42px;
+    font-size: 0.9rem;
+}
+
+.linkStreamer-horsLigne {
+    filter: grayscale(100%) contrast(85%);
+    opacity: .8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 42px;
+    font-size: 0.9rem;
+
+    .groupText {
+        align-content: center;
+    }
+    
+    .horsLigne {
+        margin-right: 7px;
+    }
+}
+
+.linkStreamer-horsLigne:hover {
+    background-color: #28282e;
 }
 
 .linkStreamer:hover {
@@ -182,11 +209,6 @@ nav {
     margin-right: 10px;
 }
 
-.groupText {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
 
 .userName_streamer {
     margin-bottom: 2px;
@@ -208,7 +230,12 @@ nav {
 
 .enLigne img {
     width: 15px;
+    height: 15px;
     margin: 0;
+}
+
+main {
+    height : 100vh;
 }
 
 .ecran img{
@@ -220,7 +247,7 @@ nav {
 .info_live_streamer {
     display: flex;
     height: 80px;
-    padding: 5px;
+    padding: 10px;
     justify-content: space-between;
     margin-bottom: 50px;
 }
@@ -240,31 +267,40 @@ nav {
 
 #user_live {
     font-size: 1.1rem;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
 #titre_live {
-    margin-bottom: 10px;
+    margin-bottom: 7px;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 #category_live {
     color:#bf94ff;
+    font-size: 0.9rem;
 }
 
 .live_group_info {
     margin-right: 20px;
 }
 
+.group_buttons {
+    display: flex;
+    height: 30px;
+    margin-bottom: 8px;
+}
+
 .group_buttons button {
     border-radius: 5px;
-    border-style: none;
-    margin-bottom: 10px;
+    border-style: none; 
     margin-left: 10px;
 }
 
 .bouton_info{
     background-color: #2f2f35;
-    padding: 5px;
+    padding: 5px 10px 7px 10px;
 }
 
 .bouton_abo {
@@ -272,6 +308,10 @@ nav {
     padding: 7px 10px 7px 10px;
     width: 150px;
     color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .bouton_abo:hover {
@@ -280,12 +320,119 @@ nav {
 
 .info_right {
     display: flex;
-    justify-content: space-around;
+    justify-content:flex-end;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+#nb_viewer {
+    color: #ff8280;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#partager_reseaux {
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 section {
     background-color: #18181b;
     border-left: 0.1px solid rgb(54, 54, 54);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
+}
+
+.titre_chat {
+    display: flex;
+    margin-top: 50px;
+    height: 49px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 0.8rem;
+    border-bottom: 0.1px solid rgb(54, 54, 54);
+}
+
+.zone_envoie {
+    padding: 15px;
+}
+
+#input_message {
+    background-color: #18181b;
+    border-radius: 5px;
+    border-style: none;
+    border: 0.2px solid rgb(54, 54, 54);
+    padding: 10px;
+    width: 290px;
+}
+
+.bouttons_chat {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
+
+.bouttons_chat img {
+    margin-left: 10px;
+}
+
+.bouttons_chat button {
+    color: white;
+    background-color: #9147ff;
+    font-weight: bold;
+    padding: 7px 10px 7px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    border-style: none;
+}
+
+.bouttons_chat button:hover {
+    background-color: #6e2fce;
+}
+
+
+@media (max-width: 1200px) {
+    #header-droite {
+        justify-content: end;
+    }
+
+    #header-droite button {
+        display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    body {
+        grid-template-columns: 240px 1fr;
+    }
+
+    section {
+        display: none;
+    }
+
+    #header-milieu {
+        display: none;
+    }
+
+}
+
+@media (max-width: 900px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    #titre_live {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
 }
 
