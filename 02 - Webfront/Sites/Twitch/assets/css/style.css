@@ -3,7 +3,6 @@
     padding: 0;
 }
 
-
 body {
     display: grid;
     grid-template-columns: 240px 1fr 340px;
@@ -31,21 +30,19 @@ header {
     width: 280px;
     font-weight: bold;
     font-size: 1.1rem;
+    &:hover {
+        color: #bf94ff;
+        cursor: pointer;
+    }
 }
 
-#header-gauche p:hover {
-    color: #bf94ff;
-    cursor: pointer;
-}
-
-#header-gauche img {
+#logo_twitch {
     height: 100%;
-}
-
-#header-gauche img:hover {
-    background-color: #2f2f35;
-    border-radius: 5px;
-    cursor: pointer;
+    transition: transform 400ms;
+    &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
 }
 
 #header-milieu {
@@ -54,7 +51,7 @@ header {
     padding-left: 20px;
 }
 
-#boutonRecherche input {
+#rechercher {
     width: 350px;
     height: 35px;
     border-radius: 5px 0px 0px 5px;
@@ -62,6 +59,13 @@ header {
     padding-left: 8px;
     border: 1px solid rgb(117, 117, 117);
     font-weight: bolder;
+    outline: none;
+    &:hover {
+        border: 2px solid rgb(117, 117, 117);
+    }
+    &:focus {
+        border: 4px solid #bf94ff;
+    }
 }
 
 #header-milieu button {
@@ -84,11 +88,6 @@ header {
     padding-right: 5px;
 }
 
-#header-droite img,button:hover {
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 #header-droite button {
     background-color: #2f2f35;
     padding: 6px;
@@ -99,14 +98,17 @@ header {
     align-items: center;
     justify-content: space-between;
     border-style: none;
+    &:hover {
+        background-color: #39393f;
+    }
 }
 
-#header-droite button:hover {
-    background-color: #39393f;
-}
-
-#header-droite button  img{
+#header-droite button img{
     margin-right: 4px;
+}
+
+#header-droite img,button:hover {
+    cursor: pointer;
 }
 
 #bloc-logo {
@@ -114,10 +116,9 @@ header {
     justify-content: space-between;
     padding: 15px;
     width: 150px;
-}
-
-#bloc-logo img {
-    margin-left: 15px;
+    img {
+        margin-left: 15px;
+    }
 }
 
 nav {
@@ -151,11 +152,10 @@ nav {
     padding-left: 5px;
     color: #bf94ff;
     font-size: 0.8rem;
-}
-
-.stories:hover {
-    background-color: #28282e;
-    cursor: pointer;
+    &:hover {
+        background-color: #28282e;
+        cursor: pointer;
+    }
 }
 
 .chainesSuivies {
@@ -165,14 +165,13 @@ nav {
     height: 60px;
     padding-left: 10px;
     font-size: 0.8rem;
-}
-
-.chainesSuivies img {
-    padding-right: 15px;
-}
-
-.chainesSuivies:hover {
-    background-color: #28282e;
+    &:hover {
+        background-color: #28282e;
+        cursor: pointer;
+    }
+    img {
+        padding-right: 15px;
+    }
 }
 
 #titreFolows {
@@ -191,6 +190,10 @@ nav {
     align-items: center;
     height: 42px;
     font-size: 0.9rem;
+    &:hover {
+        background-color: #28282e;
+        cursor: pointer;
+    }
 }
 
 .linkStreamer-horsLigne {
@@ -201,6 +204,10 @@ nav {
     align-items: center;
     height: 42px;
     font-size: 0.9rem;
+    &:hover {
+        background-color: #28282e;
+        cursor: pointer;
+    }
 
     .groupText {
         align-content: center;
@@ -209,15 +216,6 @@ nav {
     .horsLigne {
         margin-right: 7px;
     }
-}
-
-.linkStreamer-horsLigne:hover {
-    background-color: #28282e;
-}
-
-.linkStreamer:hover {
-    background-color: #28282e;
-    cursor: pointer;
 }
 
 .group_info {
@@ -249,16 +247,15 @@ nav {
     padding-right: 7px;
     color: rgb(235, 235, 235);
     font-size: 0.8rem;
-}
-
-.enLigne img {
-    width: 15px;
-    height: 15px;
-    margin: 0;
+    img {
+        width: 15px;
+        height: 15px;
+        margin: 0;
+    }
 }
 
 main {
-    height : 100vh;
+    height: 100vh;
 }
 
 .ecran img{
@@ -304,11 +301,9 @@ main {
     color:#bf94ff;
     font-size: 0.9rem;
     text-decoration: none;
-}
-
-#category_live:hover {
-    color:#bf94ff;
-    text-decoration: underline;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .live_group_info {
@@ -319,15 +314,14 @@ main {
     display: flex;
     height: 30px;
     margin-bottom: 8px;
+    button {
+        border-radius: 5px;
+        border-style: none; 
+        margin-left: 10px;
+    }
 }
 
-.group_buttons button {
-    border-radius: 5px;
-    border-style: none; 
-    margin-left: 10px;
-}
-
-.bouton_info{
+.bouton_info {
     background-color: #2f2f35;
     padding: 5px 10px 7px 10px;
 }
@@ -342,10 +336,9 @@ main {
     justify-content: space-around;
     align-items: center;
     cursor: pointer;
-}
-
-.bouton_abo:hover {
-    background-color: #6e2fce;
+    &:hover {
+        background-color: #6e2fce;
+    }
 }
 
 .info_right {
@@ -414,16 +407,14 @@ section {
     align-items: center;
     padding-right: 15px;
     padding-bottom: 10px;
-}
-
-.bouttons_chat img {
-    margin-left: 10px;
-}
-
-.bouttons_chat img:hover {
-    background-color: #28282e;
-    cursor: pointer;
-    border-radius: 5px;
+    img {
+        margin-left: 10px;
+        &:hover {
+            background-color: #28282e;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    }
 }
 
 .bouttons_chat input {
@@ -434,21 +425,18 @@ section {
     border-radius: 5px;
     margin-left: 10px;
     border-style: none;
+    &:hover {
+        background-color: #6e2fce;
+        cursor: pointer;
+    }
 }
-
-.bouttons_chat input:hover {
-    background-color: #6e2fce;
-    cursor: pointer;
-}
-
 
 @media (max-width: 1200px) {
     #header-droite {
         justify-content: end;
-    }
-
-    #header-droite button {
-        display: none;
+        button {
+            display: none;
+        }
     }
 }
 
@@ -464,7 +452,6 @@ section {
     #header-milieu {
         display: none;
     }
-
 }
 
 @media (max-width: 900px) {
@@ -472,6 +459,10 @@ section {
         grid-template-columns: 1fr;
     }
 
+    main {
+        height: auto;
+    }
+    
     #header-gauche img, p{
         margin-right: 15px;
     }
@@ -482,6 +473,23 @@ section {
 
     nav {
         display: none;
+    }
+
+    section {
+        margin-top: 0;
+        display: flex;
+    }
+
+    .titre_chat {
+        margin-top: 0;
+    }
+
+    .zone_envoie {
+        display: flex;
+    }
+
+    #input_message {
+        width: 100%;
     }
 }
 
