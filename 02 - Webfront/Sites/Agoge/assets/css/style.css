@@ -96,6 +96,10 @@ header li a:hover {
     grid-row: 20%;
     background-color: #26C1DC;
     border-radius: 50%;
+    transition: transform 400ms;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 #pageUne {
@@ -135,6 +139,12 @@ header li a:hover {
 #fleche2 {
     text-align: center;
     margin-top: 50px;
+    img {
+        transition: transform 400ms;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 }
 
 .programme {
@@ -264,7 +274,7 @@ header li a:hover {
     }
 }
 
-#iconLille {
+#iconLilles {
     left: 490px;
     top: 40px;
 }
