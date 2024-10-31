@@ -96,6 +96,10 @@ header li a:hover {
     grid-row: 20%;
     background-color: #26C1DC;
     border-radius: 50%;
+    transition: transform 400ms;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 #pageUne {
@@ -135,6 +139,12 @@ header li a:hover {
 #fleche2 {
     text-align: center;
     margin-top: 50px;
+    img {
+        transition: transform 400ms;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 }
 
 .programme {
@@ -237,77 +247,71 @@ header li a:hover {
 
 #carte {
     background-color: #D9D9D9;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     padding-top: 80px;
     padding-bottom: 100px;
 }
 
-
 .villes {
     font-size: 26px;
     font-family: "KarantinaBold";
-    padding-left: 200px;
-    padding-right: 100px;
+    padding-left: 10%;
+    padding-right: 5%;
     padding-top: 50px;
 }
 
-.contenaireFondCarte {    
+.contenaireCarte {    
     padding: 30px;
+    position: relative;
 }
 
-.fondCarte {
-    background-image: url("/assets/img/Carte_France.png");
-    background-repeat: no-repeat;
-    width: 762px;
-    height: 773px;
-}
-
-#iconLille {
+.iconeCarte img {
     position: absolute;
-    padding-left: 400px;
+    align-content: center;
+    transition: transform 100ms;
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+#iconLilles {
+    left: 490px;
+    top: 40px;
 }
 
 #iconParis {
-    position: absolute;
-    padding-left: 400px;
-    padding-top: 160px;
+    left: 430px;
+    top: 150px;
 }
 
 #iconRennes {
-    position: absolute;
-    padding-left: 140px;
-    padding-top: 150px;
+    left: 180px;
+    top: 180px;
 }
 
 #iconStrasbourg {
-    position: absolute;
-    padding-left:640px;
-    padding-top: 190px;
+    left:730px;
+    top: 210px;
 }
 
 #iconNantes {
-    position: absolute;
-    padding-left: 160px;
-    padding-top: 240px;
+    left: 200px;
+    top: 270px;
 }
 
 #iconLyon {
-    position: absolute;
-    padding-left: 510px;
-    padding-top: 410px;
+    left: 550px;
+    top: 450px;
 }
 
 #iconMarseille {
-    position: absolute;
-    padding-left: 550px;
-    padding-top: 630px;
+    left: 570px;
+    top: 650px;
 }
 
 #iconBordeaux {
-    position: absolute;
-    padding-left: 180px;
-    padding-top: 430px;
+    left: 200px;
+    top: 460px;
 }
 
 .villes p {
@@ -432,27 +436,15 @@ form input, textarea {
     }
 
     #carte {
-        grid-template-columns: 1fr;
-        grid-template-rows: 2fr;
-    }
-
-    .fondCarte {
-        margin: auto;
-    }
-}
-
-@media (max-width: 900px) {
-    .galerie {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
+        flex-wrap: wrap;
     }
 
     .villes {
-        padding-left: 100px;
+        width: 100%;
     }
 
-    .contenaireFondCarte {
-        display: none;
+    .contenaireCarte {
+        margin: auto;
     }
 
     .formulaire {
@@ -461,6 +453,15 @@ form input, textarea {
         width: 60%;
         padding: 10px;
     }
+    
+}
+
+@media (max-width: 900px) {
+    .galerie {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
 
     .formulaire p {
         text-align: center;
@@ -473,5 +474,17 @@ form input, textarea {
 
     #titre p {
         display: none;
+    }
+
+    #imgCarteFrance {
+        width: 100%;
+    }
+
+    .iconeCarte {
+        display: none;
+    }
+
+    form {
+        height: 500px;
     }
 }
