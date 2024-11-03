@@ -169,7 +169,6 @@ header li a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    background-color: #26C1DC;
 }
 
 .galerie div { 
@@ -178,17 +177,19 @@ header li a:hover {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
-
-.contenertext {
-    display: none;
+    &:hover {
+        background-color: #26c1dc79;
+    }
 }
 
 .texteimg {
-    color: white;
+    color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    &:hover {
+        color: white;
+    }
 }
 
 .texteimg h3 {
@@ -199,14 +200,6 @@ header li a:hover {
 .texteimg p {
     font-size: 20px;
     padding: 30px;
-}
-
-#fondImg:hover {
-    opacity: 19%;
-    
-    .contenertext {
-        display: unset;
-    }
 }
 
 .imgMuscu {
@@ -325,6 +318,7 @@ header li a:hover {
 #contact {
     background-image: url("/assets/img/image.png");
     background-size: cover;
+    background-position: center;
     height: 1286px;
 }
 
@@ -432,7 +426,7 @@ form input, textarea {
     }
 
     #imgCouple {
-        width: 100%;
+        display: none;
     }
 
     #carte {
@@ -458,8 +452,7 @@ form input, textarea {
 
 @media (max-width: 900px) {
     .galerie {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 2fr;
     }
 
 
@@ -486,5 +479,14 @@ form input, textarea {
 
     form {
         height: 500px;
+    }
+
+    #informations {
+        flex-direction: column;
+        align-items: center;
+        div {
+            text-align: center;
+            margin: 0;
+        }
     }
 }
