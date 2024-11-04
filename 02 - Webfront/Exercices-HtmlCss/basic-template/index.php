@@ -1,3 +1,9 @@
+<?php 
+session_start();
+echo $_SESSION['name'];
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -5,7 +11,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Basic Template</title>
-        <link rel="stylesheet" href="/basic-template/css/style.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
@@ -16,7 +22,7 @@
         <nav>
             <h2>Menu</h2>
             <ul>
-                <li><a href="">Accueil</a></li>
+                <li><a href="/pages/accueil.php">Accueil</a></li>
                 <li><a href="">Articles</a></li>
                 <li><a href="">Tutoriaux</a></li>
                 <li><a href="">A propos</a></li>
