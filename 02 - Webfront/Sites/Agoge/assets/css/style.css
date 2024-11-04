@@ -66,6 +66,9 @@ header li a:hover {
     color: #26C1DC;
 }
 
+.label-hamburger, #hamburger {
+    display: none;
+}
 
 #titre {
     grid-row: 60%;
@@ -84,6 +87,7 @@ header li a:hover {
     font-size: 290px;
     color: #26C1DC;
     padding: 50px;
+    letter-spacing: 5px;
 }
 
 #fleche {
@@ -120,6 +124,7 @@ header li a:hover {
     text-align: end;
     margin-bottom: 50px;
     font-size: 40px;
+    letter-spacing: 2px;
 }
 
 #pageUne p {
@@ -134,6 +139,7 @@ header li a:hover {
     text-align: center;
     font-size: 30px;
     margin-top: 50px;
+    letter-spacing: 2px;
 }
 
 #fleche2 {
@@ -182,11 +188,12 @@ header li a:hover {
     }
 }
 
-.texteimg {
+.texteimg { 
     color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    letter-spacing: 2px;
     &:hover {
         color: white;
     }
@@ -241,7 +248,7 @@ header li a:hover {
 #carte {
     background-color: #D9D9D9;
     display: flex;
-    padding-top: 80px;
+    padding-top: 60px;
     padding-bottom: 100px;
 }
 
@@ -318,8 +325,12 @@ header li a:hover {
 #contact {
     background-image: url("/assets/img/image.png");
     background-size: cover;
-    background-position: center;
+    background-position-x: right;
     height: 1286px;
+}
+
+.couleur {
+    background-color: #26c1dc41;
 }
 
 .formulaire {
@@ -446,19 +457,21 @@ form input, textarea {
         margin-left: auto;
         width: 60%;
         padding: 10px;
+        p {
+            padding-top: 100px;
+            text-align: center;
+        }
     }
     
 }
 
 @media (max-width: 900px) {
     .galerie {
-        grid-template-columns: 2fr;
+        grid-template-columns: 1fr 1fr;
     }
 
-
-    .formulaire p {
-        text-align: center;
-        padding-top: 30px;
+    .formulaire {
+        width: 80%;
     }
 
     #contact {
@@ -480,13 +493,53 @@ form input, textarea {
     form {
         height: 500px;
     }
+}
+
+@media (max-width: 600px) {
+    .label-hamburger { 
+        display: block; 
+        font-style: bold;
+        font-size: 1.9em;
+        text-align: end;
+    }
+    
+    .label-hamburger:hover { 
+        color: #26C1DC;
+        cursor: pointer;
+    }
+    
+    nav ul li { 
+        display: none;
+    }
+    
+    #hamburger:checked ~ ul li {
+        display: block;
+        text-align: center;
+        font-size: 0.8em;
+    }
+
+    .programme {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .galerie {
+        grid-template-columns: 2fr;
+    }
 
     #informations {
         flex-direction: column;
         align-items: center;
-        div {
-            text-align: center;
+        padding-bottom: 50px;
+        padding-top: 100px;
+
+        .liens {
             margin: 0;
+        }
+
+        .reseaux {
+            margin-top: 50px;
+            margin-left: 0;
         }
     }
 }
