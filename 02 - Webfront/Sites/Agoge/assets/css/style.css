@@ -33,7 +33,7 @@ header {
     background-size: cover;
     background-position: center;
     height: 806px;
-    width: 100%;
+    width: 100%; 
     color: white;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -71,10 +71,10 @@ header li a:hover {
 }
 
 #titre {
-    grid-row: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #titre p {
@@ -88,6 +88,12 @@ header li a:hover {
     color: #26C1DC;
     padding: 50px;
     letter-spacing: 5px;
+    text-shadow: -5px -5px 0px #ffffff,
+                  5px -5px 0px #ffffff,
+                  5px -5px 0px #ffffff,
+                  -5px 5px 0px #ffffff,
+                  5px  5px 0px #ffffff,
+                  1px  1px 0px #ffffff;
 }
 
 #fleche {
@@ -369,6 +375,7 @@ form button {
     border-radius: 5px;
     border-style: none;
     padding: 10px;
+    cursor: pointer;
 }
 
 form input, textarea {
@@ -417,6 +424,7 @@ form input, textarea {
 
 .reseaux img {
     margin-right: 25px;
+    cursor: pointer;
 }
 
 .reseaux img:hover {
@@ -466,6 +474,17 @@ form input, textarea {
 }
 
 @media (max-width: 900px) {
+    #titre {
+        flex-direction: column;
+        text-align: center;
+        p {
+            width: 500px;
+        }
+        h1 {
+            padding-top: 0;
+        }
+    }
+
     .galerie {
         grid-template-columns: 1fr 1fr;
     }
@@ -476,10 +495,6 @@ form input, textarea {
 
     #contact {
         height: 1000px;
-    }
-
-    #titre p {
-        display: none;
     }
 
     #imgCarteFrance {
@@ -496,6 +511,14 @@ form input, textarea {
 }
 
 @media (max-width: 600px) {
+    header {
+        width: 100%;
+    }
+
+    #titre p {
+        font-size: 70px;
+    }
+
     .label-hamburger { 
         display: block; 
         font-style: bold;
@@ -515,7 +538,7 @@ form input, textarea {
     #hamburger:checked ~ ul li {
         display: block;
         text-align: center;
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
 
     .programme {

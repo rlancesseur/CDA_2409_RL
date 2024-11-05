@@ -20,6 +20,8 @@ echo $_SESSION['name'];
         </header>
 
         <nav>
+            <label for="hamburger" class="label-hamburger">&#9776;</label>
+            <input type="checkbox" id="hamburger">
             <h2>Menu</h2>
             <ul>
                 <li><a href="/pages/accueil.php">Accueil</a></li>
