@@ -79,22 +79,18 @@ li
 {
     margin-top: 10px;
     list-style: none;
-}
+    &:hover {
+        font-weight: bold;
+    }
 
-li:hover
-{
-    font-size: larger;
-}
-
-li a
-{
+    a {
     color: var(--nav-a);
     text-decoration: none;
+    }
 }
 
 main
-{
-    
+{  
     display: grid;
     grid-template-columns: 1fr 240px;
 }
@@ -138,6 +134,10 @@ aside
 aside img
 {
     width: 100%;
+    transition: transform 400ms;
+    &:hover {
+        box-shadow: 10px 10px 5px var(--nav-h2);
+    }
 }
 
 aside h3
@@ -165,8 +165,23 @@ aside button
     font-weight: bold;
     margin-top: 10x;
     margin-bottom: 10px;
+    &:hover {
+        color: var(--text-color);
+        cursor: pointer;
+    }
 }
 
+.label-hamburger, #hamburger {
+    display: none;
+}
+
+
+@media (max-width: 1200px) {
+    section {
+        width: 70%;
+        margin: 20px;
+    }
+}
 
 @media (max-width: 900px) {
     nav {
@@ -176,7 +191,7 @@ aside button
     article h2 {
         text-align: center;
     }
-    section{
+    section {
         margin: 40px;
         width: 50%;
     }
@@ -188,13 +203,14 @@ aside button
 @media (max-width: 600px) {
     article {
         grid-column: span 2;
+        margin-top: 10px;
     }
     article h2 {
         text-align: center;
     }
-    section{
+    section {
         margin-top: 40px;
-        width: 50%;
+        width: 80%;
     }
     aside {
         margin-top: 10px;
@@ -202,11 +218,25 @@ aside button
         text-align: center;
     }
 
-    aside img
-    {
+    aside img {
         margin: 10px;
-        width: 240px;
-        display: inline;
+        width: 340px;
     }
 
+    nav h2, ul, li {
+        display: none;
+    }
+
+    .label-hamburger {
+        display: block;
+        font-style: bold;
+        font-size: 1.9em;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    #hamburger:checked ~ ul, li {
+        display: block;
+    }
 }
