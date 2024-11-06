@@ -1,0 +1,16 @@
+html {
+    display: flex;
+    justify-content: center;
+    font-family: Verdana;
+}
+
+body {
+    width: 800px;
+    border: 1px solid blue;
+    padding: 5px;
+}
+
+input, button {
+    border: 1px solid blue;
+    color: blue
+}
