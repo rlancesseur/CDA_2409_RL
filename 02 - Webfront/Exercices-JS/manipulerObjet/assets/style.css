@@ -23,13 +23,40 @@ th, tr, td {
     padding: 5px;
 }
 
+p { 
+    color: rgb(48, 48, 48);
+    margin: 35px;
+}
+
 form {
+    display: flex;
     margin: 30px;
-    color: black;
+    color: rgb(48, 48, 48);
     input, button {
         background-color: var(--secondary-color);
         border-style: none;
         padding: 5px;
         margin: 7px;
     }
+    label {
+        margin-bottom: 20px;
+    }
+    button {
+        width: 50%;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+#contenaireLabel {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    padding-top: 8px;
+}
+
+#contenaireInput {
+    display: flex;
+    flex-direction: column;
 }

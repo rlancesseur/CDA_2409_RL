@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <h1>Profil de John Doe.</h1>
+    <h1>Profil de <span id="h1Prenom"></span> <span id="h1Nom"></span>.</h1>
 
     <table>
         <tr>
@@ -27,25 +27,28 @@
         </tr>
     </table>
 
-    <form>
-        <p>Modifier le profil</p>
+    <p>Modifier le profil</p>
 
+    <form>
+
+        <div id="contenaireLabel">
         <label for="inputPrenom">Prénom:</label>
-        <input type="text" id="inputPrenom">
-        <br />
         <label for="inputNom">Nom:</label>
-        <input type="text" id="inputNom">
-        <br />
         <label for="inputDate">Date de naissance:</label>
-        <input type="date" id="inputDate">
-        <br />
         <label for="inputSalaire">Salaire:</label>
+        </div>
+
+        <div id="contenaireInput">
+        <input type="text" id="inputPrenom">
+        <input type="text" id="inputNom">
+        <input type="date" id="inputDate">
         <input type="number" id="inputSalaire">
-        <br />
         <button id="btnEnregistrer">Enregistrer</button>
+        </div>
 
     </form>
 
+    <script src="assets/config.js"></script>
     <script src="assets/script.js"></script>
     
 </body>
