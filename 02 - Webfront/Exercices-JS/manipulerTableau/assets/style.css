@@ -1,0 +1,58 @@
+:root {
+    --light1: #accbe1;
+    --light2: #7b9cb4;
+    --light3: #637081;
+}
+
+body {
+    background-color: #536b78;
+    color: var(--light1);
+    border: 1px solid var(--light1);
+    width: 80%;
+    padding: 10px;
+    font-family: Verdana;
+}
+
+h1 {
+    margin: 0;
+}
+
+form {
+    border: 1px dashed var(--light2);
+    margin-top: 20px;
+    padding-left: 20px;
+    font-weight: bold;
+    input, button {
+        border-style: none;
+        border: 2px solid var(--light2);
+        background-color: var(--light3);
+        color: var(--light1);
+    }
+    button:hover {
+        cursor: pointer;
+    }
+}
+
+li {
+    font-weight: bold;
+    color: var(--light1);
+}
+
+table, th, td {
+    background-color: var(--light3);
+    border: 2px solid var(--light2);
+    border-collapse: collapse;
+    padding: 3px;
+}
+
+th {
+    text-align: center;
+}
+
+#supprUn, #supprDeux, #supprTrois {
+    text-align: center;
+    font-weight: bold;
+    &:hover {
+        cursor: pointer;
+    }
+}

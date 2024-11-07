@@ -10,7 +10,10 @@ function affichage() {
     let dateNaissance = new Date(document.querySelector("#date").value)
     let dateAujourdhui = new Date()
 
-    let dateFr = dateNaissance.getDate() + "/" + dateNaissance.getMonth() + "/" + dateNaissance.getFullYear()
+    let jour = dateNaissance.getDate()
+    let mois = dateNaissance.getMonth()
+
+    let dateFr = jour + "/" + mois + "/" + dateNaissance.getFullYear()
 
     let intervalle = dateAujourdhui.getFullYear() - dateNaissance.getFullYear()
 
@@ -20,51 +23,54 @@ function affichage() {
         zoneDateNaissance.innerText = "Vous êtes né le " + dateFr + " à " + date[1]
         zoneNbAnnee.innerText = "Il s'est écoulé " + intervalle + " années depuis votre naissance."
         
-        // if() {
-        //     signeAstro = "Capricorne"
-        // }
-        // else if() {
-        //     signeAstro = "Sagittaire"
-        // }
-        // else if() {
-        //     signeAstro = "Scorption"
-        // }
-        // else if() {
-        //     signeAstro = "Balance"
-        // }
-        // else if() {
-        //     signeAstro = "Vierge"
-        // }
-        // else if() {
-        //     signeAstro = "Lion"
-        // }
-        // else if() {
-        //     signeAstro = "Cancer"
-        // }
-        // else if() {
-        //     signeAstro = "Gémeaux"
-        // }
-        // else if() {
-        //     signeAstro = "Taureau"
-        // }
-        // else if() {
-        //     signeAstro = "Bélier"
-        // }
-        // else if() {
-        //     signeAstro = "Poissons"
-        // }
-        // else if() {
-        //     signeAstro = "Verseau"
-        // }
+        switch (dateNaissance) {
+            case jour >= 20 && mois === 1 || jour <= 18 && mois === 2:
+                signeAstro = "Verseau"
+                break;
+            case jour >= 19 && mois === 2 || jour <= 21 && mois === 3:
+                signeAstro = "Poissons"
+                break;
+            case jour >= 20 && mois === 3 || jour <= 19 && mois === 4:
+                signeAstro = "Bélier"
+                break
+            case jour >= 20 && mois === 4 || jour <= 20 && mois === 5:
+                signeAstro = "Taureau"
+                break
+            case jour >= 21 && mois === 5 || jour <= 20 && mois === 6:
+                signeAstro = "Gémeaux"
+                break
+            case jour >= 21 && mois === 6 || jour <= 22 && mois === 7:
+                signeAstro = "Cancer"
+                break
+            case jour >= 23 && mois === 7 || jour <= 22 && mois === 8:
+                signeAstro = "Lion"
+                break
+            case jour >= 23 && mois === 8 || jour <= 22 && mois === 9:
+                signeAstro = "Vierge"
+                break
+            case jour >= 23 && mois === 9 || jour <= 22 && mois === 10:
+                signeAstro = "Balance"
+                break
+            case jour >= 23 && mois === 10 || jour <= 21 && mois === 11:
+                signeAstro = "Scorpion"
+                break
+            case jour >= 22 && mois === 11 || jour <= 21 && mois === 12:
+                signeAstro = "Sagittaire"
+                break
+            case jour >= 22 && mois === 12 || jour <= 19 && mois === 1:
+                signeAstro = "Capricorne"
+                break
 
+            default:
+                signeAstro = "Erreur"
+        }
 
-        // zoneAstro.innerText = "Votre signe astrologique : " + signeAstro
+        zoneAstro.innerText = "Votre signe astrologique : " + signeAstro
     }
+    
     else {
         zoneDateNaissance.innerText = "Sélectionnez une date dans le passé."
     }
 }
 
 calculer.addEventListener("click", affichage); 
-
-
