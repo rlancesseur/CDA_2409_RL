@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipuler un tableau</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <h1>Liste des personnes inscrites</h1>
+
+    <form>
+        <p>Ajouter une personne</p>
+
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom">
+
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom">
+
+        <button id="btnAjouter">Ajouter</button>
+
+        <p id="zoneAffichage"></p>
+
+    </form>
+
+    <ul>
+        <li id="un"></li>
+        <li id="deux"></li>
+        <li id="trois"></li>
+    </ul>
+
+    <table>
+        <tr >
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Supprimer</th>
+        </tr>
+        <tr id="trUn">
+            <td id="tdNomUn"></td>
+            <td id="tdPrenomUn"></td>
+            <td id="tdEmailUn"></td>
+            <td id="supprUn">X</td>
+        </tr>
+        <tr id="trDeux">
+            <td id="tdNomDeux"></td>
+            <td id="tdPrenomDeux"></td>
+            <td id="tdEmailDeux"></td>
+            <td id="supprDeux">X</td>
+        </tr>
+        <tr id="trTrois">
+            <td id="tdNomTrois"></td>
+            <td id="tdPrenomTrois"></td>
+            <td id="tdEmailTrois"></td>
+            <td id="supprTrois">X</td>
+        </tr>
+    </table>
+
+    <script src="assets/script.js"></script>
+    
+</body>
+</html>
