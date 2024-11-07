@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipuler un objet</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <h1>Profil de John Doe.</h1>
+
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de naissance</th>
+            <th>Email</th>
+            <th>Salaire</th>
+        </tr>
+        <tr>
+            <td id="nom"></td>
+            <td id="prenom"></td>
+            <td id="date"></td>
+            <td id="email"></td>
+            <td id="salaire"></td>
+        </tr>
+    </table>
+
+    <form>
+        <p>Modifier le profil</p>
+
+        <label for="inputPrenom">Prénom:</label>
+        <input type="text" id="inputPrenom">
+        <br />
+        <label for="inputNom">Nom:</label>
+        <input type="text" id="inputNom">
+        <br />
+        <label for="inputDate">Date de naissance:</label>
+        <input type="date" id="inputDate">
+        <br />
+        <label for="inputSalaire">Salaire:</label>
+        <input type="number" id="inputSalaire">
+        <br />
+        <button id="btnEnregistrer">Enregistrer</button>
+
+    </form>
+
+    <script src="assets/script.js"></script>
+    
+</body>
+</html>
