@@ -8,7 +8,10 @@
 </head>
 <body>
 
-    <h1>Espace membres</h1>
+    <header>
+        <h1>Espace membres</h1>
+        <div id="zoneIncorrect"></div>
+    </header>
 
     <form>
         <span>Identification</span>
@@ -20,8 +23,25 @@
         <input type="password" id="password" name="password">
         <br>
         <button type="submit" id="btnConnexion">Connexion</button>
-
     </form>
+
+    <div id="zoneCorrect">
+        <span id="hello"></span>
+        <button id="btnDeconnexion">Deconnexion</button>
+
+        <table>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de naissance</th>
+                <th>Email</th>
+                <th>Salaire</th>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+        </table>
+    </div>
     
     <script src="assets/script.js"></script>
     

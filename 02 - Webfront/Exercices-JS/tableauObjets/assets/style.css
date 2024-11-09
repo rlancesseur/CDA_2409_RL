@@ -3,14 +3,52 @@
     --secondary-color: rgb(99, 1, 94);
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#zoneIncorrect {
+    display: none;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    background-color: rgb(221, 221, 221);
+    color: var(--secondary-color);
+    align-content: center;
+}
+
+#zoneCorrect {
+    display: none;
+    #hello {
+        color: var(--secondary-color);
+    }
+    #btnDeconnexion {
+        margin-top: 20px;
+        padding: 4px;
+        border: 2px solid var(--primary-color);
+        margin-left: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    table {
+        border-collapse: collapse;
+        margin: 30px 10px 50px 10px;
+        tr, th, td {
+            border: 2px solid var(--primary-color);
+        }
+    }
+}
+
 body {
-    border: 2px solid black;
+    border: 2px solid rgb(65, 65, 65);
     width: 80%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px
 }
 
 h1 {
-    margin: 10px;
+    margin: 0;
 }
 
 span {
@@ -19,9 +57,9 @@ span {
 
 form {
     border: 1px dashed var(--primary-color); 
-    margin: 10px;
     padding: 10px;
-    color: var(--secondary-color)
+    color: var(--secondary-color);
+    margin-top: 5px;
 }
 
 input {
@@ -38,7 +76,7 @@ input {
 button {
     margin-top: 20px;
     padding: 4px;
-    border: 1px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     margin-left: 10px;
     &:hover {
         cursor: pointer;
