@@ -20,24 +20,42 @@ let inputDate = document.querySelector("#inputDate")
 let inputSalaire = document.querySelector("#inputSalaire")
 let btnEnregistrer = document.querySelector("#btnEnregistrer")
 
+let dateUtilisateur = new Date(inputDate.value)
+let dateActu = new Date()
+
 inputPrenom.placeholder = myEmployee.firstname
 inputNom.placeholder = myEmployee.lastname
 inputDate.placeholder = myEmployee.birthday
 inputSalaire.placeholder = myEmployee.salary
 
-function maj() {
-    if(myEmployee.firstname.length >= 2 && myEmployee.lastname >= 2) {
+const form = document.querySelector('form')
+
+form.addEventListener("submit", (event) => {
+    // On empêche le comportement par défaut
+    event.preventDefault()
+    
+    if(inputPrenom.value.length >= 2) {
         myEmployee.firstname = inputPrenom.value
-        myEmployee.lastname = inputNom.value
+        zonePrenomH1.innerHTML = myEmployee.firstname
+        zonePrenom.innerHTML = myEmployee.firstname
+        zoneEmail.innerHTML = myEmployee.lastname.toLowerCase() + "." + myEmployee.firstname.toLowerCase() + "@" + "example.com"
     }
 
-    if(inputDate.value < Date.now) {
+    if (inputNom.value.length >= 2) {
+        myEmployee.lastname = inputNom.value
+        zoneNomH1.innerHTML = myEmployee.lastname
+        zoneNom.innerHTML = myEmployee.lastname
+        zoneEmail.innerHTML = myEmployee.lastname.toLowerCase() + "." + myEmployee.firstname.toLowerCase() + "@" + "example.com"
+    }
+
+    if(dateUtilisateur.getTime() < dateActu.getTime()) {
         myEmployee.birthday = inputDate.value
+        zoneDate.innerHTML = myEmployee.birthday
     }
 
     if(inputSalaire.value > myEmployee.salary) {
         myEmployee.salary = inputSalaire.value
+        zoneSalaire.innerHTML = myEmployee.salary + " €"
     }
-}
+})
 
-btnEnregistrer.addEventListener("click", maj)
