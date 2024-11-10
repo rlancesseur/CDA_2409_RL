@@ -1,0 +1,30 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+tr, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 5px 15px 5px 15px;
+}
+
+th {
+     background-color: #cecece;
+}
+
+
+tr:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+#zoneAffichage {
+    margin-top: 20px;
+}
