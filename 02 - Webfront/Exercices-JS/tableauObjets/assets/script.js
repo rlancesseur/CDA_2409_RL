@@ -1,7 +1,9 @@
 let form = document.querySelector("form")
 let btnConnexion = document.querySelector("#btnConnexion")
+let btnDeconnexion = document.querySelector("#btnDeconnexion")
 let zoneCorrect = document.querySelector("#zoneCorrect")
 let hello = document.querySelector("#hello")
+let table = document.querySelector("table")
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -11,23 +13,57 @@ form.addEventListener("submit", (event) => {
 
     fetch('assets/users.json')
     .then(response => response.json())
-    .then(data => {
-        for (let user of data) {
+    .then(users => {
+        let isoke = "false"
+        for (let user of users) {
             let login = user.firstname + "." + user.lastname
             if (login.toLowerCase() === username && user.password === password) {
-                form.style.display = "none"
-                zoneCorrect.style.display = "block"
-                hello.textContent = "Bonjour " + user.firstname + " " + user.lastname
-                return
+                isoke = "true"
             }
         }
+        if(isoke === "true") {
+            connecter(users, users)
+        }
+        else {
         zoneIncorrect.style.display = "block"
         zoneIncorrect.textContent = "Identifiant ou mot de passe incorrect"
         setTimeout(() => {
             zoneIncorrect.style.display = "none"
         }, 5000)
+    }
         
     })
+})
+
+function connecter(user, users) {
+    form.style.display = "none"
+    zoneCorrect.style.display = "block"
+    hello.textContent = "Bonjour " + user.firstname + " " + user.lastname
+        for (user of users) {
+            let trElement = document.createElement("tr")
+            let tdLastName = document.createElement("td")
+            let tdFirstName = document.createElement("td")
+            let tdBirthday = document.createElement("td")
+            let email = user.firstname + "." + user.lastname + "@example.com"
+            let tdEmail = document.createElement("td")
+            let tdSalary = document.createElement("td")
+            tdLastName.innerText = user.lastname
+            tdFirstName.innerText = user.firstname
+            tdBirthday.innerText = user.birthday
+            tdEmail.innerText = email.toLowerCase()
+            tdSalary.innerText = user.salary + " €"
+            trElement.appendChild(tdLastName)
+            trElement.appendChild(tdFirstName)
+            trElement.appendChild(tdBirthday)
+            trElement.appendChild(tdEmail)
+            trElement.appendChild(tdSalary)
+            table.appendChild(trElement)
+        }
+}
+
+btnDeconnexion.addEventListener("click", () => {
+    zoneCorrect.style.display = "none"
+    form.style.display = "block"
 })
 
 
