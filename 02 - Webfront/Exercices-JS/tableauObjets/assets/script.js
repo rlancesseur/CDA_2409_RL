@@ -19,6 +19,7 @@ form.addEventListener("submit", (event) => {
             let login = user.firstname + "." + user.lastname
             if (login.toLowerCase() === username && user.password === password) {
                 isoke = "true"
+                hello.textContent = "Bonjour " + user.firstname + " " + user.lastname
             }
         }
         if(isoke === "true") {
@@ -38,7 +39,6 @@ form.addEventListener("submit", (event) => {
 function connecter(user, users) {
     form.style.display = "none"
     zoneCorrect.style.display = "block"
-    hello.textContent = "Bonjour " + user.firstname + " " + user.lastname
         for (user of users) {
             let trElement = document.createElement("tr")
             let tdLastName = document.createElement("td")

@@ -10,7 +10,7 @@ header {
 
 #zoneIncorrect {
     display: none;
-    padding: 10px;
+    padding: 0 10px 0 10px;
     border: 1px solid var(--primary-color);
     background-color: rgb(221, 221, 221);
     color: var(--secondary-color);
