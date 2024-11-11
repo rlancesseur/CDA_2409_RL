@@ -49,12 +49,12 @@ const afficherTableau = () => {
             tbody.appendChild(tr)
         }
 
-        algo1(cartes, cartes)
-
+        algo1(cartes)
+        algo2(cartes, cartes)
     })
 }
 
-const algo1 = (carte, cartes) => {
+const algo1 = (cartes) => {
     let mostPlayed = 0
     let nameCard = ""
     let nbVictory = 0
@@ -66,11 +66,30 @@ const algo1 = (carte, cartes) => {
         }
     }
     const zoneAffichage = document.querySelector("#zoneAffichage")
-    zoneAffichage.innerText = "Le nom de la carte qui a joué le plus de partie est " + nameCard + " avec " + mostPlayed + " parties jouées, et " + nbVictory + " victoires."
+    const pAlgo1 = document.createElement("p")
+    pAlgo1.innerText = "La carte qui a joué le plus de partie est " + nameCard + " avec " + mostPlayed + " parties jouées, et " + nbVictory + " victoires."
+    zoneAffichage.appendChild(pAlgo1)
 }
 
-// const algo2 = (carte, cartes) => {
-
-// }
+const algo2 = (cartes) => {
+    let bestRatio = 0
+    let nameCard = ""
+    let nbrPlayed = 0
+    let nbrVictory = 0
+    for(let carte of cartes) {
+        let ratio = (carte.victory / carte.played) * 100
+        if (bestRatio < ratio) {
+            bestRatio = ratio
+            nameCard = carte.name
+            nbrPlayed = carte.played
+            nbrVictory = carte.victory
+        }
+    }
+    const zoneAffichage = document.querySelector("#zoneAffichage")
+    const pAlgo2 = document.createElement("p")
+    pAlgo2.innerText = "La carte qui a le meilleur ratio victoires/défaites est " + nameCard + " avec " + nbrPlayed 
+                        + " parties jouées et " + nbrVictory + " victoires (ratio de " + bestRatio + "%)";
+    zoneAffichage.appendChild(pAlgo2)
+}
 
 afficherTableau()
