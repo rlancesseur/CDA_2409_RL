@@ -77,7 +77,7 @@ const algo2 = (cartes) => {
     let nbrPlayed = 0
     let nbrVictory = 0
     for(let carte of cartes) {
-        let ratio = (carte.victory / carte.played) * 100
+        let ratio = Math.round((carte.victory / carte.played) * 100)
         if (bestRatio < ratio) {
             bestRatio = ratio
             nameCard = carte.name
