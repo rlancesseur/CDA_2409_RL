@@ -1,20 +1,31 @@
 const btnValider = document.querySelector("#btnValider")
 
+// const inputCp = document.querySelector("#cp")
+// inputCp.addEventListener("input", (event) => {
+//     fetch("https://arfp.github.io/tp/web/javascript/02-zipcodes/zipcodes.json")
+//     .then(response => response.json())
+//     .then(villes => {
+//         const cp = event.target.value
+//         const cpChoice = document.querySelector("#cp-choice")
+//         const codesFiltres = villes.filter(code => code.startsWith(cp));
+
+//         codesFiltres.forEach(code => {
+//             const option = document.createElement("option")
+//             option.value = code
+//             cpChoice.appendChild(option)
+//         })
+//     }) 
+// })
+
 btnValider.addEventListener("click", () => {
     zoneAffichage.innerText = ""
 
     fetch("https://arfp.github.io/tp/web/javascript/02-zipcodes/zipcodes.json")
     .then(response => response.json())
     .then(villes => {
-        const cpChoice = document.querySelector("#cp-choice")
         const cp = document.querySelector("#cp").value
-        for (let ville of villes) {
-            // if(cp.length === 2) {
-            //     let option = document.createElement("option")
-            //     option.value = "blop"
-            //     cpChoice.appendChild(option)
-            // }
 
+        for (let ville of villes) {
             if(cp === ville.codePostal) {
                 zoneAffichage.style.display ="block"
                 let ul = document.createElement("ul")
