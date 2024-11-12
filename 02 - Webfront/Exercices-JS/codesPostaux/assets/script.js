@@ -5,9 +5,16 @@ btnValider.addEventListener("click", () => {
 
     fetch("https://arfp.github.io/tp/web/javascript/02-zipcodes/zipcodes.json")
     .then(response => response.json())
-    .then(data => {
+    .then(villes => {
+        const cpChoice = document.querySelector("#cp-choice")
         const cp = document.querySelector("#cp").value
-        for (let ville of data) {
+        for (let ville of villes) {
+            // if(cp.length === 2) {
+            //     let option = document.createElement("option")
+            //     option.value = "blop"
+            //     cpChoice.appendChild(option)
+            // }
+
             if(cp === ville.codePostal) {
                 zoneAffichage.style.display ="block"
                 let ul = document.createElement("ul")
