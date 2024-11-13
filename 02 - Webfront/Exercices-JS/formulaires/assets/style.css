@@ -7,10 +7,22 @@ html {
 body {
     width: 800px;
     border: 1px solid blue;
-    padding: 5px;
+    padding: 8px;
+}
+
+h1 {
+    margin: 10px 0;
+}
+hr {
+    border-color: black;
 }
 
 input, button {
     border: 1px solid blue;
-    color: blue
+    color: blue;
+    padding: 5px;
+}
+
+button {
+    background-color: beige;
 }
