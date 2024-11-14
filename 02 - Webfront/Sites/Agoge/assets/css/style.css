@@ -335,8 +335,9 @@ header li a:hover {
     height: 1286px;
 }
 
-.couleur {
-    background-color: #26c1dc41;
+.fondcontact {
+    background-color: #1331357c;
+    height: 100%;
 }
 
 .formulaire {
