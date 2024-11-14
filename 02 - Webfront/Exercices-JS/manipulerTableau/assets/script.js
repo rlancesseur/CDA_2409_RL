@@ -19,6 +19,8 @@ for(let i = 0; i < people.length; i++) {
     tdFirstName.innerText = nameSplit[0]
     tdEmail.innerText = nameSplit[0].toLowerCase() + "." + nameSplit[1].toLowerCase() + "@example.com"
     tdSuppr.innerText = "X"
+    tdSuppr.style.textAlign = "center"
+    tdSuppr.style.fontWeight = "bold"
     tr.appendChild(tdLastName)
     tr.appendChild(tdFirstName)
     tr.appendChild(tdEmail)
