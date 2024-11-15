@@ -1,0 +1,37 @@
+body {
+    font-family: sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#affichageCouleurs {
+    display: none;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 500px;
+
+    p{
+        text-align: center;
+        margin: 0;
+    }
+}
+
+#btnRandom {
+    padding: 7px;
+    margin: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border-style: none;
+    background-color: rgb(211, 211, 211);
+    cursor: pointer;
+    transition: 100ms;
+    &:active {
+        transform: scale(0.9);
+        background-color: rgb(187, 187, 187);
+    }
+}
+

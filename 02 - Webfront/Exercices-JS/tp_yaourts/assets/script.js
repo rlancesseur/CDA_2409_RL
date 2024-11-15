@@ -1,3 +1,4 @@
+const affichageCouleurs = document.querySelector("#affichageCouleurs")
 const couleursPreferees = document.querySelector("#couleursPreferees")
 const vert = document.querySelector("#vert")
 const rouge = document.querySelector("#rouge")
@@ -7,6 +8,7 @@ const orange = document.querySelector("#orange")
 const btnRandom = document.querySelector("#btnRandom")
 
  const afficherCouleurs = () => {
+    affichageCouleurs.style.display = "flex"
     fetch("https://api.devoldere.net/polls/yoghurts/")
     .then(response => response.json())
     .then(couleurs => {
@@ -42,9 +44,45 @@ const btnRandom = document.querySelector("#btnRandom")
 
         const tableauCouleurs = [nbrGreen, nbrRed, nbrYellow, nbrBlue, nbrOrange]
         tableauCouleurs.sort().reverse()
-        couleursPreferees.innerText = tableauCouleurs[0] + " " + tableauCouleurs[1]
+
+        // IF/ELSE IF DE LA HONTE, mais en attendant de trouver une meilleure solution =>
+        let positionUne = ""
+        let positionDeux = ""
+        if(tableauCouleurs[0] === nbrGreen) {
+            positionUne = "Verte"
+        }
+        else if(tableauCouleurs[0] === nbrRed) {
+            positionUne = "Rouge"
+        }
+        else if(tableauCouleurs[0] === nbrYellow) {
+            positionUne = "Jaune"
+        }
+        else if(tableauCouleurs[0] === nbrBlue) {
+            positionUne = "Bleu"
+        }
+        else if(tableauCouleurs[0] === nbrOrange) {
+            positionUne = "Orange"
+        }
+        if(tableauCouleurs[1] === nbrGreen) {
+            positionDeux = "Verte"
+        }
+        else if(tableauCouleurs[1] === nbrRed) {
+            positionDeux = "Rouge"
+        }
+        else if(tableauCouleurs[1] === nbrYellow) {
+            positionDeux = "Jaune"
+        }
+        else if(tableauCouleurs[1] === nbrBlue) {
+            positionDeux = "Bleu"
+        }
+        else if(tableauCouleurs[1] === nbrOrange) {
+            positionDeux = "Orange"
+        }
+
+        couleursPreferees.innerText = positionUne + " et " + positionDeux
 
     })
 }
 
+afficherCouleurs()
 btnRandom.addEventListener("click", afficherCouleurs)
