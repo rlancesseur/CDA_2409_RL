@@ -26,16 +26,16 @@ const nouvellePartie = () => {
         let saisieOrdinateur = 0
 
         // Bizarre ça, à refaire =>
-        //
-        // imgPierre.addEventListener("click", () => {
-        //     saisieUtilisateur = 1
-        // })
-        // imgPapier.addEventListener("click", () => {
-        //     saisieUtilisateur = 2
-        // })
-        // imgCiseaux.addEventListener("click", () => {
-        //     saisieUtilisateur = 3
-        // })
+        
+        imgPierre.addEventListener("click", () => {
+            saisieUtilisateur = 1
+        })
+        imgPapier.addEventListener("click", () => {
+            saisieUtilisateur = 2
+        })
+        imgCiseaux.addEventListener("click", () => {
+            saisieUtilisateur = 3
+        })
 
         saisieOrdinateur = Math.ceil(Math.random() * 3)
 
