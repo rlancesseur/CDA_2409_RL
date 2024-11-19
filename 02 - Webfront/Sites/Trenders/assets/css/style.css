@@ -64,8 +64,10 @@ header {
     img {
         height: 30px;
         padding: 5px;
+        cursor: pointer;
         &:hover {
-            cursor: pointer;
+            background-color: rgb(197, 196, 196);
+            border-radius: 5px;
         }
     }
 }
@@ -77,9 +79,13 @@ main {
     margin: 50px;
 }
 
-.imgArticle img {
+.imgArticle {
+    width: 600px;
+    align-content: center;
+    img {
     width: 100%;
     min-width: 200px;
+    }
 }
 
 .infoArticle{
@@ -117,11 +123,13 @@ main {
         border-style: none;
         padding: 10px;
         margin: 10px 0;
-        transition: ease-in-out 200ms;
+        transition: ease-in-out 150ms;
+        cursor: pointer;
         &:hover {
-            cursor: pointer;
-            background-color: rgb(204, 204, 204);
-            color: black;
+            color: rgb(196, 196, 196);
+        }
+        &:active {
+            transform: scale(0.9);
         }
     }
 }
@@ -133,23 +141,27 @@ main {
 
 #infoTailleArticle {
     padding-right: 5px;
-    input {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    select {
         margin-top: 5px;
         padding: 10px 0;
         border-radius: 5px;
         border: 1px solid gray;
-        width: 100%;
     }
 }
 
 #infoCouleurArticle {
     padding-left: 5px;
-    input {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    select {
         margin-top: 5px;
         padding: 10px 0;
         border-radius: 5px;
         border: 1px solid gray;
-        width: 100%;
     }
 }
 
@@ -162,32 +174,107 @@ main {
     }
 }
 
+#menuBurger {
+    display: none;
+}
+
+#label-menuBurger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 1300px) {
+    header {
+        ul {
+            font-size: 1.3rem;
+        }
+        h1 {
+        font-size: 3rem;
+        }
+    }
+}
+
 @media (max-width: 1120px) {
-    nav {
+    nav ul{
         display: none;
+    }
+    
+    #label-menuBurger {
+        display: block;
+    }
+
+    #menuBurger:checked ~ nav ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav li {
+        margin: 3px 0;
+    }
+
+    #promo img {
+        display: none;
+    }
+
+    #imgChariot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 17px;
+    }
+
+    #imgProfil {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 17px;
     }
 
     main {
         margin-top: 0;
     }
 
-    #logoHeader {
-        display: none;
-    }
-
     header {
-        justify-content: center;
+        flex-direction: column;
         padding-bottom: 0;
+        height: auto;
     }
 
     .infoArticle{
         padding: 40px;
     }
+}
+
+@media (max-width: 715px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    #logoHeader {
+        margin: 13px;
+        img {
+        height: 27px;
+        }
+    }
+}
 
 @media (max-width: 350px) {
     header {
         h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        }
+    }
+
+    nav ul {
+        font-size: 0.9rem;
+    }
+
+    #logoHeader {
+        img {
+            margin: 23px 0;
+            height: 15px;
         }
     }
 }
