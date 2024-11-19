@@ -12,7 +12,7 @@ header {
     height: 100px;
     h1 {
         font-size: 3.5rem;
-        text-shadow: 1px 1px 3px black;
+        text-shadow: 3px 3px 3px rgb(138, 138, 138);
         padding: 0 10px;
         transition: transform 400ms;
         &:hover {
@@ -82,9 +82,20 @@ main {
 .imgArticle {
     width: 600px;
     align-content: center;
-    img {
+    #imgChaussure {
     width: 100%;
     min-width: 200px;
+    }
+}
+
+#iconCoeur {
+    width: 35px;
+    position: absolute;
+    cursor: pointer;
+    transition: ease-in-out 150ms;
+    cursor: pointer;
+    &:active {
+        transform: scale(0.9);
     }
 }
 
@@ -117,7 +128,7 @@ main {
 
     button{
         width: 100%;
-        background-color: black;
+        background-color: rgb(54, 54, 54);
         color: white;
         border-radius: 5px;
         border-style: none;
@@ -169,6 +180,9 @@ main {
     border: 1px solid gray;
     border-radius: 5px;
     padding: 15px;
+    height: 100px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
     h3 {
         margin-bottom: 10px;
     }
@@ -257,6 +271,10 @@ main {
         img {
         height: 27px;
         }
+    }
+
+    #iconCoeur {
+        width: 5%;
     }
 }
 
