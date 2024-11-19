@@ -10,6 +10,8 @@
 
     <header>
         <h1>TRENDERS</h1>
+        <input type="checkbox" id="menuBurger">
+        <label for="menuBurger" id="label-menuBurger">&#9776</label>
         <nav>
             <ul>
                 <li><a>Vêtement</a></li>
@@ -29,39 +31,35 @@
 
     <main>
         <div class="imgArticle">
-            <img src="assets/img/Chaussure.jpg">
+            <img src="assets/img/Chaussure.jpg" id="imgChaussure">
         </div>
 
         <div class="infoArticle">
-            <h2>Nike sneakers</h2>
+            <h2 id="titreArticle">Nike sneakers</h2>
             <span id="tag">Tag</span>
-                <span id="prix"><sup>€</sup>127</span>
+                <span id="prix"><sup>€</sup><span id="prixArticle">127</span></span>
             <div id="textArticle">Text</div>
             
             <div class="infobtn">
             <div id="infoTailleCouleur">
                 <div id="infoTailleArticle">
                     <span id="tailleArticle">Taille</span>
-                    <input list="listeTaille" type="text">
-                    <datalist id="listeTaille">
-                        <option value="38"></option>
-                        <option value="39"></option>
-                        <option value="40"></option>
-                        <option value="41"></option>
-                        <option value="42"></option>
-                        <option value="43"></option>
-                    </datalist>
+                    <select name="listeTaille">
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                    </select>
                 </div>
 
                 <div id="infoCouleurArticle">
                     <span id="couleurArticle">Couleur</span>
-                    <input list="listCouleur" type="text">
-                    <datalist id="listCouleur">
-                        <option value="Bleu"></option>
-                        <option value="Rouge"></option>
-                        <option value="Jaune"></option>
-                        <option value="Noir"></option>
-                    </datalist>
+                    <select name="listCouleur" id="selectCouleur">
+                        <option value="Bleu">Bleu</option>
+                        <option value="Rouge">Rouge</option>
+                        <option value="Rose">Rose</option>
+                        <option value="Noir">Noir</option>
+                    </select>
                 </div>
             </div>
 
@@ -76,6 +74,8 @@
         </div>
 
     </main>
+
+    <script src="assets/js/script.js"></script>
 
 </body>
 </html>
