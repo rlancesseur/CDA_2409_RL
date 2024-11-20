@@ -46,8 +46,8 @@ a {
 
 
 header nav {
-    margin-top: 10px;
-    margin-bottom: 130px;
+    margin-top: 15px;
+    margin-bottom: 160px;
 }
 
 header ul {
@@ -215,36 +215,40 @@ header li a:hover {
     padding: 30px;
 }
 
-.imgMuscu {
+#imgMuscu {
     background-image: url("/assets/img/un.png");
 }
 
-.imgTraining {
+#imgTraining {
     background-image: url("/assets/img/deux.png");
 }
 
-.imgNatation {
+#imgNatation {
     background-image: url("/assets/img/trois.png");
 }
 
-.imgBoxe {
+#imgBoxe {
     background-image: url("/assets/img/quatre.png");
 }
 
-.imgFruits {
+#imgFruits {
     background-image: url("/assets/img/cinq.png");
 }
 
-.imgYoga {
+#imgYoga {
     background-image: url("/assets/img/six.png");
 }
 
-.imgCardio {
+#imgCardio {
     background-image: url("/assets/img/sept.png");
 }
 
-.imgSauna {
+#imgSauna {
     background-image: url("/assets/img/huit.png");
+}
+
+#pointCarrousel {
+    display: none;
 }
 
 .texteMuscu {
@@ -275,6 +279,7 @@ header li a:hover {
     position: absolute;
     align-content: center;
     transition: transform 100ms;
+    cursor: pointer;
     &:hover {
         transform: scale(1.2);
     }
@@ -336,13 +341,14 @@ header li a:hover {
 }
 
 .fondcontact {
-    background-color: #1331357c;
+    background-color: #1331359a;
     height: 100%;
 }
 
 .formulaire {
     width: 40%;
-    padding: 200px;
+    padding-left: 200px;
+    padding-top: 150px;
 }
 
 .formulaire p {
@@ -359,6 +365,7 @@ form {
     height: 700px;
     padding: 30px;
     border-radius: 10px;
+    letter-spacing: 2px;
 }
 
 form label {
@@ -377,6 +384,13 @@ form button {
     border-style: none;
     padding: 10px;
     cursor: pointer;
+    transition: 200ms;
+    &:hover {
+        color: rgb(172, 172, 172);
+    }
+    &:active {
+        transform: scale(0.9);
+    }
 }
 
 form input, textarea {
@@ -393,6 +407,7 @@ form input, textarea {
     color: white;
     padding-top: 60px;
     padding-bottom: 100px;
+    letter-spacing: 2px;
 }
 
 .liens {
@@ -401,6 +416,7 @@ form input, textarea {
 }
 
 .liens p{
+    text-align: center;
     font-size: 41px;
     margin-bottom: 20px;
 }
@@ -416,11 +432,13 @@ form input, textarea {
 
 .reseaux {
     margin-left: 20px;
+    padding-top: 50px;
 }
 
 .reseaux p {
     font-size: 39px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .reseaux img {
@@ -562,6 +580,7 @@ form input, textarea {
     }
 
     #titre {
+        margin-bottom: 50px;
         p {
             font-size: 70px;
         }
@@ -601,6 +620,41 @@ form input, textarea {
 
     .galerie {
         grid-template-columns: 2fr;
+        grid-template-rows: 1fr;
+        div:hover{
+            background-color: transparent;
+        }
+    }
+
+    #pointCarrousel {
+        display: flex;
+        justify-content: space-around;
+        align-items: end;
+        position: absolute;
+    }
+
+    .point {
+        padding: 10px;
+        background-color: white;
+        border-radius: 50%;
+        height: 5px;
+        width: 5px;
+        margin-bottom: 50px;
+        cursor: pointer;
+        transition: 200ms;
+        &:active {
+            transform: scale(0.8);
+        }
+    }
+
+    #imgTraining, #imgNatation, #imgBoxe, #imgFruits, #imgYoga, #imgCardio, #imgSauna {
+        display: none;
+    }
+
+    #carte {
+
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     #informations {

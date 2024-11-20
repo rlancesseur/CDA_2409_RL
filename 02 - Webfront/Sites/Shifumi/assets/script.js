@@ -12,8 +12,6 @@ btnCommencer.addEventListener("click", () => {
     zoneScore.style.display = "flex"
 })
 
-nouvellePartie()
-
 const nouvellePartie = () => {
     let zoneScoreUtilisateur = document.querySelector("#zoneScoreUtilisateur")
     let zoneScoreOrdinateur = document.querySelector("#zoneScoreOrdinateur")
@@ -24,18 +22,16 @@ const nouvellePartie = () => {
 
         let saisieUtilisateur = 0
         let saisieOrdinateur = 0
-
-        // Bizarre ça, à refaire =>
-        //
-        // imgPierre.addEventListener("click", () => {
-        //     saisieUtilisateur = 1
-        // })
-        // imgPapier.addEventListener("click", () => {
-        //     saisieUtilisateur = 2
-        // })
-        // imgCiseaux.addEventListener("click", () => {
-        //     saisieUtilisateur = 3
-        // })
+        
+        imgPierre.addEventListener("click", () => {
+            saisieUtilisateur = 1
+        })
+        imgPapier.addEventListener("click", () => {
+            saisieUtilisateur = 2
+        })
+        imgCiseaux.addEventListener("click", () => {
+            saisieUtilisateur = 3
+        })
 
         saisieOrdinateur = Math.ceil(Math.random() * 3)
 

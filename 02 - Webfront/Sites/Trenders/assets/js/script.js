@@ -4,24 +4,24 @@ let prix = document.querySelector("#prixArticle")
 let titreArticle = document.querySelector("#titreArticle")
 
 selectCouleur.addEventListener("click", () => {
+    if(selectCouleur.value === "Verte") {
+        imgChaussure.src = "assets/img/greenShoes.jpg"
+        prix.innerText = "127"
+        titreArticle.innerText = "DC Shoes Verte"
+    }
     if(selectCouleur.value === "Bleu") {
-        imgChaussure.src = "assets/img/Chaussure.jpg"
-        prix.innerText = "127"
-        titreArticle.innerText = "Nike sneakers Bleu"
-    }
-    if(selectCouleur.value === "Rouge") {
-        imgChaussure.src = "assets/img/ChaussureRouge.jpg"
+        imgChaussure.src = "assets/img/blueShoes.jpg"
         prix.innerText = "99"
-        titreArticle.innerText = "Nike sneakers Rouge"
+        titreArticle.innerText = "DC Shoes Bleu"
     }
-    if(selectCouleur.value === "Rose") {
-        imgChaussure.src = "assets/img/ChaussureRose.jpg"
+    if(selectCouleur.value === "Jaune") {
+        imgChaussure.src = "assets/img/yellowShoes.jpg"
         prix.innerText = "127"
-        titreArticle.innerText = "Nike sneakers Rose"
+        titreArticle.innerText = "DC Shoes Jaune"
     }
     if(selectCouleur.value === "Noir") {
-        imgChaussure.src = "assets/img/ChaussureNoir.avif"
+        imgChaussure.src = "assets/img/blackShoes.jpg"
         prix.innerText = "117"
-        titreArticle.innerText = "Nike sneakers Noir"
+        titreArticle.innerText = "DC Shoes Noir"
     }
 })

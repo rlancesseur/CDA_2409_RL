@@ -30,14 +30,12 @@ body {
 #wrapper {
     display: none;
     justify-content: space-between;
-    width: 700px;
-
     img {
         border-radius: 50%;
         cursor: pointer;
         transition: 200ms;
+        width: 100%;
         &:active {
-            background-color: rgb(214, 214, 214);
             transform: scale(0.9);
         }
     }
@@ -46,7 +44,7 @@ body {
 #zoneScore {
     color: white;
     display: none;
-    width: 700px;
+    width: 500px;
     justify-content: space-around;
     margin: 60px;
 }
