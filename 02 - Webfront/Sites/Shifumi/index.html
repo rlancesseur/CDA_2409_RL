@@ -8,24 +8,36 @@
 </head>
 <body>
 
-    <div id="zoneCombat">
-        <img id="imgUtilisateur" src="" alt="Le choix de l'utilisateur">
-        <img id="imgOrdinateur" src="" alt="Le choix de l'ordinateur">
+    <div id="menu">
+        <input type="text" id="name" placeholder="Username">
+        <div id="zoneResultat"></div>
+        <button id="btnCommencer">Nouvelle partie</button>
+    </div>    
+
+    <div id="enJeu">
+        <div id="zoneCombat">
+            <img id="imgUtilisateur" src="assets/img/vide.png" alt="Le choix de l'utilisateur">
+            <img id="imgOrdinateur" src="assets/img/vide.png" alt="Le choix de l'ordinateur">
+        </div>
+
+        <div id="container">
+            <div id="wrapper">
+                <img id="imgPierre" src="assets/img/pierre.png" alt="Pierre">
+                <img id="imgPapier" src="assets/img/papier.png" alt="Papier">
+                <img id="imgCiseaux" src="assets/img/ciseaux.png" alt="Ciseaux">
+            </div> 
+
+            <div id="zoneScore">
+                <p>Score de <span id="username"></span> : <span id="zoneScoreUtilisateur">0</span></p>
+                <p>Score de l'ordinateur : <span id="zoneScoreOrdinateur">0</span></p>
+            </div>
+        </div>
     </div>
 
-    <div id="zoneResultat"></div>
-
-    <button id="btnCommencer">Nouvelle partie</button>
-
-    <div id="wrapper">
-        <img id="imgPierre" src="assets/img/pierre.png" alt="Pierre">
-        <img id="imgPapier" src="assets/img/papier.png" alt="Papier">
-        <img id="imgCiseaux" src="assets/img/ciseaux.png" alt="Ciseaux">
-    </div> 
-
-    <div id="zoneScore">
-        <p>Score de l'utilisateur : <span id="zoneScoreUtilisateur">0</span></p>
-        <p>Score de l'ordinateur : <span id="zoneScoreOrdinateur">0</span></p>
+    <div id="stat">
+        <p>Parties Jouées : <span id="nbrJouee">0</span></p>
+        <p>Parties Gagnées : <span id="nbrGagnee">0</span></p>
+        <p>Parties Perdues : <span id="nbrPerdue">0</span></p>
     </div>
 
     <script src="assets/script.js"></script>
