@@ -12,8 +12,6 @@ btnCommencer.addEventListener("click", () => {
     zoneScore.style.display = "flex"
 })
 
-nouvellePartie()
-
 const nouvellePartie = () => {
     let zoneScoreUtilisateur = document.querySelector("#zoneScoreUtilisateur")
     let zoneScoreOrdinateur = document.querySelector("#zoneScoreOrdinateur")
@@ -24,8 +22,6 @@ const nouvellePartie = () => {
 
         let saisieUtilisateur = 0
         let saisieOrdinateur = 0
-
-        // Bizarre ça, à refaire =>
         
         imgPierre.addEventListener("click", () => {
             saisieUtilisateur = 1
