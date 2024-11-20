@@ -1,77 +1,118 @@
+const menu = document.querySelector("#menu")
+const zoneName = document.querySelector("#name")
+let inputName = zoneName.value
+const username = document.querySelector("#username")
 const btnCommencer = document.querySelector("#btnCommencer")
+const zoneResultat = document.querySelector("#zoneResultat")
+const enJeu = document.querySelector("#enJeu")
+const zoneCombat = document.querySelector("#zoneCombat")
 const wrapper = document.querySelector("#wrapper")
 const zoneScore = document.querySelector("#zoneScore")
-const zoneResultat = document.querySelector("#zoneResultat")
+let imgUtilisateur = document.querySelector("#imgUtilisateur")
+let imgOrdinateur = document.querySelector("#imgOrdinateur")
+const zoneScoreUtilisateur = document.querySelector("#zoneScoreUtilisateur")
+const zoneScoreOrdinateur = document.querySelector("#zoneScoreOrdinateur")
 const imgPierre = document.querySelector("#imgPierre")
 const imgPapier = document.querySelector("#imgPapier")
 const imgCiseaux = document.querySelector("#imgCiseaux")
+const nbrJouee = document.querySelector("#nbrJouee")
+const nbrGagnee = document.querySelector("#nbrGagnee")
+const nbrPerdue = document.querySelector("#nbrPerdue")
+let affichageGagnant = document.createElement("p")
+let scoreUtilisateur = 0
+let scoreOrdinateur = 0
+let saisieUtilisateur = 0
+let partieJouee = 0
+let partieGagnee = 0
+let partiePerdue = 0
 
-btnCommencer.addEventListener("click", () => {
-    btnCommencer.style.display = "none"
-    wrapper.style.display = "flex"
-    zoneScore.style.display = "flex"
+imgPierre.addEventListener("click", () => {
+    saisieUtilisateur = 1
+    nouvellePartie()
+})
+imgPapier.addEventListener("click", () => {
+    saisieUtilisateur = 2
+    nouvellePartie()
+})
+imgCiseaux.addEventListener("click", () => {
+    saisieUtilisateur = 3
+    nouvellePartie()
 })
 
+btnCommencer.addEventListener("click", () => {
+    enJeu.style.display = "flex"
+    menu.style.display = "none"
+    wrapper.style.display = "flex"
+    zoneScore.style.display = "flex"
+    zoneCombat.style.display = "flex"
+    scoreUtilisateur = 0
+    scoreOrdinateur = 0
+    username.innerText = inputName
+    zoneScoreUtilisateur.innerText = scoreUtilisateur
+    zoneScoreOrdinateur.innerText = scoreOrdinateur
+    imgUtilisateur.src = "assets/img/vide.png"
+    imgOrdinateur.src = "assets/img/vide.png"
+    partieJouee++
+})
+
+
 const nouvellePartie = () => {
-    let zoneScoreUtilisateur = document.querySelector("#zoneScoreUtilisateur")
-    let zoneScoreOrdinateur = document.querySelector("#zoneScoreOrdinateur")
-    let scoreUtilisateur = 0
-    let scoreOrdinateur = 0
+    
+    let saisieOrdinateur = Math.ceil(Math.random() * 3)
 
-    while(scoreUtilisateur < 3 && scoreOrdinateur < 3) {
+    if(saisieUtilisateur === 1) {
+        imgUtilisateur.src = "assets/img/pierre.png"
+    }
+    else if(saisieUtilisateur === 2) {
+        imgUtilisateur.src = "assets/img/papier.png"
+    }
+    else if(saisieUtilisateur === 3) {
+        imgUtilisateur.src = "assets/img/ciseaux.png"
+    }
+    if(saisieOrdinateur === 1) {
+        imgOrdinateur.src = "assets/img/pierre.png"
+    }
+    else if(saisieOrdinateur === 2) {
+        imgOrdinateur.src = "assets/img/papier.png"
+    }
+    else if(saisieOrdinateur === 3) {
+        imgOrdinateur.src = "assets/img/ciseaux.png"
+    }
 
-        let saisieUtilisateur = 0
-        let saisieOrdinateur = 0
-        
-        imgPierre.addEventListener("click", () => {
-            saisieUtilisateur = 1
-        })
-        imgPapier.addEventListener("click", () => {
-            saisieUtilisateur = 2
-        })
-        imgCiseaux.addEventListener("click", () => {
-            saisieUtilisateur = 3
-        })
-
-        saisieOrdinateur = Math.ceil(Math.random() * 3)
-
-        if(saisieUtilisateur === 1 && saisieOrdinateur === 2) {
+    if ((saisieUtilisateur === 1 && saisieOrdinateur === 3) ||
+        (saisieUtilisateur === 2 && saisieOrdinateur === 1) ||
+        (saisieUtilisateur === 3 && saisieOrdinateur === 2)) {
+        scoreUtilisateur++
+    }
+    else if ((saisieUtilisateur === 1 && saisieOrdinateur === 2) ||
+            (saisieUtilisateur === 2 && saisieOrdinateur === 3) ||
+            (saisieUtilisateur === 3 && saisieOrdinateur === 1)) {
             scoreOrdinateur++
+    }
+
+    zoneScoreUtilisateur.innerText = scoreUtilisateur
+    zoneScoreOrdinateur.innerText = scoreOrdinateur
+
+    saisieUtilisateur = 0
+    saisieOrdinateur = 0
+
+    if(scoreUtilisateur === 3 || scoreOrdinateur === 3) {
+
+        if(scoreUtilisateur === 3) {
+            affichageGagnant.innerText = "Vous avez gagné !"
+            partieGagnee++
         }
-            else if (saisieUtilisateur === 1 && saisieOrdinateur === 3) {
-                scoreUtilisateur++
-            }
-            else if (saisieUtilisateur === 2 && saisieOrdinateur === 1) {
-                scoreUtilisateur++
-            }
-            else if (saisieUtilisateur === 2 && saisieOrdinateur === 3) {
-                scoreOrdinateur++
-            }
-            else if (saisieUtilisateur === 3 && saisieOrdinateur === 1) {
-                scoreOrdinateur++
-            }
-            else if (saisieUtilisateur === 3 && saisieOrdinateur === 2) {
-                scoreUtilisateur++
-            }
+        else if(scoreOrdinateur === 3) {
+            affichageGagnant.innerText = "Vous avez perdu !"
+            partiePerdue++
+        }
 
-            zoneScoreUtilisateur.innerText = scoreUtilisateur
-            zoneScoreOrdinateur.innerText = scoreOrdinateur
+        zoneResultat.appendChild(affichageGagnant)
+        enJeu.style.display = "none"
+        menu.style.display = "flex"
+        zoneName.style.display = "none"
+        nbrJouee.innerText = partieJouee
+        nbrGagnee.innerText = partieGagnee
+        nbrPerdue.innerText = partiePerdue
     }
-
-    wrapper.style.display = "none"
-    zoneScore.style.display = "none"
-    zoneResultat.style.display = "block"
-    let winner = document.createElement("p")
-
-    if(scoreUtilisateur === 3) {
-        winner.innerText = "Vous avez gagné !"
-    }
-    else if(scoreOrdinateur === 3) {
-        winner.innerText = "Vous avez perdu !"
-    }
-    zoneResultat.appendChild(winner)
-
-    btnCommencer.style.display = "block"
-
 }
-
