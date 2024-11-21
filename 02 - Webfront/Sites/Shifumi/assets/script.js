@@ -24,9 +24,27 @@ let affichageGagnant = document.createElement("p")
 let scoreUtilisateur = 0
 let scoreOrdinateur = 0
 let saisieUtilisateur = 0
-let partieJouee = 0
-let partieGagnee = 0
-let partiePerdue = 0
+
+let nomEnregistre = localStorage.getItem("username")
+if (nomEnregistre) {
+    username.innerText = nomEnregistre
+    zoneName.value = nomEnregistre
+}
+
+let partieJouee = parseInt(localStorage.getItem("partieJouee"))
+let partieGagnee = parseInt(localStorage.getItem("partieGagnee"))
+let partiePerdue = parseInt(localStorage.getItem("partiePerdue"))
+
+zoneName.addEventListener('input', () => {
+    inputName = zoneName.value
+    username.innerText = inputName
+})
+
+btnValider.addEventListener("click", () => {
+    localStorage.setItem("username", inputName)
+    login.style.display = "none"
+    menu.style.display = "flex"
+})
 
 imgPierre.addEventListener("click", () => {
     saisieUtilisateur = 1
@@ -41,11 +59,6 @@ imgCiseaux.addEventListener("click", () => {
     nouvellePartie()
 })
 
-btnValider.addEventListener("click", () => {
-    login.style.display = "none"
-    menu.style.display = "flex"
-})
-
 btnCommencer.addEventListener("click", () => {
     enJeu.style.display = "flex"
     menu.style.display = "none"
@@ -54,12 +67,17 @@ btnCommencer.addEventListener("click", () => {
     zoneCombat.style.display = "flex"
     scoreUtilisateur = 0
     scoreOrdinateur = 0
-    username.innerText = inputName
     zoneScoreUtilisateur.innerText = scoreUtilisateur
     zoneScoreOrdinateur.innerText = scoreOrdinateur
     imgUtilisateur.src = "assets/img/vide.png"
     imgOrdinateur.src = "assets/img/vide.png"
+    localStorage.setItem("partieJouee", partieJouee)
+    localStorage.setItem("partieGagnee", partieGagnee)
+    localStorage.setItem("partiePerdue", partiePerdue)
     partieJouee++
+    nbrJouee.innerText = partieJouee
+    nbrGagnee.innerText = partieGagnee
+    nbrPerdue.innerText = partiePerdue
 })
 
 
