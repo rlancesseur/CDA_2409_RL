@@ -1,3 +1,5 @@
+const btnValider = document.querySelector("#btnValider")
+const login = document.querySelector("#login")
 const menu = document.querySelector("#menu")
 const zoneName = document.querySelector("#name")
 let inputName = zoneName.value
@@ -37,6 +39,11 @@ imgPapier.addEventListener("click", () => {
 imgCiseaux.addEventListener("click", () => {
     saisieUtilisateur = 3
     nouvellePartie()
+})
+
+btnValider.addEventListener("click", () => {
+    login.style.display = "none"
+    menu.style.display = "flex"
 })
 
 btnCommencer.addEventListener("click", () => {

@@ -25,3 +25,19 @@ selectCouleur.addEventListener("click", () => {
         titreArticle.innerText = "DC Shoes Noir"
     }
 })
+
+
+const imgChevron = document.querySelector("#imgChevron")
+const textCara = document.querySelector("#textCara")
+
+imgChevron.addEventListener("click", () => {
+
+    if (textCara.style.display === "none") {
+        textCara.style.display = "block"
+        imgChevron.style.transform = "rotate("+ 0 +"deg)"
+    }
+    else { 
+        textCara.style.display = "none"
+        imgChevron.style.transform = "rotate("+ 180 +"deg)"
+    }
+})
