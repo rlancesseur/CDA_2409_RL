@@ -31,9 +31,9 @@ if (nomEnregistre) {
     zoneName.value = nomEnregistre
 }
 
-let partieJouee = parseInt(localStorage.getItem("partieJouee"))
-let partieGagnee = parseInt(localStorage.getItem("partieGagnee"))
-let partiePerdue = parseInt(localStorage.getItem("partiePerdue"))
+let partieJouee = parseInt(localStorage.getItem("partieJouee")) || 0
+let partieGagnee = parseInt(localStorage.getItem("partieGagnee")) || 0
+let partiePerdue = parseInt(localStorage.getItem("partiePerdue")) || 0
 
 zoneName.addEventListener('input', () => {
     inputName = zoneName.value
@@ -41,9 +41,17 @@ zoneName.addEventListener('input', () => {
 })
 
 btnValider.addEventListener("click", () => {
-    localStorage.setItem("username", inputName)
-    login.style.display = "none"
-    menu.style.display = "flex"
+    if(inputName === "") {
+        alert("Veuillez entrer un nom")
+    }
+    else {
+        localStorage.setItem("username", inputName)
+        login.style.display = "none"
+        menu.style.display = "flex"
+        nbrJouee.innerText = partieJouee
+        nbrGagnee.innerText = partieGagnee
+        nbrPerdue.innerText = partiePerdue
+    } 
 })
 
 imgPierre.addEventListener("click", () => {
@@ -76,8 +84,6 @@ btnCommencer.addEventListener("click", () => {
     localStorage.setItem("partiePerdue", partiePerdue)
     partieJouee++
     nbrJouee.innerText = partieJouee
-    nbrGagnee.innerText = partieGagnee
-    nbrPerdue.innerText = partiePerdue
 })
 
 
