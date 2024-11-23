@@ -26,14 +26,18 @@ let scoreOrdinateur = 0
 let saisieUtilisateur = 0
 
 let nomEnregistre = localStorage.getItem("username")
-if (nomEnregistre) {
-    username.innerText = nomEnregistre
-    zoneName.value = nomEnregistre
-}
-
 let partieJouee = parseInt(localStorage.getItem("partieJouee")) || 0
 let partieGagnee = parseInt(localStorage.getItem("partieGagnee")) || 0
 let partiePerdue = parseInt(localStorage.getItem("partiePerdue")) || 0
+
+if (nomEnregistre !== null) {
+    login.style.display = "none"
+    menu.style.display = "flex"
+    username.innerText = nomEnregistre
+    nbrJouee.innerText = partieJouee
+    nbrGagnee.innerText = partieGagnee
+    nbrPerdue.innerText = partiePerdue
+}
 
 zoneName.addEventListener('input', () => {
     inputName = zoneName.value
@@ -77,8 +81,8 @@ btnCommencer.addEventListener("click", () => {
     scoreOrdinateur = 0
     zoneScoreUtilisateur.innerText = scoreUtilisateur
     zoneScoreOrdinateur.innerText = scoreOrdinateur
-    imgUtilisateur.src = "assets/img/vide.png"
-    imgOrdinateur.src = "assets/img/vide.png"
+    imgUtilisateur.src = "assets/img/videYou.png"
+    imgOrdinateur.src = "assets/img/videComputer.png"
     localStorage.setItem("partieJouee", partieJouee)
     localStorage.setItem("partieGagnee", partieGagnee)
     localStorage.setItem("partiePerdue", partiePerdue)
@@ -138,12 +142,16 @@ const nouvellePartie = () => {
             partiePerdue++
         }
 
-        zoneResultat.appendChild(affichageGagnant)
-        enJeu.style.display = "none"
-        menu.style.display = "flex"
-        zoneName.style.display = "none"
-        nbrJouee.innerText = partieJouee
-        nbrGagnee.innerText = partieGagnee
-        nbrPerdue.innerText = partiePerdue
+        wrapper.style.display = "none"
+
+        setTimeout(() => {
+            zoneResultat.appendChild(affichageGagnant)
+            enJeu.style.display = "none"
+            menu.style.display = "flex"
+            zoneName.style.display = "none"
+            nbrJouee.innerText = partieJouee
+            nbrGagnee.innerText = partieGagnee
+            nbrPerdue.innerText = partiePerdue
+        }, 1500)  
     }
 }
