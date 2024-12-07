@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#tab {
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 3px;
+    border-radius: 5px;
+}
+
+.case {
+    width: 1fr;
+    height: 1fr;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+#zoneScore {
+    margin: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.1rem;
+}
