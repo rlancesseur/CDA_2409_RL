@@ -70,11 +70,11 @@ VALUES
 ('Flammarion');
 
 INSERT INTO book
-(book_title, book_purchase_date, book_state)
+(book_title, book_purchase_date, book_state, publisher_id)
 VALUES
-('The Lord of the Ring', '2024-12-05', 'Good'),
-('The Hobbit', '2024-05-16', 'Good'),
-('Harry Potter', '2024-10-28', 'Bad');
+('The Lord of the Ring', '2024-12-05', 'Good', 1),
+('The Hobbit', '2024-05-16', 'Good', 1),
+('Harry Potter', '2024-10-28', 'Bad', 2);
 
 -- SELECT book_title, book_state FROM book;
 -- SELECT * FROM author;
