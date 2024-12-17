@@ -78,5 +78,3 @@ VALUES
 -- SELECT album_titre FROM album;
 -- SELECT artiste_nom FROM artiste ORDER BY artiste_nom ASC;
 
-
-
