@@ -36,7 +36,7 @@ SELECT acteur_nom, acteur_prenom
 FROM acteur
 WHERE acteur_prenom LIKE "%a%";
 
--- 6. Sélectionner tous les acteurs dont le prénom fait partie de la liste ["Jean", "Eva"]
+-- 7. Sélectionner tous les acteurs dont le prénom fait partie de la liste ["Jean", "Eva"]
 SELECT acteur_nom, acteur_prenom
 FROM acteur
 WHERE acteur_prenom IN ("Jean", "Eva");
@@ -45,4 +45,7 @@ SELECT acteur_nom, acteur_prenom
 FROM acteur
 WHERE acteur_prenom = "Jean" OR acteur_prenom = "Eva"; -- Ca revient au même mais c'est plus long
 
-/* 7. Sélectionner les réalisateurs (nom, prénom) triés par nom et par ordre décroissant */
+/* 8. Sélectionner les réalisateurs (nom, prénom) triés par nom et par ordre décroissant */
+SELECT realisateur_nom, realisateur_prenom
+FROM realisateur
+ORDER BY realisateur_nom DESC;

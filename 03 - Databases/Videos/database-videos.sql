@@ -16,9 +16,10 @@ USE videos;
 -- On peut aussi écrire "CREATE TABLE IF NOT EXISTS vidéos.realisateur" sans écrire "USE videos" avant
 CREATE TABLE IF NOT EXISTS realisateur
 (
-	realisateur_id INT AUTO_INCREMENT PRIMARY KEY,
+	realisateur_id INT AUTO_INCREMENT,
 	realisateur_nom VARCHAR(100) NOT NULL,
-	realisateur_prenom VARCHAR(100) NOT NULL
+	realisateur_prenom VARCHAR(100) NOT NULL,
+    PRIMARY KEY (realisateur_id)
 );
 
 CREATE TABLE acteur 
