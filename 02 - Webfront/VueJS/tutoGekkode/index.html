@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tuto VueJS</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script src="https://unpkg.com/vue@3.2.29/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="cart">Panier ({{ cart }})</div>
+
+      <div class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <img v-bind:src="image">
+          </div>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">{{ variant.color }}</div>
+            <p v-if="inventory > 10">En stock</p>
+            <p v-else-if="inventory <= 10 && inventory > 0">Presque en rupture!</p>
+            <p v-else>En rupture</p>
+            <ul>
+              <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+            <button class="button" @click="addToCart">Ajouter au panier</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="./main.js"></script>
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+  </body>
+</html>
