@@ -19,3 +19,9 @@ CREATE TABLE affilier(
    FOREIGN KEY(individu_id_1) REFERENCES individu(individu_id)
 );
 
+INSERT INTO individu
+(individu_nom, individu_prenom, individu_tel)
+VALUES
+('DURAND', 'Albert', '01.02.03.04.05'),
+('LACOMBE ', 'Josette', '05.98.87.65.54'),
+('MARTIN ', 'Roger', '04.32.21.45.56');
