@@ -108,9 +108,9 @@ SELECT artiste_nom
 FROM artiste
 ORDER BY artiste_nom;
 
--- 3. Afficher les compilations avec le nombre d’artistes qui y participent
--- SELECT compilation_titre, COUNT(artiste_id)
--- FROM compilation;
+/* 3. Afficher les compilations avec le nombre d’artistes qui y participent
+SELECT compilation_titre, COUNT(artiste_id)
+FROM compilation; */
 
 -- 4. Afficher les artistes qui apparaissent dans au moins 1 album et au moins 1 compilation
 SELECT artiste_nom

@@ -39,7 +39,7 @@ ON c.category_name = cq.category_name
 WHERE cq.category_name IS NULL;
 
 /* Sélectionner les questions triées par titre (ordre alphabétique) avec le nom et prénom de l’auteur (nécessite une jointure). */
-SELECT question_id, question_date, question_label, question_response, user_lastname, user_firstname
+SELECT question_id, question_date, question_label, question_response, q.user_id, user_lastname, user_firstname
 FROM questions q
 JOIN users u ON u.user_id = q.user_id;
 

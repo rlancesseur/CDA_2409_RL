@@ -14,8 +14,8 @@ CREATE TABLE users
 CREATE TABLE questions
 (
 	question_id INT AUTO_INCREMENT,
-    question_date DATETIME NOT NULL,
-    question_label VARCHAR(255) NOT NULL,
+    question_date DATE NOT NULL DEFAULT (CURRENT_DATE),
+    question_label VARCHAR(255),
     question_response TEXT NOT NULL,
     user_id INT,
     PRIMARY KEY (question_id),
