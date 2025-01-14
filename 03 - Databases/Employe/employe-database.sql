@@ -1,10 +1,12 @@
 DROP DATABASE IF EXISTS employe;
 CREATE DATABASE employe;
 USE employe;
+set lc_time_names = 'fr_FR';
+ 
 
 CREATE TABLE dept
 (
-	deptno TINYINT,
+	deptno SMALLINT,
     dname VARCHAR(50) NOT NULL,
     loc VARCHAR(50) NOT NULL,
     CONSTRAINT pk_dept PRIMARY KEY (deptno)
@@ -19,7 +21,7 @@ CREATE TABLE emp
     hiredate DATE NOT NULL,
     sal SMALLINT,
     comm SMALLINT,
-    deptno TINYINT,
+    deptno SMALLINT,
     CONSTRAINT pk_emp PRIMARY KEY (empno),
     CONSTRAINT fk_emp_deptno FOREIGN KEY (deptno) REFERENCES dept (deptno)
 );

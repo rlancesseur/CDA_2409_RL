@@ -55,12 +55,12 @@ ON dept.deptno = emp.deptno
 ORDER BY dname AND sal DESC;
 
 -- 11. Liste des employés vendeurs (SALESMAN) avec affichage de nom, salaire, commissions, salaire + commissions
-SELECT ename, sal, comm, sal + comm AS ' salComm'
+SELECT ename, sal, comm, sal + comm AS 'salComm'
 FROM emp
 WHERE job = 'SALESMAN';
 
 -- 12. Liste des employés du département 20: nom, job, date d'embauche sous forme VEN 28 FEV 1997'
-SELECT ename, job, DATE_FORMAT(hiredate, "%W %e %M %Y")
+SELECT ename, job, DATE_FORMAT(hiredate, "%a %e %b %Y")
 FROM emp
 WHERE deptno = 20;
 
@@ -70,20 +70,21 @@ FROM emp
 GROUP BY deptno;
 
 -- 14. Donner département par département masse salariale, nombre d'employés, salaire moyen par type d'emploi.
-SELECT SUM(sal), COUNT(empno), AVG(sal)
+SELECT SUM(sal + IFNULL(comm,0)), COUNT(empno), AVG(sal)
 FROM emp
 GROUP BY deptno;
 
 -- 15. Même question mais on se limite aux sous-ensembles d'au moins 2 employés
-SELECT SUM(sal), COUNT(empno), AVG(sal)
+SELECT SUM(sal + IFNULL(comm,0)), COUNT(empno), AVG(sal)
 FROM emp
 GROUP BY deptno
 HAVING COUNT(empno) >= 2;
 
 -- 16. Liste des employés (Nom, département, salaire) de même emploi que JONES
 SELECT ename, dname, sal
-FROM emp, dept
-WHERE dept.deptno = emp.deptno AND job = (SELECT job FROM emp WHERE ename = 'JONES') AND ename != 'JONES'; 
+FROM emp
+JOIN dept ON dept.deptno = emp.deptno
+WHERE job = (SELECT job FROM emp WHERE ename = 'JONES') AND ename != 'JONES'; 
 
 -- 17. Liste des employés (nom, salaire) dont le salaire est supérieur à la moyenne globale des salaires
 SELECT ename, sal
@@ -122,7 +123,22 @@ UPDATE emp SET num_proj = 102
 WHERE num_proj IS NULL;
 
 -- 20. Créer une vue comportant tous les employés avec nom, job, nom de département et nom de projet
+CREATE VIEW view_employe AS
+SELECT ename, job, dname, nom_proj
+FROM emp
+JOIN dept
+ON dept.deptno = emp.deptno
+JOIN projet
+ON projet.num_proj = emp.num_proj;
 
 -- 21. A l'aide de la vue créée précédemment, lister tous les employés avec nom, job, nom de département et nom de projet triés sur nom de département et nom de projet
+SELECT ename, job, dname, nom_proj
+FROM view_employe
+ORDER BY dname ASC, nom_proj ASC;
 
 -- 22.Donner le nom du projet associé à chaque manager
+SELECT nom_proj
+FROM projet
+JOIN emp
+ON emp.num_proj = projet.num_proj
+WHERE job = 'MANAGER';
