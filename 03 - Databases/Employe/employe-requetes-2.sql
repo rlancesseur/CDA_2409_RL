@@ -95,10 +95,10 @@ GROUP BY job
 HAVING AVG(sal) <= ALL (SELECT AVG(sal) FROM emp GROUP BY job);
 
 -- 19. Sélectionner le département ayant le plus d'employés.
-SELECT dept 
+SELECT deptno
 FROM emp 
-GROUP BY 
-
+GROUP BY deptno
+HAVING max(empno) <= ALL (SELECT max(empno) FROM emp GROUP BY deptno);
 
 -- 20.Donner la répartition en pourcentage du nombre d'employés par département selon le modèle ci dessous
 --    Département   Répartition en %
@@ -106,3 +106,7 @@ GROUP BY
 --        10           21.43
 --        20           35.71
 --        30           42.86
+
+SELECT COUNT(empno) /*ajouter pourcentage*/
+FROM emp
+GROUP BY deptno;
