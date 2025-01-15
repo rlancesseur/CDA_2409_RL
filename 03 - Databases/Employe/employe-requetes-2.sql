@@ -107,7 +107,6 @@ HAVING count(dname) >= ALL (SELECT count(dname) FROM dept JOIN emp ON emp.deptno
 --        20           35.71
 --        30           42.86
 
-SELECT dept.deptno, (COUNT(emp.empno) / (SELECT COUNT(emp.empno) FROM emp)) * 100
-FROM dept 
-JOIN emp ON dept.deptno = emp.deptno 
-GROUP BY dept.deptno;
+SELECT deptno, (COUNT(emp.empno) / (SELECT COUNT(emp.empno) FROM emp)) * 100
+FROM emp
+GROUP BY deptno;

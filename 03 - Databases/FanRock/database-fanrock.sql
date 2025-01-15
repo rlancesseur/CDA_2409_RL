@@ -106,13 +106,14 @@ SELECT album_titre FROM album;
 -- 2. Afficher tous les artistes triés par nom et par ordre décroissant
 SELECT artiste_nom
 FROM artiste
-ORDER BY artiste_nom;
+ORDER BY artiste_nom DESC;
 
-/* 3. Afficher les compilations avec le nombre d’artistes qui y participent
-SELECT compilation_titre, COUNT(artiste_id)
-FROM compilation; */
+-- 3. Afficher les compilations avec le nombre d’artistes qui y participent
+SELECT compilation_id, COUNT(artiste_id)
+FROM compilation_artiste
+GROUP BY compilation_id;
 
 -- 4. Afficher les artistes qui apparaissent dans au moins 1 album et au moins 1 compilation
 SELECT artiste_nom
 FROM artiste
-JOIN album ON artiste.artiste_id = album.artiste_id
+JOIN album ON artiste.artiste_id = album.artiste_id;
