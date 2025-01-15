@@ -60,8 +60,7 @@ WHERE job = (SELECT job FROM emp WHERE ename = 'TURNER') AND mgr IN (SELECT mgr 
 -- 12. Lister les employés du département RESEARCH embauchés le même jour que quelqu'un du département SALES.
 SELECT * 
 FROM emp 
-JOIN dept
-ON dept.deptno = emp.deptno
+JOIN dept ON dept.deptno = emp.deptno
 WHERE dname = 'RESEARCH' AND hiredate IN (SELECT hiredate FROM emp JOIN dept ON dept.deptno = emp.deptno WHERE dname = 'SALES');
 
 
@@ -95,10 +94,11 @@ GROUP BY job
 HAVING AVG(sal) <= ALL (SELECT AVG(sal) FROM emp GROUP BY job);
 
 -- 19. Sélectionner le département ayant le plus d'employés.
-SELECT deptno
-FROM emp 
-GROUP BY deptno
-HAVING max(empno) <= ALL (SELECT max(empno) FROM emp GROUP BY deptno);
+SELECT dname, COUNT(dname)
+FROM dept
+JOIN emp ON emp.deptno = dept.deptno
+GROUP BY dept.deptno
+HAVING count(dname) >= ALL (SELECT count(dname) FROM dept JOIN emp ON emp.deptno = dept.deptno GROUP BY dname);
 
 -- 20.Donner la répartition en pourcentage du nombre d'employés par département selon le modèle ci dessous
 --    Département   Répartition en %
@@ -107,6 +107,7 @@ HAVING max(empno) <= ALL (SELECT max(empno) FROM emp GROUP BY deptno);
 --        20           35.71
 --        30           42.86
 
-SELECT COUNT(empno) /*ajouter pourcentage*/
-FROM emp
-GROUP BY deptno;
+SELECT dept.deptno, (COUNT(emp.empno) / (SELECT COUNT(emp.empno) FROM emp)) * 100
+FROM dept 
+JOIN emp ON dept.deptno = emp.deptno 
+GROUP BY dept.deptno;
