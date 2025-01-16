@@ -25,3 +25,14 @@ VALUES
 ('DURAND', 'Albert', '01.02.03.04.05'),
 ('LACOMBE ', 'Josette', '05.98.87.65.54'),
 ('MARTIN ', 'Roger', '04.32.21.45.56');
+
+
+-- 1. Sélectionner tous les employés (nom, prénom, numéro de téléphone)
+
+-- 2. Sélectionner tous les employés triés par nom et par ordre décroissant
+
+-- 3. Sélectionner tous les employés avec, pour chaque employé, le nombre d’enfant
+
+-- 4. Sélectionner les employés sans enfant
+
+-- 5. Sélectionner les enfants (prénom, âge) triés par âge du plus jeune au plus agé. Pour chaque enfant, Le nom et prénom de son parent est également affiché.
