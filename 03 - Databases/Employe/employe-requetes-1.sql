@@ -122,6 +122,8 @@ WHERE deptno = 30 AND job = 'salesman';
 UPDATE emp SET num_proj = 102
 WHERE num_proj IS NULL;
 
+ALTER TABLE emp ADD CONSTRAINT FK_projet FOREIGN KEY (num_proj) REFERENCES projet(num_proj);
+
 -- 20. Créer une vue comportant tous les employés avec nom, job, nom de département et nom de projet
 CREATE VIEW view_employe AS
 SELECT ename, job, dname, nom_proj

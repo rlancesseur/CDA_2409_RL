@@ -110,3 +110,34 @@ HAVING count(dname) >= ALL (SELECT count(dname) FROM dept JOIN emp ON emp.deptno
 SELECT deptno, (COUNT(emp.empno) / (SELECT COUNT(emp.empno) FROM emp)) * 100
 FROM emp
 GROUP BY deptno;
+
+/* PROCEDURE STOCKEE pour connaitre le nbr d'employee qui gagne + que tant de salaire*/
+DELIMITER |
+CREATE PROCEDURE employesupp(IN niv_sal DECIMAL)
+BEGIN
+
+SELECT ename, job, sal
+FROM emp
+WHERE sal >= niv_sal;
+
+END|
+DELIMITER ;
+
+/* CREATION VARIABLE */
+SET @niv_sal_souhaite:=2000.50;
+
+/* APPEL DE LA FONCTION */
+CALL employesupp(@niv_sal_souhaite);
+
+
+DELIMITER |
+CREATE PROCEDURE effectif_job(IN job_souhaite VARCHAR(50))
+BEGIN
+SELECT COUNT(empno), job, avg(sal)
+FROM emp
+WHERE job_souhaite = job
+GROUP BY job;
+END|
+DELIMITER ;
+
+CALL effectif_job('MANAGER');
