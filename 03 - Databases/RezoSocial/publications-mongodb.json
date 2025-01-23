@@ -1,0 +1,48 @@
+[
+    {
+        "_id": 1,
+        "_pub_date": "2024-11-23 14:30",
+        "pub_titre": "Il fait beau",
+        "pub_contenu": "Quel beau soleil aujourd’hui !",
+        "user_id": 3,
+        "nom_utilisateur": "Eva",
+        "email": "eva.stt@example.com"
+
+    },
+    {
+        "_id": 2,
+        "_pub_date": "2024-11-23 09:15",
+        "pub_titre": "Les bonbons",
+        "pub_contenu": "Les bonbons, c’est bon",
+        "user_id": 2,
+        "nom_utilisateur": "Patchouli",
+        "email": "patchouli@example.fr"
+    },
+    {
+        "_id": 3,
+        "_pub_date": "2024-11-27 08:17",
+        "pub_titre": "Super resto",
+        "pub_contenu": "J’ai découvert un super restaurant hier soir.",
+        "user_id": 1,
+        "nom_utilisateur": "Zorro",
+        "email": "zorb@example.com"
+    },
+    {
+        "_id": 4,
+        "_pub_date": "2024-12-05 17:52",
+        "pub_titre": "Album disponible",
+        "pub_contenu": "Nouvel album de mon groupe préféré !",
+        "user_id": 2,
+        "nom_utilisateur": "Patchouli",
+        "email": "patchouli@example.fr"
+    },
+    {
+        "_id": 5,
+        "_pub_date": "2024-12-15 10:05",
+        "pub_titre": "Aidez-moi",
+        "pub_contenu": "Je cherche une recette de gâteau au chocolat.",
+        "user_id": 3,
+        "nom_utilisateur": "Eva",
+        "email": "eva.stt@example.com"
+    }
+]
