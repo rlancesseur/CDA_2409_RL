@@ -31,9 +31,10 @@ WHERE role_id = 7
 ORDER BY individu_date_naissance DESC;
 
 /* 6. Sélectionner tous les résidents suivis par un médecin avec nom et prénom du médecin attitré. */
-SELECT individu_id, individu_id_1, individu_nom, individu_prenom
-FROM soigner
-NATURAL JOIN individu;
+SELECT i.individu_id, i.individu_id_medecin, i1.individu_nom, i1.individu_prenom
+FROM individu i
+JOIN individu i1 ON i.individu_id_medecin = i1.individu_id
+WHERE i.individu_id_medecin != NULL;
 
 /* 7. Sélectionner tous les médecins avec le nombre de résidents qu’ils suivent. */
 SELECT s.individu_id, s.individu_id_1, individu_nom, individu_prenom, count(s1.individu_id_1)
