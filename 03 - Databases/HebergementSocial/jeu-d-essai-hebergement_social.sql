@@ -37,9 +37,19 @@ VALUES
 ("residentNom9", "residentPrenom9", "1988-10-15", 7),
 ("residentNom10", "residentPrenom10", "1989-10-22", 7);
 
-INSERT INTO soigner
-(individu_id, individu_id_1)
+UPDATE individu
+SET individu_id_medecin = 6
+WHERE individu_id IN (13, 14);
+
+UPDATE individu
+SET individu_id_medecin = 7
+WHERE individu_id = 15;
+
+ALTER TABLE individu
+ADD CONSTRAINT fk_individu_medecin FOREIGN KEY (individu_id_medecin) REFERENCES individu(individu_id_medecin); 
+
+INSERT INTO activite
+(activite_intitule, activite_date, activite_heure_debut, activite_heure_fin, activite_nbr_participant_min, activite_nbr_participant_max, activite_etat, individu_id)
 VALUES
-(6, 13),
-(6, 14),
-(7, 15);
+("Natation", "2025-01-29", "18:00", "20:00", 2, 20, "ouvert", 9),
+("Musculation", "2025-03-29", "19:00", "21:00", 1, 10, "ouvert", 10);
