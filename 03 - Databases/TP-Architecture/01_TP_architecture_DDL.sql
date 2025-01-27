@@ -83,6 +83,17 @@ CREATE TABLE projets(
    FOREIGN KEY(type_projet_id) REFERENCES type_projets(type_projet_id)
 );
 
+DELIMITER |
+CREATE TRIGGER depotUlterieur BEFORE INSERT
+ON projets FOR EACH ROW
+BEGIN
+	IF NEW.projet_date_depot > curdate() THEN
+    SIGNAL SQLSTATE "45000"
+    SET MESSAGE_TEXT = "La date de dépôt doit être postérieure à la date du jour.";
+    END IF;
+END |
+DELIMITER ;
+
 CREATE TABLE participer(
    emp_matricule INT,
    projet_ref INT,

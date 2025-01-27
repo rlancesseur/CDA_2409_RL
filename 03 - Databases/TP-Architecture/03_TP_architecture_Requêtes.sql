@@ -127,3 +127,43 @@ SELECT @cumul_projet3 AS  "resulat intérmediaire";
 
 CALL ajouterBudgetProj( 2, @cumul_projet3);
 SELECT @cumul_projet3 AS "resultat final";
+
+DELIMITER |
+CREATE PROCEDURE budgetTotal(IN nom_emp VARCHAR(50), OUT totalBudget DECIMAL(10,2), OUT nbProjets INT)
+BEGIN
+SELECT IFNULL(SUM(projet_prix), 0) INTO totalBudget
+FROM projets
+INNER JOIN employes ON employes.emp_matricule = projets.emp_matricule
+WHERE employes.emp_nom = nom_emp;
+ 
+SELECT IFNULL(count(projet_ref), 0) INTO nbProjets
+FROM projets
+INNER JOIN employes ON employes.emp_matricule = projets.emp_matricule
+WHERE employes.emp_nom = nom_emp;
+END|
+DELIMITER ;
+
+SET @nom := "Golay";
+CALL budgetTotal(@nom, @montant, @nb);
+SELECT  @montant;
+
+
+-- definir un variable qui sera le cumul des montants projets  @cumul_projet_test
+-- definir une "stored procedure" qui en fonction du numero de projet choisi, ajoutera son montant au @cumul_projet_test pour avoir le montant global
+
+SET @cumul_projet3 := 0;
+
+DELIMITER |
+CREATE PROCEDURE ajouterBudgetProj(IN numero_projet INT , INOUT cumul_projet DECIMAL(10,2) )
+BEGIN
+SELECT  (cumul_projet + projets.projet_prix) INTO cumul_projet FROM projets WHERE projet_ref= numero_projet; 
+END|
+DELIMITER ;
+
+SELECT @cumul_projet3 AS  "depart";
+CALL ajouterBudgetProj( 4, @cumul_projet3);
+
+SELECT @cumul_projet3 AS  "résultat intermédiaire";
+CALL ajouterBudgetProj( 2, @cumul_projet3);
+
+SELECT @cumul_projet3 AS "résultat final";
