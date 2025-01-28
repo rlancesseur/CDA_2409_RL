@@ -31,17 +31,19 @@ WHERE role_id = 7
 ORDER BY individu_date_naissance DESC;
 
 /* 6. Sélectionner tous les résidents suivis par un médecin avec nom et prénom du médecin attitré. */
-SELECT i.individu_id, i.individu_id_medecin, i1.individu_nom, i1.individu_prenom
+SELECT i.individu_id, i.individu_nom, i.individu_prenom, i.individu_id_medecin, i1.individu_nom, i1.individu_prenom
 FROM individu i
 JOIN individu i1 ON i.individu_id_medecin = i1.individu_id
-WHERE i.individu_id_medecin != NULL;
+WHERE i.individu_id_medecin IS NOT NULL;
 
 /* 7. Sélectionner tous les médecins avec le nombre de résidents qu’ils suivent. */
-SELECT s.individu_id, s.individu_id_1, individu_nom, individu_prenom, count(s1.individu_id_1)
-FROM soigner s
-JOIN soigner s1 On s.individu_id = s1.individu_id
-NATURAL JOIN individu
-GROUP BY s.individu_id;
+SELECT i.individu_nom, i.individu_prenom, COUNT(i1.individu_id)
+FROM individu i
+JOIN individu i1 ON i.individu_id_medecin = i1.individu_id
+NATURAL JOIN role
+WHERE i.role_id = 6
+GROUP BY i.individu_nom;
+
 
 DELIMITER |
 CREATE PROCEDURE afficherIndividuRole(IN role int)
