@@ -9,9 +9,9 @@ namespace Bouteille
     class Bouteille
     {
 
-        public Boolean ouvert;
-        public float contenanceEnL;
-        public float contenuEnL;
+        bool ouvert;
+        float contenanceEnL;
+        float contenuEnL;
 
         public Bouteille()
         {
@@ -20,16 +20,16 @@ namespace Bouteille
             contenuEnL = 1.5f;
         }
 
-        public Bouteille(Boolean _ouvert, float _contenanceEnL, float _contenuEnL)
+        public Bouteille(bool _ouvert, float _contenanceEnL, float _contenuEnL)
         {
             this.ouvert = _ouvert;
             this.contenanceEnL = _contenanceEnL;
             this.contenuEnL = _contenuEnL;
         }
 
-        public Boolean fermer()
+        public bool fermer()
         {
-            Boolean result = false;
+            bool result = false;
             if(this.ouvert == true)
             {
                 this.ouvert = false;
@@ -38,9 +38,9 @@ namespace Bouteille
             return result;
         }
 
-        public Boolean ouvrir()
+        public bool ouvrir()
         {
-            Boolean result = false;
+            bool result = false;
             if (this.ouvert == false)
             {
                 this.ouvert = true;
@@ -49,9 +49,9 @@ namespace Bouteille
             return result;
         }
 
-        public Boolean remplir()
+        public bool remplir()
         {
-            Boolean result = false;
+            bool result = false;
 
             if(this.ouvert == true && this.contenuEnL != this.contenanceEnL)
             {
@@ -61,9 +61,9 @@ namespace Bouteille
             return result;
         }
 
-        public Boolean vider()
+        public bool vider()
         {
-            Boolean result = false;
+            bool result = false;
 
             if (this.ouvert == true && this.contenuEnL != 0)
             {
@@ -73,9 +73,9 @@ namespace Bouteille
             return result;
         }
 
-        public Boolean remplirQuantite(float quantite)
+        public bool remplirQuantite(float quantite)
         {
-            Boolean result = false;
+            bool result = false;
 
             if (this.ouvert == true && (this.contenuEnL + quantite) <= this.contenanceEnL)
             {
@@ -85,9 +85,9 @@ namespace Bouteille
             return result;
         }
 
-        public Boolean viderQuantite(float quantite)
+        public bool viderQuantite(float quantite)
         {
-            Boolean result = false;
+            bool result = false;
 
             if (this.ouvert == true && (this.contenuEnL - quantite) >= 0)
             {

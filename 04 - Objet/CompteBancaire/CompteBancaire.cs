@@ -34,9 +34,9 @@ namespace CompteBancaire
             this.solde += montant;
         }
 
-        public Boolean debiterMontant(float montant)
+        public bool debiterMontant(float montant)
         {
-            Boolean result = false;
+            bool result = false;
 
             if ((this.solde - montant) >= this.decouvertAutorise)
             {
@@ -52,15 +52,14 @@ namespace CompteBancaire
             compte.crediterMontant(montant);
         }
 
-        public Boolean comparerSolde(CompteBancaire compte)
+        public bool comparerSolde(CompteBancaire compte)
         {
-            Boolean result = false;
+            bool result = false;
 
             if (this.solde > compte.solde)
             {
                 result = true;
             }
-
             return result;
         }
     }

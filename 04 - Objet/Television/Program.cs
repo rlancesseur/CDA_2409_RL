@@ -6,35 +6,15 @@
         {
             Television televisionDuSalon = new(false, 1, "Toshiba", "1080p", 27, 1);
 
-            Boolean allumerTele = televisionDuSalon.allumer();
-            if(allumerTele)
-            {
-                Console.WriteLine("La télé a été allumée.");
-            }
-            else
-            {
-                Console.WriteLine("La télé était déjà allumée.");
-            }
+            bool allumerTele = televisionDuSalon.allumer();
+            Console.WriteLine(allumerTele ? "La télé a été allumée." : "La télé était déjà allumée.");
+
 
             allumerTele = televisionDuSalon.allumer();
-            if (allumerTele)
-            {
-                Console.WriteLine("La télé a été allumée.");
-            }
-            else
-            {
-                Console.WriteLine("La télé était déjà allumée.");
-            }
+            Console.WriteLine(allumerTele ? "La télé a été allumée." : "La télé était déjà allumée.");
 
-            Boolean eteindreTele = televisionDuSalon.eteindre();
-            if(eteindreTele)
-            {
-                Console.WriteLine("La télé a été éteinte.");
-            }
-            else
-            {
-                Console.WriteLine("La télé était déjà éteinte.");
-            }
+            bool eteindreTele = televisionDuSalon.eteindre();
+            Console.WriteLine(eteindreTele ? "La télé a été éteinte." : "La télé était déjà éteinte.");
 
             televisionDuSalon.augmenterChaine();
             Console.WriteLine("Numéro de chaine : " + televisionDuSalon.chaine);

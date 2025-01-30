@@ -8,7 +8,7 @@ namespace Television
 {
     public class Television
     {
-        public Boolean allume;
+        public bool allume;
         public int chaine;
         public string marque;
         public string resolution;
@@ -25,7 +25,7 @@ namespace Television
             volume = 10;
         }
 
-        public Television(Boolean _allume, int _chaine, string _marque, string _resolution, float _tailleEcranPouces, int _volume)
+        public Television(bool _allume, int _chaine, string _marque, string _resolution, float _tailleEcranPouces, int _volume)
         {
             this.allume = _allume;
             this.chaine = _chaine;
@@ -35,9 +35,9 @@ namespace Television
             this.volume = _volume;
         }
 
-        public Boolean allumer()
+        public bool allumer()
         {
-            Boolean result = false;
+            bool result = false;
             if(this.allume == false)
             {
                 this.allume = true;
@@ -47,9 +47,9 @@ namespace Television
             return result;
         }
 
-        public Boolean eteindre()
+        public bool eteindre()
         {
-            Boolean result = false;
+            bool result = false;
             if (this.allume == true)
             {
                 this.allume = false;

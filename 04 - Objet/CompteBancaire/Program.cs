@@ -13,25 +13,10 @@
 
 
             debit = compte1.debiterMontant(2000);
-            if(debit)
-            {
-                Console.WriteLine("Débit réussi");
-            }
-            else
-            {
-                Console.WriteLine("Echec du débit");
-            }
+            Console.WriteLine(debit ? "Débit réussi" : "Echec du débit");
 
             debit = compte1.debiterMontant(500);
-            if (debit)
-            {
-                Console.WriteLine("Débit réussi");
-            }
-            else
-            {
-                Console.WriteLine("Echec du débit");
-            }
-
+            Console.WriteLine(debit ? "Débit réussi" : "Echec du débit");
             Console.WriteLine("Nouveau solde : " + compte1.solde);
 
 
