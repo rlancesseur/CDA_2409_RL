@@ -1,80 +1,50 @@
 ﻿namespace Voiture
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             Voiture maVoiture = new("Renault", 80, false, false);
 
-            Boolean allumerPhares = maVoiture.allumerPhares();
-            if(allumerPhares)
-            {
-                Console.WriteLine("Les phares se sont allumés.");
-            }
-            else
-            {
-                Console.WriteLine("Les phares étaient déjà allumés, ou la voiture n'a plus de batterie.");
-            }
+            bool allumerPhares = maVoiture.allumerPhares();
+            Console.WriteLine(allumerPhares ? "Les phares se sont allumés." : "Les phares étaient déjà allumés, ou la voiture n'a plus de batterie.");
 
             allumerPhares = maVoiture.allumerPhares();
-            if (allumerPhares)
-            {
-                Console.WriteLine("Les phares se sont allumés.");
-            }
-            else
-            {
-                Console.WriteLine("Les phares étaient déjà allumés, ou la voiture n'a plus de batterie.");
-            }
+            Console.WriteLine(allumerPhares ? "Les phares se sont allumés." : "Les phares étaient déjà allumés, ou la voiture n'a plus de batterie.");
 
-            Boolean eteindrePhares = maVoiture.eteindrePhares();
-            if (eteindrePhares)
-            {
-                Console.WriteLine("Les phares se sont éteints.");
-            }
-            else
-            {
-                Console.WriteLine("Les phares étaient déjà éteints.");
-            }
+            bool eteindrePhares = maVoiture.eteindrePhares();
+            Console.WriteLine(eteindrePhares ? "Les phares se sont éteints." : "Les phares étaient déjà éteints.");
 
             eteindrePhares = maVoiture.eteindrePhares();
-            if (eteindrePhares)
-            {
-                Console.WriteLine("Les phares se sont éteints.");
-            }
-            else
-            {
-                Console.WriteLine("Les phares étaient déjà éteints.");
-            }
+            Console.WriteLine(eteindrePhares ? "Les phares se sont éteints." : "Les phares étaient déjà éteints.");
 
-            Boolean fermerPorte = maVoiture.fermerPorte();
-            if(fermerPorte)
-            {
-                Console.WriteLine("La porte s'est fermée.");
-            }
-            else
-            {
-                Console.WriteLine("La porte était déjà fermée.");
-            }
+            bool fermerPorte = maVoiture.fermerPorte();
+            Console.WriteLine(fermerPorte ? "La porte s'est fermée." : "La porte était déjà fermée.");
 
-            Boolean ouvrirPorte = maVoiture.ouvrirPorte();
-            if(ouvrirPorte)
-            {
-                Console.WriteLine("La porte s'est ouverte.");
-            }
-            else
-            {
-                Console.WriteLine("La porte était déjà ouverte.");
-            }
+            bool ouvrirPorte = maVoiture.ouvrirPorte();
+            Console.WriteLine(ouvrirPorte ? "La porte s'est ouverte." : "La porte était déjà ouverte.");
 
             ouvrirPorte = maVoiture.ouvrirPorte();
-            if (ouvrirPorte)
-            {
-                Console.WriteLine("La porte s'est ouverte.");
-            }
-            else
-            {
-                Console.WriteLine("La porte était déjà ouverte.");
-            }
+            Console.WriteLine(ouvrirPorte ? "La porte s'est ouverte." : "La porte était déjà ouverte.");
+
+
+
+            VoitureEssence maVoitureEssence = new("Porsche", 50, false, false, false, 40, 50);
+
+            bool demarrerVoiture = maVoitureEssence.demarrerMoteur();
+            Console.WriteLine(demarrerVoiture ? "La voiture a démarré." : "La voiture n'a pas pu démarrer");
+
+            demarrerVoiture = maVoitureEssence.demarrerMoteur();
+            Console.WriteLine(demarrerVoiture ? "La voiture a démarré." : "La voiture n'a pas pu démarrer");
+
+            bool arreterVoiture = maVoitureEssence.eteindreMoteur();
+            Console.WriteLine(arreterVoiture ? "Le moteur s'est arrêté." : "Le moteur était déjà arrêté.");
+
+            bool remplirReservoir = maVoitureEssence.remplirReservoirQuantite(20);
+            Console.WriteLine(remplirReservoir ? "Le réservoir a pu être rempli.": "Le résevoir n'a pas pu être rempli.");
+
+            remplirReservoir = maVoitureEssence.remplirReservoirQuantite(10);
+            Console.WriteLine(remplirReservoir ? "Le réservoir a pu être rempli." : "Le résevoir n'a pas pu être rempli.");
 
         }
     }

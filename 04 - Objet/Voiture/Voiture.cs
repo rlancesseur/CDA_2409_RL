@@ -9,10 +9,10 @@ namespace Voiture
     public class Voiture
     {
 
-        string marque;
-        float chargeBatterieEnPourcentage;
-        Boolean pharesAllume;
-        Boolean porteOuverte;
+        protected string marque;
+        protected float chargeBatterieEnPourcentage;
+        bool pharesAllume;
+        bool porteOuverte;
 
         public Voiture()
         {
@@ -22,7 +22,7 @@ namespace Voiture
             porteOuverte = true;
         }
 
-        public Voiture(string _marque, float _chargeBatterieEnPourcentage, Boolean _pharesAllume, Boolean _porteOuverte)
+        public Voiture(string _marque, float _chargeBatterieEnPourcentage, bool _pharesAllume, bool _porteOuverte)
         {
             this.marque = _marque;
             this.chargeBatterieEnPourcentage = _chargeBatterieEnPourcentage;
@@ -30,9 +30,9 @@ namespace Voiture
             this.porteOuverte = _porteOuverte;
         }
 
-        public Boolean allumerPhares()
+        public bool allumerPhares()
         {
-            Boolean result = false;
+            bool result = false;
             if(this.chargeBatterieEnPourcentage > 0 && this.pharesAllume == false) 
             {
                 this.pharesAllume = true;
@@ -41,9 +41,9 @@ namespace Voiture
             return result;
         }
 
-        public Boolean eteindrePhares()
+        public bool eteindrePhares()
         {
-            Boolean result = false;
+            bool result = false;
             if (this.pharesAllume == true)
             {
                 this.pharesAllume = false;
@@ -52,9 +52,9 @@ namespace Voiture
             return result;
         }
 
-        public Boolean fermerPorte()
+        public bool fermerPorte()
         {
-            Boolean result = false;
+            bool result = false;
             if(this.porteOuverte == true)
             {
                 this.porteOuverte = false;
@@ -63,9 +63,9 @@ namespace Voiture
             return result;
         }
 
-        public Boolean ouvrirPorte()
+        public bool ouvrirPorte()
         {
-            Boolean result = false;
+            bool result = false;
             if (this.porteOuverte == false)
             {
                 this.porteOuverte = true;
