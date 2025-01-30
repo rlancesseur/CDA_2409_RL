@@ -46,8 +46,11 @@ namespace Personne
 
         public void modifierRevenus(float nouveauSalaire, float nouveauxAutresRevenus)
         {
-            this.salaire = nouveauSalaire;
-            this.autreRevenus = nouveauxAutresRevenus;
+            if(nouveauSalaire >= 0 && nouveauxAutresRevenus >= 0)
+            {
+                this.salaire = nouveauSalaire;
+                this.autreRevenus = nouveauxAutresRevenus;
+            }
         }
 
         public float calculerCharges()
