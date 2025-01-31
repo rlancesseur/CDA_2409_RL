@@ -29,7 +29,7 @@
 
 
 
-            VoitureEssence maVoitureEssence = new("Porsche", 50, false, false, false, 40, 50);
+            VoitureEssence maVoitureEssence = new("Porsche", 50, false, false, false, 40, 50, false);
 
             bool demarrerVoiture = maVoitureEssence.demarrerMoteur();
             Console.WriteLine(demarrerVoiture ? "La voiture a démarré." : "La voiture n'a pas pu démarrer");
@@ -45,6 +45,19 @@
 
             remplirReservoir = maVoitureEssence.remplirReservoirQuantite(10);
             Console.WriteLine(remplirReservoir ? "Le réservoir a pu être rempli." : "Le résevoir n'a pas pu être rempli.");
+
+            bool voitureAvance = maVoitureEssence.avancer();
+            Console.WriteLine(voitureAvance ? "La voiture avance." : "La voiture ne peut pas avancer, ou avance déjà.");
+
+            demarrerVoiture = maVoitureEssence.demarrerMoteur();
+            voitureAvance = maVoitureEssence.avancer();
+            Console.WriteLine(voitureAvance ? "La voiture avance." : "La voiture ne peut pas avancer, ou avance déjà.");
+
+            bool voitureArret = maVoitureEssence.arreter();
+            Console.WriteLine(voitureArret ? "La voiture s'arrête." : "La voiture était déjà à l'arrêt.");
+
+            voitureArret = maVoitureEssence.arreter();
+            Console.WriteLine(voitureArret ? "La voiture s'arrête." : "La voiture était déjà à l'arrêt.");
 
         }
     }
