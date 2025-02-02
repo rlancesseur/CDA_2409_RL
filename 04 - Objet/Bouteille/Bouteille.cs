@@ -53,7 +53,7 @@ namespace Bouteille
         {
             bool result = false;
 
-            if(this.ouvert == true && this.contenuEnL != this.contenanceEnL)
+            if(this.ouvert == true && this.contenuEnL < this.contenanceEnL)
             {
                 this.contenuEnL = this.contenanceEnL;
                 result = true;
@@ -65,7 +65,7 @@ namespace Bouteille
         {
             bool result = false;
 
-            if (this.ouvert == true && this.contenuEnL != 0)
+            if (this.ouvert == true && this.contenuEnL > 0)
             {
                 this.contenuEnL = 0;
                 result = true;
