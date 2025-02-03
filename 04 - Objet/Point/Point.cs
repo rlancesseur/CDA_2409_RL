@@ -33,5 +33,30 @@ namespace Point
             this.y = nouveauY;
         }
 
+        public Point symetrieX()
+        {
+            Point pointSymetrieX = new(this.x, -(this.y));
+            return pointSymetrieX;
+        }
+
+        public Point symetrieY()
+        {
+            Point pointSymetrieY = new(-(this.x), this.y);
+            return pointSymetrieY;
+        }
+
+        public Point symetriePoint()
+        {
+            Point pointSymetriePoint = new(-(this.x), -(this.y));
+            return pointSymetriePoint;
+        }
+
+        public void permuter()
+        {
+            float z = this.x;
+            this.x = this.y;
+            this.y = z;
+        }
+
     }
 }
