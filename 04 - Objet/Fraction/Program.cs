@@ -30,6 +30,11 @@
             bool estEgal = f3.EgalA(f4);
             Console.WriteLine(estEgal ? "f3 est égal à f4." : "f3 n'est pas égal à f4.");
 
+            Fraction f5 = f4.Plus(f3);
+            f5.Afficher();
+
+            Fraction f6 = f4 + f3;
+            f6.Afficher();
             
         }
     }

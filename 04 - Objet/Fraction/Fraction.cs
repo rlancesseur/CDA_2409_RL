@@ -29,6 +29,18 @@ namespace Fraction
             this.denominateur = 1;
         }
 
+        public static Fraction operator +(Fraction a, Fraction b)
+        {
+            int nouveauNumerateur = 0;
+            int nouveauDenominateur = 0;
+
+            nouveauNumerateur = ((a.numerateur * b.denominateur) + (a.denominateur * b.numerateur));
+            nouveauDenominateur = a.denominateur * b.denominateur;
+
+            Fraction nouvelleFraction = new(nouveauNumerateur, nouveauDenominateur);
+            return nouvelleFraction;
+        }
+
         public void Afficher()
         {
             Console.WriteLine("Numérateur : " + this.numerateur + ", Dénominateur : " + this.denominateur);
@@ -111,8 +123,7 @@ namespace Fraction
         }
 
         private void Reduire()
-        {
-            
+        {   
         }
 
         public Fraction Plus(Fraction _fraction)
@@ -120,27 +131,8 @@ namespace Fraction
             int nouveauNumerateur = 0;
             int nouveauDenominateur = 0;
 
-            if (this.denominateur < _fraction.denominateur)
-            {
-                int i = 0;
-                while (this.denominateur != _fraction.denominateur)
-                {
-                    nouveauDenominateur = this.denominateur * i;
-                    i++;
-                }
-                nouveauNumerateur = this.denominateur * i;
-            }
-
-            else if (this.denominateur > _fraction.denominateur)
-            {
-                int i = 0;
-                while (this.denominateur != _fraction.denominateur)
-                {
-                    nouveauDenominateur = _fraction.denominateur * i;
-                    i++;
-                }
-                nouveauNumerateur = _fraction.denominateur * i;
-            }
+            nouveauNumerateur = ((this.numerateur * _fraction.denominateur) + (this.denominateur * _fraction.numerateur));
+            nouveauDenominateur = this.denominateur * _fraction.denominateur;
 
             Fraction nouvelleFraction = new(nouveauNumerateur, nouveauDenominateur);
             return nouvelleFraction;
