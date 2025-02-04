@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CompteBancaire
+namespace Banque
 {
     public class CompteBancaire
     {
@@ -12,6 +12,14 @@ namespace CompteBancaire
         public string nomProprietaire;
         public float solde;
         public float decouvertAutorise;
+
+        public CompteBancaire()
+        {
+            numero = 0000;
+            nomProprietaire = "Toto";
+            solde = 1000;
+            decouvertAutorise = -500;
+        }
 
         public CompteBancaire(int _numero, string _nomProprietaire, float _solde, float _decouvertAutorise)
         {
