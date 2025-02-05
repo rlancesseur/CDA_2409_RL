@@ -27,7 +27,7 @@ namespace Bouteille
             this.contenuEnL = _contenuEnL;
         }
 
-        public bool fermer()
+        public bool Fermer()
         {
             bool result = false;
             if(this.ouvert == true)
@@ -38,7 +38,7 @@ namespace Bouteille
             return result;
         }
 
-        public bool ouvrir()
+        public bool Ouvrir()
         {
             bool result = false;
             if (this.ouvert == false)
@@ -49,7 +49,7 @@ namespace Bouteille
             return result;
         }
 
-        public bool remplir()
+        public bool Remplir()
         {
             bool result = false;
 
@@ -61,7 +61,7 @@ namespace Bouteille
             return result;
         }
 
-        public bool vider()
+        public bool Vider()
         {
             bool result = false;
 
@@ -73,25 +73,31 @@ namespace Bouteille
             return result;
         }
 
-        public bool remplirQuantite(float quantite)
+        public bool RemplirQuantite(float quantiteEnL)
         {
             bool result = false;
 
-            if (this.ouvert == true && (this.contenuEnL + quantite) <= this.contenanceEnL)
+            if (quantiteEnL < 0)
+                throw new ArgumentOutOfRangeException("quantiteEnL", "La quantité ne peut pas être négative.");
+
+            if (this.ouvert == true && (this.contenuEnL + quantiteEnL) <= this.contenanceEnL)
             {
-                this.contenuEnL += quantite;
+                this.contenuEnL += quantiteEnL;
                 result = true;
             }
             return result;
         }
 
-        public bool viderQuantite(float quantite)
+        public bool ViderQuantite(float quantiteEnL)
         {
             bool result = false;
 
-            if (this.ouvert == true && (this.contenuEnL - quantite) >= 0)
+            if (quantiteEnL < 0)
+                throw new ArgumentOutOfRangeException("quantiteEnL", "La quantité ne peut pas être négative.");
+
+            if (this.ouvert == true && (this.contenuEnL - quantiteEnL) >= 0)
             {
-                this.contenuEnL -= quantite;
+                this.contenuEnL -= quantiteEnL;
                 result = true;
             }
             return result;
