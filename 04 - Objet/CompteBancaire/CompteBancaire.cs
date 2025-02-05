@@ -29,12 +29,9 @@ namespace Banque
             this.decouvertAutorise = _decouvertAutorise;
         }
 
-        public void afficherContenu()
+        public override string ToString()
         {
-            Console.WriteLine("Numéro du compte : " + this.numero);
-            Console.WriteLine("Nom : " + this.nomProprietaire);
-            Console.WriteLine("Solde : " + this.solde);
-            Console.WriteLine("Découvert autorisé : " + this.decouvertAutorise);
+            return "Numéro du compte: " + this.numero + "Nom : " + this.nomProprietaire + "Solde : " + this.solde + "Découvert autorisé : " + this.decouvertAutorise;
         }
 
         public void crediterMontant(float montant)
