@@ -11,13 +11,15 @@ namespace Banque
         string nom;
         string ville;
         List<CompteBancaire> compte;
-        static int nbComptes = 0;
+        public static int nbComptes = 0;
 
         public Banque(string _nom, string _ville)
         {
             this.nom = _nom;
             this.ville = _ville;
         }
+
+
 
         public void AjouterCompte(CompteBancaire _nouveauCompte)
         {
@@ -27,11 +29,17 @@ namespace Banque
 
         public void AjouterCompte(int _numero, string _nomProprietaire, float _solde, float _decouvertAutorise)
         {
-
-            // A Refaire
             CompteBancaire nouveauCompte = new(_numero, _nomProprietaire, _solde, _decouvertAutorise);
-
+            compte.Add(nouveauCompte);
             nbComptes++;
         }
+
+        public override string ToString()
+        {
+            return "Nom : " + this.nom + ", Ville : " + this.ville;
+        }
+
+
+
     }
 }
