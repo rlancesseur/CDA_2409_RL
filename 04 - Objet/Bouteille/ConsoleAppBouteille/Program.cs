@@ -1,8 +1,8 @@
-﻿using System.Linq.Expressions;
+﻿using ClassLibraryBouteille;
 
-namespace Bouteille
+namespace ConsoleAppBouteille
 {
-    public class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
@@ -30,7 +30,7 @@ namespace Bouteille
                 remplirQuantite = maBouteille.RemplirQuantite(-0.5f);
                 Console.WriteLine(remplirQuantite ? "La bouteille a pu être remplie." : "La bouteille n'a pas pu être remplie.");
             }
-            catch ( ArgumentOutOfRangeException e)
+            catch (ArgumentOutOfRangeException e)
             {
                 Console.WriteLine("Erreur : " + e.Message);
             }
@@ -38,7 +38,7 @@ namespace Bouteille
             remplirQuantite = maBouteille.RemplirQuantite(0.1f);
             Console.WriteLine(remplirQuantite ? "La bouteille a pu être remplie." : "La bouteille n'a pas pu être remplie.");
 
-            try 
+            try
             {
                 viderBouteille = maBouteille.ViderQuantite(-1);
                 Console.WriteLine(viderBouteille ? "La bouteille a pu être vidé" : "La bouteille était fermée, ou déjà vide.");
@@ -47,10 +47,6 @@ namespace Bouteille
             {
                 Console.WriteLine("Erreur : " + e.Message);
             }
-            
-
-
-
         }
     }
 }

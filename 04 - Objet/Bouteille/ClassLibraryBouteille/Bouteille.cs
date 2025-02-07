@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bouteille
+﻿namespace ClassLibraryBouteille
 {
-    class Bouteille
+    public class Bouteille
     {
-
         bool ouvert;
         float contenanceEnL;
         float contenuEnL;
@@ -27,10 +20,21 @@ namespace Bouteille
             this.contenuEnL = _contenuEnL;
         }
 
+        public Bouteille(float _contenanceEnL, float _contenuEnL):this(false, _contenanceEnL, _contenuEnL)
+        {
+        }
+
+        public Bouteille(Bouteille bouteilleACopier)
+        {
+            this.ouvert = bouteilleACopier.ouvert;
+            this.contenanceEnL = bouteilleACopier.contenanceEnL;
+            this.contenuEnL = bouteilleACopier.contenuEnL;
+        }
+
         public bool Fermer()
         {
             bool result = false;
-            if(this.ouvert == true)
+            if (this.ouvert == true)
             {
                 this.ouvert = false;
                 result = true;
@@ -53,7 +57,7 @@ namespace Bouteille
         {
             bool result = false;
 
-            if(this.ouvert == true && this.contenuEnL < this.contenanceEnL)
+            if (this.ouvert == true && this.contenuEnL < this.contenanceEnL)
             {
                 this.contenuEnL = this.contenanceEnL;
                 result = true;

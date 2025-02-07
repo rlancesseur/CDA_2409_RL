@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Bouteille.UnitTest
+namespace UnitTestBouteille
 {
     [TestClass]
     public class UnitTest1
