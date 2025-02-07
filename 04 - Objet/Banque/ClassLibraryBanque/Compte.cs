@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banque
+namespace ClassLibraryBanque
 {
-    public class CompteBancaire
+    public class Compte
     {
-        public int numero;
-        public string nomProprietaire;
-        public float solde;
-        public float decouvertAutorise;
+        int numero;
+        string nomProprietaire;
+        float solde;
+        float decouvertAutorise;
 
-        public CompteBancaire()
+        public Compte()
         {
             numero = 0000;
             nomProprietaire = "Toto";
@@ -21,7 +21,7 @@ namespace Banque
             decouvertAutorise = -500;
         }
 
-        public CompteBancaire(int _numero, string _nomProprietaire, float _solde, float _decouvertAutorise)
+        public Compte(int _numero, string _nomProprietaire, float _solde, float _decouvertAutorise)
         {
             this.numero = _numero;
             this.nomProprietaire = _nomProprietaire;
@@ -31,15 +31,15 @@ namespace Banque
 
         public override string ToString()
         {
-            return "Numéro du compte: " + this.numero + "Nom : " + this.nomProprietaire + "Solde : " + this.solde + "Découvert autorisé : " + this.decouvertAutorise;
+            return "Numéro du compte: " + this.numero + " Nom : " + this.nomProprietaire + " Solde : " + this.solde + " Découvert autorisé : " + this.decouvertAutorise;
         }
 
-        public void crediterMontant(float montant)
+        public void CrediterMontant(float montant)
         {
             this.solde += montant;
         }
 
-        public bool debiterMontant(float montant)
+        public bool DebiterMontant(float montant)
         {
             bool result = false;
 
@@ -51,13 +51,13 @@ namespace Banque
             return result;
         }
 
-        public void transfererMontant(float montant, CompteBancaire compte)
+        public void TransfererMontant(float montant, Compte compte)
         {
-            this.debiterMontant(montant);
-            compte.crediterMontant(montant);
+            this.DebiterMontant(montant);
+            compte.CrediterMontant(montant);
         }
 
-        public bool comparerSolde(CompteBancaire compte)
+        public bool ComparerSolde(Compte compte)
         {
             bool result = false;
 
