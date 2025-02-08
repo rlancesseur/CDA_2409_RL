@@ -43,17 +43,75 @@
 
         public string CompteSup()
         {
+            string? result = null;
+            float soldeSup = 0;
 
+            for (int i = 0; i < compte.Count; i++)
+            {
+                if (compte[i].solde > soldeSup)
+                {
+                    soldeSup = compte[i].solde;
+                    result = compte[i].ToString();
+                }
+            }
+            return result;
         }
 
         public string RendCompte(int numeroCompteDemande)
         {
-            
+            string? result = null;
+
+            for (int i = 0; i < compte.Count; i++)
+            {
+                if (compte[i].numero == numeroCompteDemande)
+                {
+                    result = compte[i].ToString();
+                }
+            }
+            return result;
         }
 
-        public bool AjouteCompte(int numeroCompteDebiteur, int numeroCompteCrediteur, float montantTransfert)
+        public bool Transferer(int numeroCompteDebiteur, int numeroCompteCrediteur, float montantTransfert)
         {
             bool result = false;
+            int a = 0;
+            int b = 0;
+
+            for (int i = 0; i < compte.Count; i++)
+            {
+                if (compte[i].numero == numeroCompteDebiteur)
+                {
+                    a = compte[i].numero;
+                }
+                if (compte[i].numero == numeroCompteCrediteur)
+                {
+                    b = compte[i].numero;
+                }
+            }
+
+            if (a != 0 && b != 0)
+            {
+                bool debitReussi = false;
+                for (int i = 0; i < compte.Count; i++)
+                {
+                    if (compte[i].numero == a)
+                    {
+                        debitReussi = compte[i].DebiterMontant(montantTransfert);
+                    }
+                }
+
+                if (debitReussi)
+                {
+                    result = true;
+                    for (int i = 0; i < compte.Count; i++)
+                    {
+                        if (compte[i].numero == b)
+                        {
+                            compte[i].solde += montantTransfert;
+                        }
+                    }
+                }
+            }
 
             return result;
         }

@@ -8,9 +8,9 @@ namespace ClassLibraryBanque
 {
     public class Compte
     {
-        int numero;
+        public int numero;
         string nomProprietaire;
-        float solde;
+        public float solde;
         float decouvertAutorise;
 
         public Compte()
