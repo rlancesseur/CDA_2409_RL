@@ -6,7 +6,7 @@ namespace ConsoleAppBouteille
     {
         static void Main(string[] args)
         {
-            Bouteille maBouteille = new(1, 0.5f);
+            Bouteille maBouteille = new(false, 1, 0.5f);
 
             bool ouvrirBouteille = maBouteille.Ouvrir();
             Console.WriteLine(ouvrirBouteille ? "Ouverte réussie" : "La bouteille était déjà ouverte");

@@ -5,7 +5,7 @@
     /// </summary>
     public class Bouteille
     {
-        bool ouvert; 
+        bool estOuverte; 
         float contenanceEnL;
         float contenuEnL;
 
@@ -14,7 +14,7 @@
         /// </summary>
         public Bouteille()
         {
-            ouvert = false;
+            estOuverte = false;
             contenanceEnL = 2;
             contenuEnL = 1.5f;
         }
@@ -22,18 +22,28 @@
         /// <summary>
         /// Constructeur classique pour initialiser une nouvelle instance de la classe bouteille.
         /// </summary>
-        /// <param name="_ouvert">Etat de la bouteille (ouverte ou fermée)</param>
+        /// <param name="_estOuverte">Etat de la bouteille (ouverte ou fermée)</param>
         /// <param name="_contenanceEnL">Contenance de la bouteille en litre</param>
         /// <param name="_contenuEnL">Contenu de la bouteille en litre</param>
-        public Bouteille(bool _ouvert, float _contenanceEnL, float _contenuEnL)
+        public Bouteille(bool _estOuverte, float _contenanceEnL, float _contenuEnL)
         {
-            ouvert = _ouvert;
+            if (_contenanceEnL <= 0)
+            {
+                throw new ArgumentOutOfRangeException("contenanceEnL", "La contenance doit être positive.");
+            }
+
+            if (_contenuEnL < 0)
+            {
+                throw new ArgumentOutOfRangeException("contenuEnL", "Le contenu doit être égal ou plus grand que 0.");
+            }
+
+            estOuverte = _estOuverte;
             contenanceEnL = _contenanceEnL;
             contenuEnL = _contenuEnL;
         }
 
         /// <summary>
-        /// Constructeur hybride pour initialiser une nouvelle instance de la classe bouteille.
+        /// Constructeur hybride pour initialiser une nouvelle instance de la classe bouteille à partir de deux paramètres.
         /// </summary>
         /// <param name="_contenanceEnL">Contenance de la bouteille en litre</param>
         /// <param name="_contenuEnL">Contenu de la bouteille en litre</param>
@@ -47,9 +57,9 @@
         /// <param name="bouteilleACopier">Bouteille à copier déjà existante</param>
         public Bouteille(Bouteille bouteilleACopier)
         {
-            this.ouvert = bouteilleACopier.ouvert;
-            this.contenanceEnL = bouteilleACopier.contenanceEnL;
-            this.contenuEnL = bouteilleACopier.contenuEnL;
+            estOuverte = bouteilleACopier.estOuverte;
+            contenanceEnL = bouteilleACopier.contenanceEnL;
+            contenuEnL = bouteilleACopier.contenuEnL;
         }
 
 
@@ -59,13 +69,12 @@
         /// <returns>Retourne True si la bouteille a pu être fermée.</returns>
         public bool Fermer()
         {
-            bool result = false;
-            if (this.ouvert)
+            if (this.estOuverte)
             {
-                this.ouvert = false;
-                result = true;
+                this.estOuverte = false;
+                return true;
             }
-            return result;
+            return false;
         }
 
 
@@ -75,9 +84,9 @@
         /// <returns>Retourne True si la bouteille a pu être ouverte.</returns>
         public bool Ouvrir()
         {
-            if (!this.ouvert)
+            if (!this.estOuverte)
             {
-                this.ouvert = true;
+                this.estOuverte = true;
                 return true;
             }
             return false;
@@ -102,17 +111,15 @@
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public bool RemplirQuantite(float quantiteEnL)
         {
-            bool result = false;
-
             if (quantiteEnL < 0)
                 throw new ArgumentOutOfRangeException("quantiteEnL", quantiteEnL, "La quantité ne peut pas être négative.");
 
-            if (this.ouvert && quantiteEnL > 0 && (this.contenuEnL + quantiteEnL) <= this.contenanceEnL)
+            if (this.estOuverte && quantiteEnL > 0 && (this.contenuEnL + quantiteEnL) <= this.contenanceEnL)
             {
                 this.contenuEnL += quantiteEnL;
-                result = true;
+                return true;
             }
-            return result;
+            return false;
         }
 
 
@@ -134,17 +141,15 @@
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public bool ViderQuantite(float quantiteEnL)
         {
-            bool result = false;
-
             if (quantiteEnL < 0)
                 throw new ArgumentOutOfRangeException("quantiteEnL", "La quantité ne peut pas être négative.");
 
-            if (this.ouvert && quantiteEnL > 0 && (this.contenuEnL - quantiteEnL) >= 0)
+            if (this.estOuverte && quantiteEnL > 0 && (this.contenuEnL - quantiteEnL) >= 0)
             {
                 this.contenuEnL -= quantiteEnL;
-                result = true;
+                return true;
             }
-            return result;
+            return false;
         }
 
     }
