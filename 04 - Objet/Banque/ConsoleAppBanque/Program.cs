@@ -33,6 +33,14 @@ namespace ConsoleAppBanque
             maBanque.AjouterCompte(compte2);
             Console.WriteLine(maBanque.ToString());
 
+            maBanque.CompteSup();
+
+            maBanque.RendCompte(0001);
+            maBanque.RendCompte(0005);
+
+
+            Console.WriteLine(maBanque.Transferer(0001, 0002, 100) ? "Transfert Réussi" : "Transfert impossible");
+
         }
     }
 }

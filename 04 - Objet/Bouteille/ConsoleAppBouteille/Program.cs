@@ -12,16 +12,16 @@ namespace ConsoleAppBouteille
             Console.WriteLine(ouvrirBouteille ? "Ouverte réussie" : "La bouteille était déjà ouverte");
 
             bool remplirBouteille = maBouteille.Remplir();
-            Console.WriteLine(remplirBouteille ? "Remplissage réussi" : "La bouteille était fermée, ou déjà remplie");
+            Console.WriteLine(remplirBouteille ? "Remplissage réussi" : "La bouteille n'a pas pu être remplie");
 
             remplirBouteille = maBouteille.Remplir();
-            Console.WriteLine(remplirBouteille ? "Remplissage réussi" : "La bouteille était fermée, ou déjà remplie");
+            Console.WriteLine(remplirBouteille ? "Remplissage réussi" : "La bouteille n'a pas pu être remplie");
 
             bool viderBouteille = maBouteille.Vider();
-            Console.WriteLine(viderBouteille ? "La bouteille a pu être vidé" : "La bouteille était fermée, ou déjà vide.");
+            Console.WriteLine(viderBouteille ? "La bouteille a pu être vidé" : "La bouteille n'a pas pu être vidé.");
 
             viderBouteille = maBouteille.Vider();
-            Console.WriteLine(viderBouteille ? "La bouteille a pu être vidé" : "La bouteille était fermée, ou déjà vide.");
+            Console.WriteLine(viderBouteille ? "La bouteille a pu être vidé" : "La bouteille n'a pas pu être vidé.");
 
             bool remplirQuantite = maBouteille.RemplirQuantite(0.8f);
 
@@ -32,7 +32,7 @@ namespace ConsoleAppBouteille
             }
             catch (ArgumentOutOfRangeException e)
             {
-                Console.WriteLine("Erreur : " + e.Message);
+                Console.WriteLine(e.Message.Split("(")[0]);
             }
 
             remplirQuantite = maBouteille.RemplirQuantite(0.1f);
@@ -41,7 +41,7 @@ namespace ConsoleAppBouteille
             try
             {
                 viderBouteille = maBouteille.ViderQuantite(-1);
-                Console.WriteLine(viderBouteille ? "La bouteille a pu être vidé" : "La bouteille était fermée, ou déjà vide.");
+                Console.WriteLine(viderBouteille ? "La bouteille a pu être vidé" : "La bouteille n'a pas pu être vidé.");
             }
             catch (ArgumentOutOfRangeException e)
             {
