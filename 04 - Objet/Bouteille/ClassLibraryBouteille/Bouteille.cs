@@ -19,12 +19,14 @@
             contenuEnL = 1.5f;
         }
 
+
         /// <summary>
         /// Constructeur classique pour initialiser une nouvelle instance de la classe bouteille.
         /// </summary>
         /// <param name="_estOuverte">Etat de la bouteille (ouverte ou fermée)</param>
         /// <param name="_contenanceEnL">Contenance de la bouteille en litre</param>
         /// <param name="_contenuEnL">Contenu de la bouteille en litre</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public Bouteille(bool _estOuverte, float _contenanceEnL, float _contenuEnL)
         {
             if (_contenanceEnL <= 0)
@@ -63,6 +65,7 @@
         }
 
 
+
         /// <summary>
         /// Ferme la bouteille si elle est ouverte.
         /// </summary>
@@ -94,16 +97,6 @@
 
 
         /// <summary>
-        /// Remplit la bouteille complètement.
-        /// </summary>
-        /// <returns>Retourne True si la bouteille a pu être remplie complètement.</returns>
-        public bool Remplir()
-        {
-            return RemplirQuantite(this.contenanceEnL - this.contenuEnL);
-        }
-
-
-        /// <summary>
         /// Remplit la bouteille avec une quantité donnée.
         /// </summary>
         /// <param name="quantiteEnL">La quantité en litre à ajouter</param>
@@ -122,14 +115,13 @@
             return false;
         }
 
-
         /// <summary>
-        /// Vide la bouteille complètement.
+        /// Remplit la bouteille complètement.
         /// </summary>
-        /// <returns>Retourne True si la bouteille a pu être vidé complètement.</returns>
-        public bool Vider()
+        /// <returns>Retourne True si la bouteille a pu être remplie complètement.</returns>
+        public bool Remplir()
         {
-            return ViderQuantite(this.contenuEnL);
+            return RemplirQuantite(this.contenanceEnL - this.contenuEnL);
         }
 
 
@@ -150,6 +142,15 @@
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Vide la bouteille complètement.
+        /// </summary>
+        /// <returns>Retourne True si la bouteille a pu être vidé complètement.</returns>
+        public bool Vider()
+        {
+            return ViderQuantite(this.contenuEnL);
         }
 
     }
