@@ -8,8 +8,7 @@ namespace Voiture
 {
     public class Voiture
     {
-
-        protected string marque;
+        string marque;
         protected float chargeBatterieEnPourcentage;
         bool pharesAllume;
         bool porteOuverte;
@@ -24,54 +23,58 @@ namespace Voiture
 
         public Voiture(string _marque, float _chargeBatterieEnPourcentage, bool _pharesAllume, bool _porteOuverte)
         {
-            this.marque = _marque;
-            this.chargeBatterieEnPourcentage = _chargeBatterieEnPourcentage;
-            this.pharesAllume = _pharesAllume;
-            this.porteOuverte = _porteOuverte;
+            marque = _marque;
+            chargeBatterieEnPourcentage = _chargeBatterieEnPourcentage;
+            pharesAllume = _pharesAllume;
+            porteOuverte = _porteOuverte;
         }
 
-        public bool allumerPhares()
+        public Voiture(Voiture voitureACopier)
         {
-            bool result = false;
-            if(this.chargeBatterieEnPourcentage > 0 && this.pharesAllume == false) 
-            {
-                this.pharesAllume = true;
-                result = true;
-            }
-            return result;
+            marque = voitureACopier.marque;
+            chargeBatterieEnPourcentage = voitureACopier.chargeBatterieEnPourcentage;
+            pharesAllume = voitureACopier.pharesAllume;
+            porteOuverte = voitureACopier.porteOuverte;
         }
 
-        public bool eteindrePhares()
+        public bool AllumerPhares()
         {
-            bool result = false;
-            if (this.pharesAllume == true)
+            if(chargeBatterieEnPourcentage > 0 && !pharesAllume) 
             {
-                this.pharesAllume = false;
-                result = true;
+                pharesAllume = true;
+                return true;
             }
-            return result;
+            return false;
         }
 
-        public bool fermerPorte()
+        public bool EteindrePhares()
         {
-            bool result = false;
-            if(this.porteOuverte == true)
+            if (pharesAllume)
             {
-                this.porteOuverte = false;
-                result = true;
+                pharesAllume = false;
+                return true;
             }
-            return result;
+            return false;
         }
 
-        public bool ouvrirPorte()
+        public bool FermerPorte()
         {
-            bool result = false;
-            if (this.porteOuverte == false)
+            if(porteOuverte)
             {
-                this.porteOuverte = true;
-                result = true;
+                porteOuverte = false;
+                return true;
             }
-            return result;
+            return false;
+        }
+
+        public bool OuvrirPorte()
+        {
+            if (!porteOuverte)
+            {
+                porteOuverte = true;
+                return true;
+            }
+            return false;
         }
 
     }

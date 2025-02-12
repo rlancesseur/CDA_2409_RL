@@ -8,83 +8,78 @@ namespace Voiture
 {
     public class VoitureEssence : Voiture
     {
-        protected float contenuReservoirEnL;
-        protected float contenanceReservoirEnL;
-        protected bool moteurDemarre;
-        protected bool avance;
+        float contenuReservoirEnL;
+        float contenanceReservoirEnL;
+        bool moteurDemarre;
+        bool avance;
 
         public VoitureEssence(string _marque, float _chargeBatterieEnPourcentage, bool _pharesAllume, bool _porteOuverte, bool _moteurDemarre, float _contenuReservoirEnL, float _contenanceReservoirEnL, bool _avance) : base(_marque, _chargeBatterieEnPourcentage, _pharesAllume, _porteOuverte)
         {
-            this.moteurDemarre = _moteurDemarre;
-            this.contenuReservoirEnL = _contenuReservoirEnL;
-            this.contenanceReservoirEnL = _contenanceReservoirEnL;
-            this.avance = _avance;
+            moteurDemarre = _moteurDemarre;
+            contenuReservoirEnL = _contenuReservoirEnL;
+            contenanceReservoirEnL = _contenanceReservoirEnL;
+            avance = _avance;
         }
 
-        public bool demarrerMoteur()
+        public bool DemarrerMoteur()
+        {
+            if(chargeBatterieEnPourcentage > 0 && contenuReservoirEnL > 0 && !moteurDemarre)
+            {
+                moteurDemarre = true;
+                return true;
+            }
+            return false;
+        }
+
+        public bool EteindreMoteur()
         {
             bool result = false;
-            if(this.chargeBatterieEnPourcentage > 0 && this.contenuReservoirEnL > 0 && this.moteurDemarre == false)
+            if (moteurDemarre == true)
             {
-                this.moteurDemarre = true;
+                moteurDemarre = false;
                 result = true;
             }
             return result;
         }
 
-        public bool eteindreMoteur()
+        public bool RemplirReservoir()
         {
-            bool result = false;
-            if (this.moteurDemarre == true)
+            if(contenuReservoirEnL < contenanceReservoirEnL)
             {
-                this.moteurDemarre = false;
-                result = true;
+                contenuReservoirEnL = contenanceReservoirEnL;
+                return true;
             }
-            return result;
+            return false;
         }
 
-        public bool remplirReservoir()
+        public bool RemplirReservoirQuantite(float quantite)
         {
-            bool result = false;
-            if(this.contenuReservoirEnL < this.contenanceReservoirEnL)
+            if ((contenuReservoirEnL + quantite) <= contenanceReservoirEnL)
             {
-                this.contenuReservoirEnL = this.contenanceReservoirEnL;
-                result = true;
+                contenuReservoirEnL += quantite;
+                return true;
             }
-            return result;
+            return false;
         }
 
-        public bool remplirReservoirQuantite(float quantite)
+        public bool Avancer()
         {
-            bool result = false;
-            if ((this.contenuReservoirEnL + quantite) <= this.contenanceReservoirEnL)
+            if(moteurDemarre && !avance)
             {
-                this.contenuReservoirEnL += quantite;
-                result = true;
+                avance = true;
+                return true;
             }
-            return result;
+            return false;
         }
 
-        public bool avancer()
+        public bool Arreter()
         {
-            bool result = false;
-            if(this.moteurDemarre == true && this.avance == false)
+            if (avance)
             {
-                this.avance = true;
-                result = true;
+                avance = false;
+                return true;
             }
-            return result;
-        }
-
-        public bool arreter()
-        {
-            bool result = false;
-            if (this.avance == true)
-            {
-                this.avance = false;
-                result = true;
-            }
-            return result;
+            return false;
         }
 
     }
