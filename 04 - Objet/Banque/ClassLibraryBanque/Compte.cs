@@ -23,49 +23,45 @@ namespace ClassLibraryBanque
 
         public Compte(int _numero, string _nomProprietaire, float _solde, float _decouvertAutorise)
         {
-            this.numero = _numero;
-            this.nomProprietaire = _nomProprietaire;
-            this.solde = _solde;
-            this.decouvertAutorise = _decouvertAutorise;
+            numero = _numero;
+            nomProprietaire = _nomProprietaire;
+            solde = _solde;
+            decouvertAutorise = _decouvertAutorise;
         }
 
         public override string ToString()
         {
-            return "Numéro du compte: " + this.numero + " Nom : " + this.nomProprietaire + " Solde : " + this.solde + " Découvert autorisé : " + this.decouvertAutorise;
+            return "Numéro du compte: " + numero + " Nom : " + nomProprietaire + " Solde : " + solde + " Découvert autorisé : " + decouvertAutorise;
         }
 
         public void CrediterMontant(float montant)
         {
-            this.solde += montant;
+            solde += montant;
         }
 
         public bool DebiterMontant(float montant)
         {
-            bool result = false;
-
-            if ((this.solde - montant) >= this.decouvertAutorise)
+            if ((solde - montant) >= decouvertAutorise)
             {
-                this.solde -= montant;
-                result = true;
+                solde -= montant;
+                return true;
             }
-            return result;
+            return false;
         }
 
         public void TransfererMontant(float montant, Compte compte)
         {
-            this.DebiterMontant(montant);
+            DebiterMontant(montant);
             compte.CrediterMontant(montant);
         }
 
         public bool ComparerSolde(Compte compte)
         {
-            bool result = false;
-
-            if (this.solde > compte.solde)
+            if (solde > compte.solde)
             {
-                result = true;
+                return true;
             }
-            return result;
+            return false;
         }
     }
 }
