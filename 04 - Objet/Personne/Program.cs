@@ -11,9 +11,9 @@
             Personne personne4 = new("srhrsh", "Jsrharne", 30, 5000, 3000);
 
 
-            personne1.modifierRevenus(3000, 400);
-            personne1.afficher();
-            float charges = personne1.calculerCharges();
+            personne1.ModifierRevenus(3000, 400);
+            Console.WriteLine(personne1.ToString());
+            float charges = personne1.CalculerCharges();
             Console.WriteLine("Charges : " + charges);
 
             Console.WriteLine("Nombre de personnes : " + Personne.nbPersonnes);
