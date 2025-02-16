@@ -15,9 +15,9 @@
 
         public Banque(string _nom, string _ville)
         {
-            this.nom = _nom;
-            this.ville = _ville;
-            this.compte = new List<Compte>();
+            nom = _nom;
+            ville = _ville;
+            compte = new List<Compte>();
         }
 
 
