@@ -13,12 +13,13 @@ for(let i = 0; i < people.length; i++) {
     const tdLastName = document.createElement("td")
     const tdFirstName = document.createElement("td")
     const tdEmail = document.createElement("td")
-    const tdSuppr = document.createElement("td")
+    const tdSuppr = document.createElement("button")
     const nameSplit = people[i].split(" ")
     tdLastName.innerText = nameSplit[1]
     tdFirstName.innerText = nameSplit[0]
     tdEmail.innerText = nameSplit[0].toLowerCase() + "." + nameSplit[1].toLowerCase() + "@example.com"
     tdSuppr.innerText = "X"
+    tdSuppr.classList.add("btnSuppr")
     tdSuppr.style.textAlign = "center"
     tdSuppr.style.fontWeight = "bold"
     tr.appendChild(tdLastName)
