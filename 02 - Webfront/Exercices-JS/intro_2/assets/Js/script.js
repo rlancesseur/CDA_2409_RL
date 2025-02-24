@@ -7,7 +7,7 @@ let saisie = document.querySelector("#saisie")
 let boutonValider = document.querySelector("#validerSaisie")
 
 
-function augmenterTaille() {
+const augmenterTaille = () => {
     if(taille < 48) {
     taille++
     zoneTaille.innerText = taille
@@ -20,7 +20,7 @@ function augmenterTaille() {
     }
 }
 
-function diminuerTaille() {
+const diminuerTaille = () => {
     if(taille > 8) {
     taille--
     zoneTaille.innerText = taille
@@ -33,7 +33,7 @@ function diminuerTaille() {
     }
 }
 
-function saisirTaille() {
+const saisirTaille = () => {
     if(saisie.value > 7 && saisie.value < 49) {
         taille = saisie.value
         zoneTaille.innerText = taille
