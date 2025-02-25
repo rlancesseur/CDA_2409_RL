@@ -1,0 +1,39 @@
+{
+    "comptes_bancaires" : [
+        {
+            "account" : "FR76 10001 10001 100000001 11",
+            "bank": "Banque Populaire",
+            "city": "Paris",
+            "owner": "John Doe",
+            "balance": 36813.47
+        },
+        {
+            "account" : "FR76 30003 30001 100000012 33",
+            "bank": "Crédit Mutuel",
+            "city": "Paris",
+            "owner": "Mark Zouk",
+            "balance": 5295.59
+        },
+        {
+            "account" : "FR76 10001 10001 100000001 11",
+            "bank": "Crédit Mutuel",
+            "city": "Mulhouse",
+            "owner": "Josep Picard",
+            "balance": 1663.14
+        },
+        {
+            "account" : "FR76 10001 10001 100000001 11",
+            "bank": "Crédit Mutuel",
+            "city": "Mulhouse",
+            "owner": "Bruce Milice",
+            "balance": 1559.3
+        },
+        {
+            "account" : "FR76 10001 10001 100000001 11",
+            "bank": "Crédit Mutuel",
+            "city": "Mulhouse",
+            "owner": "Steeve Bobs",
+            "balance": 0.66
+        }
+    ]
+}

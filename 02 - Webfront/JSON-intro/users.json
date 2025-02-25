@@ -1,0 +1,39 @@
+{
+    "utilisateurs" : [
+       {
+            "id": 1,
+            "nom_utilisateur": "John Doe",
+            "pseudo": "JohnD",
+            "prenom": "John",
+            "date_naissance": "1960-10-01"
+        },
+        {
+            "id": 2,
+            "nom_utilisateur": "Mark Zouk",
+            "pseudo": "MarkZ",
+            "prenom": "Mark",
+            "date_naissance": "1980-01-01"
+        },
+        {
+            "id": 3,
+            "nom_utilisateur": "Joseph Picard",
+            "pseudo": "JosephP",
+            "prenom": "Joseph",
+            "date_naissance": "1980-05-01"
+        },
+        {
+            "id": 4,
+            "nom_utilisateur": "Bruce Milice",
+            "pseudo": "BruceM",
+            "prenom": "Bruce",
+            "date_naissance": "1960-10-01"
+        },
+        {
+            "id": 5,
+            "nom_utilisateur": "Steeve Bobs",
+            "pseudo": "SteeveB",
+            "prenom": "Steeve",
+            "date_naissance": "2000-10-01"
+        }
+    ]
+}

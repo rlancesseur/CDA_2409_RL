@@ -1,0 +1,43 @@
+{
+    "cars": [
+        {
+            "car_id": 342,
+            "car_name": "Mazda RX-7 GS",
+            "car_model": 1980,
+            "car_cylinders": 3,
+            "car_horsepower": 100,
+            "car_weight":  2420,
+            "car_origin": "JP",
+            "car_wheel": {
+                "brand": "Michelin",
+                "tire_wear": false
+            }
+        },
+        {
+            "car_id": 251,
+            "car_name": "Mazda RX-4",
+            "car_model": 1977,
+            "car_cylinders": 3,
+            "car_horsepower": 100,
+            "car_weight":  2720,
+            "car_origin": "JP",
+            "car_wheel": {
+                "brand": "Continental",
+                "tire_wear": false
+            }
+        },
+        {
+            "car_id": 119,
+            "car_name": "Mazda RX3",
+            "car_model": 1973,
+            "car_cylinders": 3,
+            "car_horsepower": 90,
+            "car_weight":  2124,
+            "car_origin": "JP",
+            "car_wheel": {
+                "brand": "Michelin",
+                "tire_wear": true
+            }
+        }
+    ]
+}

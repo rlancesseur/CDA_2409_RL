@@ -51,3 +51,14 @@ table, th, td {
 th {
     text-align: center;
 }
+
+.btnSuppr {
+    border-style: none;
+    border: none;
+    background-color: var(--light3);
+    color: var(--light1);
+    &:hover {
+        cursor: pointer;
+    }
+}
+

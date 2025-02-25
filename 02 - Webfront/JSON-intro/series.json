@@ -1,0 +1,42 @@
+{
+    "series": [
+        {
+            "titre" : "Stranger Things",
+            "realisateur": "Steven Spielberg",
+            "nb_saison": 4,
+            "acteurs": [
+                {
+                    "nom": "Bobby Brown",
+                    "prenom": "Millie"
+                },
+                {
+                    "nom": "Wolfhard",
+                    "prenom": "Finn"
+                },
+                {
+                    "nom": "Matarazzo",
+                    "prenom": "Gaten"
+                }
+            ]
+        },
+        {
+            "titre" : "House of Cars",
+            "realisateur": "David Fincher",
+            "nb_saison": 6,
+            "acteurs": [
+                {
+                    "nom": "Spacey",
+                    "prenom": "KEvin"
+                },
+                {
+                    "nom": "Wright",
+                    "prenom": "Robin"
+                },
+                {
+                    "nom": "Mara",
+                    "prenom": "Kate"
+                }
+            ]
+        }
+    ]
+}
