@@ -53,12 +53,14 @@ th {
 }
 
 .btnSuppr {
+    margin-left: 40px;
     border-style: none;
     border: none;
     background-color: var(--light3);
     color: var(--light1);
     &:hover {
         cursor: pointer;
+        background-color: var(--light2);
     }
 }
 

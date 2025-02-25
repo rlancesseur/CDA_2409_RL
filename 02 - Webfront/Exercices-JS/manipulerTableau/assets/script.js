@@ -1,14 +1,14 @@
 const people = ["Mike Dev", "John Makenzie", "Léa Grande"];
 
 const btnAjouter = document.querySelector("#btnAjouter")
+const ul = document.querySelector("ul")
+const tbody = document.querySelector("tbody")
 
 const afficherListeTableau = () => {
 for(let i = 0; i < people.length; i++) {
-    const ul = document.querySelector("ul")
     const li = document.createElement("li")
     li.innerText = people[i]
     ul.appendChild(li)
-    const tbody = document.querySelector("tbody")
     const tr = document.createElement("tr")
     const tdLastName = document.createElement("td")
     const tdFirstName = document.createElement("td")
@@ -21,7 +21,6 @@ for(let i = 0; i < people.length; i++) {
     tdSuppr.innerText = "X"
     tdSuppr.classList.add("btnSuppr")
     tdSuppr.style.textAlign = "center"
-    tdSuppr.style.fontWeight = "bold"
     tr.appendChild(tdLastName)
     tr.appendChild(tdFirstName)
     tr.appendChild(tdEmail)
@@ -31,16 +30,21 @@ for(let i = 0; i < people.length; i++) {
 
 btnAjouter.addEventListener("click", (event) => {
     event.preventDefault()
-    const ul = document.querySelector("ul")
-    ul.innerText = ""
-    const tbody = document.querySelector("tbody")
+    ul.innerText = ""   
     tbody.innerText = ""
     
     const zoneAffichage = document.querySelector("#zoneAffichage")
     let prenom = document.querySelector("#prenom").value
     let nom = document.querySelector("#nom").value
 
-    if(prenom.length >= 2 && nom.length >= 2) {
+    let personneExistante = false
+    for(let i = 0; i < people.length; i++){
+        if(people[i] == prenom + " " + nom) {
+            personneExistante = true
+        }
+    }
+
+    if(!personneExistante && prenom.length >= 2 && nom.length >= 2) {
         people.push(prenom + " " + nom)
         zoneAffichage.innerText = prenom + " " + nom + " ajouté !"
     }
