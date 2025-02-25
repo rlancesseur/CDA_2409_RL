@@ -3,7 +3,7 @@ const zoneDateNaissance = document.querySelector("#zoneDateNaissance")
 const zoneNbAnnee = document.querySelector("#zoneNbAnnee")
 const zoneAstro = document.querySelector("#zoneAstro")
 
-function affichage() {
+const affichage = () => {
     const dateHeures = document.querySelector("#date").value
     const date = dateHeures.split("T")
 

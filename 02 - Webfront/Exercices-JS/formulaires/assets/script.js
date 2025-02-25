@@ -4,13 +4,13 @@ const text = document.querySelector("#text")
 const textAge = document.querySelector("#textAge")
 const textRetraite = document.querySelector("#textRetraite")
 
-function afficher() {
+const afficher = () => {
     let name = document.querySelector("#name").value
     let age = document.querySelector("#age").value
     let ageRetraite = 0
 
         if(name !== "" && age > 0) {
-            text.innerText = "Bonjour " + name + ", votre âge est : " + age + "."
+            text.innerText = "Bonjour " + name + ", votre avez " + age + " ans."
             if(age >= 18) {
                 textAge.innerText = "Vous êtes majeur."
 
@@ -35,7 +35,7 @@ function afficher() {
         }
 }
 
-function vider() {
+const vider = () => {
     text.innerText = ""
     textAge.innerText = ""
     textRetraite.innerText = ""

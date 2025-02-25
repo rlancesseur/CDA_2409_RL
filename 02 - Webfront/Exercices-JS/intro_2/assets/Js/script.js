@@ -1,11 +1,10 @@
-let boutonPlus = document.querySelector("#augmente")
-let boutonMoins = document.querySelector("#diminue")
+const boutonPlus = document.querySelector("#augmente")
+const boutonMoins = document.querySelector("#diminue")
 let zoneTaille = document.querySelector("#zoneTaille")
-let taille = parseInt(zoneTaille.textContent)
 let paragraphe = document.querySelector("#text")
 let saisie = document.querySelector("#saisie")
-let boutonValider = document.querySelector("#validerSaisie")
-
+const boutonValider = document.querySelector("#validerSaisie")
+let taille = 16
 
 const augmenterTaille = () => {
     if(taille < 48) {
