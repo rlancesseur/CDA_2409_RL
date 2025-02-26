@@ -50,7 +50,7 @@ const afficherTableau = () => {
         }
 
         algo1(cartes)
-        algo2(cartes, cartes)
+        algo2(cartes)
     })
 }
 
