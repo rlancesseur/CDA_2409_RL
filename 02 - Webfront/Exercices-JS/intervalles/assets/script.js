@@ -1,24 +1,22 @@
 const boutonAfficher = document.querySelector("#boutonAfficher")
 const affichageActu = document.querySelector("#affichageActu")
 
-let boutonIntervalle = document.querySelector("#boutonIntervalle")
+const boutonIntervalle = document.querySelector("#boutonIntervalle")
 let affichageIntervalle = document.querySelector("#AffichageIntervalle")
 
-function afficherActu() {
+const afficherActu = () => {
     let dateActu = new Date(document.querySelector("#dateActu").value)
     let heureActu = document.querySelector("#heureActu").value
     let joursActu = dateActu.getDate()
     let moisActu = dateActu.getMonth()
     let anneeActu = dateActu.getFullYear()
 
-    // setInterval(() => heureActu++, 1000)
-
     afficherMois(moisActu)
 
     affichageActu.innerHTML = "Aujourd'hui nous sommes le " + joursActu + " " + scriptMois + " " + anneeActu + ", l'heure courante est : " + heureActu + "."
 }
 
-function afficherIntervalle() {
+const afficherIntervalle = () => {
     const dateHeureUtilisateur = new Date(document.querySelector("#dateHeureUtilisateur").value)
     const dateActu = new Date(document.querySelector("#dateActu").value)
     let jours = dateHeureUtilisateur.getDate()
