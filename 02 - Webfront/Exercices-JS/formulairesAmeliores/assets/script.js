@@ -25,6 +25,7 @@ const valNum = (prenomUtilisateur, nomUtilisateur) => {
         }
         result += valLettre
     }
+    return result
 }
 
 const calculerSigneAstro = (jour, mois) => {
@@ -69,15 +70,23 @@ const calculerSigneAstro = (jour, mois) => {
       else {
         signeAstro = "Erreur"
     }
+    return signeAstro
 }
 
-const formok = () => {
+const formOk = () => {
     let result = false
-    if(nomUtilisateur !== "" && prenomUtilisateur !== "" && jourNaissance.value ) {
+    if(nomUtilisateur !== "" && prenomUtilisateur !== "" && jourNaissance.value !== "" && moisNaissance !== "" && anneeNaissance !== "") {
         result = true
     }
 }
 
 const calculerPseudo = () => {
-    let result = 
+  if(formOk){
+    let signeAstro = calculerSigneAstro(jour, mois)
+    let valnum = valNum(prenomUtilisateur, nomUtilisateur)
+    let result = signeAstro + valnum
+    inputPseudo.innerHTML = result
+    btnValider.getAttribute("readonly") = false
+  }
 }
+
