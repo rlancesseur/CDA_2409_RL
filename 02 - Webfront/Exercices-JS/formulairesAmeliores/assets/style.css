@@ -1,0 +1,26 @@
+body {
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+}
+
+#zoneInscription {
+    width: 800px;
+    border: 2px whitesmoke solid;
+    box-shadow: 10px 5px 20px black;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+input {
+    margin-top: 15px;
+}
+
+select {
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+button {
+    margin-top: 5px;
+}
