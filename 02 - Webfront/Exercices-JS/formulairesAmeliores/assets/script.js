@@ -1,6 +1,6 @@
 let zoneTexteLibre = document.querySelector("#zoneTexteLibre")
-let nomUtilisateur = document.querySelector("#nomUtilisateur").value
-let prenomUtilisateur = document.querySelector("#prenomUtilisateur").value
+let nomUtilisateur = document.querySelector("#nomUtilisateur")
+let prenomUtilisateur = document.querySelector("#prenomUtilisateur")
 let jourNaissance = document.querySelector("#jourNaissance")
 let moisNaissance = document.querySelector("#moisNaissance")
 let anneeNaissance = document.querySelector("#anneeNaissance")
@@ -8,19 +8,40 @@ let inputPseudo = document.querySelector("#inputPseudo")
 const btnValider = document.querySelector("#btnValider")
 const btnAnnuler = document.querySelector("#btnAnnuler")
 
-const alphabetString = "abcdefghijklmnopqrstuvwxyz"
+const ajouterJours = () => {
+  for(let i = 1; i < 31; i++){
+    const option = document.createElement("option")
+    option.value = i
+    option.text = i
+    jourNaissance.appendChild(option)
+  }
+}
 
-const valNum = (prenomUtilisateur, nomUtilisateur) => {
+const ajouterAnnee = () => {
+  for(let i = 1925; i < 2000; i++){
+    const option = document.createElement("option")
+    option.value = i
+    option.text = i
+    anneeNaissance.appendChild(option)
+  }
+}
+
+ajouterJours()
+ajouterAnnee()
+
+const alphabetString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+const valNum = (saisieUtilisateur) => {
     const alphabetArray = alphabetString.split("")
-    const pseudoUtilisateur = prenomUtilisateur.toUpperCase() + nomUtilisateur.toUpperCase()
-    pseudoUtilisateur.split("")
-    let valLettre = 0
+    saisieUtilisateur = saisieUtilisateur.toUpperCase()
+    const pseudoUtilisateur = saisieUtilisateur.split("")
     let result = 0
 
     for(let i = 0; i < pseudoUtilisateur.length; i++) {
-        for(let j = 0; j < alphabetArray; j++) {
-            if(pseudoUtilisateur[i] == alphabetArray[j]) {
-                valLettre = j+1
+      let valLettre = 0
+        for(let j = 0; j < alphabetArray.length; j++) {
+            if(pseudoUtilisateur[i] === alphabetArray[j]) {
+                valLettre = j + 1
             }
         }
         result += valLettre
@@ -75,18 +96,44 @@ const calculerSigneAstro = (jour, mois) => {
 
 const formOk = () => {
     let result = false
-    if(nomUtilisateur !== "" && prenomUtilisateur !== "" && jourNaissance.value !== "" && moisNaissance !== "" && anneeNaissance !== "") {
+    if(nomUtilisateur.value !== "" && prenomUtilisateur.value !== "" && jourNaissance.value !== "" &&
+      moisNaissance.value !== "" && anneeNaissance.value !== "") {
         result = true
     }
+    return result
 }
 
 const calculerPseudo = () => {
-  if(formOk){
-    let signeAstro = calculerSigneAstro(jour, mois)
-    let valnum = valNum(prenomUtilisateur, nomUtilisateur)
-    let result = signeAstro + valnum
-    inputPseudo.innerHTML = result
-    btnValider.getAttribute("readonly") = false
+  if(formOk()){
+    let signeAstro = calculerSigneAstro(parseInt(jourNaissance.value), parseInt(moisNaissance.value))
+    let valnumPrenom = valNum(prenomUtilisateur.value)
+    let valnumNom = valNum(nomUtilisateur.value)
+    let valnumResult = valnumPrenom + valnumNom
+    let result = signeAstro + valnumResult
+    inputPseudo.value = result
+    btnValider.disabled = false
+  }
+  else {
+    btnValider.disabled = true
   }
 }
 
+nomUtilisateur.addEventListener("input", calculerPseudo)
+prenomUtilisateur.addEventListener("input", calculerPseudo)
+jourNaissance.addEventListener("change", calculerPseudo)
+moisNaissance.addEventListener("change", calculerPseudo)
+anneeNaissance.addEventListener("change", calculerPseudo)
+
+
+btnValider.addEventListener("click", (e) => {
+  e.preventDefault()
+
+  const fullName = prenomUtilisateur.value + " " + nomUtilisateur.value
+  const dateNaissance = jourNaissance.value + "/" + moisNaissance.value + "/" + anneeNaissance.value
+
+  const d = new Date()
+  d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000))
+  let expires = "expires=" + d.toUTCString()
+  document.cookie = "userFullName=" + fullName + ";" + expires + ";path=/"
+  document.cookie = "date=" + dateNaissance + ";" + expires + ";path=/"
+})
