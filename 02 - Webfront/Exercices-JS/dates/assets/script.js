@@ -10,8 +10,8 @@ const affichage = () => {
     const dateNaissance = new Date(document.querySelector("#date").value)
     const dateAujourdhui = new Date()
 
-    const jour = dateNaissance.getDate()
-    const mois = dateNaissance.getMonth()+1
+    const jour = dateNaissance.getDate() < 10 ? `0${dateNaissance.getDate()}` : dateNaissance.getDate()
+    const mois = dateNaissance.getMonth() < 10 ? `0${dateNaissance.getMonth()+1}` : dateNaissance.getMonth()+1
     const annee = dateNaissance.getFullYear()
 
     let dateFr = jour + "/" + mois + "/" + annee
@@ -24,40 +24,40 @@ const affichage = () => {
         zoneDateNaissance.innerText = "Vous êtes né le " + dateFr + " à " + date[1]
         zoneNbAnnee.innerText = "Il s'est écoulé " + intervalle + " années depuis votre naissance."
         
-        if ((jour >= 20 && mois === 1) || (jour <= 18 && mois === 2)) {
-            signeAstro = "Verseau";
+        if ((jour >= 20 && mois == 1) || (jour <= 18 && mois == 2)) {
+            signeAstro = "Verseau"
           } 
-          else if ((jour >= 19 && mois === 2) || (jour <= 20 && mois === 3)) {
-            signeAstro = "Poissons";
+          else if ((jour >= 19 && mois == 2) || (jour <= 20 && mois == 3)) {
+            signeAstro = "Poissons"
           }
-          else if ((jour >= 21 && mois === 3) || (jour <= 19 && mois === 4)) {
+          else if ((jour >= 21 && mois == 3) || (jour <= 19 && mois == 4)) {
             signeAstro = "Bélier"
           }
-          else if ((jour >= 20 && mois === 4) || (jour <= 20 && mois === 5)) {
+          else if ((jour >= 20 && mois == 4) || (jour <= 20 && mois == 5)) {
             signeAstro = "Taureau"
           }
-          else if ((jour >= 21 && mois === 5) || (jour <= 20 && mois === 6)) {
+          else if ((jour >= 21 && mois == 5) || (jour <= 20 && mois == 6)) {
             signeAstro = "Gémeaux"
           }
-          else if ((jour >= 21 && mois === 6) || (jour <= 22 && mois === 7)) {
+          else if ((jour >= 21 && mois == 6) || (jour <= 22 && mois == 7)) {
             signeAstro = "Cancer"
           }
-          else if ((jour >= 23 && mois === 7 ) || (jour <= 22 && mois === 8)) {
+          else if ((jour >= 23 && mois == 7 ) || (jour <= 22 && mois == 8)) {
             signeAstro = "Lion"
           }
-          else if ((jour >= 23 && mois === 8) || (jour <= 22 && mois === 9)) {
+          else if ((jour >= 23 && mois == 8) || (jour <= 22 && mois == 9)) {
             signeAstro = "Vierge"
           }
-          else if ((jour >= 23 && mois === 9) || (jour <= 22 && mois === 10)) {
+          else if ((jour >= 23 && mois == 9) || (jour <= 22 && mois == 10)) {
             signeAstro = "Balance"
           }
-          else if ((jour >= 23 && mois === 10) || (jour <= 21 && mois === 11)) {
+          else if ((jour >= 23 && mois == 10) || (jour <= 21 && mois == 11)) {
             signeAstro = "Scorpion"
           }
-          else if ((jour >= 22 && mois === 11 ) || (jour <= 21 && mois === 12)) {
+          else if ((jour >= 22 && mois == 11 ) || (jour <= 21 && mois == 12)) {
             signeAstro = "Sagittaire"
           }
-          else if ((jour >= 22 && mois === 12) || (jour <= 20 && mois === 1)) {
+          else if ((jour >= 22 && mois == 12) || (jour <= 20 && mois == 1)) {
             signeAstro = "Capricorne"
           }
           else {
@@ -72,4 +72,4 @@ const affichage = () => {
     }
 }
 
-calculer.addEventListener("click", affichage); 
+calculer.addEventListener("click", affichage);
