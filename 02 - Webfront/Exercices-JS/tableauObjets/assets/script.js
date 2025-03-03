@@ -2,6 +2,7 @@ let form = document.querySelector("form")
 let btnConnexion = document.querySelector("#btnConnexion")
 let btnDeconnexion = document.querySelector("#btnDeconnexion")
 let zoneCorrect = document.querySelector("#zoneCorrect")
+let zoneIncorrect = document.querySelector("#zoneIncorrect")
 let hello = document.querySelector("#hello")
 let table = document.querySelector("table")
 
@@ -14,15 +15,15 @@ form.addEventListener("submit", (event) => {
     fetch('assets/users.json')
     .then(response => response.json())
     .then(users => {
-        let isoke = "false"
+        let isoke = false
         for (let user of users) {
             let login = user.firstname + "." + user.lastname
             if (login.toLowerCase() === username && user.password === password) {
-                isoke = "true"
+                isoke = true
                 hello.textContent = "Bonjour " + user.firstname + " " + user.lastname
             }
         }
-        if(isoke === "true") {
+        if(isoke) {
             connecter(users, users)
         }
         else {

@@ -4,17 +4,40 @@ const inputCle = document.querySelector("#inputCle")
 const inputDirection = document.querySelector("#inputDirection")
 const btnValider = document.querySelector("#btnValider")
 
-const alphabet = "abcdefghijklmnopqrstuvwxyz".split("")
+btnValider.addEventListener("click", () => {
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
+    let texteEntree = inputTexteEntree.value.toLowerCase().split("")
+    let indexEntree = []
+    let texteSortie = []
 
-
-const dechiffrer = () => {
-    const texteEntree = inputTexteEntree.value.toLowerCase().split("")
-    console.log(texteEntree)
-
-    //CHIFFREMENT
-
+    for(let i = 0; i < texteEntree.length; i++) {
+        for(let j = 0; j < alphabet.length; j++) {
+            if(texteEntree[i] == alphabet[j]) {
+                indexEntree.push(j)
+            }
+        }
+    }
     
-    inputTexteSortie.value = texteEntree.join("")
-}
+    if(inputCle.value !== "") {
+        const cle = parseInt(inputCle.value, 10)
+        let indexSortie = []
+        if(inputDirection.value == "gauche") {
+            indexSortie = indexEntree.map((x) => (x - cle + alphabet.length) % alphabet.length)
+        }
+        else {
+            indexSortie = indexEntree.map((x) => (x + cle) % alphabet.length)
+        } 
+    
+        for(let i = 0; i < texteEntree.length; i++) {
+            texteSortie.push(alphabet[indexSortie[i]])
+        }
+    
+        inputTexteSortie.value = texteSortie.join("")
 
-btnValider.addEventListener("click", dechiffrer)
+        console.log(indexEntree)
+        console.log(indexSortie)
+        console.log(alphabet.length);
+        
+
+    }
+})

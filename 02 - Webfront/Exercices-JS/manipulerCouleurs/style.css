@@ -1,0 +1,23 @@
+body {
+    background-color: #A2B7CC;
+}
+
+#contenair {
+    display: flex;
+    justify-content: space-around;
+    background-color: #8FBC8F;
+    width: 600px;
+    border: 4px solid white;
+}
+
+.inputButton {
+    padding: 5px;
+}
+
+button {
+    margin-top: 5px;
+    width: 60px;
+    &:hover {
+        cursor: pointer;
+    }
+}

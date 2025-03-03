@@ -1,4 +1,3 @@
-let zoneTexteLibre = document.querySelector("#zoneTexteLibre")
 let nomUtilisateur = document.querySelector("#nomUtilisateur")
 let prenomUtilisateur = document.querySelector("#prenomUtilisateur")
 let jourNaissance = document.querySelector("#jourNaissance")
@@ -7,6 +6,7 @@ let anneeNaissance = document.querySelector("#anneeNaissance")
 let inputPseudo = document.querySelector("#inputPseudo")
 const btnValider = document.querySelector("#btnValider")
 const btnAnnuler = document.querySelector("#btnAnnuler")
+
 
 const ajouterJours = () => {
   for(let i = 1; i < 31; i++){
@@ -29,18 +29,16 @@ const ajouterAnnee = () => {
 ajouterJours()
 ajouterAnnee()
 
-const alphabetString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
 const valNum = (saisieUtilisateur) => {
-    const alphabetArray = alphabetString.split("")
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     saisieUtilisateur = saisieUtilisateur.toUpperCase()
     const pseudoUtilisateur = saisieUtilisateur.split("")
     let result = 0
 
     for(let i = 0; i < pseudoUtilisateur.length; i++) {
       let valLettre = 0
-        for(let j = 0; j < alphabetArray.length; j++) {
-            if(pseudoUtilisateur[i] === alphabetArray[j]) {
+        for(let j = 0; j < alphabet.length; j++) {
+            if(pseudoUtilisateur[i] === alphabet[j]) {
                 valLettre = j + 1
             }
         }
@@ -118,6 +116,22 @@ const calculerPseudo = () => {
   }
 }
 
+const nbJoursAnniv = () => {
+  let currentDate = new Date()
+  let dateUtilisateur = new Date(currentDate.getFullYear(), moisNaissance.value - 1, jourNaissance.value)
+  let intervalles = 0
+  if(currentDate.getMonth() < moisNaissance.value) {
+    intervalles = dateUtilisateur - currentDate
+  }
+  else {
+    dateUtilisateur = new Date(currentDate.getFullYear() + 1, moisNaissance.value - 1, jourNaissance.value)
+    intervalles = dateUtilisateur - currentDate
+  }
+  
+  return Math.round(intervalles / 1000 / 60 / 60 / 24)
+}
+
+
 nomUtilisateur.addEventListener("input", calculerPseudo)
 prenomUtilisateur.addEventListener("input", calculerPseudo)
 jourNaissance.addEventListener("change", calculerPseudo)
@@ -125,15 +139,36 @@ moisNaissance.addEventListener("change", calculerPseudo)
 anneeNaissance.addEventListener("change", calculerPseudo)
 
 
+const setCookie = (cname, cvalue, exdays) => {
+  const d = new Date()
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
+  let expires = "expires=" + d.toUTCString()
+  
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
+}
+
 btnValider.addEventListener("click", (e) => {
   e.preventDefault()
 
-  const fullName = prenomUtilisateur.value + " " + nomUtilisateur.value
-  const dateNaissance = jourNaissance.value + "/" + moisNaissance.value + "/" + anneeNaissance.value
+  let jour = jourNaissance.value < 10 ? "0" + jourNaissance.value : jourNaissance.value
+  let mois = moisNaissance.value < 10 ? "0" + moisNaissance.value : moisNaissance.value
+  const dateNaissance = jour + "/" + mois + "/" + anneeNaissance.value
+  let intervalles = nbJoursAnniv()
 
-  const d = new Date()
-  d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000))
-  let expires = "expires=" + d.toUTCString()
-  document.cookie = "userFullName=" + fullName + ";" + expires + ";path=/"
-  document.cookie = "date=" + dateNaissance + ";" + expires + ";path=/"
+  setCookie("firstName", prenomUtilisateur.value, 7)
+  setCookie("lastName", nomUtilisateur.value, 7)
+  setCookie("date", dateNaissance, 7)
+  setCookie("pseudo", inputPseudo.value, 7)
+  setCookie("intervalles", intervalles, 7)
+
+  window.location.href = "accueil.html"
+})
+
+btnAnnuler.addEventListener("click", () => {
+  zoneTexteLibre.value = ""
+  nomUtilisateur.value = ""
+  prenomUtilisateur.value = ""
+  jourNaissance.value = ""
+  moisNaissance.value = ""
+  anneeNaissance.value = ""
 })
