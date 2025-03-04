@@ -140,11 +140,11 @@ anneeNaissance.addEventListener("change", calculerPseudo)
 
 
 const setCookie = (cname, cvalue, exdays) => {
-  const d = new Date()
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
-  let expires = "expires=" + d.toUTCString()
+  let dateJour = new Date()
+  let dateExpire = new Date(dateJour.getFullYear(), dateJour.getMonth(), dateJour.getDate() + exdays)
+  let expires = "expires=" + dateExpire.toUTCString()
   
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";"
 }
 
 btnValider.addEventListener("click", (e) => {
