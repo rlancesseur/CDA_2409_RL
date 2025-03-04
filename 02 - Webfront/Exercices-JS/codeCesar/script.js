@@ -10,34 +10,34 @@ btnValider.addEventListener("click", () => {
     let indexEntree = []
     let texteSortie = []
 
-    for(let i = 0; i < texteEntree.length; i++) {
-        for(let j = 0; j < alphabet.length; j++) {
-            if(texteEntree[i] == alphabet[j]) {
+    for (let i = 0; i < texteEntree.length; i++) {
+        for (let j = 0; j < alphabet.length; j++) {
+            if (texteEntree[i] === alphabet[j]) {
                 indexEntree.push(j)
-            }
+            }  
         }
     }
-    
-    if(inputCle.value !== "") {
+
+    if (inputCle.value !== "") {
         const cle = parseInt(inputCle.value, 10)
         let indexSortie = []
-        if(inputDirection.value == "gauche") {
+
+        if (inputDirection.value == "gauche") {
             indexSortie = indexEntree.map((x) => (x - cle + alphabet.length) % alphabet.length)
-        }
-        else {
+        } else {
             indexSortie = indexEntree.map((x) => (x + cle) % alphabet.length)
-        } 
-    
-        for(let i = 0; i < texteEntree.length; i++) {
-            texteSortie.push(alphabet[indexSortie[i]])
         }
-    
+
+        let indexSortieIndex = 0
+        for (let i = 0; i < texteEntree.length; i++) {
+            if (texteEntree[i] === " ") {
+                texteSortie[i] = " "
+            } else {
+                texteSortie[i] = alphabet[indexSortie[indexSortieIndex]]
+                indexSortieIndex++
+            }
+        }
+
         inputTexteSortie.value = texteSortie.join("")
-
-        console.log(indexEntree)
-        console.log(indexSortie)
-        console.log(alphabet.length);
-        
-
     }
 })
