@@ -1,13 +1,14 @@
 const btnValider = document.querySelector("#btnValider")
 const inputCp = document.querySelector("#cp")
 const cpChoice = document.querySelector("#cp-choice")
+const form = document.querySelector("form")
 
-inputCp.addEventListener("change", () => {
+inputCp.addEventListener("input", () => {
 
     fetch("https://arfp.github.io/tp/web/javascript/02-zipcodes/zipcodes.json")
     .then(response => response.json())
     .then(villes => {
-
+        cpChoice.innerText = ""
         const result = villes.filter(ville => ville.codePostal.startsWith(inputCp.value))
 
         result.forEach(element => {
@@ -19,7 +20,8 @@ inputCp.addEventListener("change", () => {
     }) 
 })
 
-btnValider.addEventListener("click", () => {
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
     zoneAffichage.innerText = ""
 
     fetch("https://arfp.github.io/tp/web/javascript/02-zipcodes/zipcodes.json")
