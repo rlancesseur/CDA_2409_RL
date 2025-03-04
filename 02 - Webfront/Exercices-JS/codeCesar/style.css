@@ -1,0 +1,39 @@
+body {
+    background-color: #212429;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.1rem;
+}
+
+#contenairText {
+    width: 700px;
+    display: flex;
+    justify-content: space-around;
+    margin: 50px;
+}
+
+textarea {
+    height: 150px;
+    width: 300px;
+    background-color: #44484e;
+    color: whitesmoke;
+    font-size: 1.1rem;
+}
+
+#contenairCle {
+    padding: 10px;
+}
+
+#btnValider {
+    margin: 15px;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
