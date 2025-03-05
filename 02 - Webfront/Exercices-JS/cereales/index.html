@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cereales</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div id="container-titre">
+            <h1>Cereals</h1>
+        </div>
+
+        <div id="header-search">
+            <fieldset id="fieldset-rechercher">
+                <legend>Rechercher</legend>
+                <input type="text" id="inputRechercher" placeholder="Nom du céréale">
+            </fieldset>
+
+            <fieldset id="fieldset-filtrer">
+                <legend>Filtrer</legend>
+
+                <fieldset id="fieldset-nutriscore">
+                    <legend>Nutriscore</legend>
+                    <label for="A">A</label>
+                    <input type="radio" id="A" value="A">
+
+                    <label for="B">B</label>
+                    <input type="radio" id="B" value="B">
+
+                    <label for="C">C</label>
+                    <input type="radio" id="C" value="C">
+
+                    <label for="D">D</label>
+                    <input type="radio" id="D" value="D">
+
+                    <label for="E">E</label>
+                    <input type="radio" id="E" value="E">
+                </fieldset>
+
+                <fieldset id="fieldset-categorie">
+                    <legend>Catégorie</legend>
+                    <select name="categories" id="categories-select">
+                        <option value="tous">Tous</option>
+                        <option value="sans-sucre">Sans sucre</option>
+                        <option value="pauvre-en-sel">Pauvre en Sel</option>
+                        <option value="boost">Boost</option>
+                    </select>
+                </fieldset>
+            </fieldset>
+        </div>
+    </header>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Calories</th>
+                <th>Proteïnes</th>
+                <th>Sel</th>
+                <th>Fibres</th>
+                <th>Glucides</th>
+                <th>Sucre</th>
+                <th>Potassium</th>
+                <th>Vitamines</th>
+                <th>Evaluation</th>
+                <th>NS</th>
+                <th>DEL</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <p id="zoneNbCereal"></p>
+    <p id="zoneMoyenneCalories"></p>
+
+</body>
+
+</html>
