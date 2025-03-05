@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
     <link rel="stylesheet" href="assets/css/inscription.css">
-    <script src="assets/js/inscription.js" async></script>
+    <script src="assets/js/inscription.js" defer></script>
 </head>
+
 <body>
 
     <div id="zoneInscription">
         <h1>Formulaire avec traitement Javascript</h1>
         <h2>Texte libre</h2>
-    
+
         <textarea id="zoneTexteLibre" placeholder="texte libre"></textarea>
-    
+
         <form>
             <label for="nomUtilisateur">Nom utilisateur : </label>
             <input type="text" id="nomUtilisateur">
 
             <br>
-    
+
             <label for="prenomUtilisateur">Prénom : </label>
             <input type="text" id="prenomUtilisateur">
 
             <br>
-    
+
             <label for="jourNaissance">Jour</label>
             <select name="jours" id="jourNaissance">
                 <option value="">Choisissez votre jour</option>
             </select>
-    
+
             <label for="moisNaissance">Mois</label>
             <select name="mois" id="moisNaissance">
                 <option value="">Choisissez votre mois</option>
@@ -47,14 +49,14 @@
                 <option value="11">Novembre</option>
                 <option value="12">Décembre</option>
             </select>
-    
+
             <label for="anneeNaissance">Année</label>
             <select name="annee" id="anneeNaissance">
                 <option value="">Choisissez votre année</option>
             </select>
 
             <br>
-    
+
             <label for="inputPseudo">Votre pseudo : </label>
             <input type="text" id="inputPseudo" readonly="readonly">
 
@@ -65,6 +67,7 @@
             <button id="btnAnnuler">Annuler</button>
         </form>
     </div>
-    
+
 </body>
+
 </html>
