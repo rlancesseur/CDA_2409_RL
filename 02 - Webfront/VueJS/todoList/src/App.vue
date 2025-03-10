@@ -2,7 +2,7 @@
     <form action="" @submit.prevent="ajouterTache">
         <fieldset role="group">
             <input type="text" v-model="newTodo" placeholder="Tâches à effectuer">
-            <button :disabled="newTodo.length == 0">Ajouter</button>
+            <button :disabled="newTodo.length == 0" id="btnValider">Ajouter</button>
         </fieldset>
     </form>
     
@@ -21,6 +21,9 @@
             <input type="checkbox" v-model="hideCompleted">
             Masquer les tâches complétées
         </label>
+        <p v-if="remainingTodos > 0">
+            {{ remainingTodos }} tâche{{ remainingTodos > 1 ? 's' : ''}} à effectuer
+        </p>
     </div>
 </template>
 
@@ -28,6 +31,7 @@
 
 <script setup>
 import { computed, ref } from 'vue';
+import Checkbox from './Checkbox.vue';
 
     const todos = ref([])
     const newTodo = ref("")
@@ -48,6 +52,10 @@ import { computed, ref } from 'vue';
             return sortedTodos.filter(t => t.completed == false)
         }
         return sortedTodos
+    })
+
+    const remainingTodos = computed(() => {
+        return todos.value.filter(t => t.completed === false).length
     })
 
 </script>
