@@ -1,0 +1,9 @@
+@import './base.css';
+
+#btnValider {
+    margin-left: 5px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
