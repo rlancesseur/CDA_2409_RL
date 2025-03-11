@@ -1,6 +1,6 @@
 <template>
     <label> 
-        <input type="checkbox">
+        <input type="checkbox" v-model="model">
         {{ label }}
     </label>
 </template>
@@ -10,4 +10,6 @@
 const props = defineProps({
     label: String
 })
+
+const model = defineModel()
 </script>

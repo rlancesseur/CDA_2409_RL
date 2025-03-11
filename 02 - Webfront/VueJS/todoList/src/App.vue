@@ -10,10 +10,7 @@
     <div v-else>
         <ul>
             <li v-for="todo in sortedTodos" :key="todo.date" :class="{completed : todo.completed}">
-                <label>
-                    <input type="checkbox" v-model="todo.completed">
-                    {{ todo.title }}
-                </label>
+                <Checkbox :label="todo.title" v-model="todo.completed"/>
             </li>
         </ul>
 
