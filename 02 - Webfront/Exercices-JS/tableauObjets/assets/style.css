@@ -19,23 +19,34 @@ header {
 
 #zoneCorrect {
     display: none;
+
     #hello {
         color: var(--secondary-color);
     }
+
     #btnDeconnexion {
         margin-top: 20px;
         padding: 4px;
         border: 2px solid var(--primary-color);
         margin-left: 10px;
+
         &:hover {
             cursor: pointer;
         }
     }
+
     table {
         border-collapse: collapse;
         margin: 30px 10px 50px 10px;
-        tr, th, td {
+
+        tr,
+        th,
+        td {
             border: 2px solid var(--primary-color);
+
+            &:hover {
+                background-color: rgb(140, 140, 143);
+            }
         }
     }
 }
@@ -56,7 +67,7 @@ span {
 }
 
 form {
-    border: 1px dashed var(--primary-color); 
+    border: 1px dashed var(--primary-color);
     padding: 10px;
     color: var(--secondary-color);
     margin-top: 5px;
@@ -68,6 +79,7 @@ input {
     border: 1px solid var(--primary-color);
     background-color: rgb(221, 221, 221);
     outline: none;
+
     &:focus {
         border: 1px solid var(--secondary-color);
     }
@@ -78,6 +90,7 @@ button {
     padding: 4px;
     border: 2px solid var(--primary-color);
     margin-left: 10px;
+
     &:hover {
         cursor: pointer;
     }
