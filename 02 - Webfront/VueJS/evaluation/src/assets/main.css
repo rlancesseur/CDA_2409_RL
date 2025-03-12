@@ -1,0 +1,31 @@
+:root {
+    --color1: #30343F;
+    --color2: #FAFAFF;
+    --color3: #E4D9FF;
+    --color4: #374479;
+    --color5: #6E7799;
+    --color6: #C490D1;
+}
+
+body {
+    background-color: var(--color1);
+    color: var(--color3);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid var(--color5);
+    padding: 10px;
+    width: 600px;
+}
+
+form {
+    border: 1px dashed var(--color5);
+    padding: 10px;
+    margin: 10px;
+}
+
+table,
+td,
+th {
+    background-color: var(--color4);
+    border: 2px solid var(--color5);
+    border-collapse: collapse;
+}
