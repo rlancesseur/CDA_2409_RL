@@ -28,4 +28,25 @@ th {
     background-color: var(--color4);
     border: 2px solid var(--color5);
     border-collapse: collapse;
+    padding: 3px;
+}
+
+.labelInput {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+input, button {
+    background-color: var(--color4);
+    border: 2px solid var(--color5);
+    color: var(--color3);
+}
+
+button {
+    margin-top: 5px;
+    &:hover {
+        cursor: pointer;
+    }
 }
