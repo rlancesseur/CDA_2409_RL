@@ -1,22 +1,7 @@
 <template>
     <h1>Résultat de l'évaluation</h1>
 
-    <!-- A REFAIRE en utilisant les composants -->
-    <form action="" @submit.prevent="ajouterEtudiant">
-        <p>Ajouter une note</p>
-
-        <div class="labelInput">
-            <label for="inputName">Nom Prénom : </label>
-            <input id="inputName" type="text" v-model="nomEtudiant" />
-        </div>
-
-        <div class="labelInput">
-            <label for="inputNote">Note : </label>
-            <input id="inputNote" type="Number" v-model="noteEtudiant" />
-        </div>
-
-        <button>Ajouter</button>
-    </form>
+    <Formulaire :ajouterEtudiant="ajouterEtudiant" />
 
     <table>
         <thead>
@@ -27,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="user of evalData">
+            <tr v-for="user of evalData" :key="user.fullname">
                 <td>{{ user.fullname }}</td>
                 <td>{{ user.grade }}</td>
                 <td>{{ user.isPassed ? 'Oui' : 'Non' }}</td>
@@ -45,10 +30,9 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
+import Formulaire from './components/Formulaire.vue'
 
 const evalData = ref([])
-const nomEtudiant = ref('')
-const noteEtudiant = ref(null)
 const nbEtudiant = ref(0)
 const moyClass = ref(0)
 const nbDessusMoy = ref(0)
@@ -90,15 +74,11 @@ const display = (ev) => {
     })
 }
 
-const ajouterEtudiant = () => {
-    if (
-        nomEtudiant.value.length >= 2 &&
-        noteEtudiant.value >= 0 &&
-        noteEtudiant.value <= 20
-    ) {
+const ajouterEtudiant = (nom, note) => {
+    if (nom.length >= 2 && note >= 0 && note <= 20) {
         evalData.value.push({
-            fullname: inputName.value,
-            grade: inputNote.value,
+            fullname: nom,
+            grade: note,
         })
         display(evalData.value)
     }
