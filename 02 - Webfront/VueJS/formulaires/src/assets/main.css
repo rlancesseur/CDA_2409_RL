@@ -1,0 +1,32 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+    width: 600px;
+}
+
+table {
+    width: 600px;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th,td {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.labelInput {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+#btnSubmit {
+    margin-top: 5px;
+    &:hover {
+        cursor: pointer;
+    }
+}
