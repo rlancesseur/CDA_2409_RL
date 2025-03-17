@@ -2,22 +2,15 @@
     <form action="" @submit.prevent="ajouterEtudiant">
         <p>Ajouter une note</p>
 
-        <div class="labelInput">
-            <label for="inputName">Nom Prénom : </label>
-            <input id="inputName" type="text" v-model="nomEtudiant" />
-        </div>
-
-        <div class="labelInput">
-            <label for="inputNote">Note : </label>
-            <input id="inputNote" type="Number" v-model="noteEtudiant" />
-        </div>
-
+        <LabelInput label="Nom" v-model="nomEtudiant" inputType="text" />
+        <LabelInput label="Note" v-model="noteEtudiant" inputType="number" />
         <button>Ajouter</button>
     </form>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import LabelInput from './labelInput.vue'
 
 const nomEtudiant = ref('')
 const noteEtudiant = ref(null)
