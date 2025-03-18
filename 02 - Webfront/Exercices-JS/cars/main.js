@@ -36,11 +36,11 @@ validate.addEventListener("click", (event) => {
 
 inputCarName.addEventListener("input", () => {
     const listFilter = collectionCars.filter((car) => car.car_name.toLowerCase().startsWith(inputCarName.value.toLowerCase()))
+    carChoice.innerText = ""
 
     for(let car of listFilter) {
         const option = document.createElement("option")
         option.innerText = car.car_name
         carChoice.append(option)
     }
-
 })
