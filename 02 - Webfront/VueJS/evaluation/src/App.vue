@@ -6,8 +6,8 @@
 
         <LabelInput label="Nom" v-model="nomEtudiant" inputType="text" />
         <LabelInput label="Note" v-model="noteEtudiant" inputType="number" />
-        
-        <input id="bntSubmit" type="submit">
+
+        <input id="bntSubmit" type="submit" />
     </form>
 
     <table>
@@ -20,9 +20,10 @@
         </thead>
         <tbody>
             <tr v-for="user of evalData" :key="user.fullname">
-                <td>{{ user.fullname }}</td>
+                <td>{{ nomSplit(user.fullname) }}</td>
+                <td>{{ prenomSplit(user.fullname) }}</td>
                 <td>{{ user.grade }}</td>
-                <td>{{ user.isPassed ? 'Oui' : 'Non' }}</td>
+                <td>{{ estPasse(user.grade) }}</td>
             </tr>
         </tbody>
     </table>
@@ -36,23 +37,19 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import LabelInput from './components/LabelInput.vue'
 import { fetchUsers } from './utils/fetchUsers'
 
 const evalData = ref([])
 const nomEtudiant = ref('')
 const noteEtudiant = ref(null)
-const nbEtudiant = ref(0)
-const moyClass = ref(0)
-const nbDessusMoy = ref(0)
 const noteEliminatoire = 12
 
 const getUsers = async () => {
     try {
         const data = await fetchUsers()
         evalData.value = data.sort((a, b) => (a.grade < b.grade ? 1 : -1))
-        calculStat()
     } catch (e) {
         console.error('Erreur lors du chargement des données :', e)
     }
@@ -62,28 +59,45 @@ onMounted(() => {
     getUsers()
 })
 
-//A REFAIRE
-// const calculStat = () => {
-//     nbEtudiant.value = evalData.value.length
-//     let totalNote = 0
-//     nbDessusMoy.value = 0
+const nbEtudiant = computed(() => evalData.value.length)
 
-//     evalData.value.forEach((element) => {
-//         totalNote += parseFloat(element.grade)
-//         element.isPassed = element.grade >= noteEliminatoire
-//     })
+const moyClass = computed(() => {
+    const totalNote = evalData.value.reduce(
+        (acc, student) => acc + parseFloat(student.grade),
+        0
+    )
+    return (totalNote / nbEtudiant.value).toFixed(2)
+})
 
-//     moyClass.value = (totalNote / nbEtudiant.value).toFixed(2)
+const nbDessusMoy = computed(() => {
+    const moyenne = parseFloat(moyClass.value)
+    return evalData.value.filter(
+        (student) => parseFloat(student.grade) > moyenne
+    ).length
+})
 
-//     evalData.value.forEach((element) => {
-//         if (element.grade > moyClass.value) {
-//             nbDessusMoy.value++
-//         }
-//     })
-// }
+const estPasse = (note) => {
+    if (note >= noteEliminatoire) {
+        return 'Oui'
+    } else {
+        return 'Non'
+    }
+}
+
+const nomSplit = (fullname) => {
+    return fullname.split(' ')[0]
+}
+
+const prenomSplit = (fullname) => {
+    return fullname.split(' ')[1]
+}
 
 const ajouterEtudiant = () => {
-    if (nomEtudiant.value.length >= 2 && noteEtudiant.value >= 0 && noteEtudiant.value <= 20) {
+    if (
+        nomEtudiant.value.length >= 2 &&
+        noteEtudiant.value >= 0 &&
+        noteEtudiant.value <= 20
+    ) {
         evalData.value.push({
             fullname: nomEtudiant.value,
             grade: noteEtudiant.value,
@@ -92,7 +106,6 @@ const ajouterEtudiant = () => {
 
         nomEtudiant.value = ''
         noteEtudiant.value = null
-        calculStat()
-    }    
+    }
 }
 </script>
