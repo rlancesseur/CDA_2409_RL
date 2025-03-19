@@ -1,0 +1,62 @@
+:root {
+  --base-bg: #111111;
+  --base-txt: #CCCCCC;
+  --base-link: #E4D9FF;
+  --base-btn: #085E8F;
+}
+
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: var(--base-bg);
+  border: 1px solid var(--base-link);
+  padding: 10px;
+}
+
+h1,h2 {
+  color: var(--base-link);
+  margin: 0;
+}
+
+#containerStat {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.stat{
+  background-color: var(--base-link);
+  color: var(--base-btn);
+  margin: 3px;
+  padding: 4px;
+}
+
+.containerLabel {
+  width: 110px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--base-btn);
+  color: var(--base-link);
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  input {
+    margin-right: 5px;
+  }
+}
+
+#containerCheckBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+table {
+  background-color: var(--base-btn);
+  color: var(--base-link);
+  border-radius: 10px;
+  padding: 5px;
+  margin: 20px;
+}
+
+td{
+  padding: 5px;
+}
