@@ -1,0 +1,63 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1, h3 {
+  color: rgb(104, 104, 104);
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 50px;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+button{
+  cursor: pointer;
+
+  border-radius: 5px;
+}
+
+#btnTri {
+  padding: 0 10px;
+  background-color: white;
+  border: 1px solid gray;
+  &:hover{
+    background-color: #ecebeb;
+  }
+}
+
+#btnDuplicate {
+  padding: 10px;
+  border: none;
+  color: white;
+  margin: 0 2px;
+  background-color: #3298DC;
+  width: 48%;
+  &:hover{
+    background-color: #2e8bc9;
+  }
+}
+
+#btnDelete {
+  padding: 10px;
+  border: none;
+  color: white;
+  margin: 0 2px;
+  background-color: #F14668;
+  width: 48%;
+  &:hover{
+    background-color: #ce3b58;
+  }
+}
+
+#noEmp {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(226, 7, 7)
+}
