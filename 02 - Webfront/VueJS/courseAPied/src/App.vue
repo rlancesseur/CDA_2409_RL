@@ -13,57 +13,107 @@
 
     <div id="containerCheckBox">
         <div class="containerLabel">
-            <input type="checkbox" id="inputAllemagne" />
-            <label for="inputAllemagne">Allemagne</label>
+            <input
+                type="checkbox"
+                id="Allemagne"
+                value="Allemagne"
+                v-model="selectedPays"
+            />
+            <label for="Allemagne">Allemagne</label>
         </div>
 
         <div class="containerLabel">
-            <input type="checkbox" id="inputAutriche" />
-            <label for="inputAutriche">Autriche</label>
+            <input
+                type="checkbox"
+                id="Autriche"
+                value="Autriche"
+                v-model="selectedPays"
+            />
+            <label for="Autriche">Autriche</label>
         </div>
 
         <div class="containerLabel">
-            <input type="checkbox" id="inputBelgique" />
-            <label for="inputBelgique">Belgique</label>
+            <input
+                type="checkbox"
+                id="Belgique"
+                value="Belgique"
+                v-model="selectedPays"
+            />
+            <label for="Belgique">Belgique</label>
         </div>
 
         <div class="containerLabel">
-            <input type="checkbox" id="inputEspagne" />
-            <label for="inputEspagne">Espagne</label>
+            <input
+                type="checkbox"
+                id="Espagne"
+                value="Espagne"
+                v-model="selectedPays"
+            />
+            <label for="Espagne">Espagne</label>
         </div>
 
         <div class="containerLabel">
-            <input type="checkbox" id="inputFrance" />
-            <label for="inputFrance">France</label>
+            <input
+                type="checkbox"
+                id="France"
+                value="France"
+                v-model="selectedPays"
+            />
+            <label for="France">France</label>
         </div>
 
         <div class="containerLabel">
-            <input type="checkbox" id="inputGrece" />
-            <label for="inputGrece">Grèce</label>
+            <input
+                type="checkbox"
+                id="Grece"
+                value="Grèce"
+                v-model="selectedPays"
+            />
+            <label for="Grece">Grèce</label>
         </div>
 
         <div class="containerLabel">
-            <input type="checkbox" id="inputItalie" />
-            <label for="inputItalie">Italie</label>
+            <input
+                type="checkbox"
+                id="Italie"
+                value="Italie"
+                v-model="selectedPays"
+            />
+            <label for="Italie">Italie</label>
         </div>
 
         <div class="containerLabel">
-            <input type="checkbox" id="inputPaysBas" />
-            <label for="inputPaysBas">Pays-Bas</label>
+            <input
+                type="checkbox"
+                id="Pays-Bas"
+                value="Pays-Bas"
+                v-model="selectedPays"
+            />
+            <label for="Pays-Bas">Pays-Bas</label>
         </div>
 
         <div class="containerLabel">
-            <input type="checkbox" id="inputPologne" />
-            <label for="inputPologne">Pologne</label>
+            <input
+                type="checkbox"
+                id="Pologne"
+                value="Pologne"
+                v-model="selectedPays"
+            />
+            <label for="Pologne">Pologne</label>
         </div>
 
         <div class="containerLabel">
-            <input type="checkbox" id="inputPortugal" />
-            <label for="inputPortugal">Portugal</label>
+            <input
+                type="checkbox"
+                id="Portugal"
+                value="Portugal"
+                v-model="selectedPays"
+            />
+            <label for="Portugal">Portugal</label>
         </div>
     </div>
 
-    <table v-if="runnersData.length > 0">
+    <table v-if="filteredRunnerData.length > 0">
         <thead>
             <tr>
                 <th>Pays</th>
@@ -74,7 +124,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="runner of runnersData">
+            <tr v-for="runner of filteredRunnerData">
                 <td>{{ runner.pays }}</td>
                 <td>{{ getNom(runner.nom) }}</td>
                 <td>{{ getPrenom(runner.nom) }}</td>
@@ -90,6 +140,7 @@ import { computed, onMounted, ref } from 'vue'
 import { fetchRunners } from './utils/fetchRunners'
 
 const runnersData = ref([])
+const selectedPays = ref([])
 
 const getRunners = async () => {
     try {
@@ -99,23 +150,32 @@ const getRunners = async () => {
     }
 }
 
+const filteredRunnerData = computed(() => {
+    if (selectedPays.value.length == 0) {
+        return runnersData.value
+    }
+    return runnersData.value.filter((runner) =>
+        selectedPays.value.includes(runner.pays)
+    )
+})
+
 onMounted(getRunners)
 
-const nbParticipants = computed(() => runnersData.value.length)
+const nbParticipants = computed(() => filteredRunnerData.value.length)
 
 const gagnant = computed(() =>
-    runnersData.value.length > 0
-        ? runnersData.value.reduce((a, b) => (a.temps < b.temps ? a : b))
+    filteredRunnerData.value.length > 0
+        ? filteredRunnerData.value.reduce((a, b) => (a.temps < b.temps ? a : b))
         : null
 )
 
 const moyTime = computed(() => {
-    if (runnersData.value.length > 0) {
-        const totalTemps = runnersData.value.reduce(
+    if (filteredRunnerData.value.length > 0) {
+        const totalTemps = filteredRunnerData.value.reduce(
             (total, runner) => total + runner.temps,
             0
         )
-        return formatTime2(totalTemps / runnersData.value.length)
+        return formatTime2(totalTemps / filteredRunnerData.value.length)
     } else {
         return 0
     }
