@@ -1,0 +1,133 @@
+:root {
+    --dark1: #111;
+    --dark2: #333;
+    --dark3: #444;
+    --green: #9acd32;
+}
+
+body {
+    background-color: var(--dark1);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    color: var(--green);
+    font-size: 2.6rem;
+}
+
+fieldset {
+    background-color: var(--dark2);
+    border-radius: 5px;
+}
+
+#container-h1 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container-search {
+    width: 50%;
+    display: flex;
+}
+
+#fieldset-rechercher {
+    width: 30%;
+}
+
+#inputRechercher {
+    background-color: var(--dark2);
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 1.1rem;
+    color: white;
+}
+
+#fieldset-filtrer {
+    width: 70%;
+    display: flex;
+}
+
+#fieldset-ns {
+    height: 40px;
+    display: flex;
+    gap: 0.5rem;
+}
+
+#fieldset-categorie {
+    height: 40px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    color: var(--green);
+    background-color: var(--dark3);
+    padding: 8px;
+}
+
+tbody td:first-child,
+tbody td:last-child {
+    background-color: var(--dark2);
+}
+
+#tdID {
+    color: yellow;
+    width: 20px;
+}
+
+tbody tr:hover td:not(:nth-child(12)) {
+    background-color: #666644;
+}
+
+td {
+    padding: 9px;
+    text-align: center;
+}
+
+#tdNom,
+#thNom {
+    text-align: left;
+}
+
+#tdDel {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.color-ns-A {
+    background: darkgreen;
+}
+
+.color-ns-B {
+    background: #009900cc;
+}
+
+.color-ns-C {
+    background: #cccc00cc;
+}
+
+.color-ns-D {
+    background: #cc6600cc;
+}
+
+.color-ns-E {
+    background: #cc0000cc;
+}
