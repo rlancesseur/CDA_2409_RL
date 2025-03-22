@@ -10,6 +10,7 @@
                     type="text"
                     id="inputRechercher"
                     placeholder="Nom du céréale"
+                    v-model="inputRechercher"
                 />
             </Fieldset>
 
@@ -38,7 +39,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th id="thNom">NOM</th>
+                <th>NOM</th>
                 <th>CALORIES</th>
                 <th>PROTEÏNES</th>
                 <th>SEL</th>
@@ -53,9 +54,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="cereal in cerealsData" :key="cereal.id">
+            <tr v-for="(cereal, indexCereal) in filteredCerealsData" :key="cereal.id">
                 <td id="tdID">{{ cereal.id }}</td>
-                <td id="tdNom">{{ cereal.name }}</td>
+                <td>{{ cereal.name }}</td>
                 <td>{{ cereal.calories }}</td>
                 <td>{{ cereal.protein }}</td>
                 <td>{{ cereal.sodium }}</td>
@@ -68,9 +69,16 @@
                 <td :class="'color-ns-' + getNs(cereal.rating)">
                     {{ getNs(cereal.rating) }}
                 </td>
-                <td id="tdDel">X</td>
+                <td @click="filteredCerealsData.splice(indexCereal, 1)" id="tdDel">X</td>
             </tr>
         </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td>{{ filteredCerealsData.length }} éléments</td>
+                <td>Moyenne calories {{ getMoyCal() }}</td>
+            </tr>
+        </tfoot>
     </table>
 </template>
 
@@ -79,8 +87,10 @@ import { onMounted, ref } from 'vue'
 import { fetchCereals } from './assets/utils/fetchCereals'
 import Fieldset from './components/FieldsetComponent.vue'
 import CheckboxComponent from './components/CheckboxComponent.vue'
+import { computed } from 'vue'
 
 const cerealsData = ref([])
+const inputRechercher = ref('')
 
 const getCereals = async () => {
     try {
@@ -99,4 +109,15 @@ const getNs = (rating) => {
     if (rating < 80) return 'B'
     return 'A'
 }
+
+const getMoyCal = () => {
+    if(filteredCerealsData.value.length === 0) return 0
+    return ((filteredCerealsData.value.reduce((a,b) => a + b.calories, 0)) / filteredCerealsData.value.length).toFixed(0)
+}
+
+const filteredCerealsData = computed(() => {
+    if(inputRechercher.value === '') return cerealsData.value
+    return cerealsData.value.filter((cereal => cereal.name.toLowerCase().includes(inputRechercher.value.toLowerCase())))
+})
+
 </script>

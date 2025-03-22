@@ -7,7 +7,7 @@
 
 body {
     background-color: var(--dark1);
-    color: white;
+    color: #FFFFFFCC;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -101,8 +101,9 @@ td {
     text-align: center;
 }
 
-#tdNom,
-#thNom {
+thead th:nth-child(2),
+tbody td:nth-child(2)
+{
     text-align: left;
 }
 
@@ -130,4 +131,8 @@ td {
 
 .color-ns-E {
     background: #cc0000cc;
+}
+
+tfoot td:nth-child(2) {
+    text-align: left;
 }
