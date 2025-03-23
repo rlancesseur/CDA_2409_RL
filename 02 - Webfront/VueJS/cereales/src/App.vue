@@ -16,15 +16,15 @@
 
             <Fieldset legend="Filtrer" id="fieldset-filtrer">
                 <Fieldset legend="Nutriscore" id="fieldset-ns">
-                    <CheckboxComponent label="A" />
-                    <CheckboxComponent label="B" />
-                    <CheckboxComponent label="C" />
-                    <CheckboxComponent label="D" />
-                    <CheckboxComponent label="E" />
+                    <CheckboxComponent label="A" v-model="selectedNS"/>
+                    <CheckboxComponent label="B" v-model="selectedNS"/>
+                    <CheckboxComponent label="C" v-model="selectedNS"/>
+                    <CheckboxComponent label="D" v-model="selectedNS"/>
+                    <CheckboxComponent label="E" v-model="selectedNS"/>
                 </Fieldset>
 
                 <Fieldset legend="Catégorie" id="fieldset-categorie">
-                    <select name="categories" id="categories-select">
+                    <select name="categories" id="categories-select" v-model="selectedCategory">
                         <option value="tous">Tous</option>
                         <option value="sans-sucre">Sans sucre</option>
                         <option value="pauvre-en-sel">Pauvre en Sel</option>
@@ -89,8 +89,10 @@ import Fieldset from './components/FieldsetComponent.vue'
 import CheckboxComponent from './components/CheckboxComponent.vue'
 import { computed } from 'vue'
 
+const selectedCategory = ref('tous')
 const cerealsData = ref([])
 const inputRechercher = ref('')
+const selectedNS = ref([])
 
 const getCereals = async () => {
     try {
@@ -119,5 +121,14 @@ const filteredCerealsData = computed(() => {
     if(inputRechercher.value === '') return cerealsData.value
     return cerealsData.value.filter((cereal => cereal.name.toLowerCase().includes(inputRechercher.value.toLowerCase())))
 })
+
+// const filteredCerealsData = computed(() => {
+//     if(selectedNS.value === '') return cerealsData.value
+//     return cerealsData.value.filter((cereal => selectedNS.value.includes(getNs(cereal.rating))))
+// })
+
+// const filteredCerealsData = computed(() => {
+//     if(selectedCategory.value === 'tous') return cerealsData.value
+// })
 
 </script>
