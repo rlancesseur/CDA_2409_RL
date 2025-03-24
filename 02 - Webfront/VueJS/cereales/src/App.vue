@@ -16,21 +16,46 @@
 
             <Fieldset legend="Filtrer" id="fieldset-filtrer">
                 <Fieldset legend="Nutriscore" id="fieldset-ns">
-                    <CheckboxComponent label="A" />
-                    <CheckboxComponent label="B" />
-                    <CheckboxComponent label="C" />
-                    <CheckboxComponent label="D" />
-                    <CheckboxComponent label="E" />
+                    <CheckboxComponent
+                        label="A"
+                        :selectedNS="selectedNS"
+                        @update:selectedNS="selectedNS = $event"
+                    />
+                    <CheckboxComponent
+                        label="B"
+                        :selectedNS="selectedNS"
+                        @update:selectedNS="selectedNS = $event"
+                    />
+                    <CheckboxComponent
+                        label="C"
+                        :selectedNS="selectedNS"
+                        @update:selectedNS="selectedNS = $event"
+                    />
+                    <CheckboxComponent
+                        label="D"
+                        :selectedNS="selectedNS"
+                        @update:selectedNS="selectedNS = $event"
+                    />
+                    <CheckboxComponent
+                        label="E"
+                        :selectedNS="selectedNS"
+                        @update:selectedNS="selectedNS = $event"
+                    />
                 </Fieldset>
 
                 <Fieldset legend="Catégorie" id="fieldset-categorie">
-                    <select name="categories" id="categories-select">
+                    <select
+                        name="categories"
+                        id="categories-select"
+                        v-model="selectedCategory"
+                    >
                         <option value="tous">Tous</option>
                         <option value="sans-sucre">Sans sucre</option>
                         <option value="pauvre-en-sel">Pauvre en Sel</option>
                         <option value="boost">Boost</option>
                     </select>
                 </Fieldset>
+                <button id="btnCache" @click="viderCache">Vider cache</button>
             </Fieldset>
         </div>
     </header>
@@ -54,7 +79,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(cereal, indexCereal) in filteredCerealsData" :key="cereal.id">
+            <tr
+                v-for="(cereal, indexCereal) in filteredCerealsData"
+                :key="cereal.id"
+            >
                 <td id="tdID">{{ cereal.id }}</td>
                 <td>{{ cereal.name }}</td>
                 <td>{{ cereal.calories }}</td>
@@ -69,7 +97,7 @@
                 <td :class="'color-ns-' + getNs(cereal.rating)">
                     {{ getNs(cereal.rating) }}
                 </td>
-                <td @click="filteredCerealsData.splice(indexCereal, 1)" id="tdDel">X</td>
+                <td @click="deleteCereal(indexCereal)" id="tdDel">X</td>
             </tr>
         </tbody>
         <tfoot>
@@ -83,14 +111,16 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { fetchCereals } from './assets/utils/fetchCereals'
 import Fieldset from './components/FieldsetComponent.vue'
 import CheckboxComponent from './components/CheckboxComponent.vue'
 import { computed } from 'vue'
 
+const selectedCategory = ref('tous')
 const cerealsData = ref([])
 const inputRechercher = ref('')
+const selectedNS = ref([])
 
 const getCereals = async () => {
     try {
@@ -100,7 +130,14 @@ const getCereals = async () => {
     }
 }
 
-onMounted(getCereals)
+onMounted(() => {
+    const savedFilteredData = loadCereales()
+    if (savedFilteredData.length > 0) {
+        cerealsData.value = savedFilteredData
+    } else {
+        getCereals()
+    }
+})
 
 const getNs = (rating) => {
     if (rating < 35) return 'E'
@@ -111,13 +148,64 @@ const getNs = (rating) => {
 }
 
 const getMoyCal = () => {
-    if(filteredCerealsData.value.length === 0) return 0
-    return ((filteredCerealsData.value.reduce((a,b) => a + b.calories, 0)) / filteredCerealsData.value.length).toFixed(0)
+    if (filteredCerealsData.value.length === 0) return 0
+    return (
+        filteredCerealsData.value.reduce((a, b) => a + b.calories, 0) /
+        filteredCerealsData.value.length
+    ).toFixed(0)
 }
 
 const filteredCerealsData = computed(() => {
-    if(inputRechercher.value === '') return cerealsData.value
-    return cerealsData.value.filter((cereal => cereal.name.toLowerCase().includes(inputRechercher.value.toLowerCase())))
+    let filtered = cerealsData.value
+
+    if (inputRechercher.value !== '')
+        filtered = filtered.filter((cereal) =>
+            cereal.name
+                .toLowerCase()
+                .includes(inputRechercher.value.toLowerCase())
+        )
+
+    if (selectedNS.value.length > 0)
+        filtered = filtered.filter((cereal) =>
+            selectedNS.value.includes(getNs(cereal.rating))
+        )
+
+    if (selectedCategory.value !== 'tous') {
+        if (selectedCategory.value === 'sans-sucre')
+            filtered = filtered.filter((cereal) => cereal.sugars < 1)
+        if (selectedCategory.value === 'pauvre-en-sel')
+            filtered = filtered.filter((cereal) => cereal.sodium < 50)
+        if (selectedCategory.value === 'boost')
+            filtered = filtered.filter(
+                (cereal) => cereal.vitamins >= 25 && cereal.fiber >= 10
+            )
+    }
+    return filtered
 })
 
+const deleteCereal = (indexCereal) => {
+    cerealsData.value.splice(indexCereal, 1)
+    setCereales(filteredCerealsData.value)
+}
+
+const setCereales = (filteredData) => {
+    localStorage.setItem('filteredCereals', JSON.stringify(filteredData))
+}
+
+watch(filteredCerealsData, (newFilteredData) => {
+    setCereales(newFilteredData)
+})
+
+const loadCereales = () => {
+    const savedCereals = localStorage.getItem('filteredCereals')
+    if (savedCereals) {
+        return JSON.parse(savedCereals)
+    }
+    return []
+}
+
+const viderCache = () => {
+    localStorage.removeItem('filteredCereals')
+    getCereals()
+}
 </script>

@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#imgBanniere {
+  background-image: url('./legumos.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 450px;
+}
+
+nav {
+  height: 60px;
+  background-color: #0d8a5a;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
