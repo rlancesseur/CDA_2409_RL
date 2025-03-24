@@ -7,7 +7,7 @@
 
 body {
     background-color: var(--dark1);
-    color: #FFFFFFCC;
+    color: #ffffffcc;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -24,7 +24,7 @@ header {
 
 h1 {
     color: var(--green);
-    font-size: 2.6rem;
+    font-size: 2.8rem;
 }
 
 fieldset {
@@ -60,16 +60,32 @@ fieldset {
 #fieldset-filtrer {
     width: 70%;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
 }
 
 #fieldset-ns {
-    height: 40px;
+    height: auto;
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 #fieldset-categorie {
     height: 40px;
+}
+
+#btnCache {
+    background-color: #4c4a4e;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: #545357;
+    }
 }
 
 table {
@@ -102,8 +118,7 @@ td {
 }
 
 thead th:nth-child(2),
-tbody td:nth-child(2)
-{
+tbody td:nth-child(2) {
     text-align: left;
 }
 
