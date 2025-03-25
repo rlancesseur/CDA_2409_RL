@@ -1,5 +1,5 @@
 <template>
-  <h1>Liste des légumes</h1>
+    <p>BIENVENUE</p>
 </template>
 
 <script setup></script>
