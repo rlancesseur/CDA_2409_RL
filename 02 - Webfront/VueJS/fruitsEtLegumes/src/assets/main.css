@@ -44,6 +44,19 @@ h1 {
     margin: 20px;
 }
 
+.btnClear {
+    background-color: var(--green);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    margin: 5px;
+    &:hover {
+        cursor: pointer;
+        background-color: #0d774e;
+    }
+}
+
 table {
     margin: auto;
     margin-bottom: 50px;

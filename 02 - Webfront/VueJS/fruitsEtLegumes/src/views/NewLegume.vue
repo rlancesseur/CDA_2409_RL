@@ -48,7 +48,13 @@ const prixLegume = ref(0)
 
 const getLegumos = async () => {
     try {
-        legumosData.value = await fetchLegumos()
+        const storedLegumes = localStorage.getItem('legumos');
+        if (storedLegumes) {
+            legumosData.value = JSON.parse(storedLegumes);
+        }
+        else {
+            legumosData.value = await fetchLegumos()
+        }
     } catch (e) {
         console.error('Erreur lors du chargement des données :', e)
     }
@@ -67,6 +73,13 @@ const ajouterLegume = () => {
         Price: prixLegume.value,
     })
 
-    localStorage.setItem('legumos', JSON.stringify(legumosData))
+    localStorage.setItem('legumos', JSON.stringify(legumosData.value))
+
+    nomLegume.value = ''
+    varieteLegume.value = ''
+    couleurLegume.value = ''
+    dureeConservationLegume.value = 0
+    estFraisLegume.value = 0
+    prixLegume.value = 0
 }
 </script>

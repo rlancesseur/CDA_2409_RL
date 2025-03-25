@@ -23,6 +23,8 @@
             </tr>
         </tbody>
     </table>
+
+    <button class="btnClear" @click="viderCache">Vider Cache</button>
 </template>
 
 <script setup>
@@ -39,5 +41,27 @@ const getLegumos = async () => {
     }
 }
 
-onMounted(getLegumos)
+onMounted(() => {
+    const savedLegumos = loadLegumos()
+    if (savedLegumos.length > 0) {
+        legumosData.value = savedLegumos
+    } else {
+        getLegumos()
+    }
+})
+
+
+const loadLegumos = () => {
+    const savedLegumos = localStorage.getItem('legumos')
+    if (savedLegumos) {
+        return JSON.parse(savedLegumos)
+    }
+    return []
+}
+
+const viderCache = () => {
+    localStorage.removeItem('legumos')
+    getLegumos()
+}
+
 </script>

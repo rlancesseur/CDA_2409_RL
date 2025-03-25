@@ -1,6 +1,8 @@
 <template>
     <header>
-        <div id="imgBanniere"></div>
+        <div id="imgBanniere">
+        
+        </div>
         <nav>
             <ul>
                 <li><RouterLink to="/sales">Ventes</RouterLink></li>
