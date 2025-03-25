@@ -1,0 +1,31 @@
+ body {
+    margin: 0;
+    height: 100vh;
+    background-color: #333333;
+    align-content: center;
+ }
+
+ h1{
+    text-align: center;
+    color: white;
+ }
+ 
+ #plateau {
+    background-color: #026401;
+    width: 710px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: auto;
+  }
+  
+  .ligne {
+    display: flex;
+  }
+
+  .case {
+    width: 100px;
+    height: 100px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    background-color: black;
+  }
