@@ -39,9 +39,14 @@ m.forEach((row, x) => {
                 zoneResultat.style.display = "flex"
                 result.innerText = 'Bravo au joueur ' + (currentPlayer === 'red' ? 'rouge' : 'jaune')
                 result.style.color = currentPlayer
-                currentPlayer === 'jaune' ? zoneScoreJaune.innerText = scoreJaune++ : zoneScoreRouge.innerText = scoreRouge++
+                if (currentPlayer === 'yellow') {
+                    scoreJaune++
+                    zoneScoreJaune.innerText = scoreJaune
+                } else {
+                    scoreRouge++
+                    zoneScoreRouge.innerText = scoreRouge
+                }
             }
-
             currentPlayer = currentPlayer === p1 ? p2 : p1
         })
     })
@@ -86,6 +91,20 @@ const estGagnant = () => {
 }
 
 btnRecommencer.addEventListener("click", () => {
-    console.log('Youpi');
-    
+    for (let i = 0; i < m.length; i++) {
+        for (let j = 0; j < m[i].length; j++) {
+            m[i][j] = ''
+        }
+    }
+
+    const cases = document.querySelectorAll('.case')
+    cases.forEach(element => {
+        element.style.background = 'black'
+    })
+
+    plateau.style.display = 'grid'
+    zoneResultat.style.display = 'none'
+    result.innerText = ''
+
+    currentPlayer = p1   
 })
