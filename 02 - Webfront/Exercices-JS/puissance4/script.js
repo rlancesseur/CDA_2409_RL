@@ -4,12 +4,21 @@ const zoneResultat = document.querySelector('.zoneResultat')
 const zoneScoreJaune = document.querySelector('#scoreJaune')
 const zoneScoreRouge = document.querySelector('#scoreRouge')
 const btnRecommencer = document.querySelector('#btnRecommencer')
-let scoreJaune = 0
-let scoreRouge = 0
+let scoreP2 = 0
+let scoreP1 = 0
 
 const p1 = 'red'
 const p2 = 'yellow'
 let currentPlayer = p1
+
+let scoreP1Stored = localStorage.getItem('scoreP1')
+let scoreP2Stored = localStorage.getItem('scoreP2')
+if(scoreP1Stored && scoreP1Stored){
+    scoreP1 = scoreP1Stored
+    scoreP2 = scoreP2Stored
+    zoneScoreP1.innerText = scoreP1
+    zoneScoreP2.innerText = scoreP2
+}
 
 const m = [...Array(6)].map(() => Array(7).fill(''))
 
@@ -37,14 +46,16 @@ m.forEach((row, x) => {
             if(estGagnant()) {
                 plateau.style.display = 'none'
                 zoneResultat.style.display = "flex"
-                result.innerText = 'Bravo au joueur ' + (currentPlayer === 'red' ? 'rouge' : 'jaune')
+                result.innerText = 'Bravo au joueur ' + (currentPlayer === p1 ? 'rouge' : 'jaune')
                 result.style.color = currentPlayer
-                if (currentPlayer === 'yellow') {
-                    scoreJaune++
-                    zoneScoreJaune.innerText = scoreJaune
+                if (currentPlayer === p2) {
+                    scoreP2++
+                    zoneScoreP2.innerText = scoreP2
+                    localStorage.setItem('scoreP2', scoreP2)
                 } else {
-                    scoreRouge++
-                    zoneScoreRouge.innerText = scoreRouge
+                    scoreP1++
+                    zoneScoreP1.innerText = scoreP1
+                    localStorage.setItem('scoreP1', scoreP1)
                 }
             }
             currentPlayer = currentPlayer === p1 ? p2 : p1
