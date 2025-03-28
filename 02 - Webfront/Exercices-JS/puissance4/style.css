@@ -1,7 +1,8 @@
 body {
     margin: 0;
     background-color: #29272c;
-    color: rgb(231, 231, 231);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(224, 220, 220);
 }
 
 main {
@@ -13,16 +14,62 @@ main {
 
 h1 {
     text-align: center;
+    font-size: 2.5rem;
+}
+
+.menu {
+    display: flex;
+}
+
+form {
+    text-align: center;
+}
+
+.formP {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 750px;
+    margin-bottom: 20px;
+}
+
+.formP1,
+.formP2 {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+#btnSubmit {
+    border: none;
+    background-color: rgb(78, 78, 87);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(88, 88, 97);
+    }
+}
+
+.form-grp {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    margin-bottom: 5px;
+    select {
+        width: 177px;
+    }
 }
 
 #plateau {
+    display: none;
+    grid-template-columns: repeat(7, 1fr);
     background-color: #026401;
     width: 720px;
     border: 1px solid gray;
     border-radius: 5px;
     margin: auto;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
 }
 
 .case {
@@ -43,18 +90,30 @@ h1 {
     display: none;
     gap: 50px;
     flex-direction: column;
+    text-align: center;
     button {
-        margin: auto;
-        width: auto;
-        background-color: #d6d6d6;
-        padding: 6px 10px;
+        width: 150px;
         border: none;
+        background-color: rgb(78, 78, 87);
+        color: white;
+        padding: 8px;
         border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(88, 88, 97);
+        }
     }
 }
 
-footer {
+.zoneBtn {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+footer {
+    display: none;
     gap: 50px;
     justify-content: center;
     font-size: 1.5rem;

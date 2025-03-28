@@ -8,20 +8,71 @@
     <script type="module" src="script.js"></script>
 </head>
 <body>
+
     <h1>Puissance 4</h1>
 
     <main>
+        <div class="menu">
+            <form action="">
+                <div class="formP">
+                    <div class="formP1">
+                        <div class="form-grp">
+                            <label for="nomP1">Nom Joueur 1 : </label>
+                            <input id="nomP1" type="text">
+                        </div>
+                        <div class="form-grp">
+                            <label for="colorP1-select">Couleur Joueur 1 : </label>
+                            <select name="colorP1" id="color-selectP1">
+                                <option value="">Choisir une couleur</option>
+                                <option value="red">Rouge</option>
+                                <option value="yellow">Jaune</option>
+                                <option value="blue">Bleu</option>
+                                <option value="green">Vert</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="formP2">
+                        <div class="form-grp">
+                            <label for="nomP2">Nom Joueur 2 : </label>
+                            <input id="nomP2" type="text">
+                        </div>
+                        <div class="form-grp">
+                            <label for="colorP2-select">Couleur Joueur 2 : </label>
+                            <select name="colorP2" id="color-selectP2">
+                                <option value="">Choisir une couleur</option>
+                                <option value="red">Rouge</option>
+                                <option value="yellow">Jaune</option>
+                                <option value="blue">Bleu</option>
+                                <option value="green">Vert</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="submit" id="btnSubmit">
+            </form>
+        </div>
+
         <div id="plateau"></div>
+
         <div class="zoneResultat">
             <div id="result"></div>
-            <button id="btnRecommencer">Recommencer</button>
+            <div class="zoneBtn">
+                <button id="btnRecommencer">Recommencer</button>
+                <button id="btnChangerJoueur">Changer de joueurs</button>
+            </div>
+            
         </div>
-        
     </main>
 
     <footer>
-        <p>Score rouge : <span id="zoneScoreP1">0</span></p>
-        <p>Score jaune : <span id="zoneScoreP2">0</span></p>
+        <div class="containerScore">
+            <p>Score <span id="zoneNomP1"></span> : <span id="zoneScoreP1">0</span></p>
+        </div>
+        <div class="containerScore">
+            <p>Score <span id="zoneNomP2"></span> : <span id="zoneScoreP2">0</span></p>
+        </div>
     </footer>
     
 </body>
