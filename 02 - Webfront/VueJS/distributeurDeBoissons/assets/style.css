@@ -1,0 +1,46 @@
+:root {
+    --bleu: #add7e4;
+    --rouge: #8a0000;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--rouge);
+    margin: 5px 0;
+    padding: 5px;
+}
+
+.containerH2 {
+    background-color: var(--bleu);
+    padding: 2px;
+    margin-bottom: 5px;
+}
+
+.containerMenu {
+    width: 66%;
+}
+
+.containerH1 {
+    background-color: var(--bleu);
+}
+
+.containerChoixBoissons {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    margin: 5px;
+}
+
+.containerBoisson {
+    width: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bleu);
+    border: 1px solid var(--rouge);
+}

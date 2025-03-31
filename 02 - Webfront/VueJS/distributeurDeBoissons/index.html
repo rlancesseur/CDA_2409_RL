@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="assets/script.js" type="module"></script>
+    <title>Distributeur de boissons</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <div id="app">
+
+        <div class="containerH1">
+            <h1>Distributeur</h1>
+        </div>
+
+        <div class="containerMenu">
+            <div class="containerH2">
+                <h2>Boissons</h2>
+            </div>
+
+            <div class="containerChoixBoissons">
+                <div v-for="(boisson, index) of boissons" class="containerBoisson" :key="index">
+                    <h3>{{ boisson.nom }}</h3>
+                    <p>Tarif : {{ boisson.tarif }}</p>
+                    <p>Stock : {{ boisson.stock}}</p>
+                    <button>Sélectionner</button>
+                </div>
+            </div>  
+        </div>
+        
+    </div>
+    
+</body>
+</html>
