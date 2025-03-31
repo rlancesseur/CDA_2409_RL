@@ -1,0 +1,105 @@
+:root {
+    --green: #b2d4b1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111111;
+}
+
+h1,
+h2 {
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+.containerTitreCalcul {
+    border: 1px solid var(--green);
+}
+
+.containerTitre {
+    background-color: #414141;
+    color: var(--green);
+    padding: 5px;
+    p {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+}
+
+.containerCalcul {
+    padding: 10px;
+    color: var(--green);
+    display: grid;
+    grid-template-columns: 100px 100px 150px 100px 200px;
+    align-items: center;
+    text-align: center;
+    gap: 1rem 5rem;
+
+    .box {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid white;
+        border-radius: 5px;
+        align-items: center;
+        background-color: #333333;
+        input {
+            border: none;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    #pourcent1-box {
+        input {
+            width: 70px;
+        }
+    }
+
+    #pourcent2-box {
+        input {
+            width: 170px;
+        }
+    }
+
+    #pourcent3-box {
+        input {
+            width: 100px;
+        }
+    }
+}
+
+input {
+    background-color: #333333;
+    padding: 10px;
+    color: yellow;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+label[for='pourcent1'],
+label[for='pourcent2'],
+label[for='pourcent3'] {
+    color: #665db6;
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#plusMoins {
+    background-color: #333333;
+    color: yellow;
+    width: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    margin: auto;
+}

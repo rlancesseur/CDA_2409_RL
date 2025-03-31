@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script.js" type="module"></script>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Calculator</h1>
+
+    <div id="app">
+        <h2>Pourcentages</h2>
+
+        <div class="containerTitreCalcul">
+            <div class="containerTitre">
+                <p>Convertir un pourcentage en nombre</p>
+            </div>
+
+            <div class="containerCalcul">
+                <div id="pourcent1-box" class="box">
+                    <input id="pourcent1" type="number" v-model="pourcent1">
+                    <label for="pourcent1">%</label>
+                </div>
+                <span>de</span> 
+                <input type="number" v-model="nombre1"> 
+                <span>=</span> 
+                <input type="number" v-model="result1">
+            </div>
+        </div>
+
+        <div class="containerTitreCalcul">
+            <div class="containerTitre">
+                <p>Convertir un nombre en pourcentage</p>
+            </div>
+
+            <div class="containerCalcul">
+                <input type="number" v-model="nombre21"> 
+                <span>sur un total de</span> 
+                <input type="number" v-model="nombre22">
+                <span>=</span>
+                <div id="pourcent2-box" class="box">
+                    <input id="pourcent2" type="number" v-model="result2">
+                    <label for="pourcent2">%</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="containerTitreCalcul">
+            <div class="containerTitre">
+                <p>Augmentation / Réduction</p>
+            </div>
+
+            <div class="containerCalcul">
+                <input type="number" v-model="nombre3"> 
+                <select name="selectPlusMoins" id="plusMoins" v-model="plusMoins">
+                    <option selected>+</option>
+                    <option>-</option>
+                </select> 
+                <div id="pourcent3-box" class="box">
+                    <input id="pourcent3" type="number" v-model="pourcent3">
+                    <label for="pourcent3">%</label>
+                </div>
+                <span>=</span>
+                <input type="number" v-model="result3">       
+            </div>
+        </div> 
+        
+        <div class="containerTitreCalcul">
+            <div class="containerTitre">
+                <p>Variation de pourcentage</p>
+            </div>
+
+            <div class="containerCalcul">
+                <input type="number" v-model="nombre41"> 
+                <span>à</span> 
+                <input type="number" v-model="nombre42">
+                <span>correspond à</span>
+                <div id="pourcent2-box" class="box">
+                    <input id="pourcent2" type="number" v-model="result4">
+                    <label for="pourcent2">%</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
