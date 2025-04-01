@@ -14,22 +14,113 @@
 
         <div class="containerH1">
             <h1>Distributeur</h1>
+            <p v-if="monnaieAffichee > 0">Remboursé : {{ afficherMonnaie }} €</p>
         </div>
 
-        <div class="containerMenu">
+        <div class="containerDistributeur">
+            <div class="containerMenu">
+                <div class="containerH2">
+                    <h2>Boissons</h2>
+                </div>
+    
+                <div class="containerChoixBoissons">
+                    <div v-for="(boisson, index) of boissons" class="containerBoisson" :key="index">
+                        <h3>{{ boisson.nom }}</h3>
+                        <p>Tarif : {{ boisson.tarif }}</p>
+                        <p>Stock : {{ boisson.stock}}</p>
+                        <button v-if="boisson.stock > 0" @click="selectionnerBoisson(boisson)">Sélectionner</button>
+                        <button v-else>Rupture de Stock</button>
+                    </div>
+                </div>  
+            </div>
+    
+            <div class="containerSelection">
+                <div class="containerH2">
+                    <h2 v-if="!boissonSelectionnee">Votre sélection ?</h2>
+                    <h2 v-else>Votre sélection</h2>
+                </div>
+
+                <div v-if="boissonSelectionnee" class="containerActions">
+                    <div class="containerActionSelection">
+                        <div class="boissonChoisie">
+                            <div class="nomBoissonChoisie">
+                                <p>{{ boissonSelectionnee.nom }}</p>
+                            </div>
+                            
+                            <div class="actionBoissonChoisie">
+                                <div class="form-grp">
+                                    <span>Tarif : </span>
+                                    <span>{{ boissonSelectionnee.tarif }} €</span>
+                                </div>
+                                <div class="form-grp">
+                                    <span>Payé : </span>
+                                    <span>{{ montantPaye.toFixed(2) }} €</span>
+                                </div>
+                                <div class="form-grp">
+                                    <span>Restant dû : </span>
+                                    <span>{{ montantDue }} €</span>
+                                </div>
+                                <div class="form-grp">
+                                    <span>Retour monnaie : </span>
+                                    <span>{{ retourMonnaie }} €</span>
+                                </div>
+                                <button v-if="montantPaye == 0">Attente paiement...</button>
+                                <button v-if="montantPaye > 0" @click="annulerSelection">Annuler</button>
+                                <button v-if="montantDue <= 0" @click="recupererBoisson">Récupérer {{ boissonSelectionnee.nom }}</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div v-if="montantDue > 0" class="containerH2">
+                        <h2>Paiement</h2>
+                    </div>
+    
+                    <div v-if="montantDue > 0" class="containerPieces">
+                        <div class="piece" @click="payerBoisson(0.05)">Pièce de 5cts</div>
+                        <div class="piece" @click="payerBoisson(0.10)">Pièce de 10cts</div>
+                        <div class="piece" @click="payerBoisson(0.20)">Pièce de 20cts</div>
+                        <div class="piece" @click="payerBoisson(0.50)">Pièce de 50cts</div>
+                        <div class="piece" @click="payerBoisson(1)">Pièce de 1Euro</div>
+                        <div class="piece" @click="payerBoisson(2)">Pièce de 2Euro</div>
+                    </div>
+                </div>
+            
+            </div>
+        </div class="containerDistributeur">
+
+        <div v-if="historiqueAchat.length > 0" class="containerHistorique">
             <div class="containerH2">
-                <h2>Boissons</h2>
+                <h2>Historique</h2>
             </div>
 
-            <div class="containerChoixBoissons">
-                <div v-for="(boisson, index) of boissons" class="containerBoisson" :key="index">
-                    <h3>{{ boisson.nom }}</h3>
-                    <p>Tarif : {{ boisson.tarif }}</p>
-                    <p>Stock : {{ boisson.stock}}</p>
-                    <button>Sélectionner</button>
-                </div>
-            </div>  
-        </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date/Heure</th>
+                        <th>Produit</th>
+                        <th>Prix unitaire</th>
+                        <th>Quantité</th>
+                        <th>Prix payé</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="historique of historiqueAchat">
+                        <td>{{ formatDate(historique.dateAchat) }}</td>
+                        <td>{{ historique.nomBoissonAchat }}</td>
+                        <td>{{ historique.prixBoissonAchete }}</td>
+                        <td>{{ historique.quantiteBoissonAchete }}</td>
+                        <td>{{ historique.prixBoissonPaye.toFixed(2) }}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Totaux :</td>
+                        <td>{{ historiqueAchat.length }} produit{{ historiqueAchat.length > 1 ? 's' : '' }}</td>
+                        <td>{{ totalPaye.toFixed(2) }} €</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div> 
         
     </div>
     
