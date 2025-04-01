@@ -5,9 +5,13 @@
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 80%;
 }
 
-h1,
+.containerDistributeur {
+    display: flex;
+}
+
 h2,
 h3 {
     color: var(--rouge);
@@ -15,18 +19,37 @@ h3 {
     padding: 5px;
 }
 
-.containerH2 {
+button {
+    color: var(--rouge);
+    border: 1px solid var(--rouge);
     background-color: var(--bleu);
-    padding: 2px;
-    margin-bottom: 5px;
-}
-
-.containerMenu {
-    width: 66%;
+    width: 95%;
+    padding: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--rouge);
+        color: white;
+    }
 }
 
 .containerH1 {
     background-color: var(--bleu);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 5px;
+    color: var(--rouge);
+}
+
+.containerH2 {
+    background-color: var(--bleu);
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
+.containerMenu {
+    width: 66%;
 }
 
 .containerChoixBoissons {
@@ -43,4 +66,115 @@ h3 {
     align-items: center;
     background-color: var(--bleu);
     border: 1px solid var(--rouge);
+    padding: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: #92c9da;
+    }
+}
+
+.containerSelection {
+    width: 34%;
+}
+
+.actionBoissonChoisie {
+    background-color: var(--bleu);
+    color: var(--rouge);
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    padding: 5px;
+    margin: 20px;
+    button {
+        margin-top: 5px;
+    }
+}
+
+.nomBoissonChoisie {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.form-grp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+        margin: 8px 0;
+    }
+}
+
+.containerPieces {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+.piece {
+    text-align: center;
+    align-content: center;
+    background-color: var(--bleu);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--rouge);
+    cursor: pointer;
+    &:hover {
+        background-color: #000000;
+        color: var(--bleu);
+    }
+}
+
+table {
+    border-collapse: collapse;
+}
+
+thead,
+tbody {
+    color: var(--rouge);
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+th,
+td {
+    border: 2px solid var(--rouge);
+    padding: 5px;
+}
+
+@media (max-width: 1100px) {
+    .piece {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 800px) {
+    .piece {
+        width: 60px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+    }
+    .containerDistributeur {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .containerMenu {
+        width: 90%;
+    }
+
+    .containerSelection {
+        width: 90%;
+    }
 }

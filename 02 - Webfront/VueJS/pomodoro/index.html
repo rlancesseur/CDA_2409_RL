@@ -15,7 +15,12 @@
 
         <div id="chrono">
             <h2>Timer</h2>
-            <p>{{ minutes < 10 ? minutes + ''+ 0 : minutes }} : {{ secondes < 10 ? secondes + ''+ 0 : secondes}}</p>
+            <p id="timer">{{ minutes < 10 ? ''+ 0 + minutes : minutes }} : {{ secondes < 10 ? ''+ 0 + secondes: secondes}}</p>
+            <div id="containerBtn">
+                <button @click="demarrerChrono">Démarrer</button>
+                <button @click="pauseChrono">Pause</button>
+                <button @click="resetChrono">Reset</button>
+            </div>
         </div>
     </div>
     
