@@ -1,0 +1,108 @@
+:root {
+    --red1: #250002;
+    --red2: #590004;
+    --red3: #9e0407;
+    --yellow: #BB6C00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--red1);
+    background-image: url(./old_gas_station.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100vh;
+    padding: 10px;
+}
+
+#app {
+    border: 1px solid white;
+    padding: 8px;
+    width: 60%;
+}
+
+img {
+    width: 50%;
+}
+
+.containerTypeCarburants {
+    display: flex;
+    margin: 20px 0;
+}
+
+.containerDivCarbu {
+    display: flex;
+    background-color: var(--red2);
+    border: 1px solid var(--red3);
+}
+
+.containerH2Carbu {
+    margin: 6px 9px 0 0 ;
+}
+
+.containerCarburant {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    gap: 20px;
+    input {
+        width: 90%;
+        background-color: var(--red2);
+        border: none;
+        color: white;
+        padding: 2px;
+    }
+}
+
+.containerCarburant span:first-child {
+    font-weight: bold;
+}
+
+.containerPompes {
+    display: flex;
+    margin-top: 50px;
+}
+
+.containerPompe {
+    width: 50%;
+}
+
+.selectPompe {
+    width: 95%;
+    background-color: var(--red2);
+    border: 1px solid var(--red3);
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.containerLimite {
+    display: flex;
+    justify-content: stretch;
+    margin-top: 20px;
+    width: 95%;
+    input {
+        width: 50px;
+        background-color: var(--red2);
+        border: 1px solid var(--red3);
+        color: white;
+        padding: 2px;
+    }
+}
+
+.form-grp {
+    display: flex;
+    justify-content: space-between;
+    color: var(--yellow);
+    width: 50%;
+}
+
+.form-grp-check {
+    color: var(--yellow);
+}
