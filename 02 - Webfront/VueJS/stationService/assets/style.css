@@ -2,7 +2,7 @@
     --red1: #250002;
     --red2: #590004;
     --red3: #9e0407;
-    --yellow: #BB6C00;
+    --yellow: #ecb419;
 }
 
 * {
@@ -23,7 +23,8 @@ body {
 
 #app {
     border: 1px solid white;
-    padding: 8px;
+    background-color: #250002bb;
+    padding: 10px;
     width: 60%;
 }
 
@@ -43,7 +44,7 @@ img {
 }
 
 .containerH2Carbu {
-    margin: 6px 9px 0 0 ;
+    margin: 6px 9px 0 0;
 }
 
 .containerCarburant {
@@ -66,7 +67,9 @@ img {
 
 .containerPompes {
     display: flex;
-    margin-top: 50px;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
 }
 
 .containerPompe {
@@ -85,8 +88,10 @@ img {
 .containerLimite {
     display: flex;
     justify-content: stretch;
-    margin-top: 20px;
+    margin: 20px 0;
     width: 95%;
+    border-bottom: 1px solid white;
+    padding-bottom: 20px;
     input {
         width: 50px;
         background-color: var(--red2);
@@ -105,4 +110,67 @@ img {
 
 .form-grp-check {
     color: var(--yellow);
+    margin: 0 10px;
+    input {
+        width: 20px;
+    }
+}
+
+.containerLabel {
+    display: flex;
+    align-items: center;
+    color: var(--yellow);
+}
+
+.form-grp-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    input {
+        width: 50px;
+        background-color: var(--red2);
+        border: 1px solid var(--red3);
+        color: white;
+        padding: 4px;
+    }
+}
+
+.barreRemplissage {
+    width: 95%;
+    height: 20px;
+    margin: 10px 0;
+    background-color: var(--red2);
+    border: 1px solid var(--red3);
+}
+
+.btnLancer {
+    color: white;
+    width: 95%;
+    padding: 5px;
+    background-color: var(--red2);
+    border: 1px solid var(--red3);
+    cursor: pointer;
+    &:hover {
+        background-color: white;
+        color: var(--red2);
+    }
+}
+
+table {
+    background-color: var(--red2);
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid var(--red3);
+    padding: 5px;
+}
+
+tfoot {
+    color: var(--yellow);
+    font-weight: bold;
 }
