@@ -1,5 +1,5 @@
 :root {
-    --red1: #250002;
+    --red1: #0d0d0e;
     --red2: #590004;
     --red3: #9e0407;
     --yellow: #ecb419;
@@ -15,15 +15,15 @@ body {
     background-image: url(./old_gas_station.png);
     background-repeat: no-repeat;
     background-position: right;
+    background-size: 46% auto;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    height: 100vh;
     padding: 10px;
 }
 
 #app {
     border: 1px solid white;
-    background-color: #250002bb;
+    background-color: #0a0a0ace;
     padding: 10px;
     width: 60%;
 }
@@ -183,6 +183,7 @@ tfoot {
     body {
         display: flex;
         justify-content: center;
+        background-image: none;
     }
 
     #app {
