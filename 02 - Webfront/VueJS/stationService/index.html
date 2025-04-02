@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="assets/script.js" type="module"></script>
+    <title>Station Service</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <div id="app">
+        <h1>Station Service</h1>
+
+        <div class="containerTypeCarburants">
+            <div class="containerH2Carbu">
+                <h2>Carburants</h2>
+            </div>
+            
+            <div class="containerDivCarbu">
+                <div v-for="carburant of listeCarbu" class="containerCarburant">
+                    <span>{{ carburant.nom }}</span>
+                    <span>{{ carburant.contenu.toFixed(2) }} litres</span>
+                    <input type="number" :value=carburant.prix>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="containerPompes">
+            <div class="containerPompe">
+                <h2>Pompe n°1</h2>
+                <select v-model="selectedCarburant" name="listCarbu" id="selectPompe1" class="selectPompe">
+                    <option v-for="(carburant, index) of listeCarbu" :key="index" :value="carburant.nom">{{ carburant.nom }}</option>
+                </select>
+
+                <div class="containerLimite">
+                    <div class="form-grp">
+                        <label for="limiteNumber">Limite</label>
+                        <input type="number" id="limiteNumber" v-model="limite" min="0">
+                    </div>
+                    <div class="form-grp-check">
+                        <input type="checkbox" id="checkboxLitres" v-model="isLitres">
+                        <label for="checkboxLitres">litres</label>
+                    </div>
+                    <div class="form-grp-check">
+                        <input type="checkbox" id="checkboxEuros" v-model="isEuros">
+                        <label for="checkboxEuros">€</label>
+                    </div>
+                </div>
+
+                <div class="containerActionPompe">
+                    <div class="containerLabel">
+                        <div class="form-grp-action">
+                            <label for="">Prix du litre</label>
+                            <input type="number" v-model="prixDuLitre" disabled>
+                        </div>
+                        <span>€</span>
+                    </div>
+                    
+                    <div class="containerLabel">
+                        <div class="form-grp-action">
+                            <label for="">Quantité</label>
+                            <input type="number" v-model="quantiteAVider">
+                        </div>
+                        <span>litres</span>
+                    </div>
+
+                    <div class="containerLabel">
+                        <div class="form-grp-action">
+                            <label for="">A payer</label>
+                            <input type="number" v-model="prixAPayer">
+                        </div>
+                        <span>€</span>
+                    </div>
+
+                    <div class="barreRemplissage"></div>
+
+                    <button @click="lancerDistrib()" class="btnLancer">Lancer la distribution</button>
+                </div>
+            </div>
+
+            <div class="containerPompe">
+                <h2>Pompe n°2</h2>
+                <select name="listCarbu" id="selectPompe2" class="selectPompe">
+                    <option v-for="(carburant, index) of listeCarbu" :key="index" :value="carburant.nom">{{ carburant.nom }}</option>
+                </select>
+
+                <div class="containerLimite">
+                    <div class="form-grp">
+                        <label for="limiteNumber">Limite</label>
+                        <input type="number" id="limiteNumber" min="0">
+                    </div>
+                    <div class="form-grp-check">
+                        <input type="checkbox" id="checkboxLitres">
+                        <label for="checkboxLitres">litres</label>
+                    </div>
+                    <div class="form-grp-check">
+                        <input type="checkbox" id="checkboxEuros">
+                        <label for="checkboxEuros">€</label>
+                    </div>
+                </div>
+
+                <div class="containerActionPompe">
+                    <div class="containerLabel">
+                        <div class="form-grp-action">
+                            <label for="">Prix du litre</label>
+                            <input type="number">
+                        </div>
+                        <span>€</span>
+                    </div>
+                    
+                    <div class="containerLabel">
+                        <div class="form-grp-action">
+                            <label for="">Quantité</label>
+                            <input type="number">
+                        </div>
+                        <span>litres</span>
+                    </div>
+
+                    <div class="containerLabel">
+                        <div class="form-grp-action">
+                            <label for="">A payer</label>
+                            <input type="number">
+                        </div>
+                        <span>€</span>
+                    </div>
+
+                    <div class="barreRemplissage"></div>
+
+                    <button class="btnLancer">Lancer la distribution</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div v-if="listeFactures.length > 0" class="containerFactures">
+            <h2>Factures</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date/Heure</th>
+                        <th>Carburant</th>
+                        <th>Prix/litre</th>
+                        <th>Quantité</th>
+                        <th>Prix payé</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="facture of listeFactures" :key="facture.date">
+                        <td>{{ formatDate(facture.date) }}</td>
+                        <td>{{ facture.carburant }}</td>
+                        <td>{{ facture.prix }}</td>
+                        <td>{{ facture.quantite.toFixed(2) }}</td>
+                        <td>{{ facture.aPayer.toFixed(2) }} €</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <td colspan="3">Totaux :</td>
+                    <td>{{ totalQuantite }} litres</td>
+                    <td>{{ totalAPayer }} €</td>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>
