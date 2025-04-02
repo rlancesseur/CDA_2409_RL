@@ -68,8 +68,6 @@ img {
 .containerPompes {
     display: flex;
     margin: 20px 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid white;
 }
 
 .containerPompe {
@@ -126,11 +124,11 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 60%;
     margin-bottom: 5px;
     margin-right: 5px;
     input {
-        width: 50px;
+        width: 60px;
         background-color: var(--red2);
         border: 1px solid var(--red3);
         color: white;
@@ -159,9 +157,15 @@ img {
     }
 }
 
+.containerFactures {
+    border-top: 1px solid white;
+    padding-top: 20px;
+}
+
 table {
     background-color: var(--red2);
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 th,
@@ -173,4 +177,27 @@ td {
 tfoot {
     color: var(--yellow);
     font-weight: bold;
+}
+
+@media (max-width: 970px) {
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+    #app {
+        width: 90%;
+    }
+
+    .containerTypeCarburants {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .containerFactures {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

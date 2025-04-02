@@ -18,6 +18,12 @@ const myApp = {
         prixDuLitre() {
             return this.carburantSelectionne.prix || 0
         },
+        prixAPayer() {
+            if (this.isEuros) {
+                return this.carburantSelectionne.prix * this.limiteEnEuros || 0
+            }
+            return this.carburantSelectionne.prix * this.limite || 0
+        },
         limiteEnEuros() {
             if (this.isEuros) {
                 return this.limite / this.prixDuLitre
@@ -26,12 +32,15 @@ const myApp = {
         },
         quantiteAVider() {
             if (this.isEuros) {
-                return this.limite / this.prixDuLitre
+                return (this.limite / this.prixDuLitre).toFixed(2)
             }
             return this.limite
         },
-        totalPaye() {
+        totalQuantite() {
             return this.listeFactures.reduce((a,b) => a + parseFloat(b.quantite), 0)
+        },
+        totalAPayer() {
+            return (this.listeFactures.reduce((a,b) => a + parseFloat(b.aPayer), 0)).toFixed(2)
         },
     },
     methods: {
@@ -52,7 +61,8 @@ const myApp = {
                 date: new Date(),
                 carburant: this.selectedCarburant,
                 prix: this.prixDuLitre,
-                quantite: this.limite
+                quantite: this.limite,
+                aPayer: this.prixAPayer
             })
         },
         formatDate(date) {

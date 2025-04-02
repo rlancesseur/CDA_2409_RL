@@ -70,7 +70,7 @@
                     <div class="containerLabel">
                         <div class="form-grp-action">
                             <label for="">A payer</label>
-                            <input type="number">
+                            <input type="number" v-model="prixAPayer">
                         </div>
                         <span>€</span>
                     </div>
@@ -154,13 +154,13 @@
                         <td>{{ facture.carburant }}</td>
                         <td>{{ facture.prix }}</td>
                         <td>{{ facture.quantite.toFixed(2) }}</td>
-                        <td></td>
+                        <td>{{ facture.aPayer.toFixed(2) }} €</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <td colspan="3">Totaux :</td>
-                    <td>{{ totalPaye }} litres</td>
-                    <td></td>
+                    <td>{{ totalQuantite }} litres</td>
+                    <td>{{ totalAPayer }} €</td>
                 </tfoot>
             </table>
         </div>
