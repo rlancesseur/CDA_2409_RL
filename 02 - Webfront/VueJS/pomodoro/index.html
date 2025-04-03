@@ -11,18 +11,31 @@
 <body>
 
     <div id="app">
-        <h1>Pomodoro</h1>
-
+        <div class="containerPara">
+            <h2>Parameters</h2>
+        </div>
         <div id="chrono">
             <h2>Timer</h2>
             <p id="timer">{{ minutes < 10 ? ''+ 0 + minutes : minutes }} : {{ secondes < 10 ? ''+ 0 + secondes: secondes}}</p>
             <div id="containerBtn">
-                <button @click="demarrerChrono">Démarrer</button>
-                <button @click="pauseChrono">Pause</button>
+                <button v-if="!intervalle" @click="demarrerChrono">Démarrer</button>
+                <button v-if="intervalle" @click="pauseChrono">Pause</button>
                 <button @click="resetChrono">Reset</button>
             </div>
         </div>
+
+        <div class="containerTodo">
+            <h2>Tasks</h2>
+            <div class="form-grp">
+                <label for="addTask">Add task : </label>
+                <input type="text" id="addTask" v-model="nouvelleTache">
+            </div>
+            <button @click="ajouterTache">Add</button>
+            <ul>
+                <li v-for="(task, index) in todoList" :key="index">{{ task }} <button>X</button></td>
+            </ul>
+        </div>
     </div>
-    
+
 </body>
 </html>

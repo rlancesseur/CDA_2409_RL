@@ -3,21 +3,31 @@ const myApp = {
         return {
             minutes: 25,
             secondes: 0,
-            intervalle: null
+            intervalle: null,
+            enPause: false,
+            todoList: [],
+            nouvelleTache: '',
         }
     },
     methods: {
         decompte() {
             if (this.minutes === 0 && this.secondes === 0) {
-                clearInterval(this.intervalle)
-                this.intervalle = null
-                return
-            }
-            if (this.secondes > 0) {
-                this.secondes--
+                if (this.enPause) {
+                    this.minutes = 25
+                    this.secondes = 0
+                    this.enPause = false
+                } else {
+                    this.minutes = 5
+                    this.secondes = 0
+                    this.enPause = true
+                }
             } else {
-                this.minutes--
-                this.secondes = 59
+                if (this.secondes > 0) {
+                    this.secondes--
+                } else {
+                    this.minutes--
+                    this.secondes = 59
+                }
             }
         },
         demarrerChrono() {
@@ -34,6 +44,13 @@ const myApp = {
             this.intervalle = null
             this.minutes = 25
             this.secondes = 0
+            this.enPause = false
+        },
+        ajouterTache() {
+            if(this.nouvelleTache !== '') {
+                this.todoList.push(this.nouvelleTache)
+                this.nouvelleTache = ''
+            }
         }
     }
 }
