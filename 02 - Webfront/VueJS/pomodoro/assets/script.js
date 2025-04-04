@@ -4,7 +4,6 @@ const myApp = {
             minutes: 25,
             secondes: 0,
             intervalle: null,
-            enPause: false,
             todoList: [],
             nouvelleTache: '',
         }
@@ -12,15 +11,10 @@ const myApp = {
     methods: {
         decompte() {
             if (this.minutes === 0 && this.secondes === 0) {
-                if (this.enPause) {
-                    this.minutes = 25
-                    this.secondes = 0
-                    this.enPause = false
-                } else {
-                    this.minutes = 5
-                    this.secondes = 0
-                    this.enPause = true
-                }
+                clearInterval(this.intervalle)
+                this.intervalle = null
+                return
+
             } else {
                 if (this.secondes > 0) {
                     this.secondes--
@@ -44,13 +38,36 @@ const myApp = {
             this.intervalle = null
             this.minutes = 25
             this.secondes = 0
-            this.enPause = false
         },
         ajouterTache() {
             if(this.nouvelleTache !== '') {
-                this.todoList.push(this.nouvelleTache)
+                this.todoList.push({ text: this.nouvelleTache, completed: false })
                 this.nouvelleTache = ''
             }
+        },
+        timerPomodoro() {
+            clearInterval(this.intervalle)
+            this.intervalle = null
+            this.minutes = 25,
+            this.secondes = 0
+        },
+        timerShortBreak() {
+            clearInterval(this.intervalle)
+            this.intervalle = null
+            this.minutes = 5,
+            this.secondes = 0
+        },
+        timerLongBreak() {
+            clearInterval(this.intervalle)
+            this.intervalle = null
+            this.minutes = 10,
+            this.secondes = 0
+        },
+        suppTask(index) {
+            return this.todoList.splice(index, 1)
+        },
+        checkTask(index) {
+            this.todoList[index].completed = !this.todoList[index].completed
         }
     }
 }
