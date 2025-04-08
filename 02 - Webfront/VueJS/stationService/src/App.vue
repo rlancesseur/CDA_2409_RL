@@ -10,7 +10,7 @@
       <div v-for="carburant of listeCarbu" class="containerCarburant">
         <span>{{ carburant.nom }}</span>
         <span>{{ carburant.contenu.toFixed(2) }} litres</span>
-        <input type="number" :value=carburant.prix>
+        <input type="number" :value="carburant.prix" />
       </div>
     </div>
   </div>
@@ -53,9 +53,8 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { carburants } from "./data/carburants.js"
+import { carburants } from './data/carburants.js'
 import Pompe from './components/Pompe.vue'
-
 
 const listeCarbu = ref(carburants)
 const listeFactures = ref([])
