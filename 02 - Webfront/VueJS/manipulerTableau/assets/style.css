@@ -1,0 +1,79 @@
+:root {
+    --blue1: #536b78;
+    --blue2: #accbe1;
+    --blue3: #637081;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: var(--blue1);
+    color: #c7deec;
+}
+
+#app {
+    width: 800px;
+    border: 1px solid var(--blue2);
+    padding: 20px;
+}
+
+h1 {
+    color: var(--blue2);
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.addPerson {
+    border: 1px dashed var(--blue2);
+    margin-top: 10px;
+    padding: 20px;
+    p {
+        margin: 0;
+    }
+}
+
+form {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    input,
+    button {
+        background-color: var(--blue3);
+        border: 2px solid var(--blue2);
+        color: var(--blue2);
+        padding: 5px 15px;
+    }
+}
+
+.grp-label {
+    margin-right: 30px;
+}
+
+ul {
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: var(--blue3);
+    color: var(--blue2);
+}
+
+th,
+td {
+    border: 1px solid var(--blue2);
+    padding: 5px;
+}
+
+tbody td:last-child {
+    text-align: center;
+    button {
+        background-color: var(--blue3);
+        border: none;
+        color: var(--blue2);
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+}

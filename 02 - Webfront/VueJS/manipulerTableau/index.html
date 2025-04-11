@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipuler un tableau</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="assets/script.js" type="module"></script>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <div id="app">
+        <h1>Liste des personnes inscrites</h1>
+
+        <div class="addPerson">
+            <p>Ajouter une personne</p>
+
+            <form action="" @submit.prevent="addPerson">
+                <div class="grp-label">
+                    <label for="prenom">Prénom : </label>
+                    <input type="text" v-model="prenom">
+                </div>
+                <div class="grp-label">
+                    <label for="nom">Nom : </label>
+                    <input type="text" v-model="nom">
+                </div>
+
+                <button>Ajouter</button>
+            </form>
+
+            <div class="addPersonnSuccess">{{ result }}</div>
+        </div>
+
+        <ul>
+            <li v-for="(person, index) of people" :key="index">{{ person }}</li>
+        </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(person, index) of people" :key="index">
+                    <td>{{ person.split(' ')[1] }}</td>
+                    <td>{{ person.split(' ')[0] }}</td>
+                    <td>{{ email(person) }}</td>
+                    <td>
+                        <button @click="deletePerson(index)">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
