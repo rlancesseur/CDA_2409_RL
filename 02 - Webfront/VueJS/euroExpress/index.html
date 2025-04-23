@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/img/EuropeExpress.jpg" type="image/x-icon">
+    <title>Europe Express</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="assets/js/script.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <img src="assets/img/EuropeExpress.jpg" alt="logo de EuropeExpress">
+    </header>
+
+    <main>
+        <h1>Nos départs depuit Paris</h1>
+
+        <div id="app">
+
+            <div class="galery">
+                <div class="destination" v-for="pays of listePays">
+                    <img src ="assets/img/amsterdam.jpg" alt="PhotoAmsterdam">
+                    <div class="description">
+                        <h2>Amsterdam : à 12h10 | <span class="blue"> 105,80 €</span></h2>
+                        <p>Amsterdam est accessible via un trajet agréable et rapide. Ce train offre une atmosphère détendue avec des compartiments spacieux et un service à bord de qualité. Que vous visitiez la ville pour ses musées, ses canaux ou sa vie nocturne, ce voyage vous assure un exellent début d'expérience</p>
+                        <form action="formulaire.html">
+                            <button class="bouton">Réservation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <h3>Copyright 2025 - ©Equipe Rouge (<a href="https://github.com/Caroline1609">Caroline</a>,<a href="https://github.com/HL-Dev26">Ludovic</a>, <a href="https://github.com/f-gehin-crm">Fréderic</a>, <a href="https://github.com/Neihren">Jessy</a>) - ABC DEV</h3>
+    </footer>
+</body>
+
+</html>
