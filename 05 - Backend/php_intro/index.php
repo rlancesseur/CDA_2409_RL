@@ -2,6 +2,7 @@
 require "01-hello.php";
 require "02-numbers.php";
 require "03-strings.php";
+require "04-arrays.php";
 require "traitement.php";
 ?>
 
@@ -29,21 +30,28 @@ require "traitement.php";
 
         <p>Function capitalCity : <?= capitalCity("Suède") ?></p>
         <p>Function capitalCity : <?= capitalCity("Paris", false) ?></p>
+
+        <?php $names = ['Joe', 'Jack', 'Léa', 'Zoé', 'Néo']; ?>
+        <p>Function firstItem : <?= firstItem($names) ?></p>
+        <p>Function lastItem : <?= lastItem($names) ?></p>
     </div>
 
-    <form method="post">
-        <div>
-            <?php
-            if ($error_firstname !== '') echo $error_firstname;
-            ?>
-            <label for="firstname">Prénom</label>
-            <input type="text" name="firstname" id="firstname">
-        </div>
-        <div>
-            <label for="lastname">Nom</label>
-            <input type="text" name="lastname" id="lastname">
-        </div>
-        <input type="submit" value="Ajouter">
+    <form method="post" style="width:800px">
+        <fieldset>
+            <legend>Formulaire</legend>
+            <div>
+                <?php
+                if ($error_firstname !== '') echo $error_firstname;
+                ?>
+                <label for="firstname">Prénom</label>
+                <input type="text" name="firstname" id="firstname">
+            </div>
+            <div>
+                <label for="lastname">Nom</label>
+                <input type="text" name="lastname" id="lastname">
+            </div>
+            <input type="submit" value="Ajouter">
+        </fieldset>
     </form>
 
 </body>
