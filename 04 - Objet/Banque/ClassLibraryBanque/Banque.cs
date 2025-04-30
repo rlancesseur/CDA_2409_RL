@@ -4,7 +4,7 @@
     {
         string nom;
         string ville;
-        List<Compte> comptes;
+        public List<Compte> comptes;
 
         public Banque(string _nom, string _ville)
         {
@@ -18,9 +18,9 @@
             comptes.Add(_nouveauCompte);
         }
 
-        public void AjouterCompte(uint _numero, string _nomProprietaire, float _solde, float _decouvertAutorise)
+        public void AjouterCompte(uint _numero, string _nomProprietaire, float _solde)
         {
-            Compte nouveauCompte = new(_numero, _nomProprietaire, _solde, _decouvertAutorise);
+            Compte nouveauCompte = new(_numero, _nomProprietaire, _solde);
             AjouterCompte(nouveauCompte);
         }
 
@@ -77,6 +77,7 @@
             }
             return result;
         }
+
         public override string ToString()
         {
             return base.ToString() + "; Nom : " + this.nom + " Ville : " + this.ville + " Nombre de comptes : " + comptes.Count;

@@ -6,27 +6,21 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryBanque
 {
-    public class Compte : IComparable
+    public class Compte : IComparable<Compte>
     {
         public uint numero;
-        string nomProprietaire;
+        public string nomProprietaire;
         public float solde;
-        float decouvertAutorise;
 
-        public Compte(uint _numero, string _nomProprietaire, float _solde, float _decouvertAutorise)
+        public Compte(uint _numero, string _nomProprietaire, float _solde)
         {
             if (_solde < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(_solde), "Le solde à la création du compte ne peut pas être négatif.");
             }
-            if (_decouvertAutorise > 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(_decouvertAutorise), "Le découvert autorisé à la création du compte doit être négatif.");
-            }
             numero = _numero;
             nomProprietaire = _nomProprietaire;
             solde = _solde;
-            decouvertAutorise = _decouvertAutorise;
         }
 
         public void CrediterMontant(float montant)
@@ -38,13 +32,13 @@ namespace ClassLibraryBanque
             solde += montant;
         }
 
-        public bool DebiterMontant(float montant)
+        public virtual bool DebiterMontant(float montant)
         {
             if (montant < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(montant), "Le montant à débiter ne peut pas être négatif.");
             }
-            if ((solde - montant) >= decouvertAutorise)
+            if ((solde - montant) >= 0)
             {
                 solde -= montant;
                 return true;
@@ -63,38 +57,25 @@ namespace ClassLibraryBanque
                 throw new ArgumentNullException(nameof(compteDestinataire), "Le compte destinataire n'existe pas.");
             }
 
-            DebiterMontant(montant);
-            compteDestinataire.CrediterMontant(montant);
+            if(DebiterMontant(montant))
+            {
+                compteDestinataire.CrediterMontant(montant);
+            }
         }
 
-        public int CompareTo(object? obj)
+        public int CompareTo(Compte? other)
         {
-            if (obj == null)
+            if (other == null)
             {
-                throw new ArgumentNullException(nameof(obj), "Le compte n'existe pas");
+                throw new ArgumentNullException(nameof(other), "Le compte n'existe pas");
             }
 
-            if (obj is Compte compteAComparer)
-            {
-                if (solde > compteAComparer.solde)
-                {
-                    return 1;
-                }
-                else if (solde < compteAComparer.solde)
-                {
-                    return -1;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            throw new NotImplementedException();
+            return solde.CompareTo(other.solde);
         }
 
         public override string ToString()
         {
-            return base.ToString() + "; Numéro du compte: " + numero + " Nom : " + nomProprietaire + " Solde : " + solde + " Découvert autorisé : " + decouvertAutorise;
+            return base.ToString() + "; Numéro du compte: " + numero + " Nom : " + nomProprietaire + " Solde : " + solde;
         }
     }
 }
