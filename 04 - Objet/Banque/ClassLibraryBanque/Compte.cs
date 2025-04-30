@@ -6,42 +6,39 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryBanque
 {
-    public class Compte
+    public class Compte : IComparable<Compte>
     {
-        public int numero;
-        string nomProprietaire;
+        public uint numero;
+        public string nomProprietaire;
         public float solde;
-        float decouvertAutorise;
 
-        public Compte()
+        public Compte(uint _numero, string _nomProprietaire, float _solde)
         {
-            numero = 0000;
-            nomProprietaire = "Toto";
-            solde = 1000;
-            decouvertAutorise = -500;
-        }
-
-        public Compte(int _numero, string _nomProprietaire, float _solde, float _decouvertAutorise)
-        {
+            if (_solde < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_solde), "Le solde à la création du compte ne peut pas être négatif.");
+            }
             numero = _numero;
             nomProprietaire = _nomProprietaire;
             solde = _solde;
-            decouvertAutorise = _decouvertAutorise;
-        }
-
-        public override string ToString()
-        {
-            return "Numéro du compte: " + numero + " Nom : " + nomProprietaire + " Solde : " + solde + " Découvert autorisé : " + decouvertAutorise;
         }
 
         public void CrediterMontant(float montant)
         {
+            if (montant < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(montant), "Le montant à créditer ne peut pas être négatif.");
+            }
             solde += montant;
         }
 
-        public bool DebiterMontant(float montant)
+        public virtual bool DebiterMontant(float montant)
         {
-            if ((solde - montant) >= decouvertAutorise)
+            if (montant < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(montant), "Le montant à débiter ne peut pas être négatif.");
+            }
+            if ((solde - montant) >= 0)
             {
                 solde -= montant;
                 return true;
@@ -49,19 +46,36 @@ namespace ClassLibraryBanque
             return false;
         }
 
-        public void TransfererMontant(float montant, Compte compte)
+        public void TransfererMontant(float montant, Compte compteDestinataire)
         {
-            DebiterMontant(montant);
-            compte.CrediterMontant(montant);
+            if (montant < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(montant), "Le montant à transférer ne peut pas être négatif.");
+            }
+            if (compteDestinataire == null)
+            {
+                throw new ArgumentNullException(nameof(compteDestinataire), "Le compte destinataire n'existe pas.");
+            }
+
+            if(DebiterMontant(montant))
+            {
+                compteDestinataire.CrediterMontant(montant);
+            }
         }
 
-        public bool ComparerSolde(Compte compte)
+        public int CompareTo(Compte? other)
         {
-            if (solde > compte.solde)
+            if (other == null)
             {
-                return true;
+                throw new ArgumentNullException(nameof(other), "Le compte n'existe pas");
             }
-            return false;
+
+            return solde.CompareTo(other.solde);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + "; Numéro du compte: " + numero + " Nom : " + nomProprietaire + " Solde : " + solde;
         }
     }
 }
