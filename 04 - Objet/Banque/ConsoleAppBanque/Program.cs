@@ -24,7 +24,7 @@ namespace ConsoleAppBanque
             Console.WriteLine(compte2.ToString());
 
 
-            Console.WriteLine(compte1.ComparerSolde(compte2) ? "supérieur" : "inférieur");
+            Console.WriteLine(compte1.CompareTo(compte2));
 
 
             Banque maBanque = new("Crédit Agricole", "Mulhouse");
@@ -33,7 +33,7 @@ namespace ConsoleAppBanque
             maBanque.AjouterCompte(compte2);
             Console.WriteLine(maBanque.ToString());
 
-            maBanque.CompteSup();
+            maBanque.CompteAuSoldeLePlusGrand();
 
             maBanque.RendCompte(0001);
             maBanque.RendCompte(0005);

@@ -4,116 +4,82 @@
     {
         string nom;
         string ville;
-        List<Compte> compte;
-
-        public Banque()
-        {
-            nom = "Banque de France";
-            ville = "Paris";
-            compte = new List<Compte>();
-        }
+        List<Compte> comptes;
 
         public Banque(string _nom, string _ville)
         {
             nom = _nom;
             ville = _ville;
-            compte = new List<Compte>();
+            comptes = new List<Compte>();
         }
 
-
-        /// <summary>
-        /// Ajoute un nouveau compte à la banque.
-        /// </summary>
-        /// <param name="_nouveauCompte">Le nom du compte à ajouter</param>
         public void AjouterCompte(Compte _nouveauCompte)
         {
-            compte.Add(_nouveauCompte);
+            comptes.Add(_nouveauCompte);
         }
 
-        public void AjouterCompte(int _numero, string _nomProprietaire, float _solde, float _decouvertAutorise)
+        public void AjouterCompte(uint _numero, string _nomProprietaire, float _solde, float _decouvertAutorise)
         {
             Compte nouveauCompte = new(_numero, _nomProprietaire, _solde, _decouvertAutorise);
-            compte.Add(nouveauCompte);
+            AjouterCompte(nouveauCompte);
         }
 
-        public override string ToString()
+        public Compte CompteAuSoldeLePlusGrand()
         {
-            return "Nom : " + this.nom + " Ville : " + this.ville + " Nombre de comptes : " + compte.Count;
-        }
-
-        public string CompteSup()
-        {
-            string? result = null;
+            Compte? result = null;
             float soldeSup = 0;
 
-            for (int i = 0; i < compte.Count; i++)
+            for (int i = 0; i < comptes.Count; i++)
             {
-                if (compte[i].solde > soldeSup)
+                if (comptes[i].solde > soldeSup)
                 {
-                    soldeSup = compte[i].solde;
-                    result = compte[i].ToString();
+                    soldeSup = comptes[i].solde;
+                    result = comptes[i];
                 }
             }
             return result;
         }
 
-        public string RendCompte(int numeroCompteDemande)
+        public Compte RendCompte(uint numeroCompteDemande)
         {
-            string? result = null;
-
-            for (int i = 0; i < compte.Count; i++)
+            for (int i = 0; i < comptes.Count; i++)
             {
-                if (compte[i].numero == numeroCompteDemande)
+                if (comptes[i].numero == numeroCompteDemande)
                 {
-                    result = compte[i].ToString();
+                    return comptes[i];
                 }
             }
-            return result;
+            return null;
         }
 
-        public bool Transferer(int numeroCompteDebiteur, int numeroCompteCrediteur, float montantTransfert)
+        public bool Transferer(uint numeroCompteDebiteur, uint numeroCompteCrediteur, float montantTransfert)
         {
+            if (montantTransfert <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(montantTransfert), "Le montant à transférer doit être positif.");
+            }
+            if (numeroCompteDebiteur == numeroCompteCrediteur)
+            {
+                return false;
+            }
+            Compte compteDebiteur = RendCompte(numeroCompteDebiteur);
+            Compte compteCrediteur = RendCompte(numeroCompteCrediteur);
+
             bool result = false;
-            int a = 0;
-            int b = 0;
 
-            for (int i = 0; i < compte.Count; i++)
+            if (compteDebiteur != null && compteCrediteur != null)
             {
-                if (compte[i].numero == numeroCompteDebiteur)
+                if (compteDebiteur.DebiterMontant(montantTransfert))
                 {
-                    a = compte[i].numero;
-                }
-                if (compte[i].numero == numeroCompteCrediteur)
-                {
-                    b = compte[i].numero;
-                }
-            }
-
-            if (a != 0 && b != 0)
-            {
-                bool debitReussi = false;
-                for (int i = 0; i < compte.Count; i++)
-                {
-                    if (compte[i].numero == a)
-                    {
-                        debitReussi = compte[i].DebiterMontant(montantTransfert);
-                    }
-                }
-
-                if (debitReussi)
-                {
+                    compteCrediteur.CrediterMontant(montantTransfert);
                     result = true;
-                    for (int i = 0; i < compte.Count; i++)
-                    {
-                        if (compte[i].numero == b)
-                        {
-                            compte[i].solde += montantTransfert;
-                        }
-                    }
                 }
             }
-
             return result;
+        }
+        public override string ToString()
+        {
+            return base.ToString() + "; Nom : " + this.nom + " Ville : " + this.ville + " Nombre de comptes : " + comptes.Count;
         }
     }
 }
