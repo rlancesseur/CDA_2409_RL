@@ -7,23 +7,23 @@
 
             Point point1 = new(10, 15);
 
-            point1.deplacer(20, 25);
-            point1.afficher();
+            point1.Deplacer(20, 25);
+            Console.WriteLine(point1.ToString());
 
-            Point point2 = point1.symetrieX();
-            point2.afficher();
+            Point point2 = point1.SymetrieX();
+            Console.WriteLine(point2.ToString());
 
-            Point point3 = point1.symetrieY();
-            point3.afficher();
+            Point point3 = point1.SymetrieY();
+            Console.WriteLine(point3.ToString());
 
-            Point point4 = point3.symetriePoint();
-            point4.afficher();
+            Point point4 = point3.SymetrieXY();
+            Console.WriteLine(point4.ToString());
 
-            point4.permuter();
-            point4.afficher();
+            point4.Permuter();
+            Console.WriteLine(point4.ToString());
 
-            point4.deplacer(-30, 30);
-            point4.afficher();
+            point4.Deplacer(-30, 30);
+            Console.WriteLine(point4.ToString());
 
         }
     }
