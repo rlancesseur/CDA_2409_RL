@@ -11,23 +11,49 @@ namespace Fraction
         int numerateur;
         int denominateur;
 
-        public Fraction()
+        /// <summary>
+        /// Constructeur principal (initialise une fraction avec les coordonnées en paramètre)
+        /// </summary>
+        /// <param name="_numerateur"></param>
+        /// <param name="_denominateur"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public Fraction(int _numerateur, int _denominateur)
         {
-            numerateur = 0;
+            if(_denominateur == 0)
+            {
+                throw new ArgumentNullException(nameof(_denominateur), "Le dénominateur ne peut pas être nul.");
+            }
+            numerateur = _numerateur;
+            denominateur = _denominateur;
+        }
+
+        /// <summary>
+        /// Constructeur par défaut
+        /// </summary>
+        public Fraction() : this (0, 1)
+        {
+        }
+
+        /// <summary>
+        /// Constructeur par clonage (initialise une fraction en copiant les coordonnées de la fraction en paramètre)
+        /// </summary>
+        /// <param name="_fractionACopier"></param>
+        public Fraction(Fraction _fractionACopier)
+        {
+            this.numerateur = _fractionACopier.numerateur;
+            this.denominateur = _fractionACopier.denominateur;
+        }
+
+        /// <summary>
+        /// Constructeur qui initialise une fraction ayant 1 pour dénominateur par défaut
+        /// </summary>
+        /// <param name="_numerateur"></param>
+        public Fraction(int _numerateur)
+        {
+            numerateur = _numerateur;
             denominateur = 1;
         }
 
-        public Fraction(int _numerateur, int _denominateur)
-        {
-            this.numerateur = _numerateur;
-            this.denominateur = _denominateur;
-        }
-
-        public Fraction(int _numerateur)
-        {
-            this.numerateur = _numerateur;
-            this.denominateur = 1;
-        }
 
         public static Fraction operator +(Fraction a, Fraction b)
         {
@@ -39,11 +65,6 @@ namespace Fraction
 
             Fraction nouvelleFraction = new(nouveauNumerateur, nouveauDenominateur);
             return nouvelleFraction;
-        }
-
-        public void Afficher()
-        {
-            Console.WriteLine("Numérateur : " + this.numerateur + ", Dénominateur : " + this.denominateur);
         }
 
         public string AffichageTextuelle()
@@ -169,6 +190,11 @@ namespace Fraction
 
             Fraction nouvelleFraction = new(nouveauNumerateur, nouveauDenominateur);
             return nouvelleFraction;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + "; Numérateur : " + numerateur + "; Dénominateur : " + denominateur;
         }
 
     }
