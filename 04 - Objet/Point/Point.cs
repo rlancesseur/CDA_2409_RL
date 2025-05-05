@@ -11,51 +11,87 @@ namespace Point
         float x;
         float y;
 
-        public Point()
-        {
-            x = 5;
-            y = 5;
-        }
+        /// <summary>
+        /// Constructeur principal (initialise un point avec les coordonnées en paramètre)
+        /// </summary>
+        /// <param name="_x">Coordonnée X du point</param>
+        /// <param name="_y">Coordonnée Y du point</param>
         public Point(float _x, float _y)
         {
             this.x = _x;
             this.y = _y;
         }
 
-        public void afficher()
+        /// <summary>
+        /// Constructeur par défaut (initialise un point en (0, 0))
+        /// </summary>
+        public Point() : this(0, 0)
         {
-            Console.WriteLine("x = " + this.x + ", y = " + this.y);
         }
 
-        public void deplacer(float nouveauX, float nouveauY)
+        /// <summary>
+        /// Constructeur par clonage (crée un nouveau point en copiant un point existant)
+        /// </summary>
+        /// <param name="_pointARecopier"></param>
+        public Point(Point _pointARecopier)
+        {
+            this.x = _pointARecopier.x;
+            this.y = _pointARecopier.y;
+        }
+
+        /// <summary>
+        /// Déplace le point vers de nouvelles coordonnées (précisé en paramètre)
+        /// </summary>
+        /// <param name="nouveauX"></param>
+        /// <param name="nouveauY"></param>
+        public void Deplacer(float nouveauX, float nouveauY)
         {
             this.x = nouveauX;
             this.y = nouveauY;
         }
 
-        public Point symetrieX()
+        /// <summary>
+        /// Calcule et retourne le point symétrique par rapport à l'axe X.
+        /// </summary>
+        public Point SymetrieX()
         {
             Point pointSymetrieX = new(this.x, -(this.y));
             return pointSymetrieX;
         }
 
-        public Point symetrieY()
+        /// <summary>
+        /// Calcule et retourne le point symétrique par rapport à l'axe Y.
+        /// </summary>
+        public Point SymetrieY()
         {
             Point pointSymetrieY = new(-(this.x), this.y);
             return pointSymetrieY;
         }
 
-        public Point symetriePoint()
+        /// <summary>
+        /// Calcule et retourne le point symétrique par rapport à l'origine (symétrie par rapport aux deux axes).
+        /// </summary>
+        public Point SymetrieXY()
         {
-            Point pointSymetriePoint = new(-(this.x), -(this.y));
+            float nouveauX = SymetrieY().x;
+            float nouveauY = SymetrieX().y;
+            Point pointSymetriePoint = new Point(nouveauX, nouveauY);
             return pointSymetriePoint;
         }
 
-        public void permuter()
+        /// <summary>
+        /// Permute les coordonnées X et Y du point.
+        /// </summary>
+        public void Permuter()
         {
             float z = this.x;
             this.x = this.y;
             this.y = z;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + "; x = " + this.x + "; y = " + this.y;
         }
 
     }
