@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoitureBisBis", "VoitureBisBis.csproj", "{FDC70803-769B-4D9B-97B3-E12F1C60933C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryVoitureBisbis", "..\ClassLibraryVoitureBisbis\ClassLibraryVoitureBisbis.csproj", "{89374E36-3AAA-4774-A7E6-96384ABB596A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDC70803-769B-4D9B-97B3-E12F1C60933C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC70803-769B-4D9B-97B3-E12F1C60933C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC70803-769B-4D9B-97B3-E12F1C60933C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC70803-769B-4D9B-97B3-E12F1C60933C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89374E36-3AAA-4774-A7E6-96384ABB596A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89374E36-3AAA-4774-A7E6-96384ABB596A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89374E36-3AAA-4774-A7E6-96384ABB596A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89374E36-3AAA-4774-A7E6-96384ABB596A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C884A48C-EA98-4576-AD0D-5FB11D6A5C95}
+	EndGlobalSection
+EndGlobal
