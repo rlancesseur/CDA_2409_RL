@@ -73,10 +73,9 @@ namespace Point
         /// </summary>
         public Point SymetrieXY()
         {
-            float nouveauX = SymetrieY().x;
-            float nouveauY = SymetrieX().y;
-            Point pointSymetriePoint = new Point(nouveauX, nouveauY);
-            return pointSymetriePoint;
+            Point pointX = SymetrieX();
+            Point result = pointX.SymetrieY();
+            return result;
         }
 
         /// <summary>
