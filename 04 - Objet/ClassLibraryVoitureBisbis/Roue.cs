@@ -1,4 +1,10 @@
-﻿namespace ClassLibraryVoitureBis
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassLibraryVoitureBisbis
 {
     public class Roue
     {
@@ -30,7 +36,7 @@
 
         public bool Tourner()
         {
-            if(!tourne)
+            if (!tourne)
             {
                 tourne = true;
                 return true;
@@ -40,7 +46,7 @@
 
         public bool ArreterTourner()
         {
-            if(tourne)
+            if (tourne)
             {
                 tourne = false;
                 return true;

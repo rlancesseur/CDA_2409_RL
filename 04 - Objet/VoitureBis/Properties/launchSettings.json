@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConsoleAppVoitureBis": {
+      "commandName": "Project",
+      "commandLineArgs": "tutu tata"
+    }
+  }
+}
