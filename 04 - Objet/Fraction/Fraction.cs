@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fraction
 {
-    internal class Fraction
+    public class Fraction
     {
         int numerateur;
         int denominateur;
@@ -54,17 +54,9 @@ namespace Fraction
             denominateur = 1;
         }
 
-
         public static Fraction operator +(Fraction a, Fraction b)
         {
-            int nouveauNumerateur = 0;
-            int nouveauDenominateur = 0;
-
-            nouveauNumerateur = ((a.numerateur * b.denominateur) + (a.denominateur * b.numerateur));
-            nouveauDenominateur = a.denominateur * b.denominateur;
-
-            Fraction nouvelleFraction = new(nouveauNumerateur, nouveauDenominateur);
-            return nouvelleFraction;
+            return a.Plus(b);
         }
 
         public string AffichageTextuelle()
@@ -93,29 +85,30 @@ namespace Fraction
 
         public void Inverse()
         {
+            if(this.numerateur == 0)
+            {
+                throw new ArgumentException("Le dénominateur ne peut pas être 0");
+            }
             int pot = this.numerateur;
             this.numerateur = this.denominateur;
             this.denominateur = pot;
         }
 
+        private int ComparerA(Fraction _fraction)
+        {
+            float gauche = this.numerateur / this.denominateur;
+            float droite = _fraction.numerateur / _fraction.denominateur;
+            return gauche.CompareTo(droite);
+        }
+
         public bool SuperieurA(Fraction _fraction)
         {
-            bool result = false;
-            if ((this.numerateur / this.denominateur) > (_fraction.numerateur / _fraction.denominateur))
-            {
-                result = true;
-            }
-            return result;
+            return ComparerA(_fraction) > 0;
         }
 
         public bool EgalA(Fraction _fraction)
         {
-            bool result = false;
-            if ((this.numerateur / this.denominateur) == (_fraction.numerateur / _fraction.denominateur))
-            {
-                result = true;
-            }
-            return result;
+            return ComparerA(_fraction) == 0;
         }
 
         private int GetPgcd()
@@ -149,47 +142,28 @@ namespace Fraction
 
         public Fraction Plus(Fraction _fraction)
         {
-            int nouveauNumerateur = 0;
-            int nouveauDenominateur = 0;
+            int nouveauNumerateur = ((this.numerateur * _fraction.denominateur) + (this.denominateur * _fraction.numerateur));
+            int nouveauDenominateur = this.denominateur * _fraction.denominateur;
 
-            nouveauNumerateur = ((this.numerateur * _fraction.denominateur) + (this.denominateur * _fraction.numerateur));
-            nouveauDenominateur = this.denominateur * _fraction.denominateur;
-
-            Fraction nouvelleFraction = new(nouveauNumerateur, nouveauDenominateur);
-            return nouvelleFraction;
+            return new(nouveauNumerateur, nouveauDenominateur);
         }
 
         public Fraction Moins(Fraction _fraction)
         {
-            int nouveauNumerateur = 0;
-            int nouveauDenominateur = 0;
+            int nouveauNumerateur = ((this.numerateur * _fraction.denominateur) - (this.denominateur * _fraction.numerateur));
+            int nouveauDenominateur = this.denominateur * _fraction.denominateur;
 
-            nouveauNumerateur = ((this.numerateur * _fraction.denominateur) - (this.denominateur * _fraction.numerateur));
-            nouveauDenominateur = this.denominateur * _fraction.denominateur;
-
-            Fraction nouvelleFraction = new(nouveauNumerateur, nouveauDenominateur);
-            return nouvelleFraction;
+            return new(nouveauNumerateur, nouveauDenominateur);
         }
 
         public Fraction Multiplie(Fraction _fraction)
         {
-            int nouveauNumerateur = this.numerateur * _fraction.numerateur;
-            int nouveauDenominateur = this.denominateur * _fraction.denominateur;
-
-            Fraction nouvelleFraction = new(nouveauNumerateur, nouveauDenominateur);
-            return nouvelleFraction;
+            return new Fraction(this.numerateur * _fraction.numerateur, this.denominateur * _fraction.denominateur);
         }
 
         public Fraction Divise(Fraction _fraction)
         {
-            int nouveauNumerateur = 0;
-            int nouveauDenominateur = 0;
-
-            nouveauNumerateur = (this.numerateur * _fraction.denominateur);
-            nouveauDenominateur = this.denominateur * _fraction.denominateur;
-
-            Fraction nouvelleFraction = new(nouveauNumerateur, nouveauDenominateur);
-            return nouvelleFraction;
+            return new Fraction(this.numerateur * _fraction.denominateur, this.denominateur * _fraction.numerateur);
         }
 
         public override string ToString()

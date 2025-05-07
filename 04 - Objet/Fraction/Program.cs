@@ -5,23 +5,23 @@
         static void Main(string[] args)
         {
             Fraction f1 = new(12, 7);
-            f1.Afficher();
+            string f1ToString = f1.ToString(); 
 
             Fraction f2 = new();
-            f2.Afficher();
+            string f2ToString = f2.ToString();
 
             Fraction f3 = new Fraction(9);
-            f3.Afficher();
+            string f3ToString = f3.ToString();
 
             Console.WriteLine(f1.AffichageTextuelle());
             Console.WriteLine(f2.AffichageTextuelle());
             Console.WriteLine(f3.AffichageTextuelle());
 
             f1.Oppose();
-            f1.Afficher();
+            f1ToString = f1.ToString();
 
             f1.Inverse();
-            f1.Afficher();
+            f1ToString = f1.ToString();
 
             bool estSuperieur = f2.SuperieurA(f3);
             Console.WriteLine(estSuperieur ? "f2 est supérieur à f3." : "f3 est supérieur à f2.");
@@ -31,11 +31,11 @@
             Console.WriteLine(estEgal ? "f3 est égal à f4." : "f3 n'est pas égal à f4.");
 
             Fraction f5 = f4.Plus(f3);
-            f5.Afficher();
+            string f5ToString = f5.ToString();
 
             Fraction f6 = f4 + f3;
-            f6.Afficher();
-            
+            string f6ToString = f6.ToString();
+
         }
     }
 }
