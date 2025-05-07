@@ -6,10 +6,19 @@ namespace ConsoleAppJeu421
     {
         static void Main(string[] args)
         {
-            int valeurAleatoire = Alea.Instance().Nouveau(1, 6);
-
             De de1 = new();
+            de1.Jeter();
+            de1.Jeter();
 
+
+            Manche manche1 = new();
+            manche1.LancerDes();
+            manche1.LancerDes();
+            manche1.LancerDes();
+
+
+            Partie421 maPartie = new(5);
+            maPartie.ToString();
         }
     }
 }
