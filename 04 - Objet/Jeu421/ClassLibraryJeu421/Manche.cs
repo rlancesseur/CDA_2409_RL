@@ -8,16 +8,17 @@ namespace ClassLibraryJeu421
 {
     public class Manche
     {
-        int nbrLance;
-        public int pointManche;
-        public bool estTerminee;
+        const int NbrLanceMax = 3;
+        int nbrLanceEnCours;
+        bool mancheEstTerminee;
         List<De> mes3Des;
+
+        public bool MancheEstTerminee { get => mancheEstTerminee; /*set => mancheEstTerminee = value;*/ }
 
         public Manche()
         {
-            nbrLance = 0;
-            pointManche = 0;
-            estTerminee = false;
+            nbrLanceEnCours = 0;
+            mancheEstTerminee = false;
             mes3Des = new List<De>();
 
             for(int i = 0; i < 3; i++)
@@ -26,17 +27,76 @@ namespace ClassLibraryJeu421
             }
         }
 
-        public void LancerDes()
+        /// <summary>
+        /// Lance un dé (1, 2 ou 3)
+        /// </summary>
+        /// <param name="numeroDe"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        private void LancerUnDeSansComptage(int numeroDe)
         {
-            foreach(De de in mes3Des)
+            if (numeroDe < 1 || numeroDe > mes3Des.Count)
             {
-                de.Jeter();
+                throw new ArgumentOutOfRangeException(nameof(numeroDe), "Numéro de dé invalide");
             }
-            nbrLance++;
 
-            if(nbrLance == 3)
+            mes3Des[numeroDe - 1].Jeter();
+        }
+
+        public void LancerUnDe(int numeroDe)
+        {
+            LancerUnDeSansComptage(numeroDe);
+            nbrLanceEnCours++;
+            VerifierFinManche();
+        }
+
+        public void LancerDeuxDes(int numeroDe1, int numeroDe2)
+        {
+            LancerUnDe(numeroDe1);
+            LancerUnDe(numeroDe2);
+            nbrLanceEnCours++;
+            VerifierFinManche();
+        }
+
+        public void LancerTroisDes()
+        {
+            if (!mancheEstTerminee)
             {
-                estTerminee = true;
+                foreach (De de in mes3Des)
+                {
+                    de.Jeter();
+                }
+                nbrLanceEnCours++;
+                VerifierFinManche();
+            }
+        }
+
+        public string AfficherValeursDe()
+        {
+            string result = "";
+
+            for(int i = 0; i < mes3Des.Count; i++)
+            {
+                result += "Dé " + (i+1) + " : " + mes3Des[i].Valeur + "; ";
+            }
+
+            return result;
+        }
+
+        private bool VerifierValeursDes()
+        {
+            mes3Des.Sort();
+            if (mes3Des[0].Valeur == 4 && mes3Des[1].Valeur == 2 && mes3Des[2].Valeur == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void VerifierFinManche()
+        {
+            if (NbrLanceMax == nbrLanceEnCours || VerifierValeursDes())
+            {
+                mancheEstTerminee = true;
             }
         }
     }
