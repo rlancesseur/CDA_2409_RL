@@ -11,7 +11,7 @@ namespace ClassLibraryJeu421
         int nbrMancheAJouer;
         int nbrMancheJoue;
         int point;
-        bool estTerminee;
+        bool partieEstTerminee;
         Manche saMancheCourante;
 
         public Partie421(int _nbrMancheAJouer)
@@ -24,12 +24,12 @@ namespace ClassLibraryJeu421
             nbrMancheAJouer = _nbrMancheAJouer;
             nbrMancheJoue = 0;
             point = nbrMancheAJouer * 10;
-            estTerminee = false;
+            partieEstTerminee = false;
             saMancheCourante = new Manche();
 
-            if(saMancheCourante.estTerminee)
+            if(saMancheCourante.MancheEstTerminee)
             {
-                point += saMancheCourante.pointManche;
+                // point += saMancheCourante.pointManche;
                 saMancheCourante = new Manche();
                 nbrMancheJoue++;
             }
@@ -39,14 +39,14 @@ namespace ClassLibraryJeu421
         {
             if(nbrMancheJoue == nbrMancheAJouer || point < 0)
             {
-                estTerminee = true;
+                partieEstTerminee = true;
             }
         }
 
         public override string ToString()
         {
             return base.ToString() + "; Nombre de manches à jouer : " + nbrMancheAJouer + "; Nombre de manches jouées : " + nbrMancheJoue
-                + "; Points : " + point + "; Partie terminée : " + estTerminee;
+                + "; Points : " + point + "; Partie terminée : " + partieEstTerminee;
         }
 
     }
