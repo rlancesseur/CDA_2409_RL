@@ -6,6 +6,7 @@
         string modele;
         Moteur monMoteur;
         List<Roue> mesRoues;
+        // Les roues mesRoues[0] et mesRoues[1] sont les roues de devant, les roues mesRoues[2] et mesRoues[3] sont les roues arrières
         Roue roueDeSecours = null;
 
         public Voiture(string _marque, string _model, string _typeMoteur, bool _estDemarre, string _marqueRoue, bool _tourne, float _usureEnMm)
@@ -22,6 +23,10 @@
         }
 
         public Voiture() : this("Toyota", "Auris", "Diesel", false, "Michelin", false, 0.5f)
+        {
+        }
+
+        private Voiture(string _marque, string _model, Moteur moteur, List<Roue> roues)
         {
         }
 
@@ -103,19 +108,26 @@
         /// Méthode pour ajouter une roue de secours si elle n'existe pas déjà
         /// </summary>
         /// <returns></returns>
-        public Roue AjouterRoueDeSecours()
+        public bool AjouterRoueDeSecours(string _marqueRoue, bool _tourne, float _usureEnMm)
         {
             if (roueDeSecours == null)
             {
-                roueDeSecours = new Roue();
-                return roueDeSecours;
+                roueDeSecours = new Roue(_marqueRoue, _tourne, _usureEnMm);
+                return true;
             }
-            return null;
+            return false;
         }
 
         public override string ToString()
         {
-            return base.ToString() + "; Marque : " + marque + "; Modele : " + modele + "; \n" + monMoteur.ToString() + "; \n" + mesRoues[0].ToString();
+            string result = base.ToString() + "; Marque : " + marque + "; Modele : " + modele + "; \n" + monMoteur.ToString() + "; \n";
+                
+            foreach(Roue roue in mesRoues)
+            {
+                result += roue.ToString() + " \n";
+            }
+
+            return result;
         }
     }
 }
