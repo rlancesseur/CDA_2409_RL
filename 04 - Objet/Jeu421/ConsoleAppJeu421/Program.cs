@@ -6,20 +6,50 @@ namespace ConsoleAppJeu421
     {
         static void Main(string[] args)
         {
-            De de1 = new();
 
-            de1.Jeter();
-            de1.Jeter();
+            Console.WriteLine("Combien de manches voulez-vous jouer ?");
+            int nbrMancheUtilisateur = int.Parse(Console.ReadLine());
 
+            Partie421 maPartie = new Partie421(nbrMancheUtilisateur);
 
-            Manche manche1 = new();
-            manche1.LancerTroisDes();
-            string result = manche1.AfficherValeursDe();
-            manche1.LancerUnDe(1);
-            result = manche1.AfficherValeursDe();
+            while (!maPartie.PartieEstTerminee())
+            {
+                Console.WriteLine("Nouvelle manche");
+                Manche nouvelleManche = new();
 
-            Partie421 maPartie = new(5);
-            maPartie.ToString();
+                Console.WriteLine(nouvelleManche.AfficherValeursDe());
+
+                while (!nouvelleManche.MancheEstTerminee())
+                {
+                    Console.WriteLine("Dés à relancer : ");
+                    string? input = Console.ReadLine();
+                    int[]? desARelancer = new int[input.Length];
+
+                    for (int i = 0; i < input.Length; i++)
+                    {
+                        desARelancer[i] = int.Parse(input[i].ToString());
+                    }
+
+                    if (desARelancer.Length == 1)
+                    {
+                        nouvelleManche.LancerUnDe(desARelancer[0]);
+                    }
+                    else if (desARelancer.Length == 2)
+                    {
+                        nouvelleManche.LancerDeuxDes(desARelancer[0], desARelancer[1]);
+                    }
+                    else if (desARelancer.Length == 3)
+                    {
+                        nouvelleManche.LancerTroisDes();
+                    }
+                    nouvelleManche.TrierDes();
+                    Console.WriteLine(nouvelleManche.AfficherValeursDe());
+                }
+                maPartie.CalculerPoints(); // Devrait ajouter ou supp les points de la manche jouée mais nope
+                maPartie.MancheJouee(); //Devrait incrémenter le nombre de manches jouées mais non plus
+                Console.WriteLine(maPartie.ToString());
+            }
+
         }
     }
 }

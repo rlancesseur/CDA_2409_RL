@@ -10,64 +10,51 @@ namespace ClassLibraryJeu421
     {
         const int NbrLanceMax = 3;
         int nbrLanceEnCours;
-        bool mancheEstTerminee;
         List<De> mes3Des;
-
-        public bool MancheEstTerminee { get => mancheEstTerminee; /*set => mancheEstTerminee = value;*/ }
 
         public Manche()
         {
             nbrLanceEnCours = 0;
-            mancheEstTerminee = false;
             mes3Des = new List<De>();
 
             for(int i = 0; i < 3; i++)
             {
                 mes3Des.Add(new De());
             }
+            nbrLanceEnCours++;
         }
 
         /// <summary>
-        /// Lance un dé (1, 2 ou 3)
+        /// Lance un Dé (0, 1 ou 2)
         /// </summary>
-        /// <param name="numeroDe"></param>
+        /// <param name="numeros"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        private void LancerUnDeSansComptage(int numeroDe)
+        private void LancerNumDe(int[] numeros)
         {
-            if (numeroDe < 1 || numeroDe > mes3Des.Count)
+            foreach (int i in numeros)
             {
-                throw new ArgumentOutOfRangeException(nameof(numeroDe), "Numéro de dé invalide");
+                if (i < 0 || i >= mes3Des.Count)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(i), "Numéro de dé invalide");
+                }
+                mes3Des[i].Jeter();
             }
-
-            mes3Des[numeroDe - 1].Jeter();
+            nbrLanceEnCours++;
         }
 
         public void LancerUnDe(int numeroDe)
         {
-            LancerUnDeSansComptage(numeroDe);
-            nbrLanceEnCours++;
-            VerifierFinManche();
+            LancerNumDe([numeroDe]);
         }
 
         public void LancerDeuxDes(int numeroDe1, int numeroDe2)
         {
-            LancerUnDe(numeroDe1);
-            LancerUnDe(numeroDe2);
-            nbrLanceEnCours++;
-            VerifierFinManche();
+            LancerNumDe([numeroDe1, numeroDe2]);
         }
 
         public void LancerTroisDes()
         {
-            if (!mancheEstTerminee)
-            {
-                foreach (De de in mes3Des)
-                {
-                    de.Jeter();
-                }
-                nbrLanceEnCours++;
-                VerifierFinManche();
-            }
+            LancerNumDe([0, 1, 2]);
         }
 
         public string AfficherValeursDe()
@@ -76,15 +63,19 @@ namespace ClassLibraryJeu421
 
             for(int i = 0; i < mes3Des.Count; i++)
             {
-                result += "Dé " + (i+1) + " : " + mes3Des[i].Valeur + "; ";
+                result += "Dé " + (i+1) + " : " + mes3Des[i].Valeur + "; \n";
             }
 
             return result;
         }
 
-        private bool VerifierValeursDes()
+        public void TrierDes()
         {
             mes3Des.Sort();
+        }
+
+        private bool VerifierValeursDes()
+        {
             if (mes3Des[0].Valeur == 4 && mes3Des[1].Valeur == 2 && mes3Des[2].Valeur == 1)
             {
                 return true;
@@ -92,12 +83,27 @@ namespace ClassLibraryJeu421
             return false;
         }
 
-        private void VerifierFinManche()
+        private int LancerRestant()
         {
-            if (NbrLanceMax == nbrLanceEnCours || VerifierValeursDes())
+            return NbrLanceMax - nbrLanceEnCours;
+        }
+
+        public bool MancheEstGagnee()
+        {
+            if(VerifierValeursDes())
             {
-                mancheEstTerminee = true;
+                return true;
             }
+            return false;
+        }
+
+        public bool MancheEstTerminee()
+        {
+            if (LancerRestant() == 0 || VerifierValeursDes())
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -38,10 +38,8 @@ namespace Fraction
         /// Constructeur par clonage (initialise une fraction en copiant les coordonnées de la fraction en paramètre)
         /// </summary>
         /// <param name="_fractionACopier"></param>
-        public Fraction(Fraction _fractionACopier)
+        public Fraction(Fraction _fractionACopier) :this(_fractionACopier.numerateur, _fractionACopier.denominateur)
         {
-            this.numerateur = _fractionACopier.numerateur;
-            this.denominateur = _fractionACopier.denominateur;
         }
 
         /// <summary>
@@ -166,10 +164,14 @@ namespace Fraction
 
         public Fraction Divise(Fraction _fraction)
         {
-            Fraction nouvelleFraction = new(this.numerateur * _fraction.denominateur, this.denominateur * _fraction.numerateur);
+            Fraction nouvelleFraction = new(this.numerateur, this.denominateur);
+            Fraction fractionAMultiplier = new(_fraction.numerateur, _fraction.denominateur);
+            fractionAMultiplier.Inverse();
+            nouvelleFraction.Multiplie(fractionAMultiplier);
             nouvelleFraction.Reduire();
             return nouvelleFraction;
         }
+
         public int CompareTo(Fraction? other)
         {
             throw new NotImplementedException();

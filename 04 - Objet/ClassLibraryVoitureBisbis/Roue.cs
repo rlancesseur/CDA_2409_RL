@@ -9,8 +9,10 @@ namespace ClassLibraryVoitureBisbis
     public class Roue
     {
         string marqueRoue;
-        public bool tourne;
+        bool tourne;
         float usureEnMm;
+
+        public bool Tourne { get => tourne; set => tourne = value; }
 
         public Roue(string _marqueRoue, bool _tourne, float _usureEnMm)
         {
