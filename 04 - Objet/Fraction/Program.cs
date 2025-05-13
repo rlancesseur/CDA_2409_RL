@@ -36,6 +36,8 @@
             Fraction f6 = f4 + f3;
             string f6ToString = f6.ToString();
 
+            f6.Divise(f5);
+
         }
     }
 }
