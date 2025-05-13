@@ -10,16 +10,14 @@
         Roue roueDeSecours = null;
 
         public Voiture(string _marque, string _model, string _typeMoteur, bool _estDemarre, string _marqueRoue, bool _tourne, float _usureEnMm)
+            :this(_marque,
+                 _model, 
+                 new Moteur(_typeMoteur, _estDemarre), 
+                 new List<Roue>() { new Roue(_marqueRoue, _tourne, _usureEnMm) , 
+                 new Roue(_marqueRoue, _tourne, _usureEnMm) ,
+                 new Roue(_marqueRoue, _tourne, _usureEnMm) , 
+                 new Roue(_marqueRoue, _tourne, _usureEnMm) })
         {
-            marque = _marque;
-            modele = _model;
-            monMoteur = new Moteur(_typeMoteur, _estDemarre);
-            mesRoues = new List<Roue>();
-
-            for (int i = 0; i < 4; i++)
-            {
-                mesRoues.Add(new Roue(_marqueRoue, _tourne, _usureEnMm));
-            }
         }
 
         public Voiture() : this("Toyota", "Auris", "Diesel", false, "Michelin", false, 0.5f)
@@ -28,19 +26,23 @@
 
         private Voiture(string _marque, string _model, Moteur moteur, List<Roue> roues)
         {
+            marque = _marque;
+            modele = _model;
+            monMoteur = moteur;
+            mesRoues = roues;
         }
 
         public Voiture(Voiture voitureACopier)
+            :this(voitureACopier.marque,voitureACopier.modele,
+                 new Moteur(voitureACopier.monMoteur),
+                 new List<Roue>()
+                 {
+                     new Roue(voitureACopier.mesRoues[0]),
+                     new Roue(voitureACopier.mesRoues[1]),
+                     new Roue(voitureACopier.mesRoues[2]),
+                     new Roue(voitureACopier.mesRoues[3]),
+                 })
         {
-            marque = voitureACopier.marque;
-            modele = voitureACopier.modele;
-            monMoteur = new Moteur(voitureACopier.monMoteur);
-            mesRoues = new List<Roue>();
-
-            foreach (Roue roue in voitureACopier.mesRoues)
-            {
-                mesRoues.Add(new Roue(roue));
-            }
         }
 
         /// <summary>
@@ -72,8 +74,8 @@
         /// <param name="tourne"></param>
         private void ModifierRotationRouesAriere(bool tourne)
         {
-            mesRoues[2].tourne = tourne;
-            mesRoues[3].tourne = tourne;
+            mesRoues[2].Tourne = tourne;
+            mesRoues[3].Tourne = tourne;
         }
 
         /// <summary>
