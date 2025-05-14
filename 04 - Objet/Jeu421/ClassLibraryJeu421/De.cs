@@ -1,6 +1,6 @@
 ﻿namespace ClassLibraryJeu421
 {
-    public class De : IComparable<De>
+    internal class De : IComparable<De>
     {
         int valeur;
 

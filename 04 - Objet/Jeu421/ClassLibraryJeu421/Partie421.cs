@@ -13,7 +13,6 @@ namespace ClassLibraryJeu421
         int point;
         Manche saMancheCourante;
 
-        public Manche SaMancheCourante { get => saMancheCourante; /*set => saMancheCourante = value;*/ }
         public int Point { get => point; /*set => point = value;*/ }
 
         /// <summary>
@@ -85,6 +84,11 @@ namespace ClassLibraryJeu421
         private int MancheRestante()
         {
             return nbrMancheAJouer - nbrMancheJouee;
+        }
+
+        public bool MancheCouranteEstTerminee()
+        {
+            return saMancheCourante.MancheEstTerminee();
         }
 
         /// <summary>

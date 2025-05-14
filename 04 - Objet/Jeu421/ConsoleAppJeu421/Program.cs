@@ -20,11 +20,10 @@ namespace ConsoleAppJeu421
                 Console.WriteLine("Manche : " + compteurManche);
 
                 maPartie.NouvelleManche();
-                maPartie.SaMancheCourante.TrierDes();
 
-                Console.WriteLine(maPartie.SaMancheCourante.AfficherValeursDe());
+                Console.WriteLine(maPartie.AfficherValeursDesDeMancheCourante());
 
-                while (!maPartie.SaMancheCourante.MancheEstTerminee())
+                while (!maPartie.MancheCouranteEstTerminee())
                 {
                     int[]? desARelancer = null;
                     string? input;
@@ -43,21 +42,20 @@ namespace ConsoleAppJeu421
 
                     if (desARelancer.Length == 1)
                     {
-                        maPartie.SaMancheCourante.LancerUnDe(desARelancer[0]);
+                        maPartie.LancerUnDe(desARelancer[0]);
                     }
                     else if (desARelancer.Length == 2)
                     {
-                        maPartie.SaMancheCourante.LancerDeuxDes(desARelancer[0], desARelancer[1]);
+                        maPartie.LancerDeuxDes(desARelancer[0], desARelancer[1]);
                     }
                     else if (desARelancer.Length == 3)
                     {
-                        maPartie.SaMancheCourante.LancerTroisDes();
+                        maPartie.LancerTroisDes();
                     }
-                    maPartie.SaMancheCourante.TrierDes();
-                    Console.WriteLine(maPartie.SaMancheCourante.AfficherValeursDe());
+                    Console.WriteLine(maPartie.AfficherValeursDesDeMancheCourante());
                 }
-                maPartie.CalculerPoints(); // Devrait ajouter ou supp les points de la manche jouée mais nope
-                maPartie.MancheJouee(); //Devrait incrémenter le nombre de manches jouées mais non plus
+                maPartie.CalculerPoints();
+                maPartie.MancheJouee();
                 Console.WriteLine(maPartie.ToString());
                 compteurManche++;
             }

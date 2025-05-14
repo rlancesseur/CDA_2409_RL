@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryJeu421
 {
-    public class Manche
+    internal class Manche
     {
         const int NbrLanceMax = 3;
         int nbrLanceEnCours;
@@ -24,6 +24,7 @@ namespace ClassLibraryJeu421
             {
                 mes3Des.Add(new De());
             }
+            mes3Des.Sort();
             nbrLanceEnCours++;
         }
 
@@ -52,6 +53,7 @@ namespace ClassLibraryJeu421
         public void LancerUnDe(int numeroDe)
         {
             LancerNumDe([numeroDe]);
+            mes3Des.Sort();
         }
 
         /// <summary>
@@ -67,6 +69,7 @@ namespace ClassLibraryJeu421
                 throw new ArgumentException("Les deux dés à relancer doivent être différents");
             }
             LancerNumDe([numeroDe1, numeroDe2]);
+            mes3Des.Sort();
         }
 
         /// <summary>
@@ -75,6 +78,7 @@ namespace ClassLibraryJeu421
         public void LancerTroisDes()
         {
             LancerNumDe([1, 2, 3]);
+            mes3Des.Sort();
         }
 
         /// <summary>
@@ -91,14 +95,6 @@ namespace ClassLibraryJeu421
             }
 
             return result;
-        }
-
-        /// <summary>
-        /// Trie la liste de dés par ordre décroissant
-        /// </summary>
-        public void TrierDes()
-        {
-            mes3Des.Sort();
         }
 
         /// <summary>
