@@ -11,19 +11,30 @@ namespace ConsoleAppJeu421
             int nbrMancheUtilisateur = int.Parse(Console.ReadLine());
 
             Partie421 maPartie = new Partie421(nbrMancheUtilisateur);
+            int compteurManche = 1;
+
+            Console.WriteLine(maPartie.ToString());
 
             while (!maPartie.PartieEstTerminee())
             {
-                Console.WriteLine("Nouvelle manche");
-                Manche nouvelleManche = new();
+                Console.WriteLine("Manche : " + compteurManche);
 
-                Console.WriteLine(nouvelleManche.AfficherValeursDe());
+                maPartie.NouvelleManche();
+                maPartie.SaMancheCourante.TrierDes();
 
-                while (!nouvelleManche.MancheEstTerminee())
+                Console.WriteLine(maPartie.SaMancheCourante.AfficherValeursDe());
+
+                while (!maPartie.SaMancheCourante.MancheEstTerminee())
                 {
-                    Console.WriteLine("Dés à relancer : ");
-                    string? input = Console.ReadLine();
-                    int[]? desARelancer = new int[input.Length];
+                    int[]? desARelancer = null;
+                    string? input;
+                    do
+                    {
+                        Console.Write("Numéro dés à relancer (1, 2 ou 3) : ");
+                        input = Console.ReadLine();
+                        desARelancer = new int[input.Length];
+                    } while (input.Length > 3);
+                    
 
                     for (int i = 0; i < input.Length; i++)
                     {
@@ -32,24 +43,27 @@ namespace ConsoleAppJeu421
 
                     if (desARelancer.Length == 1)
                     {
-                        nouvelleManche.LancerUnDe(desARelancer[0]);
+                        maPartie.SaMancheCourante.LancerUnDe(desARelancer[0]);
                     }
                     else if (desARelancer.Length == 2)
                     {
-                        nouvelleManche.LancerDeuxDes(desARelancer[0], desARelancer[1]);
+                        maPartie.SaMancheCourante.LancerDeuxDes(desARelancer[0], desARelancer[1]);
                     }
                     else if (desARelancer.Length == 3)
                     {
-                        nouvelleManche.LancerTroisDes();
+                        maPartie.SaMancheCourante.LancerTroisDes();
                     }
-                    nouvelleManche.TrierDes();
-                    Console.WriteLine(nouvelleManche.AfficherValeursDe());
+                    maPartie.SaMancheCourante.TrierDes();
+                    Console.WriteLine(maPartie.SaMancheCourante.AfficherValeursDe());
                 }
                 maPartie.CalculerPoints(); // Devrait ajouter ou supp les points de la manche jouée mais nope
                 maPartie.MancheJouee(); //Devrait incrémenter le nombre de manches jouées mais non plus
                 Console.WriteLine(maPartie.ToString());
+                compteurManche++;
             }
 
+            Console.WriteLine("Score final : " + maPartie.Point);
+            Console.WriteLine("Merci d'avoir joué !");
         }
     }
 }
