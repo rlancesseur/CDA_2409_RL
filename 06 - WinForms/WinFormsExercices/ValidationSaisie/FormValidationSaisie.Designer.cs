@@ -38,13 +38,14 @@
             this.labelCodePostal = new System.Windows.Forms.Label();
             this.buttonValider = new System.Windows.Forms.Button();
             this.buttonEffacer = new System.Windows.Forms.Button();
+            this.labelFormatDate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelNom
             // 
             this.labelNom.AutoSize = true;
             this.labelNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNom.Location = new System.Drawing.Point(34, 73);
+            this.labelNom.Location = new System.Drawing.Point(25, 29);
             this.labelNom.Name = "labelNom";
             this.labelNom.Size = new System.Drawing.Size(37, 17);
             this.labelNom.TabIndex = 0;
@@ -53,24 +54,24 @@
             // textBoxNom
             // 
             this.textBoxNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNom.Location = new System.Drawing.Point(140, 72);
+            this.textBoxNom.Location = new System.Drawing.Point(121, 28);
             this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(100, 23);
+            this.textBoxNom.Size = new System.Drawing.Size(162, 23);
             this.textBoxNom.TabIndex = 1;
             // 
             // textBoxDate
             // 
             this.textBoxDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDate.Location = new System.Drawing.Point(140, 114);
+            this.textBoxDate.Location = new System.Drawing.Point(121, 70);
             this.textBoxDate.Name = "textBoxDate";
-            this.textBoxDate.Size = new System.Drawing.Size(100, 23);
+            this.textBoxDate.Size = new System.Drawing.Size(127, 23);
             this.textBoxDate.TabIndex = 3;
             // 
             // labelDate
             // 
             this.labelDate.AutoSize = true;
             this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDate.Location = new System.Drawing.Point(34, 115);
+            this.labelDate.Location = new System.Drawing.Point(25, 71);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(38, 17);
             this.labelDate.TabIndex = 2;
@@ -79,16 +80,16 @@
             // textBoxMontant
             // 
             this.textBoxMontant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMontant.Location = new System.Drawing.Point(140, 159);
+            this.textBoxMontant.Location = new System.Drawing.Point(121, 115);
             this.textBoxMontant.Name = "textBoxMontant";
-            this.textBoxMontant.Size = new System.Drawing.Size(100, 23);
+            this.textBoxMontant.Size = new System.Drawing.Size(127, 23);
             this.textBoxMontant.TabIndex = 5;
             // 
             // labelMontant
             // 
             this.labelMontant.AutoSize = true;
             this.labelMontant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMontant.Location = new System.Drawing.Point(34, 160);
+            this.labelMontant.Location = new System.Drawing.Point(25, 116);
             this.labelMontant.Name = "labelMontant";
             this.labelMontant.Size = new System.Drawing.Size(59, 17);
             this.labelMontant.TabIndex = 4;
@@ -97,16 +98,16 @@
             // textBoxCodePostal
             // 
             this.textBoxCodePostal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCodePostal.Location = new System.Drawing.Point(140, 203);
+            this.textBoxCodePostal.Location = new System.Drawing.Point(121, 161);
             this.textBoxCodePostal.Name = "textBoxCodePostal";
-            this.textBoxCodePostal.Size = new System.Drawing.Size(100, 23);
+            this.textBoxCodePostal.Size = new System.Drawing.Size(81, 23);
             this.textBoxCodePostal.TabIndex = 7;
             // 
             // labelCodePostal
             // 
             this.labelCodePostal.AutoSize = true;
             this.labelCodePostal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCodePostal.Location = new System.Drawing.Point(34, 204);
+            this.labelCodePostal.Location = new System.Drawing.Point(25, 162);
             this.labelCodePostal.Name = "labelCodePostal";
             this.labelCodePostal.Size = new System.Drawing.Size(84, 17);
             this.labelCodePostal.TabIndex = 6;
@@ -115,9 +116,9 @@
             // buttonValider
             // 
             this.buttonValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonValider.Location = new System.Drawing.Point(313, 279);
+            this.buttonValider.Location = new System.Drawing.Point(290, 194);
             this.buttonValider.Name = "buttonValider";
-            this.buttonValider.Size = new System.Drawing.Size(83, 32);
+            this.buttonValider.Size = new System.Drawing.Size(95, 32);
             this.buttonValider.TabIndex = 8;
             this.buttonValider.Text = "Valider";
             this.buttonValider.UseVisualStyleBackColor = true;
@@ -126,18 +127,30 @@
             // buttonEffacer
             // 
             this.buttonEffacer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEffacer.Location = new System.Drawing.Point(313, 332);
+            this.buttonEffacer.Location = new System.Drawing.Point(290, 232);
             this.buttonEffacer.Name = "buttonEffacer";
-            this.buttonEffacer.Size = new System.Drawing.Size(83, 32);
+            this.buttonEffacer.Size = new System.Drawing.Size(95, 32);
             this.buttonEffacer.TabIndex = 9;
             this.buttonEffacer.Text = "Effacer";
             this.buttonEffacer.UseVisualStyleBackColor = true;
+            this.buttonEffacer.Click += new System.EventHandler(this.buttonEffacer_Click);
+            // 
+            // labelFormatDate
+            // 
+            this.labelFormatDate.AutoSize = true;
+            this.labelFormatDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFormatDate.Location = new System.Drawing.Point(260, 73);
+            this.labelFormatDate.Name = "labelFormatDate";
+            this.labelFormatDate.Size = new System.Drawing.Size(98, 17);
+            this.labelFormatDate.TabIndex = 10;
+            this.labelFormatDate.Text = "(JJ/MM/AAAA)";
             // 
             // FormValidationSaisie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 385);
+            this.ClientSize = new System.Drawing.Size(397, 276);
+            this.Controls.Add(this.labelFormatDate);
             this.Controls.Add(this.buttonEffacer);
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.textBoxCodePostal);
@@ -150,6 +163,7 @@
             this.Controls.Add(this.labelNom);
             this.Name = "FormValidationSaisie";
             this.Text = "Les contrôles";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,6 +181,7 @@
         private System.Windows.Forms.Label labelCodePostal;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button buttonEffacer;
+        private System.Windows.Forms.Label labelFormatDate;
     }
 }
 
