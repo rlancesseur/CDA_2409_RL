@@ -13,11 +13,5 @@ namespace ClassLibraryWinFormsExercices
 
             return dateUtilisateur > dateDuJour;
         }
-
-        public static bool MontantPositif(string _montant)
-        {
-            float montantUtilisateur = float.Parse(_montant);
-            return montantUtilisateur >= 0;
-        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelNom = new System.Windows.Forms.Label();
             this.textBoxNom = new System.Windows.Forms.TextBox();
             this.textBoxDate = new System.Windows.Forms.TextBox();
@@ -39,6 +40,8 @@
             this.buttonValider = new System.Windows.Forms.Button();
             this.buttonEffacer = new System.Windows.Forms.Button();
             this.labelFormatDate = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNom
@@ -58,6 +61,7 @@
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(162, 23);
             this.textBoxNom.TabIndex = 1;
+            this.textBoxNom.TextChanged += new System.EventHandler(this.textBoxNom_TextChanged);
             // 
             // textBoxDate
             // 
@@ -66,6 +70,7 @@
             this.textBoxDate.Name = "textBoxDate";
             this.textBoxDate.Size = new System.Drawing.Size(127, 23);
             this.textBoxDate.TabIndex = 3;
+            this.textBoxDate.TextChanged += new System.EventHandler(this.textBoxDate_TextChanged);
             // 
             // labelDate
             // 
@@ -84,6 +89,7 @@
             this.textBoxMontant.Name = "textBoxMontant";
             this.textBoxMontant.Size = new System.Drawing.Size(127, 23);
             this.textBoxMontant.TabIndex = 5;
+            this.textBoxMontant.TextChanged += new System.EventHandler(this.textBoxMontant_TextChanged);
             // 
             // labelMontant
             // 
@@ -102,6 +108,7 @@
             this.textBoxCodePostal.Name = "textBoxCodePostal";
             this.textBoxCodePostal.Size = new System.Drawing.Size(81, 23);
             this.textBoxCodePostal.TabIndex = 7;
+            this.textBoxCodePostal.TextChanged += new System.EventHandler(this.textBoxCodePostal_TextChanged);
             // 
             // labelCodePostal
             // 
@@ -115,6 +122,7 @@
             // 
             // buttonValider
             // 
+            this.buttonValider.Enabled = false;
             this.buttonValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonValider.Location = new System.Drawing.Point(290, 194);
             this.buttonValider.Name = "buttonValider";
@@ -145,6 +153,10 @@
             this.labelFormatDate.TabIndex = 10;
             this.labelFormatDate.Text = "(JJ/MM/AAAA)";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FormValidationSaisie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +176,7 @@
             this.Name = "FormValidationSaisie";
             this.Text = "Les contrôles";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,6 +195,7 @@
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button buttonEffacer;
         private System.Windows.Forms.Label labelFormatDate;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
