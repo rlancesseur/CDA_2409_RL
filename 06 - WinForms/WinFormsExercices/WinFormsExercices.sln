@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBoxRadioButton", "Chec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListBox", "ListBox\ListBox.csproj", "{FA0C2BC0-6F50-42A1-8F7E-B5699468CBBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBox", "ComboBox\ComboBox.csproj", "{054ABFA3-E98E-43AE-AA4E-812E3C35C7FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FA0C2BC0-6F50-42A1-8F7E-B5699468CBBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA0C2BC0-6F50-42A1-8F7E-B5699468CBBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA0C2BC0-6F50-42A1-8F7E-B5699468CBBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{054ABFA3-E98E-43AE-AA4E-812E3C35C7FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{054ABFA3-E98E-43AE-AA4E-812E3C35C7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{054ABFA3-E98E-43AE-AA4E-812E3C35C7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{054ABFA3-E98E-43AE-AA4E-812E3C35C7FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
