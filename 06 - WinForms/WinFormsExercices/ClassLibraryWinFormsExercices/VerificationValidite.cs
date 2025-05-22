@@ -6,12 +6,12 @@ namespace ClassLibraryWinFormsExercices
 {
     public class VerificationValidite
     {
-        public static bool DatePosterieur(string _date)
+        public static bool VerifierFormatDate(string _date)
         {
             DateTime dateDuJour = DateTime.Today;
-            DateTime dateUtilisateur = DateTime.Parse(_date);
+            bool dateValide = DateTime.TryParse(_date, out DateTime dateUtilisateur);
 
-            return dateUtilisateur > dateDuJour;
+            return (dateValide && dateUtilisateur > dateDuJour);
         }
     }
 }

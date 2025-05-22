@@ -41,6 +41,9 @@
             this.labelItemsCount = new System.Windows.Forms.Label();
             this.textBoxItemsCount = new System.Windows.Forms.TextBox();
             this.labelSelectedIndex = new System.Windows.Forms.Label();
+            this.textBoxSelectedIndex = new System.Windows.Forms.TextBox();
+            this.labelText = new System.Windows.Forms.Label();
+            this.textBoxText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelNouvelElement
@@ -68,12 +71,13 @@
             this.buttonAjoutListe.TabIndex = 2;
             this.buttonAjoutListe.Text = "Ajout Liste";
             this.buttonAjoutListe.UseVisualStyleBackColor = true;
+            this.buttonAjoutListe.Click += new System.EventHandler(this.buttonAjoutListe_Click);
             // 
             // labelLstListe
             // 
             this.labelLstListe.AutoSize = true;
             this.labelLstListe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLstListe.Location = new System.Drawing.Point(9, 164);
+            this.labelLstListe.Location = new System.Drawing.Point(9, 137);
             this.labelLstListe.Name = "labelLstListe";
             this.labelLstListe.Size = new System.Drawing.Size(51, 13);
             this.labelLstListe.TabIndex = 3;
@@ -82,10 +86,11 @@
             // listBoxLstList
             // 
             this.listBoxLstList.FormattingEnabled = true;
-            this.listBoxLstList.Location = new System.Drawing.Point(12, 190);
+            this.listBoxLstList.Location = new System.Drawing.Point(12, 161);
             this.listBoxLstList.Name = "listBoxLstList";
             this.listBoxLstList.Size = new System.Drawing.Size(127, 108);
             this.listBoxLstList.TabIndex = 4;
+            this.listBoxLstList.SelectedIndexChanged += new System.EventHandler(this.listBoxLstList_SelectedIndexChanged);
             // 
             // labelIndexElement
             // 
@@ -108,25 +113,27 @@
             // 
             this.buttonSelectionner.Location = new System.Drawing.Point(294, 32);
             this.buttonSelectionner.Name = "buttonSelectionner";
-            this.buttonSelectionner.Size = new System.Drawing.Size(106, 23);
+            this.buttonSelectionner.Size = new System.Drawing.Size(126, 23);
             this.buttonSelectionner.TabIndex = 7;
             this.buttonSelectionner.Text = "Sélectionner";
             this.buttonSelectionner.UseVisualStyleBackColor = true;
+            this.buttonSelectionner.Click += new System.EventHandler(this.buttonSelectionner_Click);
             // 
             // buttonVider
             // 
             this.buttonVider.Location = new System.Drawing.Point(294, 62);
             this.buttonVider.Name = "buttonVider";
-            this.buttonVider.Size = new System.Drawing.Size(106, 23);
+            this.buttonVider.Size = new System.Drawing.Size(126, 23);
             this.buttonVider.TabIndex = 8;
             this.buttonVider.Text = "Vider la Liste";
             this.buttonVider.UseVisualStyleBackColor = true;
+            this.buttonVider.Click += new System.EventHandler(this.buttonVider_Click);
             // 
             // labelProprietes
             // 
             this.labelProprietes.AutoSize = true;
             this.labelProprietes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProprietes.Location = new System.Drawing.Point(246, 164);
+            this.labelProprietes.Location = new System.Drawing.Point(246, 137);
             this.labelProprietes.Name = "labelProprietes";
             this.labelProprietes.Size = new System.Drawing.Size(64, 13);
             this.labelProprietes.TabIndex = 9;
@@ -135,7 +142,7 @@
             // labelItemsCount
             // 
             this.labelItemsCount.AutoSize = true;
-            this.labelItemsCount.Location = new System.Drawing.Point(246, 190);
+            this.labelItemsCount.Location = new System.Drawing.Point(248, 167);
             this.labelItemsCount.Name = "labelItemsCount";
             this.labelItemsCount.Size = new System.Drawing.Size(63, 13);
             this.labelItemsCount.TabIndex = 10;
@@ -143,25 +150,54 @@
             // 
             // textBoxItemsCount
             // 
-            this.textBoxItemsCount.Location = new System.Drawing.Point(337, 187);
+            this.textBoxItemsCount.Location = new System.Drawing.Point(339, 164);
             this.textBoxItemsCount.Name = "textBoxItemsCount";
+            this.textBoxItemsCount.ReadOnly = true;
             this.textBoxItemsCount.Size = new System.Drawing.Size(38, 20);
             this.textBoxItemsCount.TabIndex = 11;
             // 
             // labelSelectedIndex
             // 
             this.labelSelectedIndex.AutoSize = true;
-            this.labelSelectedIndex.Location = new System.Drawing.Point(246, 222);
+            this.labelSelectedIndex.Location = new System.Drawing.Point(248, 202);
             this.labelSelectedIndex.Name = "labelSelectedIndex";
             this.labelSelectedIndex.Size = new System.Drawing.Size(75, 13);
             this.labelSelectedIndex.TabIndex = 12;
             this.labelSelectedIndex.Text = "SelectedIndex";
             // 
+            // textBoxSelectedIndex
+            // 
+            this.textBoxSelectedIndex.Location = new System.Drawing.Point(339, 199);
+            this.textBoxSelectedIndex.Name = "textBoxSelectedIndex";
+            this.textBoxSelectedIndex.ReadOnly = true;
+            this.textBoxSelectedIndex.Size = new System.Drawing.Size(38, 20);
+            this.textBoxSelectedIndex.TabIndex = 13;
+            // 
+            // labelText
+            // 
+            this.labelText.AutoSize = true;
+            this.labelText.Location = new System.Drawing.Point(248, 237);
+            this.labelText.Name = "labelText";
+            this.labelText.Size = new System.Drawing.Size(28, 13);
+            this.labelText.TabIndex = 14;
+            this.labelText.Text = "Text";
+            // 
+            // textBoxText
+            // 
+            this.textBoxText.Location = new System.Drawing.Point(339, 234);
+            this.textBoxText.Name = "textBoxText";
+            this.textBoxText.ReadOnly = true;
+            this.textBoxText.Size = new System.Drawing.Size(83, 20);
+            this.textBoxText.TabIndex = 15;
+            // 
             // FormListBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 310);
+            this.ClientSize = new System.Drawing.Size(449, 281);
+            this.Controls.Add(this.textBoxText);
+            this.Controls.Add(this.labelText);
+            this.Controls.Add(this.textBoxSelectedIndex);
             this.Controls.Add(this.labelSelectedIndex);
             this.Controls.Add(this.textBoxItemsCount);
             this.Controls.Add(this.labelItemsCount);
@@ -197,6 +233,9 @@
         private System.Windows.Forms.Label labelItemsCount;
         private System.Windows.Forms.TextBox textBoxItemsCount;
         private System.Windows.Forms.Label labelSelectedIndex;
+        private System.Windows.Forms.TextBox textBoxSelectedIndex;
+        private System.Windows.Forms.Label labelText;
+        private System.Windows.Forms.TextBox textBoxText;
     }
 }
 

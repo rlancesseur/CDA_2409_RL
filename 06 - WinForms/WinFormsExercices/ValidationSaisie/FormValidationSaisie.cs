@@ -28,14 +28,17 @@ namespace ValidationSaisie
                 textBoxNom.Focus();
                 return;
             }
-            if (!ControleRegex.VerifierDate(textBoxDate.Text) ||
-                !VerificationValidite.DatePosterieur(textBoxDate.Text))
+            string nomUtilisateur = textBoxNom.Text;
+
+            if (!VerificationValidite.VerifierFormatDate(textBoxDate.Text))
             {
                 SystemSounds.Beep.Play();
                 MessageBox.Show("Date invalide.", "Erreur");
                 textBoxDate.Focus();
                 return;
             }
+            DateTime dateUtilisateur = DateTime.Parse(textBoxDate.Text);
+
             if (!ControleRegex.VerifierMontant(textBoxMontant.Text))
             {
                 SystemSounds.Beep.Play();
@@ -43,6 +46,8 @@ namespace ValidationSaisie
                 textBoxMontant.Focus();
                 return;
             }
+            decimal montantUtilisateur = decimal.Parse(textBoxMontant.Text);
+
             if (!ControleRegex.VerifierCodePostal(textBoxCodePostal.Text))
             {
                 SystemSounds.Beep.Play();
@@ -50,12 +55,12 @@ namespace ValidationSaisie
                 textBoxCodePostal.Focus();
                 return;
             }
+            int codePostalUtilisateur = int.Parse(textBoxCodePostal.Text);
 
-            MessageBox.Show("Nom : " + textBoxNom.Text + "\n" +
-                            "Date : " + textBoxDate.Text + "\n" +
-                            "Montant : " + textBoxMontant.Text + "\n" +
-                            "Code Postal : " + textBoxCodePostal.Text,
-                            "Validation effectuée");
+            Transaction nouvelleTransaction = new Transaction(nomUtilisateur, dateUtilisateur,
+                montantUtilisateur, codePostalUtilisateur);
+
+            MessageBox.Show(nouvelleTransaction.ToString(), "Validation effectuée");
         }
 
         private void buttonEffacer_Click(object sender, EventArgs e)
@@ -82,7 +87,7 @@ namespace ValidationSaisie
         private void VerifierChamps()
         {
             if(ControleRegex.VerifierNom(textBoxNom.Text) &&
-                (ControleRegex.VerifierDate(textBoxDate.Text) && VerificationValidite.DatePosterieur(textBoxDate.Text)) &&
+                (ControleRegex.VerifierDate(textBoxDate.Text)) &&
                 (ControleRegex.VerifierMontant(textBoxMontant.Text)) &&
                 ControleRegex.VerifierCodePostal(textBoxCodePostal.Text))
             {
@@ -105,8 +110,7 @@ namespace ValidationSaisie
 
         private void textBoxDate_TextChanged(object sender, EventArgs e)
         {
-            if (!ControleRegex.VerifierDate(textBoxDate.Text) ||
-                !VerificationValidite.DatePosterieur(textBoxDate.Text))
+            if (!VerificationValidite.VerifierFormatDate(textBoxDate.Text))
             {
                 this.errorProvider1.SetError(this.textBoxDate, "Format de la date incorrect");
             }
