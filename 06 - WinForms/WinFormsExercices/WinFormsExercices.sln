@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DValidationSaisie", "DValid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibTransaction", "ClassLibTransaction\ClassLibTransaction.csproj", "{BA088D02-D2E8-4A1F-83DF-64DBAAB815A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Defilement", "Defilement\Defilement.csproj", "{D8249CB4-5331-473F-892A-E2125181EB29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{BA088D02-D2E8-4A1F-83DF-64DBAAB815A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA088D02-D2E8-4A1F-83DF-64DBAAB815A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA088D02-D2E8-4A1F-83DF-64DBAAB815A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8249CB4-5331-473F-892A-E2125181EB29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8249CB4-5331-473F-892A-E2125181EB29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8249CB4-5331-473F-892A-E2125181EB29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8249CB4-5331-473F-892A-E2125181EB29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
