@@ -55,7 +55,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transaction.cs" />
     <EmbeddedResource Include="FormValidationSaisie.resx">
       <DependentUpon>FormValidationSaisie.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +85,10 @@
     <ProjectReference Include="..\ClassLibraryWinFormsExercices\ClassLibraryWinFormsExercices.csproj">
       <Project>{44ed0f52-5108-40bd-8f4b-2e06bc716ecf}</Project>
       <Name>ClassLibraryWinFormsExercices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassLibTransaction\ClassLibTransaction.csproj">
+      <Project>{ba088d02-d2e8-4a1f-83df-64dbaab815a0}</Project>
+      <Name>ClassLibTransaction</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
