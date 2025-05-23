@@ -29,8 +29,16 @@ namespace ComboBox
 
         private void buttonOneToCible_Click(object sender, EventArgs e)
         {
-            listBoxCible.Items.Add(comboBoxSource.SelectedItem);
-            comboBoxSource.Items.Remove(comboBoxSource.SelectedItem);
+            if(comboBoxSource.SelectedItem != null)
+            {
+                listBoxCible.Items.Add(comboBoxSource.SelectedItem);
+                comboBoxSource.Items.Remove(comboBoxSource.SelectedItem);
+            }
+            else if(comboBoxSource.Text != "")
+            {
+                listBoxCible.Items.Add(comboBoxSource.Text);
+                comboBoxSource.Text = "";
+            }
         }
 
         private void buttonAllToCible_Click(object sender, EventArgs e)
@@ -45,8 +53,11 @@ namespace ComboBox
 
         private void buttonOneToSource_Click(object sender, EventArgs e)
         {
-            comboBoxSource.Items.Add(listBoxCible.SelectedItem);
-            listBoxCible.Items.Remove(listBoxCible.SelectedItem);
+            if(listBoxCible.SelectedIndex != -1)
+            {
+                comboBoxSource.Items.Add(listBoxCible.SelectedItem);
+                listBoxCible.Items.Remove(listBoxCible.SelectedItem);
+            }
         }
 
         private void buttonAllToSource_Click(object sender, EventArgs e)
@@ -56,6 +67,42 @@ namespace ComboBox
                 comboBoxSource.Items.Add(item);
             }
             listBoxCible.Items.Clear();
+        }
+
+        private void comboBoxSource_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buttonOneToCible.Enabled = comboBoxSource.SelectedIndex != -1; //marche pas
+        }
+
+        private void listBoxCible_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buttonOneToSource.Enabled = listBoxCible.SelectedIndex != -1;
+        }
+
+        private void buttonToUp_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = listBoxCible.SelectedIndex;
+
+            if (selectedIndex > 0)
+            {
+                listBoxCible.Items.Insert(selectedIndex - 1, listBoxCible.SelectedItem);
+                listBoxCible.Items.RemoveAt(selectedIndex + 1);
+                listBoxCible.SelectedIndex = selectedIndex - 1;
+                listBoxCible.Focus();
+            }
+        }
+
+        private void buttonToDown_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = listBoxCible.SelectedIndex;
+
+            if (selectedIndex < listBoxCible.Items.Count - 1)
+            {
+                listBoxCible.Items.Insert(selectedIndex + 2, listBoxCible.SelectedItem);
+                listBoxCible.Items.RemoveAt(selectedIndex);
+                listBoxCible.SelectedIndex = selectedIndex + 1;
+                listBoxCible.Focus();
+            }
         }
     }
 }
