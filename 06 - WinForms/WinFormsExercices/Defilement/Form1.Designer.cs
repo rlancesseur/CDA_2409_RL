@@ -61,11 +61,13 @@
             // 
             // hScrollBarRouge
             // 
+            this.hScrollBarRouge.LargeChange = 1;
             this.hScrollBarRouge.Location = new System.Drawing.Point(82, 45);
             this.hScrollBarRouge.Maximum = 255;
             this.hScrollBarRouge.Name = "hScrollBarRouge";
             this.hScrollBarRouge.Size = new System.Drawing.Size(109, 17);
             this.hScrollBarRouge.TabIndex = 1;
+            this.hScrollBarRouge.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar_Scroll);
             // 
             // numericUpDownRouge
             // 
@@ -78,6 +80,7 @@
             this.numericUpDownRouge.Name = "numericUpDownRouge";
             this.numericUpDownRouge.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownRouge.TabIndex = 2;
+            this.numericUpDownRouge.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // numericUpDownVert
             // 
@@ -90,14 +93,17 @@
             this.numericUpDownVert.Name = "numericUpDownVert";
             this.numericUpDownVert.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownVert.TabIndex = 5;
+            this.numericUpDownVert.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // hScrollBarVert
             // 
+            this.hScrollBarVert.LargeChange = 1;
             this.hScrollBarVert.Location = new System.Drawing.Point(82, 78);
             this.hScrollBarVert.Maximum = 255;
             this.hScrollBarVert.Name = "hScrollBarVert";
             this.hScrollBarVert.Size = new System.Drawing.Size(109, 17);
             this.hScrollBarVert.TabIndex = 4;
+            this.hScrollBarVert.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar_Scroll);
             // 
             // labelVert
             // 
@@ -119,14 +125,17 @@
             this.numericUpDownBleu.Name = "numericUpDownBleu";
             this.numericUpDownBleu.Size = new System.Drawing.Size(67, 20);
             this.numericUpDownBleu.TabIndex = 8;
+            this.numericUpDownBleu.ValueChanged += new System.EventHandler(this.numericUpDown_ValueChanged);
             // 
             // hScrollBarBleu
             // 
+            this.hScrollBarBleu.LargeChange = 1;
             this.hScrollBarBleu.Location = new System.Drawing.Point(82, 113);
             this.hScrollBarBleu.Maximum = 255;
             this.hScrollBarBleu.Name = "hScrollBarBleu";
             this.hScrollBarBleu.Size = new System.Drawing.Size(109, 17);
             this.hScrollBarBleu.TabIndex = 7;
+            this.hScrollBarBleu.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar_Scroll);
             // 
             // labelBleu
             // 
