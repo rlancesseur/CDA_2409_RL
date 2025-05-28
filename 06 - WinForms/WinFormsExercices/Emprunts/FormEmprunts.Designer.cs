@@ -39,9 +39,9 @@
             this.labelPeriodiciteRembourcement = new System.Windows.Forms.Label();
             this.listBoxPeriodiciteRemboursement = new System.Windows.Forms.ListBox();
             this.groupBoxTauxInteret = new System.Windows.Forms.GroupBox();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonAnnuler = new System.Windows.Forms.Button();
             this.labelRemboursement = new System.Windows.Forms.Label();
@@ -142,16 +142,16 @@
             this.groupBoxTauxInteret.TabStop = false;
             this.groupBoxTauxInteret.Text = "Taux d\'intérêt";
             // 
-            // radioButton7
+            // radioButton9
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(26, 22);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(42, 17);
-            this.radioButton7.TabIndex = 0;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "7 %";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(26, 96);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(42, 17);
+            this.radioButton9.TabIndex = 2;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "9 %";
+            this.radioButton9.UseVisualStyleBackColor = true;
             // 
             // radioButton8
             // 
@@ -164,16 +164,16 @@
             this.radioButton8.Text = "8 %";
             this.radioButton8.UseVisualStyleBackColor = true;
             // 
-            // radioButton9
+            // radioButton7
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(26, 96);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(42, 17);
-            this.radioButton9.TabIndex = 2;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "9 %";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(26, 22);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(42, 17);
+            this.radioButton7.TabIndex = 0;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "7 %";
+            this.radioButton7.UseVisualStyleBackColor = true;
             // 
             // buttonOk
             // 

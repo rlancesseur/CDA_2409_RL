@@ -40,14 +40,15 @@ namespace Emprunts
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if(textBoxCapitalEmprunte.Text == "")
+            int capitalEmprunte;
+            if (!int.TryParse(textBoxCapitalEmprunte.Text, out capitalEmprunte) || capitalEmprunte <= 0)
             {
-                MessageBox.Show("Veuillez saisir un montant à emprunter", "Erreur");
+                MessageBox.Show("Veuillez saisir un montant valide", "Erreur");
             }
-            int capitalEmprunte = int.Parse(textBoxCapitalEmprunte.Text);
+
             int dureeRemboursement = hScrollBarDureeMoisRemboursement.Value;
             int tauxInteret = 0;
-            int periodicite = 1;
+            int periodicite = 0;
 
             if (radioButton7.Checked) tauxInteret = 7;
             if (radioButton8.Checked) tauxInteret = 8;
@@ -69,9 +70,9 @@ namespace Emprunts
         private void textBoxCapitalEmprunte_TextChanged(object sender, EventArgs e)
         {
             int capital;
-            if (int.TryParse(textBoxCapitalEmprunte.Text, out capital) || capital <= 0)
+            if (!int.TryParse(textBoxCapitalEmprunte.Text, out capital) || capital <= 0)
             {
-                this.errorProvider1.SetError(this.textBoxCapitalEmprunte, "Entrez un montant valide");
+                this.errorProvider1.SetError(this.textBoxCapitalEmprunte, "Veuillez saisir un montant valide");
             }
             else
             {
