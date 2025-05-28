@@ -178,7 +178,7 @@
             // 
             // pictureBoxResultat
             // 
-            this.pictureBoxResultat.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxResultat.BackColor = System.Drawing.Color.Black;
             this.pictureBoxResultat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxResultat.Location = new System.Drawing.Point(33, 163);
             this.pictureBoxResultat.Name = "pictureBoxResultat";
