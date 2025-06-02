@@ -33,12 +33,16 @@ namespace ComboBox
             {
                 listBoxCible.Items.Add(comboBoxSource.SelectedItem);
                 comboBoxSource.Items.Remove(comboBoxSource.SelectedItem);
+                comboBoxSource.Text = "";
             }
             else if(comboBoxSource.Text != "")
             {
                 listBoxCible.Items.Add(comboBoxSource.Text);
                 comboBoxSource.Text = "";
             }
+
+            buttonOneToCible.Enabled = false;
+            buttonAllToSource.Enabled = true;
         }
 
         private void buttonAllToCible_Click(object sender, EventArgs e)
@@ -49,6 +53,9 @@ namespace ComboBox
             }
             
             comboBoxSource.Items.Clear();
+            comboBoxSource.Text = "";
+            buttonAllToCible.Enabled = false;
+            buttonAllToSource.Enabled = true;
         }
 
         private void buttonOneToSource_Click(object sender, EventArgs e)
@@ -58,6 +65,10 @@ namespace ComboBox
                 comboBoxSource.Items.Add(listBoxCible.SelectedItem);
                 listBoxCible.Items.Remove(listBoxCible.SelectedItem);
             }
+            buttonOneToSource.Enabled = false;
+            buttonAllToCible.Enabled = true;
+            buttonToUp.Enabled = false;
+            buttonToDown.Enabled = false;
         }
 
         private void buttonAllToSource_Click(object sender, EventArgs e)
@@ -67,16 +78,22 @@ namespace ComboBox
                 comboBoxSource.Items.Add(item);
             }
             listBoxCible.Items.Clear();
+            buttonAllToSource.Enabled = false;
+            buttonAllToCible.Enabled = true;
+            buttonToUp.Enabled = false;
+            buttonToDown.Enabled = false;
         }
 
         private void comboBoxSource_SelectedIndexChanged(object sender, EventArgs e)
         {
-            buttonOneToCible.Enabled = comboBoxSource.SelectedIndex != -1; //marche pas
+            buttonOneToCible.Enabled = true;
         }
 
         private void listBoxCible_SelectedIndexChanged(object sender, EventArgs e)
         {
-            buttonOneToSource.Enabled = listBoxCible.SelectedIndex != -1;
+            buttonOneToSource.Enabled = true;
+            buttonToUp.Enabled = true;
+            buttonToDown.Enabled = true;
         }
 
         private void buttonToUp_Click(object sender, EventArgs e)
@@ -103,6 +120,11 @@ namespace ComboBox
                 listBoxCible.SelectedIndex = selectedIndex + 1;
                 listBoxCible.Focus();
             }
+        }
+
+        private void comboBoxSource_TextUpdate(object sender, EventArgs e)
+        {
+            buttonOneToCible.Enabled = true;
         }
     }
 }

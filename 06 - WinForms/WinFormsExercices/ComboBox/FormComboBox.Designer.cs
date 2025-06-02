@@ -57,6 +57,7 @@
             this.comboBoxSource.Size = new System.Drawing.Size(134, 21);
             this.comboBoxSource.TabIndex = 1;
             this.comboBoxSource.SelectedIndexChanged += new System.EventHandler(this.comboBoxSource_SelectedIndexChanged);
+            this.comboBoxSource.TextUpdate += new System.EventHandler(this.comboBoxSource_TextUpdate);
             // 
             // labelCible
             // 
@@ -110,6 +111,7 @@
             // 
             // buttonAllToSource
             // 
+            this.buttonAllToSource.Enabled = false;
             this.buttonAllToSource.Location = new System.Drawing.Point(157, 159);
             this.buttonAllToSource.Name = "buttonAllToSource";
             this.buttonAllToSource.Size = new System.Drawing.Size(43, 23);
@@ -120,6 +122,7 @@
             // 
             // buttonToUp
             // 
+            this.buttonToUp.Enabled = false;
             this.buttonToUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonToUp.Location = new System.Drawing.Point(244, 193);
             this.buttonToUp.Name = "buttonToUp";
@@ -131,6 +134,7 @@
             // 
             // buttonToDown
             // 
+            this.buttonToDown.Enabled = false;
             this.buttonToDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonToDown.Location = new System.Drawing.Point(278, 193);
             this.buttonToDown.Name = "buttonToDown";
