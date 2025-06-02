@@ -13,10 +13,19 @@ namespace Defilement
 {
     public partial class Form1 : Form
     {
+        System.Drawing.Color couleur;
+
+
         public Form1()
         {
             InitializeComponent();
+            couleur = System.Drawing.Color.Black;
+
+            // MettreAJourIHM();
         }
+
+        //2eme constructeur
+        //MettreAJourIHM();
 
         private void hScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
