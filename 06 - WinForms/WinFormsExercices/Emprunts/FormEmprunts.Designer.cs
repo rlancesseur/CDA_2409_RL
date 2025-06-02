@@ -193,6 +193,7 @@
             this.buttonAnnuler.TabIndex = 11;
             this.buttonAnnuler.Text = "Annuler";
             this.buttonAnnuler.UseVisualStyleBackColor = true;
+            this.buttonAnnuler.Click += new System.EventHandler(this.buttonAnnuler_Click);
             // 
             // labelRemboursement
             // 
@@ -200,9 +201,9 @@
             this.labelRemboursement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRemboursement.Location = new System.Drawing.Point(382, 186);
             this.labelRemboursement.Name = "labelRemboursement";
-            this.labelRemboursement.Size = new System.Drawing.Size(125, 17);
+            this.labelRemboursement.Size = new System.Drawing.Size(133, 17);
             this.labelRemboursement.TabIndex = 12;
-            this.labelRemboursement.Text = "Remboursement";
+            this.labelRemboursement.Text = "Remboursements";
             // 
             // labelMontantRemboursement
             // 

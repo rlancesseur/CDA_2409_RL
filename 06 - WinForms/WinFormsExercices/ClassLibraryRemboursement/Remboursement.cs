@@ -17,12 +17,14 @@ namespace ClassLibraryRemboursement
             periodicite = _periodicite;
         }
 
-        public float CalculRemboursement()
+        public double CalculRemboursement()
         {
-            return (float)(capitalEmprunte * (tauxInteret / (1 - Math.Pow(1 + tauxInteret, -dureeRemboursementEnMois))));
+            double tauxParPeriode = ((double)tauxInteret / 100) / periodicite;
+            double result = capitalEmprunte * (tauxParPeriode / (1 - Math.Pow(1 + tauxParPeriode, -CalculNombreRemboursement())));
+            return result;
         }
 
-        public int CalculNombreMoisRemboursement()
+        public int CalculNombreRemboursement()
         {
             return dureeRemboursementEnMois / periodicite;
         }

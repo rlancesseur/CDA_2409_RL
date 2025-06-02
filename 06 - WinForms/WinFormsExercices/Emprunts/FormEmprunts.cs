@@ -27,10 +27,25 @@ namespace Emprunts
             listBoxPeriodiciteRemboursement.Items.Add("Semestrielle");
             listBoxPeriodiciteRemboursement.Items.Add("Annuelle");
 
+            reset();
+        }
+
+        private void reset()
+        {
             textBoxNom.Focus();
             radioButton7.Checked = true;
             hScrollBarDureeMoisRemboursement.Value = 1;
+            labelDureeMoisRemoubrsementScroll.Text = "1";
+            textBoxNom.Text = "";
+            textBoxCapitalEmprunte.Text = "";
             listBoxPeriodiciteRemboursement.SelectedIndex = 0;
+            labelNbrMoisRembrousement.Text = "0";
+            labelMontantRemboursement.Text = "0";
+        }
+
+        private void buttonAnnuler_Click(object sender, EventArgs e)
+        {
+            reset();
         }
 
         private void hScrollBarDureeMoisRemboursement_Scroll(object sender, ScrollEventArgs e)
@@ -63,7 +78,7 @@ namespace Emprunts
 
             Remboursement nouveauRemboursement = new Remboursement(capitalEmprunte, tauxInteret, dureeRemboursement, periodicite);
 
-            labelNbrMoisRembrousement.Text = nouveauRemboursement.CalculNombreMoisRemboursement().ToString();
+            labelNbrMoisRembrousement.Text = nouveauRemboursement.CalculNombreRemboursement().ToString();
             labelMontantRemboursement.Text = nouveauRemboursement.CalculRemboursement().ToString() + " €";
         }
 
@@ -78,6 +93,6 @@ namespace Emprunts
             {
                 errorProvider1.Clear();
             }
-        }
+        }        
     }
 }
